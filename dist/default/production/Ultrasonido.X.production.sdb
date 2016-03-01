@@ -1,0 +1,96 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F883 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"35 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"64
+[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
+"90
+[v _echo echo `II(v  1 e 1 0 ]
+"160 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+[v _PORTA PORTA `VEuc  1 e 1 @5 ]
+"221
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"369
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"446
+[v _PIR1 PIR1 `VEuc  1 e 1 @12 ]
+"557
+[v _TMR1 TMR1 `VEus  1 e 2 @14 ]
+"575
+[v _T1CON T1CON `VEuc  1 e 1 @16 ]
+"1301
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1362
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1504
+[v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
+"1661
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+"2207
+[v _IOCB IOCB `VEuc  1 e 1 @150 ]
+"3158
+[v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3201
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"3526
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"3648
+[v _RA0 RA0 `VEb  1 e 0 @40 ]
+"3650
+[v _RA1 RA1 `VEb  1 e 0 @41 ]
+"3652
+[v _RA2 RA2 `VEb  1 e 0 @42 ]
+"3654
+[v _RA3 RA3 `VEb  1 e 0 @43 ]
+"3664
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"3672
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"3680
+[v _RBIE RBIE `VEb  1 e 0 @91 ]
+"3682
+[v _RBIF RBIF `VEb  1 e 0 @88 ]
+"3824
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"33 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+[v _dist dist `i  1 e 2 0 ]
+"35
+[v _main main `(v  1 e 1 0 ]
+{
+"61
+} 0
+"64
+[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
+{
+"88
+} 0
+"90
+[v _echo echo `II(v  1 e 1 0 ]
+{
+"111
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
