@@ -1,22 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"30 main.c
-[v _Inicializaciones `(v ~T0 @X0 0 ef ]
-"3664 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-[v F1554 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
-[v __delay `JF1554 ~T0 @X0 0 e ]
-[p i __delay ]
-"3648 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _RA0 `Vb ~T0 @X0 0 e@40 ]
-"3650
-[v _RA1 `Vb ~T0 @X0 0 e@41 ]
-"3652
-[v _RA2 `Vb ~T0 @X0 0 e@42 ]
-"3654
-[v _RA3 `Vb ~T0 @X0 0 e@43 ]
-"1661
+"1661 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
 "1301
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
@@ -42,6 +25,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1 `Vuc ~T0 @X0 0 e@12 ]
 "3526
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
+"3664
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
+[v F1554 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
+[v __delay `JF1554 ~T0 @X0 0 e ]
+[p i __delay ]
+"3648 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+[v _RA0 `Vb ~T0 @X0 0 e@40 ]
+"3650
+[v _RA1 `Vb ~T0 @X0 0 e@41 ]
+"3652
+[v _RA2 `Vb ~T0 @X0 0 e@42 ]
+"3654
+[v _RA3 `Vb ~T0 @X0 0 e@43 ]
+[p mainexit ]
 "3682
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "3680
@@ -1471,240 +1469,269 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-"14 main.c
-[p x FOSC=INTRC_CLKOUT ]
+"4 Funciones.h
+[v _Inicializaciones `(v ~T0 @X0 1 ef ]
+{
+[; ;Funciones.h: 4: void Inicializaciones(){
+[e :U _Inicializaciones ]
+[f ]
+[; ;Funciones.h: 5: OSCCON = 0b01110101;
+"5
+[e = _OSCCON -> -> 117 `i `uc ]
+[; ;Funciones.h: 8: TRISA = 0b11110000;
+"8
+[e = _TRISA -> -> 240 `i `uc ]
+[; ;Funciones.h: 9: PORTA = 0b00000000;
+"9
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;Funciones.h: 10: ANSEL = 0b00000000;
+"10
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;Funciones.h: 13: TRISB = 0b11110000;
+"13
+[e = _TRISB -> -> 240 `i `uc ]
+[; ;Funciones.h: 14: PORTB = 0b00000000;
+"14
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.h: 15: ANSELH = 0b00000000;
 "15
-[p x WDTE=OFF ]
-"16
-[p x PWRTE=OFF ]
-"17
-[p x MCLRE=ON ]
-"18
-[p x CP=OFF ]
-"19
-[p x CPD=OFF ]
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;Funciones.h: 20: T1CON = 0b00010000;
 "20
-[p x BOREN=ON ]
-"21
-[p x IESO=ON ]
-"22
-[p x FCMEN=ON ]
+[e = _T1CON -> -> 16 `i `uc ]
+[; ;Funciones.h: 23: INTCON = 0b00001000;
 "23
-[p x LVP=OFF ]
+[e = _INTCON -> -> 8 `i `uc ]
+[; ;Funciones.h: 24: IOCB = 0b11110000;
+"24
+[e = _IOCB -> -> 240 `i `uc ]
+[; ;Funciones.h: 25: PIE1 = 0b00000001;
+"25
+[e = _PIE1 -> -> 1 `i `uc ]
+[; ;Funciones.h: 26: PIR1 = 0b00000000;
 "26
-[p x BOR4V=BOR21V ]
+[e = _PIR1 -> -> 0 `i `uc ]
+[; ;Funciones.h: 27: GIE = 1;
 "27
-[p x WRT=OFF ]
-[; ;main.c: 30: void Inicializaciones(void);
+[e = _GIE -> -> 1 `i `b ]
+[; ;Funciones.h: 28: }
+"28
+[e :UE 135 ]
+}
+"31
+[v _Trigger `(v ~T0 @X0 1 ef ]
+{
+[; ;Funciones.h: 31: void Trigger(){
+[e :U _Trigger ]
+[f ]
+[; ;Funciones.h: 32: RB0 = 1;
+"32
+[e = _RB0 -> -> 1 `i `b ]
+[; ;Funciones.h: 33: _delay((unsigned long)((10)*(8000000/4000000.0)));
 "33
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.h: 34: RB0 = 0;
+"34
+[e = _RB0 -> -> 0 `i `b ]
+[; ;Funciones.h: 35: }
+"35
+[e :UE 136 ]
+}
+"38
+[v _DistLED `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;Funciones.h: 38: void DistLED(int dist){
+[e :U _DistLED ]
+[v _dist `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Funciones.h: 39: if((dist <= 400) && (dist > 0))
+"39
+[e $ ! && <= _dist -> 400 `i > _dist -> 0 `i 138  ]
+[; ;Funciones.h: 40: {
+"40
+{
+[; ;Funciones.h: 41: RA0 = 1;
+"41
+[e = _RA0 -> -> 1 `i `b ]
+[; ;Funciones.h: 42: if(dist <= 300)
+"42
+[e $ ! <= _dist -> 300 `i 139  ]
+[; ;Funciones.h: 43: {
+"43
+{
+[; ;Funciones.h: 44: RA1 = 1;
+"44
+[e = _RA1 -> -> 1 `i `b ]
+[; ;Funciones.h: 45: if(dist <= 200)
+"45
+[e $ ! <= _dist -> 200 `i 140  ]
+[; ;Funciones.h: 46: {
+"46
+{
+[; ;Funciones.h: 47: RA2 = 1;
+"47
+[e = _RA2 -> -> 1 `i `b ]
+[; ;Funciones.h: 48: if(dist <= 100)
+"48
+[e $ ! <= _dist -> 100 `i 141  ]
+[; ;Funciones.h: 49: {
+"49
+{
+[; ;Funciones.h: 50: RA3 = 1;
+"50
+[e = _RA3 -> -> 1 `i `b ]
+"51
+}
+[e :U 141 ]
+"52
+}
+[e :U 140 ]
+"53
+}
+[e :U 139 ]
+"54
+}
+[e :U 138 ]
+[; ;Funciones.h: 51: }
+[; ;Funciones.h: 52: }
+[; ;Funciones.h: 53: }
+[; ;Funciones.h: 54: }
+[; ;Funciones.h: 55: }
+"55
+[e :UE 137 ]
+}
+"17 main.c
+[p x FOSC=INTRC_CLKOUT ]
+"18
+[p x WDTE=OFF ]
+"19
+[p x PWRTE=OFF ]
+"20
+[p x MCLRE=ON ]
+"21
+[p x CP=OFF ]
+"22
+[p x CPD=OFF ]
+"23
+[p x BOREN=ON ]
+"24
+[p x IESO=ON ]
+"25
+[p x FCMEN=ON ]
+"26
+[p x LVP=OFF ]
+"29
+[p x BOR4V=BOR21V ]
+"30
+[p x WRT=OFF ]
+[; ;main.c: 35: void Inicializaciones(void);
+[; ;main.c: 36: void Trigger(void);
+[; ;main.c: 37: void DistLED(int);
+"40
 [v _dist `i ~T0 @X0 1 e ]
 [i _dist
 -> 0 `i
 ]
-[; ;main.c: 33: int dist = 0;
-"35
+[; ;main.c: 40: int dist = 0;
+"44
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 35: void main(void) {
+[; ;main.c: 44: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 36: Inicializaciones();
-"36
-[e ( _Inicializaciones ..  ]
-[; ;main.c: 37: while(1)
-"37
-[e :U 137 ]
-[; ;main.c: 38: {
-"38
-{
-[; ;main.c: 39: RB0 = 1;
-"39
-[e = _RB0 -> -> 1 `i `b ]
-[; ;main.c: 40: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"40
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;main.c: 41: RB0 = 0;
-"41
-[e = _RB0 -> -> 0 `i `b ]
-[; ;main.c: 42: _delay((unsigned long)((60)*(8000000/4000.0)));
-"42
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 43: if(dist <= 400)
-"43
-[e $ ! <= _dist -> 400 `i 139  ]
-[; ;main.c: 44: {
-"44
-{
-[; ;main.c: 45: RA0 = 1;
+[; ;main.c: 45: Inicializaciones();
 "45
-[e = _RA0 -> -> 1 `i `b ]
-[; ;main.c: 46: if(dist <= 300)
+[e ( _Inicializaciones ..  ]
+[; ;main.c: 46: while(1)
 "46
-[e $ ! <= _dist -> 300 `i 140  ]
+[e :U 144 ]
 [; ;main.c: 47: {
 "47
 {
-[; ;main.c: 48: RA1 = 1;
+[; ;main.c: 48: Trigger();
 "48
-[e = _RA1 -> -> 1 `i `b ]
-[; ;main.c: 49: if(dist <= 200)
+[e ( _Trigger ..  ]
+[; ;main.c: 49: _delay((unsigned long)((60)*(8000000/4000.0)));
 "49
-[e $ ! <= _dist -> 200 `i 141  ]
-[; ;main.c: 50: {
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 50: DistLED(dist);
 "50
-{
-[; ;main.c: 51: RA2 = 1;
+[e ( _DistLED (1 _dist ]
 "51
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 52: if(dist <= 100)
+}
+[e :U 143 ]
+"46
+[e $U 144  ]
+[e :U 145 ]
+[; ;main.c: 51: }
+[; ;main.c: 52: return;
 "52
-[e $ ! <= _dist -> 100 `i 142  ]
-[; ;main.c: 53: {
+[e $UE 142  ]
+[; ;main.c: 53: }
 "53
-{
-[; ;main.c: 54: RA3 = 1;
-"54
-[e = _RA3 -> -> 1 `i `b ]
-"55
+[e :UE 142 ]
 }
-[e :U 142 ]
+[v F1571 `(v ~T0 @X0 1 tf ]
 "56
-}
-[e :U 141 ]
+[v _echo `IF1571 ~T0 @X0 1 e ]
 "57
-}
-[e :U 140 ]
-"58
-}
-[e :U 139 ]
-"59
-}
-[e :U 136 ]
-"37
-[e $U 137  ]
-[e :U 138 ]
-[; ;main.c: 55: }
-[; ;main.c: 56: }
-[; ;main.c: 57: }
-[; ;main.c: 58: }
-[; ;main.c: 59: }
-[; ;main.c: 60: return;
-"60
-[e $UE 135  ]
-[; ;main.c: 61: }
-"61
-[e :UE 135 ]
-}
-"64
-[v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 64: void Inicializaciones(){
-[e :U _Inicializaciones ]
-[f ]
-[; ;main.c: 65: OSCCON = 0b01110101;
-"65
-[e = _OSCCON -> -> 117 `i `uc ]
-[; ;main.c: 68: TRISA = 0b11110000;
-"68
-[e = _TRISA -> -> 240 `i `uc ]
-[; ;main.c: 69: PORTA = 0b00000000;
-"69
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 70: ANSEL = 0b00000000;
-"70
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 73: TRISB = 0b11110000;
-"73
-[e = _TRISB -> -> 240 `i `uc ]
-[; ;main.c: 74: PORTB = 0b00000000;
-"74
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 75: ANSELH = 0b00000000;
-"75
-[e = _ANSELH -> -> 0 `i `uc ]
-[; ;main.c: 80: T1CON = 0b00010000;
-"80
-[e = _T1CON -> -> 16 `i `uc ]
-[; ;main.c: 83: INTCON = 0b00001000;
-"83
-[e = _INTCON -> -> 8 `i `uc ]
-[; ;main.c: 84: IOCB = 0b11110000;
-"84
-[e = _IOCB -> -> 240 `i `uc ]
-[; ;main.c: 85: PIE1 = 0b00000001;
-"85
-[e = _PIE1 -> -> 1 `i `uc ]
-[; ;main.c: 86: PIR1 = 0b00000000;
-"86
-[e = _PIR1 -> -> 0 `i `uc ]
-[; ;main.c: 87: GIE = 1;
-"87
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 88: }
-"88
-[e :UE 143 ]
-}
-[v F1566 `(v ~T0 @X0 1 tf ]
-"90
-[v _echo `IF1566 ~T0 @X0 1 e ]
-"91
-{
-[; ;main.c: 90: void interrupt echo()
-[; ;main.c: 91: {
+[; ;main.c: 56: void interrupt echo()
+[; ;main.c: 57: {
 [e :U _echo ]
 [f ]
-[; ;main.c: 92: if(RBIF == 1)
-"92
-[e $ ! == -> _RBIF `i -> 1 `i 145  ]
-[; ;main.c: 93: {
-"93
+[; ;main.c: 58: if(RBIF == 1)
+"58
+[e $ ! == -> _RBIF `i -> 1 `i 147  ]
+[; ;main.c: 59: {
+"59
 {
-[; ;main.c: 94: RBIE = 0;
-"94
+[; ;main.c: 60: RBIE = 0;
+"60
 [e = _RBIE -> -> 0 `i `b ]
-[; ;main.c: 95: if(RB4 == 1)
-"95
-[e $ ! == -> _RB4 `i -> 1 `i 146  ]
-[; ;main.c: 96: {
-"96
+[; ;main.c: 61: if(RB4 == 1)
+"61
+[e $ ! == -> _RB4 `i -> 1 `i 148  ]
+[; ;main.c: 62: {
+"62
 {
-[; ;main.c: 97: TMR1 = 0;
-"97
+[; ;main.c: 63: TMR1 = 0;
+"63
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;main.c: 98: TMR1ON = 1;
-"98
+[; ;main.c: 64: TMR1ON = 1;
+"64
 [e = _TMR1ON -> -> 1 `i `b ]
-"99
+"65
 }
-[; ;main.c: 99: }
-[e $U 147  ]
-"100
-[e :U 146 ]
-[; ;main.c: 100: else
-[; ;main.c: 101: {
-"101
+[; ;main.c: 65: }
+[e $U 149  ]
+"66
+[e :U 148 ]
+[; ;main.c: 66: else
+[; ;main.c: 67: {
+"67
 {
-[; ;main.c: 102: TMR1ON = 0;
-"102
+[; ;main.c: 68: TMR1ON = 0;
+"68
 [e = _TMR1ON -> -> 0 `i `b ]
-[; ;main.c: 106: dist = TMR1/58;
-"106
+[; ;main.c: 72: dist = TMR1/58;
+"72
 [e = _dist -> / -> _TMR1 `ui -> -> 58 `i `ui `i ]
-"107
+"73
+}
+[e :U 149 ]
+[; ;main.c: 73: }
+[; ;main.c: 74: RBIF = 0;
+"74
+[e = _RBIF -> -> 0 `i `b ]
+[; ;main.c: 75: RBIE = 1;
+"75
+[e = _RBIE -> -> 1 `i `b ]
+"76
 }
 [e :U 147 ]
-[; ;main.c: 107: }
-[; ;main.c: 108: RBIF = 0;
-"108
-[e = _RBIF -> -> 0 `i `b ]
-[; ;main.c: 109: RBIE = 1;
-"109
-[e = _RBIE -> -> 1 `i `b ]
-"110
-}
-[e :U 145 ]
-[; ;main.c: 110: }
-[; ;main.c: 111: }
-"111
-[e :UE 144 ]
+[; ;main.c: 76: }
+[; ;main.c: 77: }
+"77
+[e :UE 146 ]
 }

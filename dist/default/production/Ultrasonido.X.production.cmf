@@ -13,15 +13,17 @@
 %PSECTS
 $dist/default/production\Ultrasonido.X.production.obj
 cinit CODE 0 13 13 5 2
-text1 CODE 0 CB CB 27 2
-text2 CODE 0 A3 A3 28 2
-text3 CODE 0 67 67 3C 2
-maintext CODE 0 18 18 4F 2
+text1 CODE 0 105 105 C 2
+text2 CODE 0 C4 C4 27 2
+text3 CODE 0 18 18 48 2
+text4 CODE 0 9C 9C 28 2
+text5 CODE 0 60 60 3C 2
+maintext CODE 0 EB EB 1A 2
 cstackCOMMON COMMON 1 70 70 C 1
-cstackBANK0 BANK0 1 20 20 2 1
+cstackBANK0 BANK0 1 20 20 4 1
 intentry CODE 0 4 4 D 2
-bssCOMMON COMMON 1 7C 7C 2 1
-$C:\Users\Fu\AppData\Local\Temp\s5ds.obj
+bssBANK0 BANK0 1 24 24 2 1
+$C:\Users\Fu\AppData\Local\Temp\s1r8.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 11 11 2 2
 config CONFIG 0 2007 2007 2 2
@@ -31,29 +33,30 @@ config CONFIG 0 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 22-6F 1
+RAM 26-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
-BANK0 22-6F 1
+BANK0 26-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 CONST 2-3 2
-CONST F2-FFF 2
+CONST 111-FFF 2
 ENTRY 2-3 2
-ENTRY F2-FFF 2
+ENTRY 111-FFF 2
 IDLOC 2000-2003 2
 STACK A0-EF 1
 CODE 2-3 2
-CODE F2-FFF 2
+CODE 111-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
 SFR3 180-1EF 1
+COMMON 7C-7D 1
 EEDATA 2100-21FF 2
 STRCODE 2-3 2
-STRCODE F2-FFF 2
+STRCODE 111-FFF 2
 STRING 2-3 2
-STRING F2-FFF 2
+STRING 111-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -68,72 +71,79 @@ STRING F2-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Ultrasonido.X.production.obj
-13 cinit CODE >276:C:\Users\Fu\AppData\Local\Temp\s5ds.
-13 cinit CODE >279:C:\Users\Fu\AppData\Local\Temp\s5ds.
-13 cinit CODE >290:C:\Users\Fu\AppData\Local\Temp\s5ds.
-14 cinit CODE >291:C:\Users\Fu\AppData\Local\Temp\s5ds.
-15 cinit CODE >297:C:\Users\Fu\AppData\Local\Temp\s5ds.
-15 cinit CODE >299:C:\Users\Fu\AppData\Local\Temp\s5ds.
-16 cinit CODE >300:C:\Users\Fu\AppData\Local\Temp\s5ds.
-4 intentry CODE >90:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-67 text3 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-67 text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-69 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-6D text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-6F text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-71 text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-78 text3 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-7C text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-7D text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-84 text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-8C text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-92 text3 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-93 text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-9A text3 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-9E text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
-A3 text2 CODE >90:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-A3 text2 CODE >92:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-A5 text2 CODE >94:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-A6 text2 CODE >95:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-A8 text2 CODE >97:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-AA text2 CODE >98:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-AB text2 CODE >99:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-AC text2 CODE >100:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-AC text2 CODE >102:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-AD text2 CODE >106:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-BC text2 CODE >108:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-BD text2 CODE >109:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-BE text2 CODE >111:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-CB text1 CODE >64:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-CB text1 CODE >65:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-CF text1 CODE >68:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-D1 text1 CODE >69:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-D4 text1 CODE >70:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-D7 text1 CODE >73:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-DB text1 CODE >74:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-DE text1 CODE >75:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-E1 text1 CODE >80:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-E5 text1 CODE >83:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-E7 text1 CODE >84:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-EB text1 CODE >85:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-ED text1 CODE >86:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-F0 text1 CODE >87:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-F1 text1 CODE >88:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-18 maintext CODE >35:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-18 maintext CODE >36:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-1B maintext CODE >39:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-1E maintext CODE >40:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-23 maintext CODE >41:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-26 maintext CODE >42:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-2E maintext CODE >43:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-39 maintext CODE >45:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-3C maintext CODE >46:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-47 maintext CODE >48:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-4A maintext CODE >49:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-55 maintext CODE >51:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-58 maintext CODE >52:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-63 maintext CODE >54:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-66 maintext CODE >37:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+13 cinit CODE >278:C:\Users\Fu\AppData\Local\Temp\s1r8.
+13 cinit CODE >281:C:\Users\Fu\AppData\Local\Temp\s1r8.
+13 cinit CODE >292:C:\Users\Fu\AppData\Local\Temp\s1r8.
+14 cinit CODE >293:C:\Users\Fu\AppData\Local\Temp\s1r8.
+15 cinit CODE >299:C:\Users\Fu\AppData\Local\Temp\s1r8.
+15 cinit CODE >301:C:\Users\Fu\AppData\Local\Temp\s1r8.
+16 cinit CODE >302:C:\Users\Fu\AppData\Local\Temp\s1r8.
+4 intentry CODE >56:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+60 text5 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+60 text5 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+62 text5 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+66 text5 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+68 text5 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+6A text5 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+71 text5 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+75 text5 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+76 text5 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+7D text5 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+85 text5 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+8B text5 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+8C text5 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+93 text5 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+97 text5 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+9C text4 CODE >56:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+9C text4 CODE >58:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+9E text4 CODE >60:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+9F text4 CODE >61:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A1 text4 CODE >63:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A3 text4 CODE >64:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A4 text4 CODE >65:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A5 text4 CODE >66:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A5 text4 CODE >68:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+A6 text4 CODE >72:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+B7 text4 CODE >74:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+B8 text4 CODE >75:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+B9 text4 CODE >77:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+18 text3 CODE >38:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+18 text3 CODE >39:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+32 text3 CODE >41:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+35 text3 CODE >42:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+40 text3 CODE >44:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+43 text3 CODE >45:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+4E text3 CODE >47:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+51 text3 CODE >48:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+5C text3 CODE >50:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+5F text3 CODE >53:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+C4 text2 CODE >4:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+C4 text2 CODE >5:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+C8 text2 CODE >8:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+CA text2 CODE >9:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+CD text2 CODE >10:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+D0 text2 CODE >13:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+D4 text2 CODE >14:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+D7 text2 CODE >15:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+DA text2 CODE >20:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+DE text2 CODE >23:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+E0 text2 CODE >24:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+E4 text2 CODE >25:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+E6 text2 CODE >26:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+E9 text2 CODE >27:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+EA text2 CODE >28:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+105 text1 CODE >31:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+105 text1 CODE >32:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+108 text1 CODE >33:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+10D text1 CODE >34:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+110 text1 CODE >35:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+EB maintext CODE >44:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+EB maintext CODE >45:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+EE maintext CODE >46:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+EE maintext CODE >48:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+F1 maintext CODE >49:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+FB maintext CODE >50:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+104 maintext CODE >46:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -148,11 +158,12 @@ F1 text1 CODE >88:C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __Hspace_0 2009 0 ABS 0 - -
-__Hspace_1 7E 0 ABS 0 - -
+__Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
+__size_of_DistLED 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
@@ -164,32 +175,31 @@ _PIR1 C 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RBIE 5B 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RBIF 58 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _TMR1 E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-_dist 7C 0 COMMON 1 bssCOMMON dist/default/production\Ultrasonido.X.production.obj
-_echo 146 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
-_main 30 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+_dist 24 0 BANK0 1 bssBANK0 dist/default/production\Ultrasonido.X.production.obj
+_echo 138 0 CODE 0 text4 dist/default/production\Ultrasonido.X.production.obj
+_main 1D6 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s5ds.obj
+start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s1r8.obj
 ttemp 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __size_of_echo 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-__HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 ttemp0 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ttemp1 81 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+__end_of_Trigger 222 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1r8.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
@@ -199,9 +209,11 @@ wtemp5 88 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+DistLED@dist 20 0 BANK0 1 cstackBANK0 dist/default/production\Ultrasonido.X.production.obj
 _ANSELH 189 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
+__end_of_DistLED C0 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of___lwdiv 146 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
+__end_of___lwdiv 138 0 CODE 0 text5 dist/default/production\Ultrasonido.X.production.obj
 _INTCON B 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production\Ultrasonido.X.production.obj
@@ -209,8 +221,8 @@ start_initialization 26 0 CODE 0 cinit dist/default/production\Ultrasonido.X.pro
 _OSCCON 8F 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Ultrasonido.X.production.obj
 _TMR1ON 80 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-_Inicializaciones 196 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s5ds.obj
+_Inicializaciones 188 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s1r8.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -247,6 +259,7 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_Trigger 20A 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
 _GIE 5F 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RA0 28 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RA1 29 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
@@ -255,33 +268,34 @@ _RA3 2B 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RB0 30 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _RB4 34 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __S0 2009 0 ABS 0 - -
-__S1 7E 0 ABS 0 - -
+__S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 saved_w 7E 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-__end_of_Inicializaciones 1E4 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s5ds.obj
+__end_of_Inicializaciones 1D6 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
 __size_of_Inicializaciones 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
-___lwdiv CE 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
-__pmaintext 30 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
+_DistLED 30 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
+___lwdiv C0 0 CODE 0 text5 dist/default/production\Ultrasonido.X.production.obj
+__pmaintext 1D6 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 ___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\Ultrasonido.X.production.obj
-stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s5ds.obj
-stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s5ds.obj
+stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s1r8.obj
+stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s1r8.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__pbssCOMMON 7C 0 COMMON 1 bssCOMMON dist/default/production\Ultrasonido.X.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 22 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
@@ -291,9 +305,12 @@ __Lstrings 0 0 ABS 0 strings -
 ___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\Ultrasonido.X.production.obj
 ?___lwdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\Ultrasonido.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
-__ptext1 196 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
-__ptext2 146 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
-__ptext3 CE 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__ptext1 20A 0 CODE 0 text1 dist/default/production\Ultrasonido.X.production.obj
+__ptext2 188 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
+__ptext3 30 0 CODE 0 text3 dist/default/production\Ultrasonido.X.production.obj
+__ptext4 138 0 CODE 0 text4 dist/default/production\Ultrasonido.X.production.obj
+__ptext5 C0 0 CODE 0 text5 dist/default/production\Ultrasonido.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -302,8 +319,8 @@ __Lfunctab 0 0 CODE 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Ultrasonido.X.production.obj
 __Hend_init 26 0 CODE 0 end_init -
-__end_of_echo 196 0 CODE 0 text2 dist/default/production\Ultrasonido.X.production.obj
-__end_of_main CE 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
+__end_of_echo 188 0 CODE 0 text4 dist/default/production\Ultrasonido.X.production.obj
+__end_of_main 20A 0 CODE 0 maintext dist/default/production\Ultrasonido.X.production.obj
 _ANSEL 188 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _PORTA 5 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 _PORTB 6 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
@@ -314,9 +331,11 @@ __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\Ultrasonido.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
+__size_of_Trigger 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production\Ultrasonido.X.production.obj
 __initialization 26 0 CODE 0 cinit dist/default/production\Ultrasonido.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
+__pbssBANK0 24 0 BANK0 1 bssBANK0 dist/default/production\Ultrasonido.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -343,8 +362,8 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Ultrasonido.X.production.obj
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 2 1
-intentry 0 4 8 EE 2
+cstackCOMMON 1 70 70 C 1
+cstackBANK0 1 20 20 6 1
+intentry 0 4 8 10D 2
 reset_vec 0 0 0 2 2
 config 0 2007 400E 2 2

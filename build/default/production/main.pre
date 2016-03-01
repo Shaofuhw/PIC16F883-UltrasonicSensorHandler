@@ -1991,38 +1991,41 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-
-# 14 "main.c"
-#pragma config FOSC = INTRC_CLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = ON
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = OFF
+# 4 "Funciones.h"
+void Inicializaciones(){
+OSCCON = 0b01110101;
 
 
-#pragma config BOR4V = BOR21V
-#pragma config WRT = OFF
+TRISA = 0b11110000;
+PORTA = 0b00000000;
+ANSEL = 0b00000000;
 
 
-void Inicializaciones(void);
+TRISB = 0b11110000;
+PORTB = 0b00000000;
+ANSELH = 0b00000000;
+
+# 20
+T1CON = 0b00010000;
 
 
-int dist = 0;
+INTCON = 0b00001000;
+IOCB = 0b11110000;
+PIE1 = 0b00000001;
+PIR1 = 0b00000000;
+GIE = 1;
+}
 
-void main(void) {
-Inicializaciones();
-while(1)
-{
+
+void Trigger(){
 RB0 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB0 = 0;
-_delay((unsigned long)((60)*(8000000/4000.0)));
-if(dist <= 400)
+}
+
+
+void DistLED(int dist){
+if((dist <= 400) && (dist > 0))
 {
 RA0 = 1;
 if(dist <= 300)
@@ -2039,33 +2042,47 @@ RA3 = 1;
 }
 }
 }
+
+
+# 17 "main.c"
+#pragma config FOSC = INTRC_CLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = ON
+#pragma config IESO = ON
+#pragma config FCMEN = ON
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR21V
+#pragma config WRT = OFF
+
+
+
+
+void Inicializaciones(void);
+void Trigger(void);
+void DistLED(int);
+
+
+int dist = 0;
+
+
+
+void main(void) {
+Inicializaciones();
+while(1)
+{
+Trigger();
+_delay((unsigned long)((60)*(8000000/4000.0)));
+DistLED(dist);
+}
 return;
 }
 
-
-void Inicializaciones(){
-OSCCON = 0b01110101;
-
-
-TRISA = 0b11110000;
-PORTA = 0b00000000;
-ANSEL = 0b00000000;
-
-
-TRISB = 0b11110000;
-PORTB = 0b00000000;
-ANSELH = 0b00000000;
-
-# 80
-T1CON = 0b00010000;
-
-
-INTCON = 0b00001000;
-IOCB = 0b11110000;
-PIE1 = 0b00000001;
-PIR1 = 0b00000000;
-GIE = 1;
-}
 
 void interrupt echo()
 {
@@ -2081,7 +2098,7 @@ else
 {
 TMR1ON = 0;
 
-# 106
+# 72
 dist = TMR1/58;
 }
 RBIF = 0;
