@@ -1,7 +1,4 @@
-#include <xc.h>
 #include "Funciones.h"
-
-#define _XTAL_FREQ 8000000
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
 void Inicializaciones(){
@@ -20,7 +17,6 @@ void Inicializaciones(){
     //Puerto C
     TRISC = 0b00000011;                 //Del 2 al 7 como salida. Para el LCD
     PORTC = 0b00000000;             //Inicialización
-    
     
     /*Timer 1 Como se requiere contar hasta tiempo de hasta aproximadamente 40ms se coge el timer de 16bits
      * que a una frecuencia de 8MHz, es capaz de contar 32.726ms.

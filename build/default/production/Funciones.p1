@@ -1454,79 +1454,79 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;Funciones.h: 1: void Inicializaciones(void);
-[; ;Funciones.h: 2: void Trigger(void);
-"7 Funciones.c
+[; ;Funciones.h: 5: void Inicializaciones(void);
+[; ;Funciones.h: 6: void Trigger(void);
+"4 Funciones.c
 [v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 7: void Inicializaciones(){
+[; ;Funciones.c: 4: void Inicializaciones(){
 [e :U _Inicializaciones ]
 [f ]
-[; ;Funciones.c: 8: OSCCON = 0b01110101;
-"8
+[; ;Funciones.c: 5: OSCCON = 0b01110101;
+"5
 [e = _OSCCON -> -> 117 `i `uc ]
-[; ;Funciones.c: 11: TRISA = 0b11110000;
-"11
+[; ;Funciones.c: 8: TRISA = 0b11110000;
+"8
 [e = _TRISA -> -> 240 `i `uc ]
-[; ;Funciones.c: 12: PORTA = 0b00000000;
-"12
+[; ;Funciones.c: 9: PORTA = 0b00000000;
+"9
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;Funciones.c: 13: ANSEL = 0b00000000;
-"13
+[; ;Funciones.c: 10: ANSEL = 0b00000000;
+"10
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;Funciones.c: 16: TRISB = 0b11110000;
-"16
+[; ;Funciones.c: 13: TRISB = 0b11110000;
+"13
 [e = _TRISB -> -> 240 `i `uc ]
-[; ;Funciones.c: 17: PORTB = 0b00000000;
-"17
+[; ;Funciones.c: 14: PORTB = 0b00000000;
+"14
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 18: ANSELH = 0b00000000;
-"18
+[; ;Funciones.c: 15: ANSELH = 0b00000000;
+"15
 [e = _ANSELH -> -> 0 `i `uc ]
-[; ;Funciones.c: 21: TRISC = 0b00000011;
-"21
+[; ;Funciones.c: 18: TRISC = 0b00000011;
+"18
 [e = _TRISC -> -> 3 `i `uc ]
-[; ;Funciones.c: 22: PORTC = 0b00000000;
-"22
+[; ;Funciones.c: 19: PORTC = 0b00000000;
+"19
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;Funciones.c: 28: T1CON = 0b00010000;
-"28
+[; ;Funciones.c: 25: T1CON = 0b00010000;
+"25
 [e = _T1CON -> -> 16 `i `uc ]
-[; ;Funciones.c: 31: INTCON = 0b00001000;
-"31
+[; ;Funciones.c: 28: INTCON = 0b00001000;
+"28
 [e = _INTCON -> -> 8 `i `uc ]
-[; ;Funciones.c: 32: IOCB = 0b11110000;
-"32
+[; ;Funciones.c: 29: IOCB = 0b11110000;
+"29
 [e = _IOCB -> -> 240 `i `uc ]
-[; ;Funciones.c: 33: PIE1 = 0b00000001;
-"33
+[; ;Funciones.c: 30: PIE1 = 0b00000001;
+"30
 [e = _PIE1 -> -> 1 `i `uc ]
-[; ;Funciones.c: 34: PIR1 = 0b00000000;
-"34
+[; ;Funciones.c: 31: PIR1 = 0b00000000;
+"31
 [e = _PIR1 -> -> 0 `i `uc ]
-[; ;Funciones.c: 35: GIE = 1;
-"35
+[; ;Funciones.c: 32: GIE = 1;
+"32
 [e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 36: }
-"36
+[; ;Funciones.c: 33: }
+"33
 [e :UE 135 ]
 }
-"39
+"36
 [v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 39: void Trigger(){
+[; ;Funciones.c: 36: void Trigger(){
 [e :U _Trigger ]
 [f ]
-[; ;Funciones.c: 40: RB0 = 1;
-"40
+[; ;Funciones.c: 37: RB0 = 1;
+"37
 [e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"41
+[; ;Funciones.c: 38: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"38
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 42: RB0 = 0;
-"42
+[; ;Funciones.c: 39: RB0 = 0;
+"39
 [e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 43: }
-"43
+[; ;Funciones.c: 40: }
+"40
 [e :UE 136 ]
 }

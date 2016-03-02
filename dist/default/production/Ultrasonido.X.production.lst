@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.36 build -262312587 
-                                                                                               Wed Mar 02 12:40:14 2016
+                                                                                               Wed Mar 02 12:44:20 2016
 
 Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150325
      1                           	processor	16F883
@@ -2605,7 +2605,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2599  048D                     __ptext14:	
   2600 ;; *************** function _Trigger *****************
   2601 ;; Defined at:
-  2602 ;;		line 39 in file "Funciones.c"
+  2602 ;;		line 36 in file "Funciones.c"
   2603 ;; Parameters:    Size  Location     Type
   2604 ;;		None
   2605 ;; Auto vars:     Size  Location     Type
@@ -2637,7 +2637,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2631                           ;psect for function _Trigger
   2632  048D                     _Trigger:	
   2633                           
-  2634                           ;Funciones.c: 40: RB0 = 1;
+  2634                           ;Funciones.c: 37: RB0 = 1;
   2635                           
   2636                           ;incstack = 0
   2637                           ; Regs used in _Trigger: [wreg]
@@ -2645,7 +2645,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2639  048E  1303               	bcf	3,6	;RP1=0, select bank0
   2640  048F  1406               	bsf	6,0	;volatile
   2641                           
-  2642                           ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
+  2642                           ;Funciones.c: 38: _delay((unsigned long)((10)*(8000000/4000000.0)));
   2643  0490  3006               	movlw	6
   2644  0491  00A0               	movwf	??_Trigger
   2645  0492                     u1387:	
@@ -2653,7 +2653,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2647  0493  2C92               	goto	u1387
   2648  0494  0000               	nop
   2649                           
-  2650                           ;Funciones.c: 42: RB0 = 0;
+  2650                           ;Funciones.c: 39: RB0 = 0;
   2651  0495  1283               	bcf	3,5	;RP0=0, select bank0
   2652  0496  1303               	bcf	3,6	;RP1=0, select bank0
   2653  0497  1006               	bcf	6,0	;volatile
@@ -2664,7 +2664,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2658  03B1                     __ptext15:	
   2659 ;; *************** function _Inicializaciones *****************
   2660 ;; Defined at:
-  2661 ;;		line 7 in file "Funciones.c"
+  2661 ;;		line 4 in file "Funciones.c"
   2662 ;; Parameters:    Size  Location     Type
   2663 ;;		None
   2664 ;; Auto vars:     Size  Location     Type
@@ -2696,7 +2696,7 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2690                           ;psect for function _Inicializaciones
   2691  03B1                     _Inicializaciones:	
   2692                           
-  2693                           ;Funciones.c: 8: OSCCON = 0b01110101;
+  2693                           ;Funciones.c: 5: OSCCON = 0b01110101;
   2694                           
   2695                           ;incstack = 0
   2696                           ; Regs used in _Inicializaciones: [wreg+status,2]
@@ -2705,71 +2705,71 @@ Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150
   2699  03B3  1303               	bcf	3,6	;RP1=0, select bank1
   2700  03B4  008F               	movwf	15	;volatile
   2701                           
-  2702                           ;Funciones.c: 11: TRISA = 0b11110000;
+  2702                           ;Funciones.c: 8: TRISA = 0b11110000;
   2703  03B5  30F0               	movlw	240
   2704  03B6  0085               	movwf	5	;volatile
   2705                           
-  2706                           ;Funciones.c: 12: PORTA = 0b00000000;
+  2706                           ;Funciones.c: 9: PORTA = 0b00000000;
   2707  03B7  1283               	bcf	3,5	;RP0=0, select bank0
   2708  03B8  1303               	bcf	3,6	;RP1=0, select bank0
   2709  03B9  0185               	clrf	5	;volatile
   2710                           
-  2711                           ;Funciones.c: 13: ANSEL = 0b00000000;
+  2711                           ;Funciones.c: 10: ANSEL = 0b00000000;
   2712  03BA  1683               	bsf	3,5	;RP0=1, select bank3
   2713  03BB  1703               	bsf	3,6	;RP1=1, select bank3
   2714  03BC  0188               	clrf	8	;volatile
   2715                           
-  2716                           ;Funciones.c: 16: TRISB = 0b11110000;
+  2716                           ;Funciones.c: 13: TRISB = 0b11110000;
   2717  03BD  30F0               	movlw	240
   2718  03BE  1683               	bsf	3,5	;RP0=1, select bank1
   2719  03BF  1303               	bcf	3,6	;RP1=0, select bank1
   2720  03C0  0086               	movwf	6	;volatile
   2721                           
-  2722                           ;Funciones.c: 17: PORTB = 0b00000000;
+  2722                           ;Funciones.c: 14: PORTB = 0b00000000;
   2723  03C1  1283               	bcf	3,5	;RP0=0, select bank0
   2724  03C2  1303               	bcf	3,6	;RP1=0, select bank0
   2725  03C3  0186               	clrf	6	;volatile
   2726                           
-  2727                           ;Funciones.c: 18: ANSELH = 0b00000000;
+  2727                           ;Funciones.c: 15: ANSELH = 0b00000000;
   2728  03C4  1683               	bsf	3,5	;RP0=1, select bank3
   2729  03C5  1703               	bsf	3,6	;RP1=1, select bank3
   2730  03C6  0189               	clrf	9	;volatile
   2731                           
-  2732                           ;Funciones.c: 21: TRISC = 0b00000011;
+  2732                           ;Funciones.c: 18: TRISC = 0b00000011;
   2733  03C7  3003               	movlw	3
   2734  03C8  1683               	bsf	3,5	;RP0=1, select bank1
   2735  03C9  1303               	bcf	3,6	;RP1=0, select bank1
   2736  03CA  0087               	movwf	7	;volatile
   2737                           
-  2738                           ;Funciones.c: 22: PORTC = 0b00000000;
+  2738                           ;Funciones.c: 19: PORTC = 0b00000000;
   2739  03CB  1283               	bcf	3,5	;RP0=0, select bank0
   2740  03CC  1303               	bcf	3,6	;RP1=0, select bank0
   2741  03CD  0187               	clrf	7	;volatile
   2742                           
-  2743                           ;Funciones.c: 28: T1CON = 0b00010000;
+  2743                           ;Funciones.c: 25: T1CON = 0b00010000;
   2744  03CE  3010               	movlw	16
   2745  03CF  0090               	movwf	16	;volatile
   2746                           
-  2747                           ;Funciones.c: 31: INTCON = 0b00001000;
+  2747                           ;Funciones.c: 28: INTCON = 0b00001000;
   2748  03D0  3008               	movlw	8
   2749  03D1  008B               	movwf	11	;volatile
   2750                           
-  2751                           ;Funciones.c: 32: IOCB = 0b11110000;
+  2751                           ;Funciones.c: 29: IOCB = 0b11110000;
   2752  03D2  30F0               	movlw	240
   2753  03D3  1683               	bsf	3,5	;RP0=1, select bank1
   2754  03D4  1303               	bcf	3,6	;RP1=0, select bank1
   2755  03D5  0096               	movwf	22	;volatile
   2756                           
-  2757                           ;Funciones.c: 33: PIE1 = 0b00000001;
+  2757                           ;Funciones.c: 30: PIE1 = 0b00000001;
   2758  03D6  3001               	movlw	1
   2759  03D7  008C               	movwf	12	;volatile
   2760                           
-  2761                           ;Funciones.c: 34: PIR1 = 0b00000000;
+  2761                           ;Funciones.c: 31: PIR1 = 0b00000000;
   2762  03D8  1283               	bcf	3,5	;RP0=0, select bank0
   2763  03D9  1303               	bcf	3,6	;RP1=0, select bank0
   2764  03DA  018C               	clrf	12	;volatile
   2765                           
-  2766                           ;Funciones.c: 35: GIE = 1;
+  2766                           ;Funciones.c: 32: GIE = 1;
   2767  03DB  178B               	bsf	11,7	;volatile
   2768  03DC  0008               	return
   2769  03DD                     __end_of_Inicializaciones:	
@@ -3267,7 +3267,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.36 build -262312587 
-Symbol Table                                                                                   Wed Mar 02 12:40:14 2016
+Symbol Table                                                                                   Wed Mar 02 12:44:20 2016
 
 __size_of_Inicializaciones 002C              ?_lcd_iowrite4 0070              ?_lcd_iowrite8 0070  
                         pc 0002                __CFG_CP$OFF 0000                         fsr 0004  

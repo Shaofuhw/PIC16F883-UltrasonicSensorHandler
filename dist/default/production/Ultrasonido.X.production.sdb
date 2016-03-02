@@ -63,9 +63,9 @@ E_RW_PIN 10
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"7 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
+"4 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
-"39
+"36
 [v _Trigger Trigger `(v  1 e 1 0 ]
 "48 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD-PIC16.c
 [v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
@@ -304,15 +304,15 @@ E_RW_PIN 10
 [v lcd_ioset@pin pin `E42  1 a 1 1 ]
 "127
 } 0
-"39 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
+"36 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
 [v _Trigger Trigger `(v  1 e 1 0 ]
 {
-"43
+"40
 } 0
-"7
+"4
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
 {
-"36
+"33
 } 0
 "63 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
 [v _echo echo `II(v  1 e 1 0 ]

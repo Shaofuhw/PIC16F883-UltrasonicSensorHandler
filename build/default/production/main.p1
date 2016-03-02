@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1 Funciones.h
+"5 Funciones.h
 [v _Inicializaciones `(v ~T0 @X0 0 ef ]
 "127 LCD.h
 [v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
@@ -12,7 +12,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
 "275
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"2 Funciones.h
+"6 Funciones.h
 [v _Trigger `(v ~T0 @X0 0 ef ]
 [v F1554 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
@@ -1449,8 +1449,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;Funciones.h: 1: void Inicializaciones(void);
-[; ;Funciones.h: 2: void Trigger(void);
+[; ;Funciones.h: 5: void Inicializaciones(void);
+[; ;Funciones.h: 6: void Trigger(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;

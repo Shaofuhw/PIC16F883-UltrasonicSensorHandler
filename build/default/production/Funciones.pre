@@ -1991,11 +1991,11 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 1 "Funciones.h"
+# 5 "Funciones.h"
 void Inicializaciones(void);
 void Trigger(void);
 
-# 7 "Funciones.c"
+# 4 "Funciones.c"
 void Inicializaciones(){
 OSCCON = 0b01110101;
 
@@ -2013,7 +2013,7 @@ ANSELH = 0b00000000;
 TRISC = 0b00000011;
 PORTC = 0b00000000;
 
-# 28
+# 25
 T1CON = 0b00010000;
 
 
