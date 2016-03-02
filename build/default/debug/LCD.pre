@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "LCD.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -1991,77 +1991,6 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 6 "Funciones.h"
-void Inicializaciones(void);
-void Trigger0(void);
-void Trigger1(void);
-void Trigger2(void);
-void Trigger3(void);
-void CalcularDistancia(int, char**, int);
-
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
 typedef signed char int8_t;
 
@@ -2246,142 +2175,170 @@ void lcd_iowrite4(uint8_t data);
 # 356
 void lcd_iowrite8(uint8_t data);
 
+# 26 "LCD.c"
+const uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
+uint8_t lcdrows = 2;
+uint8_t lcdcolumns = 16;
 
-# 17 "main.c"
-#pragma config FOSC = INTRC_CLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = ON
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = OFF
+uint8_t dispctrl = 0x00;
+uint8_t iomode = 0;
 
-
-#pragma config BOR4V = BOR21V
-#pragma config WRT = OFF
-
-
-
-
-int t1 = 0;
-int t2 = 0;
-int t3 = 0;
-int t4 = 0;
-
-int SensorOn = 0;
-
-char dist1[10];
-char* distancia1 = dist1;
-char dist2[10];
-char* distancia2 = dist2;
-char dist3[10];
-char* distancia3 = dist3;
-char dist4[10];
-char* distancia4 = dist4;
-
-
-void main(void) {
-
-Inicializaciones();
-
-while(1)
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows)
 {
 
-# 66
-Trigger0();
-_delay((unsigned long)((40)*(8000000/4000.0)));
+iomode = lcd_ioinit(iodata);
+lcdrows = rows;
+lcdcolumns = cols;
 
-CalcularDistancia(t1, &distancia1, sizeof(distancia1));
 
-Trigger1();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t2, &distancia2, sizeof(distancia2));
+_delay((unsigned long)((100)*(8000000/4000.0)));
 
-Trigger2();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t3, &distancia3, sizeof(distancia3));
 
-Trigger3();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t4, &distancia4, sizeof(distancia4));
+if (iomode == 4) {
 
-lcd_goto(0, 1);
-lcd_puts(dist1);
-lcd_puts(dist2);
-lcd_puts(dist3);
-lcd_puts(dist4);
+
+lcd_iowrite4(0x03);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+lcd_iowrite4(0x03);
+_delay((unsigned long)((120)*(8000000/4000000.0)));
+lcd_iowrite4(0x03);
+_delay((unsigned long)((120)*(8000000/4000000.0)));
+lcd_iowrite4(0x02);
+_delay((unsigned long)((120)*(8000000/4000000.0)));
+lcd_send( E_FUNCTION_SET | 0 | (1<<3) | (1<<2), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
+} else if (iomode == 8) {
+
+lcd_send( E_FUNCTION_SET, 0 );
+_delay((unsigned long)((5)*(8000000/4000.0)));
+lcd_send( E_FUNCTION_SET, 0 );
+_delay((unsigned long)((120)*(8000000/4000000.0)));
+lcd_send( E_FUNCTION_SET, 0 );
+_delay((unsigned long)((120)*(8000000/4000000.0)));
+lcd_send( E_FUNCTION_SET | (1<<4) | (1<<3) | (1<<2), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
-return;
+
+lcd_send( E_DISPLAY_ON_OFF_CTRL | 0, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
+lcd_send( E_CLEAR_DISPLAY, 0 );
+_delay((unsigned long)((2)*(8000000/4000.0)));
+lcd_send( E_ENTRY_MODE_SET | 0 | (1<<1), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
+
+return 1;
 }
 
-
-void interrupt echo()
+void lcd_clear()
 {
-if(RBIF == 1)
-{
-RBIE = 0;
-
-
-if( RB4 == 1 )
-{
-SensorOn = 1;
-TMR1 = 0;
-TMR1ON = 1;
+lcd_send( E_CLEAR_DISPLAY, 0 );
+_delay((unsigned long)((2)*(8000000/4000.0)));
 }
 
-else if ( RB4 == 0 && SensorOn == 1)
+void lcd_home()
 {
-SensorOn = 0;
-TMR1ON = 0;
-t1 = TMR1;
+lcd_send( E_RETURN_HOME, 0 );
+_delay((unsigned long)((2)*(8000000/4000.0)));
 }
 
-else if( RB5 == 1 )
+void lcd_on()
 {
-SensorOn = 2;
-TMR1 = 0;
-TMR1ON = 1;
+dispctrl |= (1<<2);
+lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-else if( RB5 == 0 && SensorOn == 2 )
+void lcd_off()
 {
-SensorOn = 0;
-TMR1ON = 0;
-t2 = TMR1;
+dispctrl &= ~(1<<2);
+lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-else if( RB6 == 1 )
+void lcd_cursor(enum enLCDCursorModes mode)
 {
-SensorOn = 3;
-TMR1 = 0;
-TMR1ON = 1;
+dispctrl &= 0xFC;
+dispctrl |= mode;
+lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-else if( RB6 == 0 && SensorOn == 3 )
+void lcd_cursor_left()
 {
-SensorOn = 0;
-TMR1ON = 0;
-t3 = TMR1;
+lcd_send( E_CURSOR_DISPLAY_SHIFT | 0 | 0, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-else if( RB7 == 1 )
+void lcd_cursor_right()
 {
-SensorOn = 4;
-TMR1 = 0;
-TMR1ON = 1;
+lcd_send( E_CURSOR_DISPLAY_SHIFT | 0 | (1<<2), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-else if( RB7 == 0 && SensorOn == 4 )
+void lcd_scroll_left()
 {
-SensorOn = 0;
-TMR1ON = 0;
-t4 = TMR1;
+lcd_send( E_CURSOR_DISPLAY_SHIFT | (1<<3) | 0, 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-RBIF = 0;
-RBIE = 1;
+void lcd_scroll_right()
+{
+lcd_send( E_CURSOR_DISPLAY_SHIFT | (1<<3) | (1<<2), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
+
+void lcd_autoscroll_on()
+{
+lcd_send( E_ENTRY_MODE_SET | (1<<0) | (1<<1), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
+}
+
+void lcd_autoscroll_off()
+{
+lcd_send( E_ENTRY_MODE_SET | 0 | (1<<1), 0 );
+_delay((unsigned long)((50)*(8000000/4000000.0)));
+}
+
+void lcd_goto(uint8_t col, uint8_t row)
+{
+
+if (row >= lcdrows)
+row = lcdrows - 1;
+if (col >= lcdcolumns)
+col = lcdcolumns - 1;
+
+lcd_send( E_SET_DDRAM_ADDR | (col + rowaddr[ row ]), 0 );
+}
+
+void lcd_send(uint8_t data, uint8_t rs)
+{
+
+if (rs)
+lcd_ioset(E_RS_PIN,1);
+else
+lcd_ioset(E_RS_PIN,0);
+
+lcd_ioset(E_RW_PIN,0);
+
+if (iomode == 4) {
+lcd_iowrite4(data >> 4);
+lcd_iowrite4(data);
+} else {
+lcd_iowrite8(data);
+}
+}
+
+void lcd_puts(const char * string)
+{
+while (*string != '\0')
+lcd_send( *string++, 1 );
+}
+
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata)
+{
+uint8_t i;
+charnum &= 0x07;
+lcd_send( E_SET_CGRAM_ADDR | (charnum << 3), 0 );
+for (i = 0; i < 8; i++)
+lcd_send( chardata[i], 1 );
 }

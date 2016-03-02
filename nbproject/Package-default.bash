@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Ultrasonido.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=Ultrasonido.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=ultrasonido.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Multiples_Ultrasonidos.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Multiples_Ultrasonidos.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=multiplesultrasonidos.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/ultrasonido.x/bin
+makeDirectory ${TMPDIR}/multiplesultrasonidos.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/ultrasonido.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/multiplesultrasonidos.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/ultrasonido.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/multiplesultrasonidos.x.tar *
 checkReturnCode
 
 # Cleanup

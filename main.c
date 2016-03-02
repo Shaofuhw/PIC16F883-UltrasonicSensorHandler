@@ -8,7 +8,6 @@
 #include <xc.h>
 #include "Funciones.h"
 #include "LCD.h"
-#include <stdio.h>
 
 #define _XTAL_FREQ 8000000
 
@@ -33,28 +32,59 @@
 #endif
 
 //Variables Globales
-int dist = 0;
+int t1 = 0;
+int t2 = 0;
+int t3 = 0;
+int t4 = 0;
 
+int SensorOn = 0;
+
+    char dist1[10];
+    char* distancia1 = dist1;
+    char dist2[10];
+    char* distancia2 = dist2;
+    char dist3[10];
+    char* distancia3 = dist3;
+    char dist4[10];
+    char* distancia4 = dist4;
 
 //Programa
 void main(void) {
+
+    Inicializaciones();                     //Se configuran y inicializan los puertos, timer, interrupciones y LCD
     
-    char distancia[10];
-    
-    Inicializaciones();                     //Se configuran y inicializan los puertos, timer y interrupciones
-    //LCD
-    lcd_init(0, 16, 2);                     //Inicializa el LCD
-    lcd_clear();                            //Lo limpia
-    lcd_on();                               //Lo enciende
-    lcd_goto(0, 0);                       //Coloca el cursor en la primera posición de la primera fila
-    lcd_puts("Distancia: ");
     while(1)
     {
-        Trigger();                              //Activa el Trigger, y lo apaga trás un retardo
-        __delay_ms(60);                    //Retardo de 60ms entre lecturas, tiempo recomendado por fabricante
+        
+        /*Es necesario que las lecturas de los sensores sean de manera secuencial, ya que si no puede haber
+         errores debido a la solapación de las señales de ECHO.
+         Los trigger se envian de manera secuencial, con un margen de 40ms entre cada pulso, ya que según el datasheet,
+         la longitud máxima del pulso es de cerca de 38ms para cuando no detecta ningún obstáculo.
+         Después de cada lectura, se calcula el valor de dicho pulso, y una vez se han leído los 4 sensores, se sacan por el LCD
+         */
+        
+        Trigger0();                              //Activa los Trigger, y los apaga trás un retardo
+        __delay_ms(40);
+        //Envía el tiempo del pulso de ECHO, y actualiza el valor de "distancia" en la distancia real en cm
+        CalcularDistancia(t1, &distancia1, sizeof(distancia1));           
+        
+        Trigger1();
+        __delay_ms(40);
+        CalcularDistancia(t2, &distancia2, sizeof(distancia2));
+        
+        Trigger2();
+        __delay_ms(40);
+        CalcularDistancia(t3, &distancia3, sizeof(distancia3));
+        
+        Trigger3();
+        __delay_ms(40);
+        CalcularDistancia(t4, &distancia4, sizeof(distancia4));
+        
         lcd_goto(0, 1);                     //Coloca el cursor en la primera posición de la segunda fila
-        sprintf(distancia,"%d",dist);
-        lcd_puts(distancia);
+        lcd_puts(dist1);
+        lcd_puts(dist2);
+        lcd_puts(dist3);
+        lcd_puts(dist4);
     }
     return;
 }
@@ -65,19 +95,64 @@ void interrupt echo()
     if(RBIF == 1)                           //Comprobar flag del puerto B
     {
         RBIE = 0;                           //Desactiva el bit de interrupcion puerto B
-        if(RB4 == 1)                        //Echo en alto
+        
+        //Primer Sensor ECHO high
+        if( RB4 == 1 )
         {
+            SensorOn = 1;
             TMR1 = 0;
-            TMR1ON = 1;                 //Activar el Timer1
+            TMR1ON = 1;
         }
-        else                                    //Echo en bajo
+        //Primer sensor ECHO low
+        else if ( RB4 == 0 && SensorOn == 1)
         {
-            TMR1ON = 0;                 //Para el Timer1
-            /*El reloj es de 8MHz, cada ciclo de reloj es de 0.5us, pero como el prescaler es de 2
-             cada valor del Timer1 equivale a 1us, que según el datasheet, es la medida de tiempo que se necesita,
-             al cual si se divide entre 58, nos da la distancia en centímetros*/
-            dist = TMR1/58;
+            SensorOn = 0;
+            TMR1ON = 0;
+            t1 = TMR1;
         }
+        //Segundo sensor ECHO high
+        else if( RB5 == 1 )
+        {
+            SensorOn = 2;
+            TMR1 = 0;
+            TMR1ON = 1;
+        }   
+        //Segundo sensor ECHO low
+        else if( RB5 == 0 && SensorOn == 2 )
+        {
+            SensorOn = 0;
+            TMR1ON = 0;
+            t2 = TMR1;
+        }
+        //Tercer sensor ECHO high
+        else if( RB6 == 1 )
+        {
+            SensorOn = 3;
+            TMR1 = 0;
+            TMR1ON = 1;
+        }          
+        //Tercer sensor ECHO low
+        else if( RB6 == 0 && SensorOn == 3 )
+        {
+            SensorOn = 0;
+            TMR1ON = 0;
+            t3 = TMR1;
+        }
+        //Cuarto sensor ECHO high
+        else if( RB7 == 1 )
+        {
+            SensorOn = 4;
+            TMR1 = 0;
+            TMR1ON = 1;
+        }      
+        //Cuarto sensor ECHO low
+        else if( RB7 == 0 && SensorOn == 4 )
+        {
+            SensorOn = 0;
+            TMR1ON = 0;
+            t4 = TMR1;
+        }
+        
         RBIF = 0;                           //Limpia la bandera
         RBIE = 1;                           //Vuelve a activar la interrupcion
     }

@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Ultrasonido.X
+PROJECTNAME=Multiples Ultrasonidos.X
 
 # Active Configuration
 DEFAULTCONF=default
