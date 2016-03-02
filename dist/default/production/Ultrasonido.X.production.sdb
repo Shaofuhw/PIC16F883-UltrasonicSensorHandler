@@ -3,30 +3,100 @@
 [d edition pro ]
 [d chip 16F883 ]
 [d frameptr 6 ]
+"76 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD-PIC16.c
+[e E42 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"55 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD.c
+[e E1586 enLcdCommands `uc
+E_CLEAR_DISPLAY 1
+E_RETURN_HOME 2
+E_ENTRY_MODE_SET 4
+E_DISPLAY_ON_OFF_CTRL 8
+E_CURSOR_DISPLAY_SHIFT 16
+E_FUNCTION_SET 32
+E_SET_CGRAM_ADDR 64
+E_SET_DDRAM_ADDR 128
+]
+"106
+[e E1595 enLCDCursorModes `uc
+E_LCD_CURSOR_OFF 0
+E_LCD_CURSOR_ON 2
+E_LCD_CURSOR_ON_BLINK 3
+]
+"164
+[e E1599 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "62 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+[v i1___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\pic\eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"4 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
+"7 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
-"31
+"39
 [v _Trigger Trigger `(v  1 e 1 0 ]
-"38
-[v _DistLED DistLED `(v  1 e 1 0 ]
-"44 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+"48 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD-PIC16.c
+[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
+"86
+[v _lcd_ioset lcd_ioset `(v  1 e 1 0 ]
+"129
+[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
+"143
+[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
+"33 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD.c
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+"79
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"91
+[v _lcd_on lcd_on `(v  1 e 1 0 ]
+"149
+[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
+"160
+[v _lcd_send lcd_send `(v  1 e 1 0 ]
+"178
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+"40 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"56
+"63
 [v _echo echo `II(v  1 e 1 0 ]
 "160 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "221
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"282
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "369
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
 "446
@@ -39,6 +109,8 @@
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1362
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1423
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1504
 [v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
 "1661
@@ -51,14 +123,6 @@
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
 "3526
 [v _GIE GIE `VEb  1 e 0 @95 ]
-"3648
-[v _RA0 RA0 `VEb  1 e 0 @40 ]
-"3650
-[v _RA1 RA1 `VEb  1 e 0 @41 ]
-"3652
-[v _RA2 RA2 `VEb  1 e 0 @42 ]
-"3654
-[v _RA3 RA3 `VEb  1 e 0 @43 ]
 "3664
 [v _RB0 RB0 `VEb  1 e 0 @48 ]
 "3672
@@ -67,35 +131,83 @@
 [v _RBIE RBIE `VEb  1 e 0 @91 ]
 "3682
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
+"3688
+[v _RC2 RC2 `VEb  1 e 0 @58 ]
+"3690
+[v _RC3 RC3 `VEb  1 e 0 @59 ]
+"3692
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"3694
+[v _RC5 RC5 `VEb  1 e 0 @61 ]
+"3696
+[v _RC6 RC6 `VEb  1 e 0 @62 ]
+"3698
+[v _RC7 RC7 `VEb  1 e 0 @63 ]
 "3824
 [v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
-"40 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+"3876
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
+"3878
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"3880
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"3882
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
+"3884
+[v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
+"3886
+[v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
+"26 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD.c
+[v _rowaddr rowaddr `DCC[4]uc  1 e 4 0 ]
+"27
+[v _lcdrows lcdrows `uc  1 e 1 0 ]
+"28
+[v _lcdcolumns lcdcolumns `uc  1 e 1 0 ]
+"30
+[v _dispctrl dispctrl `uc  1 e 1 0 ]
+"31
+[v _iomode iomode `uc  1 e 1 0 ]
+"36 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
 [v _dist dist `i  1 e 2 0 ]
-"44
+"40
 [v _main main `(v  1 e 1 0 ]
 {
-"53
+"42
+[v main@distancia distancia `[10]uc  1 a 10 29 ]
+"60
 } 0
-"31 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.h
-[v _Trigger Trigger `(v  1 e 1 0 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 {
-"35
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"528
+[v sprintf@val val `ui  1 a 2 23 ]
+"499
+[v sprintf@c c `c  1 a 1 26 ]
+"506
+[v sprintf@prec prec `c  1 a 1 22 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 21 ]
+"494
+[v sprintf@ap ap `[1]*.4v  1 a 1 20 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCCuc  1 p 1 14 ]
+"533
+[v sprintf@sp sp `*.4uc  1 a 1 25 ]
+"1541
 } 0
-"4
-[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
-"28
-} 0
-"38
-[v _DistLED DistLED `(v  1 e 1 0 ]
-{
-[v DistLED@dist dist `i  1 p 2 0 ]
-"55
-} 0
-"56 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
-[v _echo echo `II(v  1 e 1 0 ]
-{
-"77
+"11
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"26
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
@@ -107,5 +219,112 @@
 "6
 [v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
+"178 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD.c
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+{
+[v lcd_puts@string string `*.26DCCuc  1 p 2 9 ]
+"182
+} 0
+"91
+[v _lcd_on lcd_on `(v  1 e 1 0 ]
+{
+"96
+} 0
+"33
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+{
+[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
+[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
+[v lcd_init@cols cols `uc  1 p 1 9 ]
+[v lcd_init@rows rows `uc  1 p 1 10 ]
+"36
+[v lcd_init@iodata iodata `*.1v  1 a 1 14 ]
+"77
+} 0
+"48 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD-PIC16.c
+[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
+{
+[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
+"50
+[v lcd_ioinit@i i `uc  1 a 1 4 ]
+"48
+[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
+"84
+} 0
+"149 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD.c
+[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
+{
+[v lcd_goto@col col `uc  1 a 1 wreg ]
+[v lcd_goto@col col `uc  1 a 1 wreg ]
+[v lcd_goto@row row `uc  1 p 1 9 ]
+"152
+[v lcd_goto@col col `uc  1 a 1 11 ]
+"158
+} 0
+"79
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"83
+} 0
+"160
+[v _lcd_send lcd_send `(v  1 e 1 0 ]
+{
+[v lcd_send@data data `uc  1 a 1 wreg ]
+[v lcd_send@data data `uc  1 a 1 wreg ]
+[v lcd_send@rs rs `uc  1 p 1 6 ]
+"163
+[v lcd_send@data data `uc  1 a 1 8 ]
+"176
+} 0
+"143 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\LCD-PIC16.c
+[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
+{
+"155
+} 0
+"129
+[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
+{
+[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
+"132
+[v lcd_iowrite4@i i `uc  1 a 1 5 ]
+"129
+[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
+"134
+[v lcd_iowrite4@data data `uc  1 a 1 4 ]
+"141
+} 0
+"86
+[v _lcd_ioset lcd_ioset `(v  1 e 1 0 ]
+{
+[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
+[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
+[v lcd_ioset@out out `uc  1 p 1 0 ]
+[v lcd_ioset@pin pin `E42  1 a 1 1 ]
+"127
+} 0
+"39 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\Funciones.c
+[v _Trigger Trigger `(v  1 e 1 0 ]
+{
+"43
+} 0
+"7
+[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
+{
+"36
+} 0
+"63 C:\Users\Fu\Documents\GitHub\Ultrasonido.X\main.c
+[v _echo echo `II(v  1 e 1 0 ]
+{
+"84
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+[v i1___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+[v i1___lwdiv@quotient __lwdiv `ui  1 a 2 5 ]
+[v i1___lwdiv@counter __lwdiv `uc  1 a 1 7 ]
+[v i1___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v i1___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "31
 } 0

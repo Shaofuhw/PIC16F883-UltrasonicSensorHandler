@@ -6,12 +6,13 @@
  */
 
 #include <xc.h>
-#include<pic16f883.h>
 #include "Funciones.h"
+#include "LCD.h"
+#include <stdio.h>
 
 #define _XTAL_FREQ 8000000
 
-// <editor-fold defaultstate="collapsed" desc="CONFIG1 y CONFIG2">
+#ifndef CONFIG
 
 // CONFIG1
 #pragma config FOSC = INTRC_CLKOUT  // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -29,12 +30,7 @@
 #pragma config BOR4V = BOR21V       // Brown-out Reset Selection bit (Brown-out Reset set to 2.1V)
 #pragma config WRT = OFF                // Flash Program Memory Self Write Enable bits (Write protection off)
 
-// </editor-fold>
-
-//Funciones
-void Inicializaciones(void);
-void Trigger(void);
-void DistLED(int);
+#endif
 
 //Variables Globales
 int dist = 0;
@@ -42,12 +38,23 @@ int dist = 0;
 
 //Programa
 void main(void) {
-    Inicializaciones();
+    
+    char distancia[10];
+    
+    Inicializaciones();                     //Se configuran y inicializan los puertos, timer y interrupciones
+    //LCD
+    lcd_init(0, 16, 2);                     //Inicializa el LCD
+    lcd_clear();                            //Lo limpia
+    lcd_on();                               //Lo enciende
+    lcd_goto(0, 0);                       //Coloca el cursor en la primera posición de la primera fila
+    lcd_puts("Distancia: ");
     while(1)
     {
         Trigger();                              //Activa el Trigger, y lo apaga trás un retardo
         __delay_ms(60);                    //Retardo de 60ms entre lecturas, tiempo recomendado por fabricante
-        DistLED(dist);                      //Enciende LEDs según la distancia
+        lcd_goto(0, 1);                     //Coloca el cursor en la primera posición de la segunda fila
+        sprintf(distancia,"%d",dist);
+        lcd_puts(distancia);
     }
     return;
 }
