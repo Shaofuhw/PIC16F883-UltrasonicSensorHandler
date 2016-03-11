@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Multiples Ultrasonidos.X
+PROJECTNAME=HCSR.X
 
 # Active Configuration
 DEFAULTCONF=default

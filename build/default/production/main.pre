@@ -2056,11 +2056,10 @@ extern int printf(const char *, ...);
 
 # 6 "Funciones.h"
 void Inicializaciones(void);
-void Trigger0(void);
-void Trigger1(void);
-void Trigger2(void);
-void Trigger3(void);
-void CalcularDistancia(int, char**, int);
+void Trigger(void);
+void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
+void PrintDistancias(char [],char [],char [],char []);
+void ResetEcho();
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
 typedef signed char int8_t;
@@ -2246,8 +2245,16 @@ void lcd_iowrite4(uint8_t data);
 # 356
 void lcd_iowrite8(uint8_t data);
 
+# 5 "Uart.h"
+char UART_Init(const long int);
+char UART_TX_Empty();
+char UART_Data_Ready();
+char UART_Read();
+void UART_Write(char );
+void UART_Write_Text(char *);
 
-# 17 "main.c"
+
+# 16 "main.c"
 #pragma config FOSC = INTRC_CLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2265,54 +2272,35 @@ void lcd_iowrite8(uint8_t data);
 
 
 
+unsigned int t4 = 0;
+unsigned int t5 = 0;
+unsigned int t6 = 0;
+unsigned int t7 = 0;
+int rbon = 0;
 
-int t1 = 0;
-int t2 = 0;
-int t3 = 0;
-int t4 = 0;
-
-int SensorOn = 0;
-
-char dist1[10];
+char dist1[8];
 char* distancia1 = dist1;
-char dist2[10];
+char dist2[8];
 char* distancia2 = dist2;
-char dist3[10];
+char dist3[8];
 char* distancia3 = dist3;
-char dist4[10];
+char dist4[8];
 char* distancia4 = dist4;
 
 
 void main(void) {
 
 Inicializaciones();
+UART_Init(9600);
 
 while(1)
 {
 
-# 66
-Trigger0();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-
-CalcularDistancia(t1, &distancia1, sizeof(distancia1));
-
-Trigger1();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t2, &distancia2, sizeof(distancia2));
-
-Trigger2();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t3, &distancia3, sizeof(distancia3));
-
-Trigger3();
-_delay((unsigned long)((40)*(8000000/4000.0)));
-CalcularDistancia(t4, &distancia4, sizeof(distancia4));
-
-lcd_goto(0, 1);
-lcd_puts(dist1);
-lcd_puts(dist2);
-lcd_puts(dist3);
-lcd_puts(dist4);
+# 62
+Trigger();
+CalcularDistancia(t4, t5, t6, t7, &distancia1, &distancia2, &distancia3, &distancia4);
+PrintDistancias(dist1, dist2, dist3, dist4);
+ResetEcho();
 }
 return;
 }
@@ -2324,64 +2312,65 @@ if(RBIF == 1)
 {
 RBIE = 0;
 
-
-if( RB4 == 1 )
+# 81
+if ( (RB4 == 1) && (rbon == 0) )
 {
-SensorOn = 1;
 TMR1 = 0;
+rbon = 4;
 TMR1ON = 1;
 }
 
-else if ( RB4 == 0 && SensorOn == 1)
+else if( (RB4 == 0) && (rbon == 4) )
 {
-SensorOn = 0;
-TMR1ON = 0;
-t1 = TMR1;
-}
-
-else if( RB5 == 1 )
-{
-SensorOn = 2;
-TMR1 = 0;
-TMR1ON = 1;
-}
-
-else if( RB5 == 0 && SensorOn == 2 )
-{
-SensorOn = 0;
-TMR1ON = 0;
-t2 = TMR1;
-}
-
-else if( RB6 == 1 )
-{
-SensorOn = 3;
-TMR1 = 0;
-TMR1ON = 1;
-}
-
-else if( RB6 == 0 && SensorOn == 3 )
-{
-SensorOn = 0;
-TMR1ON = 0;
-t3 = TMR1;
-}
-
-else if( RB7 == 1 )
-{
-SensorOn = 4;
-TMR1 = 0;
-TMR1ON = 1;
-}
-
-else if( RB7 == 0 && SensorOn == 4 )
-{
-SensorOn = 0;
-TMR1ON = 0;
 t4 = TMR1;
+rbon = 0;
+TMR1ON = 0;
+}
+
+else if ( (RB5 == 1) && (rbon == 0) )
+{
+TMR1 = 0;
+rbon = 5;
+TMR1ON = 1;
+}
+
+else if( (RB5 == 0) && (rbon == 5) )
+{
+t5 = TMR1;
+rbon = 0;
+TMR1ON = 0;
+}
+
+else if ( (RB6 == 1) && (rbon == 0) )
+{
+TMR1 = 0;
+rbon = 6;
+TMR1ON = 1;
+}
+
+else if( (RB6 == 0) && (rbon == 6) )
+{
+t6 = TMR1;
+rbon = 0;
+TMR1ON = 0;
+}
+
+else if ( (RB7 == 1) && (rbon == 0) )
+{
+TMR1 = 0;
+rbon = 7;
+TMR1ON = 1;
+}
+
+else if( (RB7 == 0) && (rbon == 7) )
+{
+t7 = TMR1;
+rbon = 0;
+TMR1ON = 0;
 }
 
 RBIF = 0;
 RBIE = 1;
 }
+
 }

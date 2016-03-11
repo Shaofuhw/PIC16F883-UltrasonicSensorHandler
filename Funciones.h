@@ -4,8 +4,7 @@
 #define _XTAL_FREQ 8000000
 
 void Inicializaciones(void);
-void Trigger0(void);
-void Trigger1(void);
-void Trigger2(void);
-void Trigger3(void);
-void CalcularDistancia(int, char**, int);
+void Trigger(void);
+void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
+void PrintDistancias(char [],char [],char [],char []);
+void ResetEcho();

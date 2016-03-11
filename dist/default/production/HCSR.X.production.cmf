@@ -1,0 +1,831 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\HCSR.X.production.obj
+cinit CODE 0 13 13 29 2
+text1 CODE 0 12B 12B E6 2
+text2 CODE 0 391 391 8F 2
+text3 CODE 0 538 538 51 2
+text4 CODE 0 786 786 1D 2
+text5 CODE 0 4E4 4E4 54 2
+text6 CODE 0 744 744 21 2
+text7 CODE 0 765 765 21 2
+text8 CODE 0 6F4 6F4 2D 2
+text9 CODE 0 7B6 7B6 10 2
+text10 CODE 0 211 211 D1 2
+text11 CODE 0 721 721 23 2
+text12 CODE 0 7A3 7A3 13 2
+text13 CODE 0 6C3 6C3 31 2
+text14 CODE 0 7D4 7D4 1 2
+text15 CODE 0 5D7 5D7 3E 2
+text16 CODE 0 48E 48E 56 2
+text17 CODE 0 3C 3C EF 2
+text18 CODE 0 2E2 2E2 AF 2
+text19 CODE 0 68F 68F 34 2
+text20 CODE 0 615 615 3E 2
+text21 CODE 0 420 420 6E 2
+nvBANK0 BANK0 1 6F 6F 1 1
+maintext CODE 0 589 589 4E 2
+cstackCOMMON COMMON 1 70 70 8 1
+cstackBANK0 BANK0 1 20 20 30 1
+intentry CODE 0 4 4 D 2
+bssBANK0 BANK0 1 50 50 19 1
+bssBANK1 BANK1 1 A0 A0 10 1
+idataBANK0 CODE 0 7CE 7CE 6 2
+strings STRING 0 653 653 3C 2
+dataBANK0 BANK0 1 69 69 6 1
+clrtext CODE 0 7C6 7C6 8 2
+bssCOMMON COMMON 1 78 78 2 1
+$C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 11 11 2 2
+config CONFIG 0 2007 2007 2 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM B0-EF 1
+RAM 120-16F 1
+BANK1 B0-EF 1
+BANK2 120-16F 1
+CONST 2-3 2
+CONST 7D5-FFF 2
+ENTRY 2-3 2
+ENTRY 7D5-FFF 2
+IDLOC 2000-2003 2
+STACK 120-16F 1
+CODE 2-3 2
+CODE 7D5-FFF 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-11F 1
+SFR3 180-1EF 1
+COMMON 7A-7D 1
+EEDATA 2100-21FF 2
+STRCODE 2-3 2
+STRCODE 7D5-FFF 2
+STRING 2-3 2
+STRING 7D5-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\HCSR.X.production.obj
+13 cinit CODE >1118:C:\Users\Fu\AppData\Local\Temp\s1gs.
+13 cinit CODE >1121:C:\Users\Fu\AppData\Local\Temp\s1gs.
+13 cinit CODE >1218:C:\Users\Fu\AppData\Local\Temp\s1gs.
+14 cinit CODE >1219:C:\Users\Fu\AppData\Local\Temp\s1gs.
+15 cinit CODE >1222:C:\Users\Fu\AppData\Local\Temp\s1gs.
+16 cinit CODE >1223:C:\Users\Fu\AppData\Local\Temp\s1gs.
+17 cinit CODE >1224:C:\Users\Fu\AppData\Local\Temp\s1gs.
+18 cinit CODE >1225:C:\Users\Fu\AppData\Local\Temp\s1gs.
+19 cinit CODE >1226:C:\Users\Fu\AppData\Local\Temp\s1gs.
+1C cinit CODE >1229:C:\Users\Fu\AppData\Local\Temp\s1gs.
+1D cinit CODE >1230:C:\Users\Fu\AppData\Local\Temp\s1gs.
+1E cinit CODE >1231:C:\Users\Fu\AppData\Local\Temp\s1gs.
+1F cinit CODE >1232:C:\Users\Fu\AppData\Local\Temp\s1gs.
+22 cinit CODE >1237:C:\Users\Fu\AppData\Local\Temp\s1gs.
+25 cinit CODE >1238:C:\Users\Fu\AppData\Local\Temp\s1gs.
+26 cinit CODE >1239:C:\Users\Fu\AppData\Local\Temp\s1gs.
+29 cinit CODE >1240:C:\Users\Fu\AppData\Local\Temp\s1gs.
+2A cinit CODE >1241:C:\Users\Fu\AppData\Local\Temp\s1gs.
+2D cinit CODE >1242:C:\Users\Fu\AppData\Local\Temp\s1gs.
+2E cinit CODE >1243:C:\Users\Fu\AppData\Local\Temp\s1gs.
+31 cinit CODE >1244:C:\Users\Fu\AppData\Local\Temp\s1gs.
+32 cinit CODE >1245:C:\Users\Fu\AppData\Local\Temp\s1gs.
+35 cinit CODE >1246:C:\Users\Fu\AppData\Local\Temp\s1gs.
+36 cinit CODE >1247:C:\Users\Fu\AppData\Local\Temp\s1gs.
+38 cinit CODE >1248:C:\Users\Fu\AppData\Local\Temp\s1gs.
+39 cinit CODE >1254:C:\Users\Fu\AppData\Local\Temp\s1gs.
+39 cinit CODE >1256:C:\Users\Fu\AppData\Local\Temp\s1gs.
+3A cinit CODE >1257:C:\Users\Fu\AppData\Local\Temp\s1gs.
+4 intentry CODE >71:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+420 text21 CODE >71:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+420 text21 CODE >73:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+422 text21 CODE >75:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+423 text21 CODE >81:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+429 text21 CODE >83:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+42B text21 CODE >84:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+42D text21 CODE >88:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+434 text21 CODE >90:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+439 text21 CODE >95:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+43F text21 CODE >97:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+441 text21 CODE >98:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+443 text21 CODE >102:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+44A text21 CODE >104:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+44F text21 CODE >109:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+455 text21 CODE >111:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+457 text21 CODE >112:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+459 text21 CODE >116:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+460 text21 CODE >118:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+465 text21 CODE >123:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+46B text21 CODE >125:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+46D text21 CODE >126:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+471 text21 CODE >127:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+472 text21 CODE >128:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+473 text21 CODE >130:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+47A text21 CODE >132:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+47E text21 CODE >133:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+480 text21 CODE >134:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+481 text21 CODE >137:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+482 text21 CODE >138:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+483 text21 CODE >141:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+615 text20 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+615 text20 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+619 text20 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+61D text20 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+61F text20 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+621 text20 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+628 text20 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+62C text20 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+62D text20 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+634 text20 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+63C text20 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+642 text20 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+643 text20 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+64A text20 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+64E text20 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+68F text19 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+68F text19 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+695 text19 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+697 text19 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+699 text19 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6A0 text19 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6A4 text19 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6A5 text19 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6AD text19 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6B3 text19 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6BA text19 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+6BE text19 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+2E2 text18 CODE >492:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+2E5 text18 CODE >533:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+2E9 text18 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+2F7 text18 CODE >538:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+2FB text18 CODE >541:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+306 text18 CODE >542:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+307 text18 CODE >548:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+308 text18 CODE >635:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+309 text18 CODE >818:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+30D text18 CODE >822:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+30E text18 CODE >635:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+31E text18 CODE >1286:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+32A text18 CODE >1305:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+330 text18 CODE >1306:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+345 text18 CODE >1305:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+34D text18 CODE >1472:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+351 text18 CODE >1474:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+358 text18 CODE >1489:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+380 text18 CODE >1524:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+38B text18 CODE >1474:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+38C text18 CODE >1538:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+3C text17 CODE >56:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+3C text17 CODE >61:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+4F text17 CODE >62:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+60 text17 CODE >63:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+71 text17 CODE >64:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+82 text17 CODE >66:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+88 text17 CODE >67:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+96 text17 CODE >68:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+A7 text17 CODE >70:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+AF text17 CODE >71:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+BD text17 CODE >72:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+CE text17 CODE >74:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+D6 text17 CODE >75:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+E4 text17 CODE >76:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+F5 text17 CODE >78:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+106 text17 CODE >79:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+11A text17 CODE >80:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+48E text16 CODE >86:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+48F text16 CODE >88:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+490 text16 CODE >103:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+490 text16 CODE >104:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+499 text16 CODE >105:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+49A text16 CODE >106:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+49A text16 CODE >107:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4A3 text16 CODE >108:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4A4 text16 CODE >109:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4A4 text16 CODE >110:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4AD text16 CODE >111:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4AE text16 CODE >112:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4AE text16 CODE >113:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4B7 text16 CODE >114:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4B8 text16 CODE >115:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4B8 text16 CODE >116:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4C1 text16 CODE >117:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4C2 text16 CODE >118:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4C2 text16 CODE >119:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4CB text16 CODE >126:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4CC text16 CODE >88:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+4E3 text16 CODE >127:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+5D7 text15 CODE >129:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+5DA text15 CODE >134:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+5E2 text15 CODE >135:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+5FB text15 CODE >134:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+605 text15 CODE >137:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+60B text15 CODE >138:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+610 text15 CODE >139:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+614 text15 CODE >141:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+7D4 text14 CODE >143:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+7D4 text14 CODE >155:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+6C3 text13 CODE >160:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6C6 text13 CODE >163:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6C9 text13 CODE >164:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6CC text13 CODE >166:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6D1 text13 CODE >168:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6D6 text13 CODE >170:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6DC text13 CODE >171:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6E8 text13 CODE >172:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6ED text13 CODE >173:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6EE text13 CODE >174:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7A3 text12 CODE >79:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7A3 text12 CODE >81:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7AA text12 CODE >82:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7B5 text12 CODE >83:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+721 text11 CODE >48:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+721 text11 CODE >50:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+724 text11 CODE >53:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+727 text11 CODE >54:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+728 text11 CODE >60:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+729 text11 CODE >61:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+72A text11 CODE >62:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+72B text11 CODE >63:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+72C text11 CODE >75:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+733 text11 CODE >76:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+738 text11 CODE >75:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+742 text11 CODE >80:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD-PIC16.c
+211 text10 CODE >33:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+214 text10 CODE >36:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+21D text10 CODE >37:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+221 text10 CODE >38:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+225 text10 CODE >41:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+232 text10 CODE >44:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+238 text10 CODE >47:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+23C text10 CODE >48:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+247 text10 CODE >49:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+24B text10 CODE >50:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+252 text10 CODE >51:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+256 text10 CODE >52:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+25D text10 CODE >53:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+261 text10 CODE >54:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+268 text10 CODE >55:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+26F text10 CODE >56:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+275 text10 CODE >57:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+27C text10 CODE >59:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+281 text10 CODE >60:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+28C text10 CODE >61:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+293 text10 CODE >62:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+29A text10 CODE >63:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2A1 text10 CODE >64:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2A8 text10 CODE >65:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2AF text10 CODE >66:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2B5 text10 CODE >69:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2BC text10 CODE >70:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2C2 text10 CODE >71:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2C9 text10 CODE >72:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2D4 text10 CODE >73:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+2DB text10 CODE >74:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7B6 text9 CODE >91:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7B6 text9 CODE >93:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7B9 text9 CODE >94:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7BF text9 CODE >95:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+7C5 text9 CODE >96:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+6F4 text8 CODE >6:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+6F4 text8 CODE >7:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+6F8 text8 CODE >10:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+6FA text8 CODE >11:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+6FD text8 CODE >12:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+700 text8 CODE >17:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+704 text8 CODE >18:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+706 text8 CODE >21:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+708 text8 CODE >22:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+70C text8 CODE >23:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+70D text8 CODE >25:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+71B text8 CODE >26:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+71E text8 CODE >27:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+720 text8 CODE >28:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+765 text7 CODE >149:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+768 text7 CODE >152:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+76C text7 CODE >153:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+771 text7 CODE >154:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+775 text7 CODE >155:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+77A text7 CODE >157:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+785 text7 CODE >158:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+744 text6 CODE >178:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+744 text6 CODE >180:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+750 text6 CODE >181:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+764 text6 CODE >180:C:\Users\Fu\Documents\GitHub\HCSR.X\LCD.c
+4E4 text5 CODE >83:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+4E7 text5 CODE >86:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+4EC text5 CODE >87:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+4F5 text5 CODE >88:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+4FC text5 CODE >89:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+505 text5 CODE >90:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+50D text5 CODE >91:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+516 text5 CODE >92:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+51E text5 CODE >93:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+527 text5 CODE >94:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+52F text5 CODE >95:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+537 text5 CODE >106:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+786 text4 CODE >108:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+786 text4 CODE >110:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+789 text4 CODE >111:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+792 text4 CODE >112:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+795 text4 CODE >113:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+79E text4 CODE >114:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+7A2 text4 CODE >115:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+538 text3 CODE >31:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+538 text3 CODE >32:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+53B text3 CODE >33:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+540 text3 CODE >34:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+543 text3 CODE >36:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+54C text3 CODE >38:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+54F text3 CODE >39:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+554 text3 CODE >40:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+557 text3 CODE >42:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+560 text3 CODE >44:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+563 text3 CODE >45:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+568 text3 CODE >46:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+56B text3 CODE >48:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+574 text3 CODE >49:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+577 text3 CODE >50:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+57C text3 CODE >51:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+57F text3 CODE >53:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+588 text3 CODE >54:C:\Users\Fu\Documents\GitHub\HCSR.X\Funciones.c
+391 text2 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+391 text2 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+394 text2 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+396 text2 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3A1 text2 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3A3 text2 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3A3 text2 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3A5 text2 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3B0 text2 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3B4 text2 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3BC text2 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3C2 text2 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3C4 text2 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3C6 text2 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3CF text2 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3D3 text2 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3D4 text2 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3DD text2 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3ED text2 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3FB text2 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+3FC text2 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+405 text2 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+409 text2 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+40C text2 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+417 text2 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+12B text1 CODE >3:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+12B text1 CODE >6:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+18D text1 CODE >7:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+194 text1 CODE >9:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+1F4 text1 CODE >10:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+1F7 text1 CODE >12:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+1FE text1 CODE >14:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+202 text1 CODE >15:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+203 text1 CODE >16:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+206 text1 CODE >17:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+209 text1 CODE >18:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+20A text1 CODE >19:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+20D text1 CODE >20:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+210 text1 CODE >21:C:\Users\Fu\Documents\GitHub\HCSR.X\Uart.c
+589 maintext CODE >49:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+589 maintext CODE >51:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+58C maintext CODE >52:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+599 maintext CODE >62:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+59C maintext CODE >63:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+5C1 maintext CODE >64:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+5D3 maintext CODE >65:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+5D6 maintext CODE >54:C:\Users\Fu\Documents\GitHub\HCSR.X\main.c
+7C6 clrtext CODE >1205:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7C6 clrtext CODE >1206:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7C7 clrtext CODE >1207:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7C7 clrtext CODE >1208:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7C8 clrtext CODE >1209:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7C9 clrtext CODE >1210:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7CA clrtext CODE >1211:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7CB clrtext CODE >1212:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7CC clrtext CODE >1213:C:\Users\Fu\AppData\Local\Temp\s1gs.
+7CD clrtext CODE >1214:C:\Users\Fu\AppData\Local\Temp\s1gs.
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 1 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_lcd_ioinit E42 0 CODE 0 text11 dist/default/production\HCSR.X.production.obj
+___lwmod@counter 29 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 -
+__Hspace_0 2009 0 ABS 0 - -
+__Hspace_1 B0 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__HidataBANK0 0 0 ABS 0 idataBANK0 -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_t4 50 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+_t5 52 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+_t6 54 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+_t7 56 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Hstrings 0 0 ABS 0 strings -
+_BRGH 4C2 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_CREN C4 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_IOCB 96 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RBIE 5B 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RBIF 58 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RCIF 65 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_SPEN C7 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_SYNC 4C4 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TMR1 E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRMT 4C1 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TXEN 4C5 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+_echo 840 0 CODE 0 text21 dist/default/production\HCSR.X.production.obj
+_main B12 0 CODE 0 maintext dist/default/production\HCSR.X.production.obj
+_rbon 78 0 COMMON 1 bssCOMMON dist/default/production\HCSR.X.production.obj
+btemp 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+ttemp 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+lcd_init@iodata 2A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of___aldiv 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_echo 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
+__LidataBANK0 0 0 ABS 0 idataBANK0 -
+__Hpowerup 0 0 CODE 0 powerup -
+_dispctrl 58 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+__end_of_rowaddr CE2 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__end_of_Trigger B12 0 CODE 0 text3 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_clear F6C 0 CODE 0 text12 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_ioset 9C8 0 CODE 0 text16 dist/default/production\HCSR.X.production.obj
+__size_of_lcd_clear 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+__size_of_lcd_ioset 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__end_of_lcd_ioinit E88 0 CODE 0 text11 dist/default/production\HCSR.X.production.obj
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
+___aldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Hfunctab 0 0 CODE 0 functab -
+__end_of_CalcularDistancia 256 0 CODE 0 text17 dist/default/production\HCSR.X.production.obj
+___aldiv@sign 29 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+lcd_iowrite4@data 20 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_lcd_clear F46 0 CODE 0 text12 dist/default/production\HCSR.X.production.obj
+_lcd_ioset 91C 0 CODE 0 text16 dist/default/production\HCSR.X.production.obj
+lcd_ioset@out 74 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+lcd_ioset@pin 75 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+lcd_ioinit@iodata 20 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_ANSELH 189 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+UART_Init@baudrate 2E 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Lmaintext 0 0 ABS 0 maintext -
+__size_of_sprintf 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__LnvBANK0 0 0 ABS 0 nvBANK0 -
+___lwmod@divisor 24 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__end_of___aldiv 840 0 CODE 0 text2 dist/default/production\HCSR.X.production.obj
+__end_of___lwdiv CA6 0 CODE 0 text20 dist/default/production\HCSR.X.production.obj
+__end_of___lwmod D86 0 CODE 0 text19 dist/default/production\HCSR.X.production.obj
+_lcdcolumns 69 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+_INTCON B 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_dpowers CC6 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+___lwdiv@quotient 22 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_lcd_iowrite4 BAE 0 CODE 0 text15 dist/default/production\HCSR.X.production.obj
+_lcd_iowrite8 FA8 0 CODE 0 text14 dist/default/production\HCSR.X.production.obj
+___lwmod@dividend 26 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+start_initialization 26 0 CODE 0 cinit dist/default/production\HCSR.X.production.obj
+UART_Init@x 75 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+_OSCCON 8F 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+___aldiv@quotient 2A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_on F8C 0 CODE 0 text9 dist/default/production\HCSR.X.production.obj
+_CalcularDistancia 78 0 CODE 0 text17 dist/default/production\HCSR.X.production.obj
+clear_ram0 F8C 0 CODE 0 clrtext dist/default/production\HCSR.X.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__end_of_PrintDistancias A70 0 CODE 0 text5 dist/default/production\HCSR.X.production.obj
+_TMR1ON 80 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC0 438 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC1 439 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC2 43A 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC3 43B 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC4 43C 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC5 43D 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC6 43E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISC7 43F 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+lcd_init@cols 25 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+lcd_init@rows 26 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_Inicializaciones DE8 0 CODE 0 text8 dist/default/production\HCSR.X.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+__size_of_lcd_iowrite4 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_lcd_iowrite8 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 BANK3 1 bank3 -
+__Hcinit 78 0 CODE 0 cinit -
+CalcularDistancia@d0 44 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@d1 46 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@d2 48 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@d3 4A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@t0 37 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@t1 39 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@t2 3B 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@t3 3D 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__stringbase CC4 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+___lwdiv@counter 21 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+__end_of_sprintf 722 0 CODE 0 text18 dist/default/production\HCSR.X.production.obj
+__size_of_lcd_goto 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_lcd_init 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_lcd_puts 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_lcd_send 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 4012 0 CONFIG 0 config -
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 BANK3 1 bank3 -
+__Lcinit 26 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Lstack 0 0 STACK 2 stack -
+__size_of_lcd_ioinit 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+lcd_send@rs 22 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_iowrite4 C2A 0 CODE 0 text15 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_iowrite8 FAA 0 CODE 0 text14 dist/default/production\HCSR.X.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 22 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 22 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__pnvBANK0 6F 0 BANK0 1 nvBANK0 dist/default/production\HCSR.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+_PrintDistancias 9C8 0 CODE 0 text5 dist/default/production\HCSR.X.production.obj
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_rowaddr CDA 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+_Trigger A70 0 CODE 0 text3 dist/default/production\HCSR.X.production.obj
+_GIE 5F 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB0 30 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB1 31 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB2 32 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB3 33 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB4 34 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB5 35 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB6 36 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RB7 37 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC0 38 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC1 39 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC2 3A 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC3 3B 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC4 3C 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RC5 3D 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__S0 2009 0 ABS 0 - -
+__S1 B0 0 ABS 0 - -
+__S2 0 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+saved_w 7E 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+sprintf@val 32 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_lcd_goto ECA 0 CODE 0 text7 dist/default/production\HCSR.X.production.obj
+_lcd_init 422 0 CODE 0 text10 dist/default/production\HCSR.X.production.obj
+_lcd_puts E88 0 CODE 0 text6 dist/default/production\HCSR.X.production.obj
+_lcd_send D86 0 CODE 0 text13 dist/default/production\HCSR.X.production.obj
+__HnvBANK0 0 0 ABS 0 nvBANK0 -
+__Lintentry 8 0 CODE 0 intentry -
+__end_of_Inicializaciones E42 0 CODE 0 text8 dist/default/production\HCSR.X.production.obj
+__stringtab CA6 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+_lcdrows 6A 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+_iomode 6F 0 BANK0 1 nvBANK0 dist/default/production\HCSR.X.production.obj
+__pdataBANK0 69 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+__size_of_Inicializaciones 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__end_of_lcd_goto F0C 0 CODE 0 text7 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_init 5C4 0 CODE 0 text10 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_puts ECA 0 CODE 0 text6 dist/default/production\HCSR.X.production.obj
+__end_of_lcd_send DE8 0 CODE 0 text13 dist/default/production\HCSR.X.production.obj
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_lcd_on F6C 0 CODE 0 text9 dist/default/production\HCSR.X.production.obj
+sprintf@flag 30 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+sprintf@prec 34 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+lcd_iowrite4@i 21 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__ptext10 422 0 CODE 0 text10 dist/default/production\HCSR.X.production.obj
+__ptext11 E42 0 CODE 0 text11 dist/default/production\HCSR.X.production.obj
+__ptext12 F46 0 CODE 0 text12 dist/default/production\HCSR.X.production.obj
+__ptext13 D86 0 CODE 0 text13 dist/default/production\HCSR.X.production.obj
+__ptext14 FA8 0 CODE 0 text14 dist/default/production\HCSR.X.production.obj
+__ptext15 BAE 0 CODE 0 text15 dist/default/production\HCSR.X.production.obj
+__ptext16 91C 0 CODE 0 text16 dist/default/production\HCSR.X.production.obj
+__ptext17 78 0 CODE 0 text17 dist/default/production\HCSR.X.production.obj
+__ptext18 5C4 0 CODE 0 text18 dist/default/production\HCSR.X.production.obj
+__ptext19 D1E 0 CODE 0 text19 dist/default/production\HCSR.X.production.obj
+__ptext20 C2A 0 CODE 0 text20 dist/default/production\HCSR.X.production.obj
+__ptext21 840 0 CODE 0 text21 dist/default/production\HCSR.X.production.obj
+___aldiv 722 0 CODE 0 text2 dist/default/production\HCSR.X.production.obj
+___lwdiv C2A 0 CODE 0 text20 dist/default/production\HCSR.X.production.obj
+___lwmod D1E 0 CODE 0 text19 dist/default/production\HCSR.X.production.obj
+__pmaintext B12 0 CODE 0 maintext dist/default/production\HCSR.X.production.obj
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 400E 0 CONFIG 0 config -
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__CFG_IESO$ON 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+lcd_ioinit@i 21 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+___lwdiv@divisor 74 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+__size_of_PrintDistancias 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+__end_of__stringtab CC6 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+_distancia1 6B 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+_distancia2 6C 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+_distancia3 6D 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+_distancia4 6E 0 BANK0 1 dataBANK0 dist/default/production\HCSR.X.production.obj
+PrintDistancias@dist1 2B 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+PrintDistancias@dist2 28 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+PrintDistancias@dist3 29 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+PrintDistancias@dist4 2A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_lcd_on 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__pbssCOMMON 78 0 COMMON 1 bssCOMMON dist/default/production\HCSR.X.production.obj
+__end_of_ResetEcho F46 0 CODE 0 text4 dist/default/production\HCSR.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 22 0 CODE 0 end_init -
+__size_of_ResetEcho 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+CalcularDistancia@distancia1 3F 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@distancia2 40 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@distancia3 41 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+CalcularDistancia@distancia4 42 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+end_of_initialization 72 0 CODE 0 cinit dist/default/production\HCSR.X.production.obj
+__Hintentry 22 0 CODE 0 intentry -
+__Lstrings 0 0 ABS 0 strings -
+?___aldiv 20 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+___lwdiv@dividend 76 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+?___lwdiv 74 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+?___lwmod 24 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec -
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+_ResetEcho F0C 0 CODE 0 text4 dist/default/production\HCSR.X.production.obj
+__end_of_UART_Init 422 0 CODE 0 text1 dist/default/production\HCSR.X.production.obj
+__size_of_UART_Init 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__ptext1 256 0 CODE 0 text1 dist/default/production\HCSR.X.production.obj
+__ptext2 722 0 CODE 0 text2 dist/default/production\HCSR.X.production.obj
+__ptext3 A70 0 CODE 0 text3 dist/default/production\HCSR.X.production.obj
+__ptext4 F0C 0 CODE 0 text4 dist/default/production\HCSR.X.production.obj
+__ptext5 9C8 0 CODE 0 text5 dist/default/production\HCSR.X.production.obj
+__ptext6 E88 0 CODE 0 text6 dist/default/production\HCSR.X.production.obj
+__ptext7 ECA 0 CODE 0 text7 dist/default/production\HCSR.X.production.obj
+__ptext8 DE8 0 CODE 0 text8 dist/default/production\HCSR.X.production.obj
+__ptext9 F6C 0 CODE 0 text9 dist/default/production\HCSR.X.production.obj
+___aldiv@dividend 24 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_sprintf 5C4 0 CODE 0 text18 dist/default/production\HCSR.X.production.obj
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+sprintf@ap 31 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+sprintf@sp 35 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec -
+_UART_Init 256 0 CODE 0 text1 dist/default/production\HCSR.X.production.obj
+__end_of__initialization 72 0 CODE 0 cinit dist/default/production\HCSR.X.production.obj
+__Lfunctab 0 0 CODE 0 functab -
+__pidataBANK0 F9C 0 CODE 0 idataBANK0 dist/default/production\HCSR.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext -
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\HCSR.X.production.obj
+__Hend_init 26 0 CODE 0 end_init -
+lcd_goto@col 27 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+lcd_goto@row 25 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+___aldiv@counter 28 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+sprintf@c 36 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+sprintf@f 2A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+__end_of_echo 91C 0 CODE 0 text21 dist/default/production\HCSR.X.production.obj
+__end_of_main BAE 0 CODE 0 maintext dist/default/production\HCSR.X.production.obj
+__end_of_dpowers CDA 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+?_sprintf 2A 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+_PORTB 6 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_RCREG 1A 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_SPBRG 99 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_T1CON 10 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TRISB 86 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+_TXREG 19 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+interrupt_function 8 0 CODE 0 intentry dist/default/production\HCSR.X.production.obj
+_dist1 59 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+_dist2 61 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+_dist3 A0 0 BANK1 1 bssBANK1 dist/default/production\HCSR.X.production.obj
+_dist4 A8 0 BANK1 1 bssBANK1 dist/default/production\HCSR.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_CalcularDistancia 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__size_of_Trigger 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__pintentry 8 0 CODE 0 intentry dist/default/production\HCSR.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 -
+__initialization 26 0 CODE 0 cinit dist/default/production\HCSR.X.production.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__pbssBANK0 50 0 BANK0 1 bssBANK0 dist/default/production\HCSR.X.production.obj
+__pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\HCSR.X.production.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\HCSR.X.production.obj
+__pstrings CA6 0 STRING 0 strings dist/default/production\HCSR.X.production.obj
+lcd_send@data 24 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+lcd_puts@string 25 0 BANK0 1 cstackBANK0 dist/default/production\HCSR.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text19 0 68F D1E 146 2
+cstackCOMMON 1 70 70 A 1
+cstackBANK0 1 20 20 50 1
+intentry 0 4 8 64F 2
+reset_vec 0 0 0 2 2
+bssBANK1 1 A0 A0 10 1
+strings 0 653 CA6 3C 2
+config 0 2007 400E 2 2

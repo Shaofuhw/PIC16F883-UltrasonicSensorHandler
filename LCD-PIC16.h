@@ -22,10 +22,10 @@
 /*-------------------------------------------------------------*/
 /*		Configuration for Control Signals		*/
 /*-------------------------------------------------------------*/
-#define LCD_PIN_RS	RC3
-#define LCD_TRIS_RS	TRISC3
-#define LCD_PIN_E	RC2
-#define LCD_TRIS_E	TRISC2
+#define LCD_PIN_RS	RC4
+#define LCD_TRIS_RS	TRISC4
+#define LCD_PIN_E	RC5
+#define LCD_TRIS_E	TRISC5
 // NOT NEEDED YET, CONNECT RW TO GROUND
 //#define LCD_PIN_RW	PORTBbits.RB2
 //#define LCD_TRIS_RW	TRISBbits.TRISB2
@@ -33,15 +33,15 @@
 /*-------------------------------------------------------------*/
 /*		Configuration example: 4 bit mode		*/
 /*-------------------------------------------------------------*/
-#define LCD_TRIS_D4	TRISC4
-#define LCD_TRIS_D5	TRISC5
-#define LCD_TRIS_D6	TRISC6
-#define LCD_TRIS_D7	TRISC7
+#define LCD_TRIS_D4	TRISC0
+#define LCD_TRIS_D5	TRISC1
+#define LCD_TRIS_D6	TRISC2
+#define LCD_TRIS_D7	TRISC3
 
-#define LCD_PIN_D4 RC4
-#define LCD_PIN_D5 RC5
-#define LCD_PIN_D6 RC6
-#define LCD_PIN_D7 RC7
+#define LCD_PIN_D4 RC0
+#define LCD_PIN_D5 RC1
+#define LCD_PIN_D6 RC2
+#define LCD_PIN_D7 RC3
 
 /*-------------------------------------------------------------*/
 /*		Configuration example: 8 bit mode		*/

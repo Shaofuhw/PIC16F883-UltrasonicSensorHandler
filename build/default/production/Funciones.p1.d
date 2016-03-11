@@ -2,4 +2,5 @@
  build/default/production/Funciones.p1:  \
  Funciones.c  \
 LCD.h  \
-Funciones.h 
+Funciones.h  \
+Uart.h 

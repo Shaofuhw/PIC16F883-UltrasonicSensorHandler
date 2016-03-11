@@ -1,52 +1,28 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1661 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
-"1362
-[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"221
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"3201
-[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
-"1423
-[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"282
-[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
-"575
-[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
-"369
-[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"2207
-[v _IOCB `Vuc ~T0 @X0 0 e@150 ]
-"1504
-[v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
-"446
-[v _PIR1 `Vuc ~T0 @X0 0 e@12 ]
-"3526
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
-"127 LCD.h
-[v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
-"135
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
-"153
-[v _lcd_on `(v ~T0 @X0 0 ef ]
-"234
-[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"275
-[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"3664 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-[v F1554 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
-[v __delay `JF1554 ~T0 @X0 0 e ]
-[p i __delay ]
-"3666 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"3668
-[v _RB2 `Vb ~T0 @X0 0 e@50 ]
-"3670
-[v _RB3 `Vb ~T0 @X0 0 e@51 ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"3392 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
+"2430
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"3782
+[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
+"3746
+[v _SPEN `Vb ~T0 @X0 0 e@199 ]
+"3886
+[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
+"3884
+[v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
+"3486
+[v _CREN `Vb ~T0 @X0 0 e@196 ]
+"3910
+[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
+"3890
+[v _TRMT `Vb ~T0 @X0 0 e@1217 ]
+"3712
+[v _RCIF `Vb ~T0 @X0 0 e@101 ]
+"1033
+[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
+"1027
+[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1466,277 +1442,199 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;Funciones.h: 6: void Inicializaciones(void);
-[; ;Funciones.h: 7: void Trigger0(void);
-[; ;Funciones.h: 8: void Trigger1(void);
-[; ;Funciones.h: 9: void Trigger2(void);
-[; ;Funciones.h: 10: void Trigger3(void);
-[; ;Funciones.h: 11: void CalcularDistancia(int, char**, int);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 69: enum enLcdCommands {
-[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
-[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
-[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
-[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
-[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
-[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
-[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
-[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
-[; ;LCD.h: 78: };
-[; ;LCD.h: 83: enum enLCDCursorModes {
-[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
-[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
-[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
-[; ;LCD.h: 87: };
-[; ;LCD.h: 92: enum enLCDControlPins {
-[; ;LCD.h: 93: E_D0_PIN = 0,
-[; ;LCD.h: 94: E_D1_PIN,
-[; ;LCD.h: 95: E_D2_PIN,
-[; ;LCD.h: 96: E_D3_PIN,
-[; ;LCD.h: 97: E_D4_PIN,
-[; ;LCD.h: 98: E_D5_PIN,
-[; ;LCD.h: 99: E_D6_PIN,
-[; ;LCD.h: 100: E_D7_PIN,
-[; ;LCD.h: 101: E_EN_PIN,
-[; ;LCD.h: 102: E_RS_PIN,
-[; ;LCD.h: 103: E_RW_PIN,
-[; ;LCD.h: 104: };
-[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
-[; ;LCD.h: 135: void lcd_clear();
-[; ;LCD.h: 143: void lcd_home();
-[; ;LCD.h: 153: void lcd_on();
-[; ;LCD.h: 161: void lcd_off();
-[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
-[; ;LCD.h: 184: void lcd_cursor_left();
-[; ;LCD.h: 191: void lcd_cursor_right();
-[; ;LCD.h: 199: void lcd_scroll_left();
-[; ;LCD.h: 207: void lcd_scroll_right();
-[; ;LCD.h: 214: void lcd_autoscroll_on();
-[; ;LCD.h: 222: void lcd_autoscroll_off();
-[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
-[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
-[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
-[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
-[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
-"5 Funciones.c
-[v _Inicializaciones `(v ~T0 @X0 1 ef ]
+[; ;Uart.h: 5: char UART_Init(const long int);
+[; ;Uart.h: 6: char UART_TX_Empty();
+[; ;Uart.h: 7: char UART_Data_Ready();
+[; ;Uart.h: 8: char UART_Read();
+[; ;Uart.h: 9: void UART_Write(char );
+[; ;Uart.h: 10: void UART_Write_Text(char *);
+"3 Uart.c
+[v _UART_Init `(uc ~T0 @X0 1 ef1`Cl ]
+"4
 {
-[; ;Funciones.c: 5: void Inicializaciones(){
-[e :U _Inicializaciones ]
+[; ;Uart.c: 3: char UART_Init(const long int baudrate)
+[; ;Uart.c: 4: {
+[e :U _UART_Init ]
+"3
+[v _baudrate `Cl ~T0 @X0 1 r1 ]
+"4
 [f ]
-[; ;Funciones.c: 6: OSCCON = 0b01110101;
+"5
+[v _x `ui ~T0 @X0 1 a ]
+[; ;Uart.c: 5: unsigned int x;
+[; ;Uart.c: 6: x = (8000000 - baudrate*64)/(baudrate*64);
 "6
-[e = _OSCCON -> -> 117 `i `uc ]
-[; ;Funciones.c: 9: TRISB = 0b11110000;
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
+[; ;Uart.c: 7: if(x>255)
+"7
+[e $ ! > _x -> -> 255 `i `ui 136  ]
+[; ;Uart.c: 8: {
+"8
+{
+[; ;Uart.c: 9: x = (8000000 - baudrate*16)/(baudrate*16);
 "9
-[e = _TRISB -> -> 240 `i `uc ]
-[; ;Funciones.c: 10: PORTB = 0b00000000;
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+[; ;Uart.c: 10: BRGH = 1;
 "10
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 11: ANSELH = 0b00000000;
+[e = _BRGH -> -> 1 `i `b ]
 "11
-[e = _ANSELH -> -> 0 `i `uc ]
-[; ;Funciones.c: 14: TRISC = 0b00000011;
+}
+[e :U 136 ]
+[; ;Uart.c: 11: }
+[; ;Uart.c: 12: if(x<256)
+"12
+[e $ ! < _x -> -> 256 `i `ui 137  ]
+[; ;Uart.c: 13: {
+"13
+{
+[; ;Uart.c: 14: SPBRG = x;
 "14
-[e = _TRISC -> -> 3 `i `uc ]
-[; ;Funciones.c: 15: PORTC = 0b00000000;
+[e = _SPBRG -> _x `uc ]
+[; ;Uart.c: 15: SYNC = 0;
 "15
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;Funciones.c: 20: T1CON = 0b00010000;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;Uart.c: 16: SPEN = 1;
+"16
+[e = _SPEN -> -> 1 `i `b ]
+[; ;Uart.c: 17: TRISC7 = 1;
+"17
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;Uart.c: 18: TRISC6 = 1;
+"18
+[e = _TRISC6 -> -> 1 `i `b ]
+[; ;Uart.c: 19: CREN = 1;
+"19
+[e = _CREN -> -> 1 `i `b ]
+[; ;Uart.c: 20: TXEN = 1;
 "20
-[e = _T1CON -> -> 16 `i `uc ]
-[; ;Funciones.c: 23: INTCON = 0b00001000;
+[e = _TXEN -> -> 1 `i `b ]
+[; ;Uart.c: 21: return 1;
+"21
+[e ) -> -> 1 `i `uc ]
+[e $UE 135  ]
+"22
+}
+[e :U 137 ]
+[; ;Uart.c: 22: }
+[; ;Uart.c: 23: return 0;
 "23
-[e = _INTCON -> -> 8 `i `uc ]
-[; ;Funciones.c: 24: IOCB = 0b11110000;
+[e ) -> -> 0 `i `uc ]
+[e $UE 135  ]
+[; ;Uart.c: 24: }
 "24
-[e = _IOCB -> -> 240 `i `uc ]
-[; ;Funciones.c: 25: PIE1 = 0b00000001;
-"25
-[e = _PIE1 -> -> 1 `i `uc ]
-[; ;Funciones.c: 26: PIR1 = 0b00000000;
+[e :UE 135 ]
+}
 "26
-[e = _PIR1 -> -> 0 `i `uc ]
-[; ;Funciones.c: 27: GIE = 1;
+[v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
 "27
-[e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 29: lcd_init(0, 16, 2);
+{
+[; ;Uart.c: 26: char UART_TX_Empty()
+[; ;Uart.c: 27: {
+[e :U _UART_TX_Empty ]
+[f ]
+[; ;Uart.c: 28: return TRMT;
+"28
+[e ) -> -> _TRMT `i `uc ]
+[e $UE 138  ]
+[; ;Uart.c: 29: }
 "29
-[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
-[; ;Funciones.c: 30: lcd_clear();
-"30
-[e ( _lcd_clear ..  ]
-[; ;Funciones.c: 31: lcd_on();
-"31
-[e ( _lcd_on ..  ]
-[; ;Funciones.c: 32: lcd_goto(0, 0);
-"32
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 33: lcd_puts("Distancias: ");
-"33
-[e ( _lcd_puts (1 :s 1C ]
-[; ;Funciones.c: 34: }
-"34
-[e :UE 136 ]
-}
-"37
-[v _Trigger0 `(v ~T0 @X0 1 ef ]
-{
-[; ;Funciones.c: 37: void Trigger0(){
-[e :U _Trigger0 ]
-[f ]
-[; ;Funciones.c: 38: RB0 = 1;
-"38
-[e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 39: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"39
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 40: RB0 = 0;
-"40
-[e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 41: }
-"41
-[e :UE 137 ]
-}
-"43
-[v _Trigger1 `(v ~T0 @X0 1 ef ]
-{
-[; ;Funciones.c: 43: void Trigger1(){
-[e :U _Trigger1 ]
-[f ]
-[; ;Funciones.c: 44: RB1 = 1;
-"44
-[e = _RB1 -> -> 1 `i `b ]
-[; ;Funciones.c: 45: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"45
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 46: RB1 = 0;
-"46
-[e = _RB1 -> -> 0 `i `b ]
-[; ;Funciones.c: 47: }
-"47
 [e :UE 138 ]
 }
-"49
-[v _Trigger2 `(v ~T0 @X0 1 ef ]
+"31
+[v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
+"32
 {
-[; ;Funciones.c: 49: void Trigger2(){
-[e :U _Trigger2 ]
+[; ;Uart.c: 31: char UART_Data_Ready()
+[; ;Uart.c: 32: {
+[e :U _UART_Data_Ready ]
 [f ]
-[; ;Funciones.c: 50: RB2 = 1;
-"50
-[e = _RB2 -> -> 1 `i `b ]
-[; ;Funciones.c: 51: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"51
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 52: RB2 = 0;
-"52
-[e = _RB2 -> -> 0 `i `b ]
-[; ;Funciones.c: 53: }
-"53
+[; ;Uart.c: 33: return RCIF;
+"33
+[e ) -> -> _RCIF `i `uc ]
+[e $UE 139  ]
+[; ;Uart.c: 34: }
+"34
 [e :UE 139 ]
 }
-"55
-[v _Trigger3 `(v ~T0 @X0 1 ef ]
+"35
+[v _UART_Read `(uc ~T0 @X0 1 ef ]
+"36
 {
-[; ;Funciones.c: 55: void Trigger3(){
-[e :U _Trigger3 ]
+[; ;Uart.c: 35: char UART_Read()
+[; ;Uart.c: 36: {
+[e :U _UART_Read ]
 [f ]
-[; ;Funciones.c: 56: RB3 = 1;
-"56
-[e = _RB3 -> -> 1 `i `b ]
-[; ;Funciones.c: 57: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"57
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 58: RB3 = 0;
-"58
-[e = _RB3 -> -> 0 `i `b ]
-[; ;Funciones.c: 59: }
-"59
+[; ;Uart.c: 38: while(!RCIF);
+"38
+[e $U 141  ]
+[e :U 142 ]
+[e :U 141 ]
+[e $ ! _RCIF 142  ]
+[e :U 143 ]
+[; ;Uart.c: 39: return RCREG;
+"39
+[e ) _RCREG ]
+[e $UE 140  ]
+[; ;Uart.c: 40: }
+"40
 [e :UE 140 ]
 }
-"61
-[v _CalcularDistancia `(v ~T0 @X0 1 ef3`i`**uc`i ]
+"42
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
+"43
 {
-[; ;Funciones.c: 61: void CalcularDistancia(int dist, char** distancia, int size){
-[e :U _CalcularDistancia ]
-[v _dist `i ~T0 @X0 1 r1 ]
-[v _distancia `**uc ~T0 @X0 1 r2 ]
-[v _size `i ~T0 @X0 1 r3 ]
+[; ;Uart.c: 42: void UART_Write(char data)
+[; ;Uart.c: 43: {
+[e :U _UART_Write ]
+"42
+[v _data `uc ~T0 @X0 1 r1 ]
+"43
 [f ]
-[; ;Funciones.c: 62: dist = dist / 58;
-"62
-[e = _dist / _dist -> 58 `i ]
-[; ;Funciones.c: 63: sprintf(*distancia,"%d cm", dist);
-"63
-[e ( _sprintf (1 , (. , *U _distancia :s 2C _dist ]
-[; ;Funciones.c: 64: *distancia[size-1] = '\0';
-"64
-[e = *U *U + _distancia * -> - _size -> 1 `i `x -> -> # *U _distancia `i `x -> -> 0 `ui `uc ]
-[; ;Funciones.c: 65: }
-"65
-[e :UE 141 ]
+[; ;Uart.c: 44: while(!TRMT);
+"44
+[e $U 145  ]
+[e :U 146 ]
+[e :U 145 ]
+[e $ ! _TRMT 146  ]
+[e :U 147 ]
+[; ;Uart.c: 45: TXREG = data;
+"45
+[e = _TXREG _data ]
+[; ;Uart.c: 46: }
+"46
+[e :UE 144 ]
 }
-[p f _sprintf 8388736 ]
-[a 2C 37 100 32 99 109 0 ]
-[a 1C 68 105 115 116 97 110 99 105 97 115 58 32 0 ]
+"48
+[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*uc ]
+"49
+{
+[; ;Uart.c: 48: void UART_Write_Text(char *text)
+[; ;Uart.c: 49: {
+[e :U _UART_Write_Text ]
+"48
+[v _text `*uc ~T0 @X0 1 r1 ]
+"49
+[f ]
+"50
+[v _i `i ~T0 @X0 1 a ]
+[; ;Uart.c: 50: int i;
+[; ;Uart.c: 51: for(i=0;text[i]!='\0';i++)
+"51
+{
+[e = _i -> 0 `i ]
+[e $U 152  ]
+"52
+[e :U 149 ]
+[; ;Uart.c: 52: UART_Write(text[i]);
+[e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
+"51
+[e ++ _i -> 1 `i ]
+[e :U 152 ]
+[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 149  ]
+[e :U 150 ]
+"52
+}
+[; ;Uart.c: 53: }
+"53
+[e :UE 148 ]
+}

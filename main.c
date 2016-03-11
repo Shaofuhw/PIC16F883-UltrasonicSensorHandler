@@ -8,10 +8,9 @@
 #include <xc.h>
 #include "Funciones.h"
 #include "LCD.h"
+#include "Uart.h"
 
 #define _XTAL_FREQ 8000000
-
-#ifndef CONFIG
 
 // CONFIG1
 #pragma config FOSC = INTRC_CLKOUT  // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -29,62 +28,41 @@
 #pragma config BOR4V = BOR21V       // Brown-out Reset Selection bit (Brown-out Reset set to 2.1V)
 #pragma config WRT = OFF                // Flash Program Memory Self Write Enable bits (Write protection off)
 
-#endif
-
 //Variables Globales
-int t1 = 0;
-int t2 = 0;
-int t3 = 0;
-int t4 = 0;
 
-int SensorOn = 0;
+unsigned int t4 = 0;
+unsigned int t5 = 0;
+unsigned int t6 = 0;
+unsigned int t7 = 0;
+int rbon = 0;
 
-    char dist1[10];
-    char* distancia1 = dist1;
-    char dist2[10];
-    char* distancia2 = dist2;
-    char dist3[10];
-    char* distancia3 = dist3;
-    char dist4[10];
-    char* distancia4 = dist4;
+char dist1[8];
+char* distancia1 = dist1;
+char dist2[8];
+char* distancia2 = dist2;
+char dist3[8];
+char* distancia3 = dist3;
+char dist4[8];
+char* distancia4 = dist4;
 
 //Programa
 void main(void) {
 
     Inicializaciones();                     //Se configuran y inicializan los puertos, timer, interrupciones y LCD
+    UART_Init(9600);
     
     while(1)
     {
-        
         /*Es necesario que las lecturas de los sensores sean de manera secuencial, ya que si no puede haber
          errores debido a la solapación de las señales de ECHO.
          Los trigger se envian de manera secuencial, con un margen de 40ms entre cada pulso, ya que según el datasheet,
          la longitud máxima del pulso es de cerca de 38ms para cuando no detecta ningún obstáculo.
          Después de cada lectura, se calcula el valor de dicho pulso, y una vez se han leído los 4 sensores, se sacan por el LCD
          */
-        
-        Trigger0();                              //Activa los Trigger, y los apaga trás un retardo
-        __delay_ms(40);
-        //Envía el tiempo del pulso de ECHO, y actualiza el valor de "distancia" en la distancia real en cm
-        CalcularDistancia(t1, &distancia1, sizeof(distancia1));           
-        
-        Trigger1();
-        __delay_ms(40);
-        CalcularDistancia(t2, &distancia2, sizeof(distancia2));
-        
-        Trigger2();
-        __delay_ms(40);
-        CalcularDistancia(t3, &distancia3, sizeof(distancia3));
-        
-        Trigger3();
-        __delay_ms(40);
-        CalcularDistancia(t4, &distancia4, sizeof(distancia4));
-        
-        lcd_goto(0, 1);                     //Coloca el cursor en la primera posición de la segunda fila
-        lcd_puts(dist1);
-        lcd_puts(dist2);
-        lcd_puts(dist3);
-        lcd_puts(dist4);
+        Trigger();
+        CalcularDistancia(t4, t5, t6, t7, &distancia1, &distancia2, &distancia3, &distancia4);
+        PrintDistancias(dist1, dist2, dist3, dist4);        //Saca las distancias por el puerto serie y el LCD ~20ms
+        ResetEcho();                      //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
     }
     return;
 }
@@ -95,65 +73,69 @@ void interrupt echo()
     if(RBIF == 1)                           //Comprobar flag del puerto B
     {
         RBIE = 0;                           //Desactiva el bit de interrupcion puerto B
+        /* Cuando detecta la subida de alguno de los pulsos, pone su respectiva señal de "On" a 1, de esta forma,
+         cuando dicha señal baja, se puede identificar cúal ha sido, y evitar posibles problemas de lectura.
+         Como el trigger se manda a la vez para todos los ultrasonidos, no se sabe cuándo va a volver cada respectivo echo
+         por lo que se hace de esta forma para que con un sólo timer, se puedan contar todas las distancias.
+         No funcionaría en el caso de que varios ECHO volviesen justo en el  mismo instante, ya que sólo detectaría  uno*/
+        if ( (RB4 == 1) && (rbon == 0) )
+        {
+            TMR1 = 0;
+            rbon = 4;
+            TMR1ON = 1;
+        }
         
-        //Primer Sensor ECHO high
-        if( RB4 == 1 )
+        else if( (RB4 == 0) && (rbon == 4) )
         {
-            SensorOn = 1;
-            TMR1 = 0;
-            TMR1ON = 1;
-        }
-        //Primer sensor ECHO low
-        else if ( RB4 == 0 && SensorOn == 1)
-        {
-            SensorOn = 0;
-            TMR1ON = 0;
-            t1 = TMR1;
-        }
-        //Segundo sensor ECHO high
-        else if( RB5 == 1 )
-        {
-            SensorOn = 2;
-            TMR1 = 0;
-            TMR1ON = 1;
-        }   
-        //Segundo sensor ECHO low
-        else if( RB5 == 0 && SensorOn == 2 )
-        {
-            SensorOn = 0;
-            TMR1ON = 0;
-            t2 = TMR1;
-        }
-        //Tercer sensor ECHO high
-        else if( RB6 == 1 )
-        {
-            SensorOn = 3;
-            TMR1 = 0;
-            TMR1ON = 1;
-        }          
-        //Tercer sensor ECHO low
-        else if( RB6 == 0 && SensorOn == 3 )
-        {
-            SensorOn = 0;
-            TMR1ON = 0;
-            t3 = TMR1;
-        }
-        //Cuarto sensor ECHO high
-        else if( RB7 == 1 )
-        {
-            SensorOn = 4;
-            TMR1 = 0;
-            TMR1ON = 1;
-        }      
-        //Cuarto sensor ECHO low
-        else if( RB7 == 0 && SensorOn == 4 )
-        {
-            SensorOn = 0;
-            TMR1ON = 0;
             t4 = TMR1;
+            rbon = 0;
+            TMR1ON = 0;
+        }
+        
+        else if ( (RB5 == 1) && (rbon == 0) )
+        {
+            TMR1 = 0;
+            rbon = 5;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB5 == 0) && (rbon == 5) )
+        {
+            t5 = TMR1;
+            rbon = 0;
+            TMR1ON = 0;
+        }
+   
+        else if ( (RB6 == 1) && (rbon == 0) )
+        {
+            TMR1 = 0;
+            rbon = 6;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB6 == 0) && (rbon == 6) )
+        {
+            t6 = TMR1;
+            rbon = 0;
+            TMR1ON = 0;
+        }
+        
+        else if ( (RB7 == 1) && (rbon == 0) )
+        {
+            TMR1 = 0;
+            rbon = 7;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB7 == 0) && (rbon == 7) )
+        {
+            t7 = TMR1;
+            rbon = 0;
+            TMR1ON = 0;
         }
         
         RBIF = 0;                           //Limpia la bandera
         RBIE = 1;                           //Vuelve a activar la interrupcion
     }
+    
 }

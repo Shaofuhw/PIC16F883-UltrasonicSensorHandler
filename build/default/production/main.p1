@@ -2,24 +2,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "6 Funciones.h
 [v _Inicializaciones `(v ~T0 @X0 0 ef ]
-"7
-[v _Trigger0 `(v ~T0 @X0 0 ef ]
-[v F1554 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
-[v __delay `JF1554 ~T0 @X0 0 e ]
-[p i __delay ]
-"11 Funciones.h
-[v _CalcularDistancia `(v ~T0 @X0 0 ef3`i`**uc`i ]
+"5 Uart.h
+[v _UART_Init `(uc ~T0 @X0 0 ef1`Cl ]
+"7 Funciones.h
+[v _Trigger `(v ~T0 @X0 0 ef ]
 "8
-[v _Trigger1 `(v ~T0 @X0 0 ef ]
+[v _CalcularDistancia `(v ~T0 @X0 0 ef8`ui`ui`ui`ui`**uc`**uc`**uc`**uc ]
 "9
-[v _Trigger2 `(v ~T0 @X0 0 ef ]
+[v _PrintDistancias `(v ~T0 @X0 0 ef4`*uc`*uc`*uc`*uc ]
 "10
-[v _Trigger3 `(v ~T0 @X0 0 ef ]
-"234 LCD.h
-[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"275
-[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+[v _ResetEcho `(v ~T0 @X0 0 ef ]
 "3682 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "3680
@@ -1486,11 +1478,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;Funciones.h: 6: void Inicializaciones(void);
-[; ;Funciones.h: 7: void Trigger0(void);
-[; ;Funciones.h: 8: void Trigger1(void);
-[; ;Funciones.h: 9: void Trigger2(void);
-[; ;Funciones.h: 10: void Trigger3(void);
-[; ;Funciones.h: 11: void CalcularDistancia(int, char**, int);
+[; ;Funciones.h: 7: void Trigger(void);
+[; ;Funciones.h: 8: void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
+[; ;Funciones.h: 9: void PrintDistancias(char [],char [],char [],char []);
+[; ;Funciones.h: 10: void ResetEcho();
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -1567,353 +1558,323 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
 [; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
 [; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
-"17 main.c
+[; ;Uart.h: 5: char UART_Init(const long int);
+[; ;Uart.h: 6: char UART_TX_Empty();
+[; ;Uart.h: 7: char UART_Data_Ready();
+[; ;Uart.h: 8: char UART_Read();
+[; ;Uart.h: 9: void UART_Write(char );
+[; ;Uart.h: 10: void UART_Write_Text(char *);
+"16 main.c
 [p x FOSC=INTRC_CLKOUT ]
-"18
+"17
 [p x WDTE=OFF ]
-"19
+"18
 [p x PWRTE=OFF ]
-"20
+"19
 [p x MCLRE=ON ]
-"21
+"20
 [p x CP=OFF ]
-"22
+"21
 [p x CPD=OFF ]
-"23
+"22
 [p x BOREN=ON ]
-"24
+"23
 [p x IESO=ON ]
-"25
+"24
 [p x FCMEN=ON ]
-"26
+"25
 [p x LVP=OFF ]
-"29
+"28
 [p x BOR4V=BOR21V ]
-"30
+"29
 [p x WRT=OFF ]
-"35
-[v _t1 `i ~T0 @X0 1 e ]
-[i _t1
--> 0 `i
-]
-[; ;main.c: 35: int t1 = 0;
-"36
-[v _t2 `i ~T0 @X0 1 e ]
-[i _t2
--> 0 `i
-]
-[; ;main.c: 36: int t2 = 0;
-"37
-[v _t3 `i ~T0 @X0 1 e ]
-[i _t3
--> 0 `i
-]
-[; ;main.c: 37: int t3 = 0;
-"38
-[v _t4 `i ~T0 @X0 1 e ]
+"33
+[v _t4 `ui ~T0 @X0 1 e ]
 [i _t4
+-> -> 0 `i `ui
+]
+[; ;main.c: 33: unsigned int t4 = 0;
+"34
+[v _t5 `ui ~T0 @X0 1 e ]
+[i _t5
+-> -> 0 `i `ui
+]
+[; ;main.c: 34: unsigned int t5 = 0;
+"35
+[v _t6 `ui ~T0 @X0 1 e ]
+[i _t6
+-> -> 0 `i `ui
+]
+[; ;main.c: 35: unsigned int t6 = 0;
+"36
+[v _t7 `ui ~T0 @X0 1 e ]
+[i _t7
+-> -> 0 `i `ui
+]
+[; ;main.c: 36: unsigned int t7 = 0;
+"37
+[v _rbon `i ~T0 @X0 1 e ]
+[i _rbon
 -> 0 `i
 ]
-[; ;main.c: 38: int t4 = 0;
+[; ;main.c: 37: int rbon = 0;
+"39
+[v _dist1 `uc ~T0 @X0 -> 8 `i e ]
+[; ;main.c: 39: char dist1[8];
 "40
-[v _SensorOn `i ~T0 @X0 1 e ]
-[i _SensorOn
--> 0 `i
-]
-[; ;main.c: 40: int SensorOn = 0;
-"42
-[v _dist1 `uc ~T0 @X0 -> 10 `i e ]
-[; ;main.c: 42: char dist1[10];
-"43
 [v _distancia1 `*uc ~T0 @X0 1 e ]
 [i _distancia1
 &U _dist1
 ]
-[; ;main.c: 43: char* distancia1 = dist1;
-"44
-[v _dist2 `uc ~T0 @X0 -> 10 `i e ]
-[; ;main.c: 44: char dist2[10];
-"45
+[; ;main.c: 40: char* distancia1 = dist1;
+"41
+[v _dist2 `uc ~T0 @X0 -> 8 `i e ]
+[; ;main.c: 41: char dist2[8];
+"42
 [v _distancia2 `*uc ~T0 @X0 1 e ]
 [i _distancia2
 &U _dist2
 ]
-[; ;main.c: 45: char* distancia2 = dist2;
-"46
-[v _dist3 `uc ~T0 @X0 -> 10 `i e ]
-[; ;main.c: 46: char dist3[10];
-"47
+[; ;main.c: 42: char* distancia2 = dist2;
+"43
+[v _dist3 `uc ~T0 @X0 -> 8 `i e ]
+[; ;main.c: 43: char dist3[8];
+"44
 [v _distancia3 `*uc ~T0 @X0 1 e ]
 [i _distancia3
 &U _dist3
 ]
-[; ;main.c: 47: char* distancia3 = dist3;
-"48
-[v _dist4 `uc ~T0 @X0 -> 10 `i e ]
-[; ;main.c: 48: char dist4[10];
-"49
+[; ;main.c: 44: char* distancia3 = dist3;
+"45
+[v _dist4 `uc ~T0 @X0 -> 8 `i e ]
+[; ;main.c: 45: char dist4[8];
+"46
 [v _distancia4 `*uc ~T0 @X0 1 e ]
 [i _distancia4
 &U _dist4
 ]
-[; ;main.c: 49: char* distancia4 = dist4;
-"52
+[; ;main.c: 46: char* distancia4 = dist4;
+"49
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 52: void main(void) {
+[; ;main.c: 49: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 54: Inicializaciones();
-"54
+[; ;main.c: 51: Inicializaciones();
+"51
 [e ( _Inicializaciones ..  ]
-[; ;main.c: 56: while(1)
-"56
+[; ;main.c: 52: UART_Init(9600);
+"52
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;main.c: 54: while(1)
+"54
 [e :U 138 ]
-[; ;main.c: 57: {
-"57
+[; ;main.c: 55: {
+"55
 {
-[; ;main.c: 66: Trigger0();
+[; ;main.c: 62: Trigger();
+"62
+[e ( _Trigger ..  ]
+[; ;main.c: 63: CalcularDistancia(t4, t5, t6, t7, &distancia1, &distancia2, &distancia3, &distancia4);
+"63
+[e ( _CalcularDistancia (4 , , , , , , , _t4 _t5 _t6 _t7 &U _distancia1 &U _distancia2 &U _distancia3 &U _distancia4 ]
+[; ;main.c: 64: PrintDistancias(dist1, dist2, dist3, dist4);
+"64
+[e ( _PrintDistancias (4 , , , &U _dist1 &U _dist2 &U _dist3 &U _dist4 ]
+[; ;main.c: 65: ResetEcho();
+"65
+[e ( _ResetEcho ..  ]
 "66
-[e ( _Trigger0 ..  ]
-[; ;main.c: 67: _delay((unsigned long)((40)*(8000000/4000.0)));
-"67
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 69: CalcularDistancia(t1, &distancia1, sizeof(distancia1));
-"69
-[e ( _CalcularDistancia (3 , , _t1 &U _distancia1 -> -> # _distancia1 `ui `i ]
-[; ;main.c: 71: Trigger1();
-"71
-[e ( _Trigger1 ..  ]
-[; ;main.c: 72: _delay((unsigned long)((40)*(8000000/4000.0)));
-"72
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 73: CalcularDistancia(t2, &distancia2, sizeof(distancia2));
-"73
-[e ( _CalcularDistancia (3 , , _t2 &U _distancia2 -> -> # _distancia2 `ui `i ]
-[; ;main.c: 75: Trigger2();
-"75
-[e ( _Trigger2 ..  ]
-[; ;main.c: 76: _delay((unsigned long)((40)*(8000000/4000.0)));
-"76
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 77: CalcularDistancia(t3, &distancia3, sizeof(distancia3));
-"77
-[e ( _CalcularDistancia (3 , , _t3 &U _distancia3 -> -> # _distancia3 `ui `i ]
-[; ;main.c: 79: Trigger3();
-"79
-[e ( _Trigger3 ..  ]
-[; ;main.c: 80: _delay((unsigned long)((40)*(8000000/4000.0)));
-"80
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 81: CalcularDistancia(t4, &distancia4, sizeof(distancia4));
-"81
-[e ( _CalcularDistancia (3 , , _t4 &U _distancia4 -> -> # _distancia4 `ui `i ]
-[; ;main.c: 83: lcd_goto(0, 1);
-"83
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 84: lcd_puts(dist1);
-"84
-[e ( _lcd_puts (1 -> &U _dist1 `*Cuc ]
-[; ;main.c: 85: lcd_puts(dist2);
-"85
-[e ( _lcd_puts (1 -> &U _dist2 `*Cuc ]
-[; ;main.c: 86: lcd_puts(dist3);
-"86
-[e ( _lcd_puts (1 -> &U _dist3 `*Cuc ]
-[; ;main.c: 87: lcd_puts(dist4);
-"87
-[e ( _lcd_puts (1 -> &U _dist4 `*Cuc ]
-"88
 }
 [e :U 137 ]
-"56
+"54
 [e $U 138  ]
 [e :U 139 ]
-[; ;main.c: 88: }
-[; ;main.c: 89: return;
-"89
+[; ;main.c: 66: }
+[; ;main.c: 67: return;
+"67
 [e $UE 136  ]
-[; ;main.c: 90: }
-"90
+[; ;main.c: 68: }
+"68
 [e :UE 136 ]
 }
-[v F1743 `(v ~T0 @X0 1 tf ]
-"93
-[v _echo `IF1743 ~T0 @X0 1 e ]
-"94
+[v F1753 `(v ~T0 @X0 1 tf ]
+"71
+[v _echo `IF1753 ~T0 @X0 1 e ]
+"72
 {
-[; ;main.c: 93: void interrupt echo()
-[; ;main.c: 94: {
+[; ;main.c: 71: void interrupt echo()
+[; ;main.c: 72: {
 [e :U _echo ]
 [f ]
-[; ;main.c: 95: if(RBIF == 1)
-"95
+[; ;main.c: 73: if(RBIF == 1)
+"73
 [e $ ! == -> _RBIF `i -> 1 `i 141  ]
+[; ;main.c: 74: {
+"74
+{
+[; ;main.c: 75: RBIE = 0;
+"75
+[e = _RBIE -> -> 0 `i `b ]
+[; ;main.c: 81: if ( (RB4 == 1) && (rbon == 0) )
+"81
+[e $ ! && == -> _RB4 `i -> 1 `i == _rbon -> 0 `i 142  ]
+[; ;main.c: 82: {
+"82
+{
+[; ;main.c: 83: TMR1 = 0;
+"83
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;main.c: 84: rbon = 4;
+"84
+[e = _rbon -> 4 `i ]
+[; ;main.c: 85: TMR1ON = 1;
+"85
+[e = _TMR1ON -> -> 1 `i `b ]
+"86
+}
+[; ;main.c: 86: }
+[e $U 143  ]
+"88
+[e :U 142 ]
+[; ;main.c: 88: else if( (RB4 == 0) && (rbon == 4) )
+[e $ ! && == -> _RB4 `i -> 0 `i == _rbon -> 4 `i 144  ]
+[; ;main.c: 89: {
+"89
+{
+[; ;main.c: 90: t4 = TMR1;
+"90
+[e = _t4 -> _TMR1 `ui ]
+[; ;main.c: 91: rbon = 0;
+"91
+[e = _rbon -> 0 `i ]
+[; ;main.c: 92: TMR1ON = 0;
+"92
+[e = _TMR1ON -> -> 0 `i `b ]
+"93
+}
+[; ;main.c: 93: }
+[e $U 145  ]
+"95
+[e :U 144 ]
+[; ;main.c: 95: else if ( (RB5 == 1) && (rbon == 0) )
+[e $ ! && == -> _RB5 `i -> 1 `i == _rbon -> 0 `i 146  ]
 [; ;main.c: 96: {
 "96
 {
-[; ;main.c: 97: RBIE = 0;
+[; ;main.c: 97: TMR1 = 0;
 "97
-[e = _RBIE -> -> 0 `i `b ]
-[; ;main.c: 100: if( RB4 == 1 )
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;main.c: 98: rbon = 5;
+"98
+[e = _rbon -> 5 `i ]
+[; ;main.c: 99: TMR1ON = 1;
+"99
+[e = _TMR1ON -> -> 1 `i `b ]
 "100
-[e $ ! == -> _RB4 `i -> 1 `i 142  ]
-[; ;main.c: 101: {
-"101
-{
-[; ;main.c: 102: SensorOn = 1;
-"102
-[e = _SensorOn -> 1 `i ]
-[; ;main.c: 103: TMR1 = 0;
-"103
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;main.c: 104: TMR1ON = 1;
-"104
-[e = _TMR1ON -> -> 1 `i `b ]
-"105
 }
-[; ;main.c: 105: }
-[e $U 143  ]
-"107
-[e :U 142 ]
-[; ;main.c: 107: else if ( RB4 == 0 && SensorOn == 1)
-[e $ ! && == -> _RB4 `i -> 0 `i == _SensorOn -> 1 `i 144  ]
-[; ;main.c: 108: {
-"108
-{
-[; ;main.c: 109: SensorOn = 0;
-"109
-[e = _SensorOn -> 0 `i ]
-[; ;main.c: 110: TMR1ON = 0;
-"110
-[e = _TMR1ON -> -> 0 `i `b ]
-[; ;main.c: 111: t1 = TMR1;
-"111
-[e = _t1 -> _TMR1 `i ]
-"112
-}
-[; ;main.c: 112: }
-[e $U 145  ]
-"114
-[e :U 144 ]
-[; ;main.c: 114: else if( RB5 == 1 )
-[e $ ! == -> _RB5 `i -> 1 `i 146  ]
-[; ;main.c: 115: {
-"115
-{
-[; ;main.c: 116: SensorOn = 2;
-"116
-[e = _SensorOn -> 2 `i ]
-[; ;main.c: 117: TMR1 = 0;
-"117
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;main.c: 118: TMR1ON = 1;
-"118
-[e = _TMR1ON -> -> 1 `i `b ]
-"119
-}
-[; ;main.c: 119: }
+[; ;main.c: 100: }
 [e $U 147  ]
-"121
+"102
 [e :U 146 ]
-[; ;main.c: 121: else if( RB5 == 0 && SensorOn == 2 )
-[e $ ! && == -> _RB5 `i -> 0 `i == _SensorOn -> 2 `i 148  ]
-[; ;main.c: 122: {
-"122
+[; ;main.c: 102: else if( (RB5 == 0) && (rbon == 5) )
+[e $ ! && == -> _RB5 `i -> 0 `i == _rbon -> 5 `i 148  ]
+[; ;main.c: 103: {
+"103
 {
-[; ;main.c: 123: SensorOn = 0;
-"123
-[e = _SensorOn -> 0 `i ]
-[; ;main.c: 124: TMR1ON = 0;
-"124
+[; ;main.c: 104: t5 = TMR1;
+"104
+[e = _t5 -> _TMR1 `ui ]
+[; ;main.c: 105: rbon = 0;
+"105
+[e = _rbon -> 0 `i ]
+[; ;main.c: 106: TMR1ON = 0;
+"106
 [e = _TMR1ON -> -> 0 `i `b ]
-[; ;main.c: 125: t2 = TMR1;
-"125
-[e = _t2 -> _TMR1 `i ]
-"126
+"107
 }
-[; ;main.c: 126: }
+[; ;main.c: 107: }
 [e $U 149  ]
-"128
+"109
 [e :U 148 ]
-[; ;main.c: 128: else if( RB6 == 1 )
-[e $ ! == -> _RB6 `i -> 1 `i 150  ]
-[; ;main.c: 129: {
-"129
+[; ;main.c: 109: else if ( (RB6 == 1) && (rbon == 0) )
+[e $ ! && == -> _RB6 `i -> 1 `i == _rbon -> 0 `i 150  ]
+[; ;main.c: 110: {
+"110
 {
-[; ;main.c: 130: SensorOn = 3;
-"130
-[e = _SensorOn -> 3 `i ]
-[; ;main.c: 131: TMR1 = 0;
-"131
+[; ;main.c: 111: TMR1 = 0;
+"111
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;main.c: 132: TMR1ON = 1;
-"132
+[; ;main.c: 112: rbon = 6;
+"112
+[e = _rbon -> 6 `i ]
+[; ;main.c: 113: TMR1ON = 1;
+"113
 [e = _TMR1ON -> -> 1 `i `b ]
-"133
+"114
 }
-[; ;main.c: 133: }
+[; ;main.c: 114: }
 [e $U 151  ]
-"135
+"116
 [e :U 150 ]
-[; ;main.c: 135: else if( RB6 == 0 && SensorOn == 3 )
-[e $ ! && == -> _RB6 `i -> 0 `i == _SensorOn -> 3 `i 152  ]
-[; ;main.c: 136: {
-"136
+[; ;main.c: 116: else if( (RB6 == 0) && (rbon == 6) )
+[e $ ! && == -> _RB6 `i -> 0 `i == _rbon -> 6 `i 152  ]
+[; ;main.c: 117: {
+"117
 {
-[; ;main.c: 137: SensorOn = 0;
-"137
-[e = _SensorOn -> 0 `i ]
-[; ;main.c: 138: TMR1ON = 0;
-"138
+[; ;main.c: 118: t6 = TMR1;
+"118
+[e = _t6 -> _TMR1 `ui ]
+[; ;main.c: 119: rbon = 0;
+"119
+[e = _rbon -> 0 `i ]
+[; ;main.c: 120: TMR1ON = 0;
+"120
 [e = _TMR1ON -> -> 0 `i `b ]
-[; ;main.c: 139: t3 = TMR1;
-"139
-[e = _t3 -> _TMR1 `i ]
-"140
+"121
 }
-[; ;main.c: 140: }
+[; ;main.c: 121: }
 [e $U 153  ]
-"142
+"123
 [e :U 152 ]
-[; ;main.c: 142: else if( RB7 == 1 )
-[e $ ! == -> _RB7 `i -> 1 `i 154  ]
-[; ;main.c: 143: {
-"143
+[; ;main.c: 123: else if ( (RB7 == 1) && (rbon == 0) )
+[e $ ! && == -> _RB7 `i -> 1 `i == _rbon -> 0 `i 154  ]
+[; ;main.c: 124: {
+"124
 {
-[; ;main.c: 144: SensorOn = 4;
-"144
-[e = _SensorOn -> 4 `i ]
-[; ;main.c: 145: TMR1 = 0;
-"145
+[; ;main.c: 125: TMR1 = 0;
+"125
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;main.c: 146: TMR1ON = 1;
-"146
+[; ;main.c: 126: rbon = 7;
+"126
+[e = _rbon -> 7 `i ]
+[; ;main.c: 127: TMR1ON = 1;
+"127
 [e = _TMR1ON -> -> 1 `i `b ]
-"147
+"128
 }
-[; ;main.c: 147: }
+[; ;main.c: 128: }
 [e $U 155  ]
-"149
+"130
 [e :U 154 ]
-[; ;main.c: 149: else if( RB7 == 0 && SensorOn == 4 )
-[e $ ! && == -> _RB7 `i -> 0 `i == _SensorOn -> 4 `i 156  ]
-[; ;main.c: 150: {
-"150
+[; ;main.c: 130: else if( (RB7 == 0) && (rbon == 7) )
+[e $ ! && == -> _RB7 `i -> 0 `i == _rbon -> 7 `i 156  ]
+[; ;main.c: 131: {
+"131
 {
-[; ;main.c: 151: SensorOn = 0;
-"151
-[e = _SensorOn -> 0 `i ]
-[; ;main.c: 152: TMR1ON = 0;
-"152
+[; ;main.c: 132: t7 = TMR1;
+"132
+[e = _t7 -> _TMR1 `ui ]
+[; ;main.c: 133: rbon = 0;
+"133
+[e = _rbon -> 0 `i ]
+[; ;main.c: 134: TMR1ON = 0;
+"134
 [e = _TMR1ON -> -> 0 `i `b ]
-[; ;main.c: 153: t4 = TMR1;
-"153
-[e = _t4 -> _TMR1 `i ]
-"154
+"135
 }
 [e :U 156 ]
-"156
+"137
 [e :U 155 ]
 [e :U 153 ]
 [e :U 151 ]
@@ -1921,17 +1882,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 147 ]
 [e :U 145 ]
 [e :U 143 ]
-[; ;main.c: 154: }
-[; ;main.c: 156: RBIF = 0;
+[; ;main.c: 135: }
+[; ;main.c: 137: RBIF = 0;
 [e = _RBIF -> -> 0 `i `b ]
-[; ;main.c: 157: RBIE = 1;
-"157
+[; ;main.c: 138: RBIE = 1;
+"138
 [e = _RBIE -> -> 1 `i `b ]
-"158
+"139
 }
 [e :U 141 ]
-[; ;main.c: 158: }
-[; ;main.c: 159: }
-"159
+[; ;main.c: 139: }
+[; ;main.c: 141: }
+"141
 [e :UE 140 ]
 }

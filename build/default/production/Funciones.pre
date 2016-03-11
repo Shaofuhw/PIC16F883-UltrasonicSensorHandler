@@ -2056,11 +2056,10 @@ extern int printf(const char *, ...);
 
 # 6 "Funciones.h"
 void Inicializaciones(void);
-void Trigger0(void);
-void Trigger1(void);
-void Trigger2(void);
-void Trigger3(void);
-void CalcularDistancia(int, char**, int);
+void Trigger(void);
+void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
+void PrintDistancias(char [],char [],char [],char []);
+void ResetEcho();
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
 typedef signed char int8_t;
@@ -2246,7 +2245,15 @@ void lcd_iowrite4(uint8_t data);
 # 356
 void lcd_iowrite8(uint8_t data);
 
-# 5 "Funciones.c"
+# 5 "Uart.h"
+char UART_Init(const long int);
+char UART_TX_Empty();
+char UART_Data_Ready();
+char UART_Read();
+void UART_Write(char );
+void UART_Write_Text(char *);
+
+# 6 "Funciones.c"
 void Inicializaciones(){
 OSCCON = 0b01110101;
 
@@ -2255,55 +2262,95 @@ TRISB = 0b11110000;
 PORTB = 0b00000000;
 ANSELH = 0b00000000;
 
-
-TRISC = 0b00000011;
-PORTC = 0b00000000;
-
-# 20
+# 17
+TMR1 = 0;
 T1CON = 0b00010000;
 
 
 INTCON = 0b00001000;
 IOCB = 0b11110000;
-PIE1 = 0b00000001;
-PIR1 = 0b00000000;
 GIE = 1;
 
 lcd_init(0, 16, 2);
 lcd_clear();
 lcd_on();
-lcd_goto(0, 0);
-lcd_puts("Distancias: ");
 }
 
 
-void Trigger0(){
+void Trigger(){
 RB0 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB0 = 0;
-}
 
-void Trigger1(){
+_delay((unsigned long)((50)*(8000000/4000.0)));
+
 RB1 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB1 = 0;
-}
 
-void Trigger2(){
+_delay((unsigned long)((50)*(8000000/4000.0)));
+
 RB2 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB2 = 0;
-}
 
-void Trigger3(){
+_delay((unsigned long)((50)*(8000000/4000.0)));
 RB3 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
-RB3 = 0;
+RB3= 0;
+
+_delay((unsigned long)((50)*(8000000/4000.0)));
 }
 
-void CalcularDistancia(int dist, char** distancia, int size){
-dist = dist / 58;
-sprintf(*distancia,"%d cm", dist);
-*distancia[size-1] = '\0';
+void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
+unsigned int t3, char** distancia1, char** distancia2, char** distancia3, char** distancia4){
+
+unsigned int d0,d1,d2,d3;
+
+d0 = ( t0 ) / 58;
+d1 = ( t1 ) / 58;
+d2 = ( t2 ) / 58;
+d3 = ( t3 ) / 58;
+
+if(d0 == 0){ sprintf(*distancia1,"NOPE\0"); }
+else if(d0 > 400){ sprintf(*distancia1,"OUT\0"); }
+else { sprintf(*distancia1,"%u   \0", d0); }
+
+if(d1 == 0){ sprintf(*distancia2,"NOPE\0"); }
+else if(d1 > 400){ sprintf(*distancia2,"OUT\0"); }
+else{ sprintf(*distancia2,"%u   \0", d1); }
+
+if(d2 == 0){ sprintf(*distancia3,"NOPE\0"); }
+else if(d2 > 400){ sprintf(*distancia3,"OUT\0"); }
+else{ sprintf(*distancia3,"%u   \0", d2); }
+
+if(d3 == 0){ sprintf(*distancia4,"NOPE\0"); }
+else if(d3 > 400){ sprintf(*distancia4,"OUT\0"); }
+else{ sprintf(*distancia4,"%u   \0", d3); }
 }
 
+void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
+{
+
+lcd_goto(0, 0);
+lcd_puts("Distancias:");
+lcd_goto(12,0);
+lcd_puts(dist1);
+lcd_goto(0,1);
+lcd_puts(dist2);
+lcd_goto(6,1);
+lcd_puts(dist3);
+lcd_goto(12,1);
+lcd_puts(dist4);
+
+# 106
+}
+
+void ResetEcho()
+{
+TRISB = 0b00000000;
+_delay((unsigned long)((5)*(8000000/4000.0)));
+PORTB = 0b00000000;
+_delay((unsigned long)((5)*(8000000/4000.0)));
+TRISB = 0b11110000;
+}

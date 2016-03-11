@@ -2181,14 +2181,14 @@ uint8_t lcd_ioinit(void * iodata)
 uint8_t i = 0;
 
 
-TRISC2 = 0;
-TRISC3 = 0;
+TRISC5 = 0;
+TRISC4 = 0;
 
 # 60
-TRISC4 = 0;
-TRISC5 = 0;
-TRISC6 = 0;
-TRISC7 = 0;
+TRISC0 = 0;
+TRISC1 = 0;
+TRISC2 = 0;
+TRISC3 = 0;
 
 # 75
 for (i = 0; i < 11; i++)
@@ -2207,22 +2207,22 @@ switch (pin) {
 
 # 103
 case E_D4_PIN:
-RC4 = out;
+RC0 = out;
 break;
 case E_D5_PIN:
-RC5 = out;
+RC1 = out;
 break;
 case E_D6_PIN:
-RC6 = out;
+RC2 = out;
 break;
 case E_D7_PIN:
-RC7 = out;
-break;
-case E_RS_PIN:
 RC3 = out;
 break;
+case E_RS_PIN:
+RC4 = out;
+break;
 case E_EN_PIN:
-RC2 = out;
+RC5 = out;
 break;
 case E_RW_PIN:
 

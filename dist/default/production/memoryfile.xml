@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\Multiples_Ultrasonidos.X.production.hex">
+  <executable name="dist/default/production\HCSR.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>4096</length>
-      <used>1494</used>
-      <free>2602</free>
+      <used>2001</used>
+      <free>2095</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>256</length>
-      <used>99</used>
-      <free>157</free>
+      <used>108</used>
+      <free>148</free>
     </memory>
   </executable>
 </project>
