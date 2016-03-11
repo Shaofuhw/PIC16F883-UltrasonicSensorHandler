@@ -3,22 +3,23 @@ Microchip MPLAB XC8 Compiler V1.36 ()
 Linker command line:
 
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.36\dat\en_msgs.txt -cs \
-  -h+dist/default/production\HCSR.X.production.sym \
-  --cmf=dist/default/production\HCSR.X.production.cmf -z -Q16F883 \
-  -oC:\Users\Fu\AppData\Local\Temp\s1gs.2 \
-  -Mdist/default/production/HCSR.X.production.map -E1 -ver=XC8 \
-  -ASTACK=0120h-016fh -pstack=STACK -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
-  -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 -AENTRY=00h-0FFhx16 \
-  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
-  -ABANK2=0120h-016Fh -ARAM=020h-06Fh,0A0h-0EFh,0120h-016Fh \
+  -h+dist/default/production\PIC16F883-UltrasonicSensorHandler.production.sym \
+  --cmf=dist/default/production\PIC16F883-UltrasonicSensorHandler.production.cmf \
+  -z -Q16F883 -oC:\Users\Fu\AppData\Local\Temp\s51o.2 \
+  -Mdist/default/production/PIC16F883-UltrasonicSensorHandler.production.map \
+  -E1 -ver=XC8 -ASTACK=0120h-016fh -pstack=STACK -ACODE=00h-07FFhx2 \
+  -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
+  -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
+  -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh \
+  -ARAM=020h-06Fh,0A0h-0EFh,0120h-016Fh \
   -AABS1=020h-07Fh,0A0h-0EFh,0120h-016Fh -ASFR0=00h-01Fh -ASFR1=080h-09Fh \
   -ASFR2=0100h-011Fh -ASFR3=0180h-01EFh \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Fu\AppData\Local\Temp\s1gs.obj \
-  dist/default/production\HCSR.X.production.obj 
+  -DENTRY=2 -k C:\Users\Fu\AppData\Local\Temp\s51o.obj \
+  dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj 
 
 Object code version is 3.11
 
@@ -27,11 +28,11 @@ Machine type is 16F883
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Fu\AppData\Local\Temp\s1gs.obj
+C:\Users\Fu\AppData\Local\Temp\s51o.obj
                 end_init                             11       11        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             2007     2007        2     400E       0
-dist/default/production\HCSR.X.production.obj
+dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
                 cinit                                13       13       29        8       0
                 intentry                              4        4        D        8       0
                 text21                              420      420       6E        8       0
@@ -543,6 +544,826 @@ wtemp3                       (abs)        0084
 wtemp4                       (abs)        0086
 wtemp5                       (abs)        0088
 wtemp6                       (abs)        007F
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 49 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       4       0       0
+      Totals:         0       4       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels required when called:    6
+ This function calls:
+		_CalcularDistancia
+		_Inicializaciones
+		_PrintDistancias
+		_ResetEcho
+		_Trigger
+		_UART_Init
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _UART_Init *****************
+ Defined at:
+		line 3 in file "Uart.c"
+ Parameters:    Size  Location     Type
+  baudrate        4   14[BANK0 ] const long 
+ Auto vars:     Size  Location     Type
+  x               2    5[COMMON] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       4       0       0
+      Locals:         2       0       0       0
+      Temps:          0      12       0       0
+      Totals:         2      16       0       0
+Total ram usage:       18 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		___aldiv
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___aldiv *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c"
+ Parameters:    Size  Location     Type
+  divisor         4    0[BANK0 ] long 
+  dividend        4    4[BANK0 ] long 
+ Auto vars:     Size  Location     Type
+  quotient        4   10[BANK0 ] long 
+  sign            1    9[BANK0 ] unsigned char 
+  counter         1    8[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  4    0[BANK0 ] long 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       8       0       0
+      Locals:         0       6       0       0
+      Temps:          1       0       0       0
+      Totals:         1      14       0       0
+Total ram usage:       15 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_UART_Init
+ This function uses a non-reentrant model
+
+
+ *************** function _Trigger *****************
+ Defined at:
+		line 31 in file "Funciones.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          2       0       0       0
+      Totals:         2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _ResetEcho *****************
+ Defined at:
+		line 108 in file "Funciones.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          2       0       0       0
+      Totals:         2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _PrintDistancias *****************
+ Defined at:
+		line 83 in file "Funciones.c"
+ Parameters:    Size  Location     Type
+  dist1           1    wreg     PTR unsigned char 
+		 -> dist1(8), 
+  dist2           1    8[BANK0 ] PTR unsigned char 
+		 -> dist2(8), 
+  dist3           1    9[BANK0 ] PTR unsigned char 
+		 -> dist3(8), 
+  dist4           1   10[BANK0 ] PTR unsigned char 
+		 -> dist4(8), 
+ Auto vars:     Size  Location     Type
+  dist1           1   11[BANK0 ] PTR unsigned char 
+		 -> dist1(8), 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       3       0       0
+      Locals:         0       1       0       0
+      Temps:          0       0       0       0
+      Totals:         0       4       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_lcd_goto
+		_lcd_puts
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_puts *****************
+ Defined at:
+		line 178 in file "LCD.c"
+ Parameters:    Size  Location     Type
+  string          2    5[BANK0 ] PTR const unsigned char 
+		 -> dist4(8), dist3(8), dist2(8), dist1(8), 
+		 -> STR_13(12), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_lcd_send
+ This function is called by:
+		_PrintDistancias
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_goto *****************
+ Defined at:
+		line 149 in file "LCD.c"
+ Parameters:    Size  Location     Type
+  col             1    wreg     unsigned char 
+  row             1    5[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  col             1    7[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       1       0       0
+      Locals:         0       1       0       0
+      Temps:          0       1       0       0
+      Totals:         0       3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_lcd_send
+ This function is called by:
+		_PrintDistancias
+ This function uses a non-reentrant model
+
+
+ *************** function _Inicializaciones *****************
+ Defined at:
+		line 6 in file "Funciones.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       2       0       0
+      Totals:         0       2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_lcd_clear
+		_lcd_init
+		_lcd_on
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_on *****************
+ Defined at:
+		line 91 in file "LCD.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       1       0       0
+      Totals:         0       1       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_lcd_send
+ This function is called by:
+		_Inicializaciones
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_init *****************
+ Defined at:
+		line 33 in file "LCD.c"
+ Parameters:    Size  Location     Type
+  iodata          1    wreg     PTR void 
+		 -> NULL(0), 
+  cols            1    5[BANK0 ] unsigned char 
+  rows            1    6[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  iodata          1   10[BANK0 ] PTR void 
+		 -> NULL(0), 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       1       0       0
+      Temps:          0       3       0       0
+      Totals:         0       6       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_lcd_ioinit
+		_lcd_iowrite4
+		_lcd_send
+ This function is called by:
+		_Inicializaciones
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_ioinit *****************
+ Defined at:
+		line 48 in file "LCD-PIC16.c"
+ Parameters:    Size  Location     Type
+  iodata          1    wreg     PTR void 
+		 -> NULL(0), 
+ Auto vars:     Size  Location     Type
+  iodata          1    0[BANK0 ] PTR void 
+		 -> NULL(0), 
+  i               1    1[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       2       0       0
+      Temps:          1       0       0       0
+      Totals:         1       2       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_lcd_ioset
+ This function is called by:
+		_lcd_init
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_clear *****************
+ Defined at:
+		line 79 in file "LCD.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       2       0       0
+      Totals:         0       2       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_lcd_send
+ This function is called by:
+		_Inicializaciones
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_send *****************
+ Defined at:
+		line 160 in file "LCD.c"
+ Parameters:    Size  Location     Type
+  data            1    wreg     unsigned char 
+  rs              1    2[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  data            1    4[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       1       0       0
+      Locals:         0       1       0       0
+      Temps:          0       1       0       0
+      Totals:         0       3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_lcd_ioset
+		_lcd_iowrite4
+		_lcd_iowrite8
+ This function is called by:
+		_lcd_init
+		_lcd_clear
+		_lcd_on
+		_lcd_goto
+		_lcd_puts
+		_lcd_home
+		_lcd_off
+		_lcd_cursor
+		_lcd_cursor_left
+		_lcd_cursor_right
+		_lcd_scroll_left
+		_lcd_scroll_right
+		_lcd_autoscroll_on
+		_lcd_autoscroll_off
+		_lcd_create_char
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_iowrite8 *****************
+ Defined at:
+		line 143 in file "LCD-PIC16.c"
+ Parameters:    Size  Location     Type
+  data            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  data            1    0[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_lcd_send
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_iowrite4 *****************
+ Defined at:
+		line 129 in file "LCD-PIC16.c"
+ Parameters:    Size  Location     Type
+  data            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  data            1    0[BANK0 ] unsigned char 
+  i               1    1[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       2       0       0
+      Temps:          2       0       0       0
+      Totals:         2       2       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_lcd_ioset
+ This function is called by:
+		_lcd_init
+		_lcd_send
+ This function uses a non-reentrant model
+
+
+ *************** function _lcd_ioset *****************
+ Defined at:
+		line 86 in file "LCD-PIC16.c"
+ Parameters:    Size  Location     Type
+  pin             1    wreg     enum E42
+  out             1    4[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  pin             1    5[COMMON] enum E42
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         1       0       0       0
+      Locals:         1       0       0       0
+      Temps:          0       0       0       0
+      Totals:         2       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_lcd_ioinit
+		_lcd_iowrite4
+		_lcd_send
+ This function uses a non-reentrant model
+
+
+ *************** function _CalcularDistancia *****************
+ Defined at:
+		line 56 in file "Funciones.c"
+ Parameters:    Size  Location     Type
+  t0              2   23[BANK0 ] unsigned int 
+  t1              2   25[BANK0 ] unsigned int 
+  t2              2   27[BANK0 ] unsigned int 
+  t3              2   29[BANK0 ] unsigned int 
+  distancia1      1   31[BANK0 ] PTR PTR unsigned char 
+		 -> distancia1(1), 
+  distancia2      1   32[BANK0 ] PTR PTR unsigned char 
+		 -> distancia2(1), 
+  distancia3      1   33[BANK0 ] PTR PTR unsigned char 
+		 -> distancia3(1), 
+  distancia4      1   34[BANK0 ] PTR PTR unsigned char 
+		 -> distancia4(1), 
+ Auto vars:     Size  Location     Type
+  d3              2   42[BANK0 ] unsigned int 
+  d2              2   40[BANK0 ] unsigned int 
+  d1              2   38[BANK0 ] unsigned int 
+  d0              2   36[BANK0 ] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0      12       0       0
+      Locals:         0       8       0       0
+      Temps:          0       1       0       0
+      Totals:         0      21       0       0
+Total ram usage:       21 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		___lwdiv
+		_sprintf
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _sprintf *****************
+ Defined at:
+		line 492 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c"
+ Parameters:    Size  Location     Type
+  sp              1    wreg     PTR unsigned char 
+		 -> dist4(8), dist3(8), dist2(8), dist1(8), 
+  f               1   10[BANK0 ] PTR const unsigned char 
+		 -> STR_12(7), STR_11(5), STR_10(6), STR_9(7), 
+		 -> STR_8(5), STR_7(6), STR_6(7), STR_5(5), 
+		 -> STR_4(6), STR_3(7), STR_2(5), STR_1(6), 
+ Auto vars:     Size  Location     Type
+  sp              1   21[BANK0 ] PTR unsigned char 
+		 -> dist4(8), dist3(8), dist2(8), dist1(8), 
+  tmpval          4    0        struct .
+  val             2   18[BANK0 ] unsigned int 
+  cp              2    0        PTR const unsigned char 
+  len             2    0        unsigned int 
+  c               1   22[BANK0 ] char 
+  prec            1   20[BANK0 ] char 
+  ap              1   17[BANK0 ] PTR void [1]
+		 -> ?_sprintf(2), 
+  flag            1   16[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2   10[BANK0 ] int 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       3       0       0
+      Locals:         0       7       0       0
+      Temps:          0       3       0       0
+      Totals:         0      13       0       0
+Total ram usage:       13 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		___lwdiv
+		___lwmod
+ This function is called by:
+		_CalcularDistancia
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwmod *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c"
+ Parameters:    Size  Location     Type
+  divisor         2    4[BANK0 ] unsigned int 
+  dividend        2    6[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  counter         1    9[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    4[BANK0 ] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       4       0       0
+      Locals:         0       1       0       0
+      Temps:          0       1       0       0
+      Totals:         0       6       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    4[COMMON] unsigned int 
+  dividend        2    6[COMMON] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2    2[BANK0 ] unsigned int 
+  counter         1    1[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    4[COMMON] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         4       0       0       0
+      Locals:         0       3       0       0
+      Temps:          0       1       0       0
+      Totals:         4       4       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_CalcularDistancia
+		_sprintf
+ This function uses a non-reentrant model
+
+
+ *************** function _echo *****************
+ Defined at:
+		line 71 in file "main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          4       0       0       0
+      Totals:         4       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		Interrupt level 1
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c
+		___aldiv       		CODE           	03F3	0000	144
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\aldiv.c estimated size: 144
+
+LCD-PIC16.c
+		_lcd_ioset     		CODE           	032F	0000	87
+		_lcd_ioinit    		CODE           	010B	0000	36
+		_lcd_iowrite4  		CODE           	01FE	0000	63
+		_lcd_iowrite8  		CODE           	007A	0000	2
+
+LCD-PIC16.c estimated size: 188
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+		_sprintf       		CODE           	0482	0000	176
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c estimated size: 176
+
+Funciones.c
+		_Inicializaciones		CODE           	012E	0000	46
+		_CalcularDistancia		CODE           	06E8	0000	240
+		_PrintDistancias		CODE           	02DB	0000	85
+		_ResetEcho     		CODE           	00AC	0000	30
+		_Trigger       		CODE           	028A	0000	82
+
+Funciones.c estimated size: 483
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+		___lwmod       		CODE           	018C	0000	53
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c estimated size: 53
+
+shared
+		__stringtab    		STRING         	0010	0000	17
+		_rowaddr       		STRING         	002A	0000	5
+		_dpowers       		STRING         	0020	0000	11
+		__initialization		CODE           	07D7	0000	39
+
+shared estimated size: 72
+
+Uart.c
+		_UART_Init     		CODE           	0602	0000	231
+
+Uart.c estimated size: 231
+
+main.c
+		_echo          		CODE           	0385	0000	111
+		_main          		CODE           	023C	0000	79
+
+main.c estimated size: 190
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+		___lwdiv       		CODE           	01C0	0000	63
+
+C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c estimated size: 63
+
+LCD.c
+		_lcd_send      		CODE           	015B	0000	50
+		_lcd_puts      		CODE           	00EA	0000	34
+		_lcd_clear     		CODE           	0099	0000	20
+		_lcd_goto      		CODE           	00C9	0000	34
+		_lcd_on        		CODE           	0089	0000	17
+		_lcd_init      		CODE           	0531	0000	210
+
+LCD.c estimated size: 365
+
 
 
 FUNCTION INFORMATION:

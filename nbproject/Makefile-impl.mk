@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=HCSR.X
+PROJECTNAME=PIC16F883-UltrasonicSensorHandler
 
 # Active Configuration
 DEFAULTCONF=default

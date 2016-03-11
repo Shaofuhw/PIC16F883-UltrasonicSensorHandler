@@ -363,8 +363,8 @@ bssBANK1 A0 AF BANK1 A0 1
 strings CA6 D1D STRING CA6 0
 text19 D1E FA9 CODE D1E 0
 %locals
-dist/default/production\HCSR.X.production.obj
-C:\Users\Fu\AppData\Local\Temp\s1gs.
+dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+C:\Users\Fu\AppData\Local\Temp\s51o.
 1118 13 0 CODE 0
 1121 13 0 CODE 0
 1218 13 0 CODE 0
