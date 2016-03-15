@@ -11,6 +11,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
 "3884
 [v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
+"3904
+[v _TX9 `Vb ~T0 @X0 0 e@1222 ]
 "3486
 [v _CREN `Vb ~T0 @X0 0 e@196 ]
 "3910
@@ -1487,154 +1489,160 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Uart.c: 13: {
 "13
 {
-[; ;Uart.c: 14: SPBRG = x;
+[; ;Uart.c: 14: BRGH = 0;
 "14
-[e = _SPBRG -> _x `uc ]
-[; ;Uart.c: 15: SYNC = 0;
+[e = _BRGH -> -> 0 `i `b ]
+[; ;Uart.c: 15: SPBRG = x;
 "15
-[e = _SYNC -> -> 0 `i `b ]
-[; ;Uart.c: 16: SPEN = 1;
+[e = _SPBRG -> _x `uc ]
+[; ;Uart.c: 16: SYNC = 0;
 "16
-[e = _SPEN -> -> 1 `i `b ]
-[; ;Uart.c: 17: TRISC7 = 1;
+[e = _SYNC -> -> 0 `i `b ]
+[; ;Uart.c: 17: SPEN = 1;
 "17
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;Uart.c: 18: TRISC6 = 1;
+[e = _SPEN -> -> 1 `i `b ]
+[; ;Uart.c: 18: TRISC7 = 1;
 "18
-[e = _TRISC6 -> -> 1 `i `b ]
-[; ;Uart.c: 19: CREN = 1;
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;Uart.c: 19: TRISC6 = 0;
 "19
-[e = _CREN -> -> 1 `i `b ]
-[; ;Uart.c: 20: TXEN = 1;
+[e = _TRISC6 -> -> 0 `i `b ]
+[; ;Uart.c: 20: TX9 = 0;
 "20
-[e = _TXEN -> -> 1 `i `b ]
-[; ;Uart.c: 21: return 1;
+[e = _TX9 -> -> 0 `i `b ]
+[; ;Uart.c: 21: CREN = 1;
 "21
+[e = _CREN -> -> 1 `i `b ]
+[; ;Uart.c: 22: TXEN = 1;
+"22
+[e = _TXEN -> -> 1 `i `b ]
+[; ;Uart.c: 23: return 1;
+"23
 [e ) -> -> 1 `i `uc ]
 [e $UE 135  ]
-"22
+"24
 }
 [e :U 137 ]
-[; ;Uart.c: 22: }
-[; ;Uart.c: 23: return 0;
-"23
+[; ;Uart.c: 24: }
+[; ;Uart.c: 25: return 0;
+"25
 [e ) -> -> 0 `i `uc ]
 [e $UE 135  ]
-[; ;Uart.c: 24: }
-"24
+[; ;Uart.c: 26: }
+"26
 [e :UE 135 ]
 }
-"26
+"28
 [v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
-"27
+"29
 {
-[; ;Uart.c: 26: char UART_TX_Empty()
-[; ;Uart.c: 27: {
+[; ;Uart.c: 28: char UART_TX_Empty()
+[; ;Uart.c: 29: {
 [e :U _UART_TX_Empty ]
 [f ]
-[; ;Uart.c: 28: return TRMT;
-"28
+[; ;Uart.c: 30: return TRMT;
+"30
 [e ) -> -> _TRMT `i `uc ]
 [e $UE 138  ]
-[; ;Uart.c: 29: }
-"29
+[; ;Uart.c: 31: }
+"31
 [e :UE 138 ]
 }
-"31
+"33
 [v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"32
+"34
 {
-[; ;Uart.c: 31: char UART_Data_Ready()
-[; ;Uart.c: 32: {
+[; ;Uart.c: 33: char UART_Data_Ready()
+[; ;Uart.c: 34: {
 [e :U _UART_Data_Ready ]
 [f ]
-[; ;Uart.c: 33: return RCIF;
-"33
+[; ;Uart.c: 35: return RCIF;
+"35
 [e ) -> -> _RCIF `i `uc ]
 [e $UE 139  ]
-[; ;Uart.c: 34: }
-"34
+[; ;Uart.c: 36: }
+"36
 [e :UE 139 ]
 }
-"35
+"37
 [v _UART_Read `(uc ~T0 @X0 1 ef ]
-"36
+"38
 {
-[; ;Uart.c: 35: char UART_Read()
-[; ;Uart.c: 36: {
+[; ;Uart.c: 37: char UART_Read()
+[; ;Uart.c: 38: {
 [e :U _UART_Read ]
 [f ]
-[; ;Uart.c: 38: while(!RCIF);
-"38
+[; ;Uart.c: 40: while(!RCIF);
+"40
 [e $U 141  ]
 [e :U 142 ]
 [e :U 141 ]
 [e $ ! _RCIF 142  ]
 [e :U 143 ]
-[; ;Uart.c: 39: return RCREG;
-"39
+[; ;Uart.c: 41: return RCREG;
+"41
 [e ) _RCREG ]
 [e $UE 140  ]
-[; ;Uart.c: 40: }
-"40
+[; ;Uart.c: 42: }
+"42
 [e :UE 140 ]
 }
-"42
-[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
-"43
-{
-[; ;Uart.c: 42: void UART_Write(char data)
-[; ;Uart.c: 43: {
-[e :U _UART_Write ]
-"42
-[v _data `uc ~T0 @X0 1 r1 ]
-"43
-[f ]
-[; ;Uart.c: 44: while(!TRMT);
 "44
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
+"45
+{
+[; ;Uart.c: 44: void UART_Write(char data)
+[; ;Uart.c: 45: {
+[e :U _UART_Write ]
+"44
+[v _data `uc ~T0 @X0 1 r1 ]
+"45
+[f ]
+[; ;Uart.c: 46: while(!TRMT);
+"46
 [e $U 145  ]
 [e :U 146 ]
 [e :U 145 ]
 [e $ ! _TRMT 146  ]
 [e :U 147 ]
-[; ;Uart.c: 45: TXREG = data;
-"45
+[; ;Uart.c: 47: TXREG = data;
+"47
 [e = _TXREG _data ]
-[; ;Uart.c: 46: }
-"46
+[; ;Uart.c: 48: }
+"48
 [e :UE 144 ]
 }
-"48
-[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*uc ]
-"49
-{
-[; ;Uart.c: 48: void UART_Write_Text(char *text)
-[; ;Uart.c: 49: {
-[e :U _UART_Write_Text ]
-"48
-[v _text `*uc ~T0 @X0 1 r1 ]
-"49
-[f ]
 "50
-[v _i `i ~T0 @X0 1 a ]
-[; ;Uart.c: 50: int i;
-[; ;Uart.c: 51: for(i=0;text[i]!='\0';i++)
+[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*uc ]
 "51
+{
+[; ;Uart.c: 50: void UART_Write_Text(char *text)
+[; ;Uart.c: 51: {
+[e :U _UART_Write_Text ]
+"50
+[v _text `*uc ~T0 @X0 1 r1 ]
+"51
+[f ]
+"52
+[v _i `i ~T0 @X0 1 a ]
+[; ;Uart.c: 52: int i;
+[; ;Uart.c: 53: for(i=0;text[i]!='\0';i++)
+"53
 {
 [e = _i -> 0 `i ]
 [e $U 152  ]
-"52
+"54
 [e :U 149 ]
-[; ;Uart.c: 52: UART_Write(text[i]);
+[; ;Uart.c: 54: UART_Write(text[i]);
 [e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
-"51
+"53
 [e ++ _i -> 1 `i ]
 [e :U 152 ]
 [e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 149  ]
 [e :U 150 ]
-"52
+"54
 }
-[; ;Uart.c: 53: }
-"53
+[; ;Uart.c: 55: }
+"55
 [e :UE 148 ]
 }

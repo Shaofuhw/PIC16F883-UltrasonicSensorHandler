@@ -1871,59 +1871,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 100: lcd_puts(dist4);
 "100
 [e ( _lcd_puts (1 -> _dist4 `*Cuc ]
-[; ;Funciones.c: 103: UART_Write_Text(dist1);
 "103
-[e ( _UART_Write_Text (1 _dist1 ]
-[; ;Funciones.c: 104: _delay((unsigned long)((5)*(8000000/4000.0)));
+[v _dist `uc ~T0 @X0 -> 35 `i a ]
+[; ;Funciones.c: 103: char dist[35];
+[; ;Funciones.c: 104: sprintf(dist,"%s, %s, %s, %s.\0", dist1, dist2, dist3, dist4);
 "104
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 105: UART_Write_Text(dist2);
+[e ( _sprintf (1 , , , , (. , &U _dist :s 14C -> _dist1 `*Cuc -> _dist2 `*Cuc -> _dist3 `*Cuc -> _dist4 `*Cuc ]
+[; ;Funciones.c: 105: UART_Write_Text(dist);
 "105
-[e ( _UART_Write_Text (1 _dist2 ]
-[; ;Funciones.c: 106: _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( _UART_Write_Text (1 &U _dist ]
+[; ;Funciones.c: 106: _delay((unsigned long)((50)*(8000000/4000.0)));
 "106
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 107: UART_Write_Text(dist3);
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 107: }
 "107
-[e ( _UART_Write_Text (1 _dist3 ]
-[; ;Funciones.c: 108: _delay((unsigned long)((5)*(8000000/4000.0)));
-"108
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 109: UART_Write_Text(dist4);
-"109
-[e ( _UART_Write_Text (1 _dist4 ]
-[; ;Funciones.c: 110: _delay((unsigned long)((5)*(8000000/4000.0)));
-"110
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 111: }
-"111
 [e :UE 155 ]
 }
-"113
+"109
 [v _ResetEcho `(v ~T0 @X0 1 ef ]
-"114
+"110
 {
-[; ;Funciones.c: 113: void ResetEcho()
-[; ;Funciones.c: 114: {
+[; ;Funciones.c: 109: void ResetEcho()
+[; ;Funciones.c: 110: {
 [e :U _ResetEcho ]
 [f ]
-[; ;Funciones.c: 115: TRISB = 0b00000000;
-"115
+[; ;Funciones.c: 111: TRISB = 0b00000000;
+"111
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;Funciones.c: 116: _delay((unsigned long)((5)*(8000000/4000.0)));
-"116
+[; ;Funciones.c: 112: _delay((unsigned long)((5)*(8000000/4000.0)));
+"112
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 117: PORTB = 0b00000000;
-"117
+[; ;Funciones.c: 113: PORTB = 0b00000000;
+"113
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 118: _delay((unsigned long)((5)*(8000000/4000.0)));
-"118
+[; ;Funciones.c: 114: _delay((unsigned long)((5)*(8000000/4000.0)));
+"114
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 119: }
-"119
+[; ;Funciones.c: 115: }
+"115
 [e :UE 156 ]
 }
-[p f _sprintf 8389632 ]
+[p f _sprintf 8651776 ]
 [a 13C 68 105 115 116 97 110 99 105 97 115 58 0 ]
 [a 2C 79 85 84 0 0 ]
 [a 5C 79 85 84 0 0 ]
@@ -1933,6 +1921,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 4C 78 79 80 69 0 0 ]
 [a 7C 78 79 80 69 0 0 ]
 [a 10C 78 79 80 69 0 0 ]
+[a 14C 37 115 44 32 37 115 44 32 37 115 44 32 37 115 46 0 0 ]
 [a 3C 37 117 32 32 32 0 0 ]
 [a 6C 37 117 32 32 32 0 0 ]
 [a 9C 37 117 32 32 32 0 0 ]

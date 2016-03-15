@@ -274,15 +274,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;doprnt.c: 638: goto alldone;
 "638
 [e $U 15  ]
+[; ;doprnt.c: 728: case 's':
+"728
+[e :U 16 ]
+[; ;doprnt.c: 734: cp = (*(const char * *)__va_arg((*(const char * **)ap), (const char *)0));
+"734
+[e = _cp *U -> ( ___va_arg , (. -> *U -> &U _ap `***Cuc `*v -> -> 0 `i `*Cuc `**Cuc ]
+[; ;doprnt.c: 740: if(!cp)
+"740
+[e $ ! ! != _cp -> -> 0 `i `*Cuc 17  ]
+[; ;doprnt.c: 741: cp = "(null)";
+"741
+[e = _cp :s 1C ]
+[e :U 17 ]
+[; ;doprnt.c: 777: while(*cp)
+"777
+[e $U 18  ]
+[e :U 19 ]
+[; ;doprnt.c: 778: ((*sp++ = (*cp++)));
+"778
+[e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x *U ++ _cp * -> -> 1 `i `x -> -> # *U _cp `i `x ]
+[e :U 18 ]
+"777
+[e $ != -> *U _cp `i -> -> -> 0 `i `Cuc `i 19  ]
+[e :U 20 ]
+[; ;doprnt.c: 779: continue;
+"779
+[e $U 8  ]
 [; ;doprnt.c: 802: default:
 "802
-[e :U 16 ]
+[e :U 21 ]
 [; ;doprnt.c: 813: continue;
 "813
 [e $U 8  ]
 [; ;doprnt.c: 817: case 'u':
 "817
-[e :U 17 ]
+[e :U 22 ]
 [; ;doprnt.c: 818: flag |= 0xC0;
 "818
 [e =| _flag -> -> 192 `i `uc ]
@@ -296,8 +323,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "635
 [e :U 13 ]
 [e [\ = _c -> *U ++ _f * -> -> 1 `i `x -> -> # *U _f `i `x `c , $ -> -> 0 `i `c 14
- , $ -> -> 117 `ui `c 17
- 16 ]
+ , $ -> -> 115 `ui `c 16
+ , $ -> -> 117 `ui `c 22
+ 21 ]
 "822
 [e :U 12 ]
 [; ;doprnt.c: 1273: {
@@ -313,20 +341,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1305
 {
 [e = _c -> -> 1 `i `c ]
-[e $ != -> -> _c `i `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 18  ]
-[e $U 19  ]
+[e $ != -> -> _c `i `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 23  ]
+[e $U 24  ]
 "1306
-[e :U 18 ]
+[e :U 23 ]
 [; ;doprnt.c: 1306: if(val < dpowers[c])
-[e $ ! < _val *U + &U _dpowers * -> -> _c `uc `ux -> -> # *U &U _dpowers `ui `ux 21  ]
+[e $ ! < _val *U + &U _dpowers * -> -> _c `uc `ux -> -> # *U &U _dpowers `ui `ux 26  ]
 [; ;doprnt.c: 1307: break;
 "1307
-[e $U 19  ]
-[e :U 21 ]
+[e $U 24  ]
+[e :U 26 ]
 "1305
 [e ++ _c -> -> 1 `i `c ]
-[e $ != -> -> _c `i `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 18  ]
-[e :U 19 ]
+[e $ != -> -> _c `i `ui / -> # _dpowers `ui -> # *U + &U _dpowers * -> -> -> 0 `i `ui `ux -> -> # *U &U _dpowers `ui `ux `ui 23  ]
+[e :U 24 ]
 "1422
 }
 [; ;doprnt.c: 1422: {
@@ -339,8 +367,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _prec _c ]
 [; ;doprnt.c: 1474: while(prec--) {
 "1474
-[e $U 22  ]
-[e :U 23 ]
+[e $U 27  ]
+[e :U 28 ]
 {
 [; ;doprnt.c: 1478: {
 "1478
@@ -356,10 +384,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x -> _c `uc ]
 "1525
 }
-[e :U 22 ]
+[e :U 27 ]
 "1474
-[e $ != -> -- _prec -> -> 1 `i `c `i -> -> -> 0 `i `c `i 23  ]
-[e :U 24 ]
+[e $ != -> -- _prec -> -> 1 `i `c `i -> -> -> 0 `i `c `i 28  ]
+[e :U 29 ]
 "1533
 }
 [e :U 8 ]
@@ -382,3 +410,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1541
 [e :UE 7 ]
 }
+[a 1C 40 110 117 108 108 41 0 ]
+

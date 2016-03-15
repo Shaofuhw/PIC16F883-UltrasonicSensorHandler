@@ -2349,14 +2349,10 @@ lcd_goto(12,1);
 lcd_puts(dist4);
 
 
-UART_Write_Text(dist1);
-_delay((unsigned long)((5)*(8000000/4000.0)));
-UART_Write_Text(dist2);
-_delay((unsigned long)((5)*(8000000/4000.0)));
-UART_Write_Text(dist3);
-_delay((unsigned long)((5)*(8000000/4000.0)));
-UART_Write_Text(dist4);
-_delay((unsigned long)((5)*(8000000/4000.0)));
+char dist[35];
+sprintf(dist,"%s, %s, %s, %s.\0", dist1, dist2, dist3, dist4);
+UART_Write_Text(dist);
+_delay((unsigned long)((50)*(8000000/4000.0)));
 }
 
 void ResetEcho()

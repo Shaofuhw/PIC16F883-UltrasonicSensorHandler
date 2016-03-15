@@ -100,14 +100,10 @@ void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
     lcd_puts(dist4);
     
     //Print puerto serie
-    UART_Write_Text(dist1);
-    __delay_ms(5);
-    UART_Write_Text(dist2);
-    __delay_ms(5);
-    UART_Write_Text(dist3);
-    __delay_ms(5);
-    UART_Write_Text(dist4);
-    __delay_ms(5);
+    char dist[35];
+    sprintf(dist,"%s, %s, %s, %s.\0", dist1, dist2, dist3, dist4);
+    UART_Write_Text(dist);
+    __delay_ms(50);
 }
 
 void ResetEcho()

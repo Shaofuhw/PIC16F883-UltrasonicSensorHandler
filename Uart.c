@@ -11,11 +11,13 @@ char UART_Init(const long int baudrate)
 	}
 	if(x<256)
 	{
-	  SPBRG = x;
-	  SYNC = 0;
-	  SPEN = 1;
+          BRGH = 0;
+	 SPBRG = x;
+	 SYNC = 0;
+	 SPEN = 1;
           TRISC7 = 1;
-          TRISC6 = 1;
+          TRISC6 = 0;
+          TX9 = 0;
           CREN = 1;
           TXEN = 1;
 	  return 1;
