@@ -68,11 +68,11 @@ E_RW_PIN 10
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
 "31
 [v _Trigger Trigger `(v  1 e 1 0 ]
-"56
+"61
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
-"83
+"88
 [v _PrintDistancias PrintDistancias `(v  1 e 1 0 ]
-"108
+"113
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
 "48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
 [v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
@@ -102,6 +102,8 @@ E_RW_PIN 10
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 "42
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
+"48
+[v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 "221 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "369
@@ -258,14 +260,14 @@ E_RW_PIN 10
 "31 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Trigger Trigger `(v  1 e 1 0 ]
 {
-"54
+"59
 } 0
-"108
+"113
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
 {
-"115
+"119
 } 0
-"83
+"88
 [v _PrintDistancias PrintDistancias `(v  1 e 1 0 ]
 {
 [v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 wreg ]
@@ -273,9 +275,9 @@ E_RW_PIN 10
 [v PrintDistancias@dist2 dist2 `*.4uc  1 p 1 8 ]
 [v PrintDistancias@dist3 dist3 `*.4uc  1 p 1 9 ]
 [v PrintDistancias@dist4 dist4 `*.4uc  1 p 1 10 ]
-"86
-[v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 11 ]
-"106
+"91
+[v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 13 ]
+"111
 } 0
 "178 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
 [v _lcd_puts lcd_puts `(v  1 e 1 0 ]
@@ -292,6 +294,26 @@ E_RW_PIN 10
 "152
 [v lcd_goto@col col `uc  1 a 1 7 ]
 "158
+} 0
+"48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Uart.c
+[v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
+{
+[v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
+"50
+[v UART_Write_Text@i i `i  1 a 2 0 ]
+"48
+[v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
+"51
+[v UART_Write_Text@text text `*.4uc  1 a 1 2 ]
+"53
+} 0
+"42
+[v _UART_Write UART_Write `(v  1 e 1 0 ]
+{
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 wreg ]
+[v UART_Write@data data `uc  1 a 1 4 ]
+"46
 } 0
 "6 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
@@ -365,25 +387,25 @@ E_RW_PIN 10
 [v lcd_ioset@pin pin `E42  1 a 1 5 ]
 "127
 } 0
-"56 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"61 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
 {
-"59
+"64
 [v CalcularDistancia@d3 d3 `ui  1 a 2 42 ]
 [v CalcularDistancia@d2 d2 `ui  1 a 2 40 ]
 [v CalcularDistancia@d1 d1 `ui  1 a 2 38 ]
 [v CalcularDistancia@d0 d0 `ui  1 a 2 36 ]
-"56
+"61
 [v CalcularDistancia@t0 t0 `ui  1 p 2 23 ]
 [v CalcularDistancia@t1 t1 `ui  1 p 2 25 ]
 [v CalcularDistancia@t2 t2 `ui  1 p 2 27 ]
-"57
+"62
 [v CalcularDistancia@t3 t3 `ui  1 p 2 29 ]
 [v CalcularDistancia@distancia1 distancia1 `*.4*.4uc  1 p 1 31 ]
 [v CalcularDistancia@distancia2 distancia2 `*.4*.4uc  1 p 1 32 ]
 [v CalcularDistancia@distancia3 distancia3 `*.4*.4uc  1 p 1 33 ]
 [v CalcularDistancia@distancia4 distancia4 `*.4*.4uc  1 p 1 34 ]
-"81
+"86
 } 0
 "492 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]

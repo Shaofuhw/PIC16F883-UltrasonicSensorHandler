@@ -29,23 +29,28 @@ void Inicializaciones(){
 
 //Activa el trigger y lo apaga tras un retardo
 void Trigger(){
+    TRISB = 0b00010000;
     RB0 = 1;
     __delay_us(10);
     RB0 = 0;
     
     __delay_ms(50);
     
+    TRISB = 0b00100000;
     RB1 = 1;
     __delay_us(10);
     RB1 = 0;
     
     __delay_ms(50);
 
+    TRISB = 0b01000000;
     RB2 = 1;
     __delay_us(10);
     RB2 = 0;
     
     __delay_ms(50);
+    
+    TRISB = 0b10000000;
     RB3 = 1;
     __delay_us(10);
     RB3= 0;
@@ -94,7 +99,7 @@ void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
     lcd_goto(12,1);
     lcd_puts(dist4);
     
-    /*/Print puerto serie
+    //Print puerto serie
     UART_Write_Text(dist1);
     __delay_ms(5);
     UART_Write_Text(dist2);
@@ -102,7 +107,7 @@ void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
     UART_Write_Text(dist3);
     __delay_ms(5);
     UART_Write_Text(dist4);
-    __delay_ms(5);*/
+    __delay_ms(5);
 }
 
 void ResetEcho()
@@ -111,5 +116,4 @@ void ResetEcho()
     __delay_ms(5);
     PORTB = 0b00000000;
     __delay_ms(5);
-    TRISB = 0b11110000;
 }

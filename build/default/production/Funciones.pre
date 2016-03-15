@@ -2278,23 +2278,28 @@ lcd_on();
 
 
 void Trigger(){
+TRISB = 0b00010000;
 RB0 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB0 = 0;
 
 _delay((unsigned long)((50)*(8000000/4000.0)));
 
+TRISB = 0b00100000;
 RB1 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB1 = 0;
 
 _delay((unsigned long)((50)*(8000000/4000.0)));
 
+TRISB = 0b01000000;
 RB2 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB2 = 0;
 
 _delay((unsigned long)((50)*(8000000/4000.0)));
+
+TRISB = 0b10000000;
 RB3 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
 RB3= 0;
@@ -2343,7 +2348,15 @@ lcd_puts(dist3);
 lcd_goto(12,1);
 lcd_puts(dist4);
 
-# 106
+
+UART_Write_Text(dist1);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+UART_Write_Text(dist2);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+UART_Write_Text(dist3);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+UART_Write_Text(dist4);
+_delay((unsigned long)((5)*(8000000/4000.0)));
 }
 
 void ResetEcho()
@@ -2352,5 +2365,4 @@ TRISB = 0b00000000;
 _delay((unsigned long)((5)*(8000000/4000.0)));
 PORTB = 0b00000000;
 _delay((unsigned long)((5)*(8000000/4000.0)));
-TRISB = 0b11110000;
 }

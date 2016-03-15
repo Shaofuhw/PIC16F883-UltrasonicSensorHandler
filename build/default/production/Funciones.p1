@@ -41,6 +41,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
 "275
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+"10 Uart.h
+[v _UART_Write_Text `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1629,263 +1631,296 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 31: void Trigger(){
 [e :U _Trigger ]
 [f ]
-[; ;Funciones.c: 32: RB0 = 1;
+[; ;Funciones.c: 32: TRISB = 0b00010000;
 "32
-[e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 33: _delay((unsigned long)((10)*(8000000/4000000.0)));
+[e = _TRISB -> -> 16 `i `uc ]
+[; ;Funciones.c: 33: RB0 = 1;
 "33
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 34: RB0 = 0;
+[e = _RB0 -> -> 1 `i `b ]
+[; ;Funciones.c: 34: _delay((unsigned long)((10)*(8000000/4000000.0)));
 "34
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 35: RB0 = 0;
+"35
 [e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 36: _delay((unsigned long)((50)*(8000000/4000.0)));
-"36
+[; ;Funciones.c: 37: _delay((unsigned long)((50)*(8000000/4000.0)));
+"37
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 38: RB1 = 1;
-"38
-[e = _RB1 -> -> 1 `i `b ]
-[; ;Funciones.c: 39: _delay((unsigned long)((10)*(8000000/4000000.0)));
+[; ;Funciones.c: 39: TRISB = 0b00100000;
 "39
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 40: RB1 = 0;
+[e = _TRISB -> -> 32 `i `uc ]
+[; ;Funciones.c: 40: RB1 = 1;
 "40
-[e = _RB1 -> -> 0 `i `b ]
-[; ;Funciones.c: 42: _delay((unsigned long)((50)*(8000000/4000.0)));
+[e = _RB1 -> -> 1 `i `b ]
+[; ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"41
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 42: RB1 = 0;
 "42
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 44: RB2 = 1;
+[e = _RB1 -> -> 0 `i `b ]
+[; ;Funciones.c: 44: _delay((unsigned long)((50)*(8000000/4000.0)));
 "44
-[e = _RB2 -> -> 1 `i `b ]
-[; ;Funciones.c: 45: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"45
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 46: RB2 = 0;
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 46: TRISB = 0b01000000;
 "46
-[e = _RB2 -> -> 0 `i `b ]
-[; ;Funciones.c: 48: _delay((unsigned long)((50)*(8000000/4000.0)));
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;Funciones.c: 47: RB2 = 1;
+"47
+[e = _RB2 -> -> 1 `i `b ]
+[; ;Funciones.c: 48: _delay((unsigned long)((10)*(8000000/4000000.0)));
 "48
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 49: RB3 = 1;
-"49
-[e = _RB3 -> -> 1 `i `b ]
-[; ;Funciones.c: 50: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"50
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 51: RB3= 0;
+[; ;Funciones.c: 49: RB2 = 0;
+"49
+[e = _RB2 -> -> 0 `i `b ]
+[; ;Funciones.c: 51: _delay((unsigned long)((50)*(8000000/4000.0)));
 "51
-[e = _RB3 -> -> 0 `i `b ]
-[; ;Funciones.c: 53: _delay((unsigned long)((50)*(8000000/4000.0)));
-"53
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 54: }
+[; ;Funciones.c: 53: TRISB = 0b10000000;
+"53
+[e = _TRISB -> -> 128 `i `uc ]
+[; ;Funciones.c: 54: RB3 = 1;
 "54
+[e = _RB3 -> -> 1 `i `b ]
+[; ;Funciones.c: 55: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"55
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 56: RB3= 0;
+"56
+[e = _RB3 -> -> 0 `i `b ]
+[; ;Funciones.c: 58: _delay((unsigned long)((50)*(8000000/4000.0)));
+"58
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 59: }
+"59
 [e :UE 137 ]
 }
-"56
+"61
 [v _CalcularDistancia `(v ~T0 @X0 1 ef8`ui`ui`ui`ui`**uc`**uc`**uc`**uc ]
-"57
+"62
 {
-[; ;Funciones.c: 56: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
-[; ;Funciones.c: 57: unsigned int t3, char** distancia1, char** distancia2, char** distancia3, char** distancia4){
+[; ;Funciones.c: 61: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
+[; ;Funciones.c: 62: unsigned int t3, char** distancia1, char** distancia2, char** distancia3, char** distancia4){
 [e :U _CalcularDistancia ]
-"56
+"61
 [v _t0 `ui ~T0 @X0 1 r1 ]
 [v _t1 `ui ~T0 @X0 1 r2 ]
 [v _t2 `ui ~T0 @X0 1 r3 ]
-"57
+"62
 [v _t3 `ui ~T0 @X0 1 r4 ]
 [v _distancia1 `**uc ~T0 @X0 1 r5 ]
 [v _distancia2 `**uc ~T0 @X0 1 r6 ]
 [v _distancia3 `**uc ~T0 @X0 1 r7 ]
 [v _distancia4 `**uc ~T0 @X0 1 r8 ]
 [f ]
-"59
+"64
 [v _d0 `ui ~T0 @X0 1 a ]
 [v _d1 `ui ~T0 @X0 1 a ]
 [v _d2 `ui ~T0 @X0 1 a ]
 [v _d3 `ui ~T0 @X0 1 a ]
-[; ;Funciones.c: 59: unsigned int d0,d1,d2,d3;
-[; ;Funciones.c: 61: d0 = ( t0 ) / 58;
-"61
-[e = _d0 / _t0 -> -> 58 `i `ui ]
-[; ;Funciones.c: 62: d1 = ( t1 ) / 58;
-"62
-[e = _d1 / _t1 -> -> 58 `i `ui ]
-[; ;Funciones.c: 63: d2 = ( t2 ) / 58;
-"63
-[e = _d2 / _t2 -> -> 58 `i `ui ]
-[; ;Funciones.c: 64: d3 = ( t3 ) / 58;
-"64
-[e = _d3 / _t3 -> -> 58 `i `ui ]
-[; ;Funciones.c: 66: if(d0 == 0){ sprintf(*distancia1,"NOPE\0"); }
+[; ;Funciones.c: 64: unsigned int d0,d1,d2,d3;
+[; ;Funciones.c: 66: d0 = ( t0 ) / 58;
 "66
+[e = _d0 / _t0 -> -> 58 `i `ui ]
+[; ;Funciones.c: 67: d1 = ( t1 ) / 58;
+"67
+[e = _d1 / _t1 -> -> 58 `i `ui ]
+[; ;Funciones.c: 68: d2 = ( t2 ) / 58;
+"68
+[e = _d2 / _t2 -> -> 58 `i `ui ]
+[; ;Funciones.c: 69: d3 = ( t3 ) / 58;
+"69
+[e = _d3 / _t3 -> -> 58 `i `ui ]
+[; ;Funciones.c: 71: if(d0 == 0){ sprintf(*distancia1,"NOPE\0"); }
+"71
 [e $ ! == _d0 -> -> 0 `i `ui 139  ]
 {
 [e ( _sprintf (1 , *U _distancia1 :s 1C ]
 }
 [e $U 140  ]
-"67
+"72
 [e :U 139 ]
-[; ;Funciones.c: 67: else if(d0 > 400){ sprintf(*distancia1,"OUT\0"); }
+[; ;Funciones.c: 72: else if(d0 > 400){ sprintf(*distancia1,"OUT\0"); }
 [e $ ! > _d0 -> -> 400 `i `ui 141  ]
 {
 [e ( _sprintf (1 , *U _distancia1 :s 2C ]
 }
 [e $U 142  ]
-"68
+"73
 [e :U 141 ]
-[; ;Funciones.c: 68: else { sprintf(*distancia1,"%u   \0", d0); }
+[; ;Funciones.c: 73: else { sprintf(*distancia1,"%u   \0", d0); }
 {
 [e ( _sprintf (1 , (. , *U _distancia1 :s 3C _d0 ]
 }
 [e :U 142 ]
 [e :U 140 ]
-[; ;Funciones.c: 70: if(d1 == 0){ sprintf(*distancia2,"NOPE\0"); }
-"70
+[; ;Funciones.c: 75: if(d1 == 0){ sprintf(*distancia2,"NOPE\0"); }
+"75
 [e $ ! == _d1 -> -> 0 `i `ui 143  ]
 {
 [e ( _sprintf (1 , *U _distancia2 :s 4C ]
 }
 [e $U 144  ]
-"71
+"76
 [e :U 143 ]
-[; ;Funciones.c: 71: else if(d1 > 400){ sprintf(*distancia2,"OUT\0"); }
+[; ;Funciones.c: 76: else if(d1 > 400){ sprintf(*distancia2,"OUT\0"); }
 [e $ ! > _d1 -> -> 400 `i `ui 145  ]
 {
 [e ( _sprintf (1 , *U _distancia2 :s 5C ]
 }
 [e $U 146  ]
-"72
+"77
 [e :U 145 ]
-[; ;Funciones.c: 72: else{ sprintf(*distancia2,"%u   \0", d1); }
+[; ;Funciones.c: 77: else{ sprintf(*distancia2,"%u   \0", d1); }
 {
 [e ( _sprintf (1 , (. , *U _distancia2 :s 6C _d1 ]
 }
 [e :U 146 ]
 [e :U 144 ]
-[; ;Funciones.c: 74: if(d2 == 0){ sprintf(*distancia3,"NOPE\0"); }
-"74
+[; ;Funciones.c: 79: if(d2 == 0){ sprintf(*distancia3,"NOPE\0"); }
+"79
 [e $ ! == _d2 -> -> 0 `i `ui 147  ]
 {
 [e ( _sprintf (1 , *U _distancia3 :s 7C ]
 }
 [e $U 148  ]
-"75
+"80
 [e :U 147 ]
-[; ;Funciones.c: 75: else if(d2 > 400){ sprintf(*distancia3,"OUT\0"); }
+[; ;Funciones.c: 80: else if(d2 > 400){ sprintf(*distancia3,"OUT\0"); }
 [e $ ! > _d2 -> -> 400 `i `ui 149  ]
 {
 [e ( _sprintf (1 , *U _distancia3 :s 8C ]
 }
 [e $U 150  ]
-"76
+"81
 [e :U 149 ]
-[; ;Funciones.c: 76: else{ sprintf(*distancia3,"%u   \0", d2); }
+[; ;Funciones.c: 81: else{ sprintf(*distancia3,"%u   \0", d2); }
 {
 [e ( _sprintf (1 , (. , *U _distancia3 :s 9C _d2 ]
 }
 [e :U 150 ]
 [e :U 148 ]
-[; ;Funciones.c: 78: if(d3 == 0){ sprintf(*distancia4,"NOPE\0"); }
-"78
+[; ;Funciones.c: 83: if(d3 == 0){ sprintf(*distancia4,"NOPE\0"); }
+"83
 [e $ ! == _d3 -> -> 0 `i `ui 151  ]
 {
 [e ( _sprintf (1 , *U _distancia4 :s 10C ]
 }
 [e $U 152  ]
-"79
+"84
 [e :U 151 ]
-[; ;Funciones.c: 79: else if(d3 > 400){ sprintf(*distancia4,"OUT\0"); }
+[; ;Funciones.c: 84: else if(d3 > 400){ sprintf(*distancia4,"OUT\0"); }
 [e $ ! > _d3 -> -> 400 `i `ui 153  ]
 {
 [e ( _sprintf (1 , *U _distancia4 :s 11C ]
 }
 [e $U 154  ]
-"80
+"85
 [e :U 153 ]
-[; ;Funciones.c: 80: else{ sprintf(*distancia4,"%u   \0", d3); }
+[; ;Funciones.c: 85: else{ sprintf(*distancia4,"%u   \0", d3); }
 {
 [e ( _sprintf (1 , (. , *U _distancia4 :s 12C _d3 ]
 }
 [e :U 154 ]
 [e :U 152 ]
-[; ;Funciones.c: 81: }
-"81
+[; ;Funciones.c: 86: }
+"86
 [e :UE 138 ]
 }
-"83
+"88
 [v _PrintDistancias `(v ~T0 @X0 1 ef4`*uc`*uc`*uc`*uc ]
-"84
+"89
 {
-[; ;Funciones.c: 83: void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
-[; ;Funciones.c: 84: {
+[; ;Funciones.c: 88: void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
+[; ;Funciones.c: 89: {
 [e :U _PrintDistancias ]
-"83
+"88
 [v _dist1 `*uc ~T0 @X0 1 r1 ]
 [v _dist2 `*uc ~T0 @X0 1 r2 ]
 [v _dist3 `*uc ~T0 @X0 1 r3 ]
 [v _dist4 `*uc ~T0 @X0 1 r4 ]
-"84
-[f ]
-[; ;Funciones.c: 86: lcd_goto(0, 0);
-"86
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 87: lcd_puts("Distancias:");
-"87
-[e ( _lcd_puts (1 :s 13C ]
-[; ;Funciones.c: 88: lcd_goto(12,0);
-"88
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 89: lcd_puts(dist1);
 "89
-[e ( _lcd_puts (1 -> _dist1 `*Cuc ]
-[; ;Funciones.c: 90: lcd_goto(0,1);
-"90
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 91: lcd_puts(dist2);
+[f ]
+[; ;Funciones.c: 91: lcd_goto(0, 0);
 "91
-[e ( _lcd_puts (1 -> _dist2 `*Cuc ]
-[; ;Funciones.c: 92: lcd_goto(6,1);
+[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Funciones.c: 92: lcd_puts("Distancias:");
 "92
-[e ( _lcd_goto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 93: lcd_puts(dist3);
+[e ( _lcd_puts (1 :s 13C ]
+[; ;Funciones.c: 93: lcd_goto(12,0);
 "93
-[e ( _lcd_puts (1 -> _dist3 `*Cuc ]
-[; ;Funciones.c: 94: lcd_goto(12,1);
+[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
+[; ;Funciones.c: 94: lcd_puts(dist1);
 "94
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 95: lcd_puts(dist4);
+[e ( _lcd_puts (1 -> _dist1 `*Cuc ]
+[; ;Funciones.c: 95: lcd_goto(0,1);
 "95
+[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 96: lcd_puts(dist2);
+"96
+[e ( _lcd_puts (1 -> _dist2 `*Cuc ]
+[; ;Funciones.c: 97: lcd_goto(6,1);
+"97
+[e ( _lcd_goto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 98: lcd_puts(dist3);
+"98
+[e ( _lcd_puts (1 -> _dist3 `*Cuc ]
+[; ;Funciones.c: 99: lcd_goto(12,1);
+"99
+[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 100: lcd_puts(dist4);
+"100
 [e ( _lcd_puts (1 -> _dist4 `*Cuc ]
-[; ;Funciones.c: 106: }
+[; ;Funciones.c: 103: UART_Write_Text(dist1);
+"103
+[e ( _UART_Write_Text (1 _dist1 ]
+[; ;Funciones.c: 104: _delay((unsigned long)((5)*(8000000/4000.0)));
+"104
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 105: UART_Write_Text(dist2);
+"105
+[e ( _UART_Write_Text (1 _dist2 ]
+[; ;Funciones.c: 106: _delay((unsigned long)((5)*(8000000/4000.0)));
 "106
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 107: UART_Write_Text(dist3);
+"107
+[e ( _UART_Write_Text (1 _dist3 ]
+[; ;Funciones.c: 108: _delay((unsigned long)((5)*(8000000/4000.0)));
+"108
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 109: UART_Write_Text(dist4);
+"109
+[e ( _UART_Write_Text (1 _dist4 ]
+[; ;Funciones.c: 110: _delay((unsigned long)((5)*(8000000/4000.0)));
+"110
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 111: }
+"111
 [e :UE 155 ]
 }
-"108
+"113
 [v _ResetEcho `(v ~T0 @X0 1 ef ]
-"109
+"114
 {
-[; ;Funciones.c: 108: void ResetEcho()
-[; ;Funciones.c: 109: {
+[; ;Funciones.c: 113: void ResetEcho()
+[; ;Funciones.c: 114: {
 [e :U _ResetEcho ]
 [f ]
-[; ;Funciones.c: 110: TRISB = 0b00000000;
-"110
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;Funciones.c: 111: _delay((unsigned long)((5)*(8000000/4000.0)));
-"111
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 112: PORTB = 0b00000000;
-"112
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 113: _delay((unsigned long)((5)*(8000000/4000.0)));
-"113
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 114: TRISB = 0b11110000;
-"114
-[e = _TRISB -> -> 240 `i `uc ]
-[; ;Funciones.c: 115: }
+[; ;Funciones.c: 115: TRISB = 0b00000000;
 "115
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Funciones.c: 116: _delay((unsigned long)((5)*(8000000/4000.0)));
+"116
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 117: PORTB = 0b00000000;
+"117
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 118: _delay((unsigned long)((5)*(8000000/4000.0)));
+"118
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 119: }
+"119
 [e :UE 156 ]
 }
 [p f _sprintf 8389632 ]
