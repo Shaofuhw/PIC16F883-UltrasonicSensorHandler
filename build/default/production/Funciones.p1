@@ -17,13 +17,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "3526
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"127 LCD.h
-[v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
-"135
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
-"153
-[v _lcd_on `(v ~T0 @X0 0 ef ]
-"3664 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"3664
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [v F1554 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
@@ -37,10 +31,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
 "194 C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"234 LCD.h
-[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"275
-[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "10 Uart.h
 [v _UART_Write_Text `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -1497,82 +1487,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 8: void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
 [; ;Funciones.h: 9: void PrintDistancias(char [],char [],char [],char []);
 [; ;Funciones.h: 10: void ResetEcho();
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 69: enum enLcdCommands {
-[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
-[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
-[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
-[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
-[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
-[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
-[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
-[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
-[; ;LCD.h: 78: };
-[; ;LCD.h: 83: enum enLCDCursorModes {
-[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
-[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
-[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
-[; ;LCD.h: 87: };
-[; ;LCD.h: 92: enum enLCDControlPins {
-[; ;LCD.h: 93: E_D0_PIN = 0,
-[; ;LCD.h: 94: E_D1_PIN,
-[; ;LCD.h: 95: E_D2_PIN,
-[; ;LCD.h: 96: E_D3_PIN,
-[; ;LCD.h: 97: E_D4_PIN,
-[; ;LCD.h: 98: E_D5_PIN,
-[; ;LCD.h: 99: E_D6_PIN,
-[; ;LCD.h: 100: E_D7_PIN,
-[; ;LCD.h: 101: E_EN_PIN,
-[; ;LCD.h: 102: E_RS_PIN,
-[; ;LCD.h: 103: E_RW_PIN,
-[; ;LCD.h: 104: };
-[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
-[; ;LCD.h: 135: void lcd_clear();
-[; ;LCD.h: 143: void lcd_home();
-[; ;LCD.h: 153: void lcd_on();
-[; ;LCD.h: 161: void lcd_off();
-[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
-[; ;LCD.h: 184: void lcd_cursor_left();
-[; ;LCD.h: 191: void lcd_cursor_right();
-[; ;LCD.h: 199: void lcd_scroll_left();
-[; ;LCD.h: 207: void lcd_scroll_right();
-[; ;LCD.h: 214: void lcd_autoscroll_on();
-[; ;LCD.h: 222: void lcd_autoscroll_off();
-[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
-[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
-[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
-[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
-[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
 [; ;Uart.h: 5: char UART_Init(const long int);
 [; ;Uart.h: 6: char UART_TX_Empty();
 [; ;Uart.h: 7: char UART_Data_Ready();
@@ -1612,15 +1526,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 23: GIE = 1;
 "23
 [e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 25: lcd_init(0, 16, 2);
-"25
-[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
-[; ;Funciones.c: 26: lcd_clear();
-"26
-[e ( _lcd_clear ..  ]
-[; ;Funciones.c: 27: lcd_on();
-"27
-[e ( _lcd_on ..  ]
 [; ;Funciones.c: 28: }
 "28
 [e :UE 136 ]
@@ -1841,42 +1746,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _dist4 `*uc ~T0 @X0 1 r4 ]
 "89
 [f ]
-[; ;Funciones.c: 91: lcd_goto(0, 0);
-"91
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 92: lcd_puts("Distancias:");
-"92
-[e ( _lcd_puts (1 :s 13C ]
-[; ;Funciones.c: 93: lcd_goto(12,0);
-"93
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 94: lcd_puts(dist1);
-"94
-[e ( _lcd_puts (1 -> _dist1 `*Cuc ]
-[; ;Funciones.c: 95: lcd_goto(0,1);
-"95
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 96: lcd_puts(dist2);
-"96
-[e ( _lcd_puts (1 -> _dist2 `*Cuc ]
-[; ;Funciones.c: 97: lcd_goto(6,1);
-"97
-[e ( _lcd_goto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 98: lcd_puts(dist3);
-"98
-[e ( _lcd_puts (1 -> _dist3 `*Cuc ]
-[; ;Funciones.c: 99: lcd_goto(12,1);
-"99
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 100: lcd_puts(dist4);
-"100
-[e ( _lcd_puts (1 -> _dist4 `*Cuc ]
 "103
-[v _dist `uc ~T0 @X0 -> 35 `i a ]
-[; ;Funciones.c: 103: char dist[35];
-[; ;Funciones.c: 104: sprintf(dist,"%s, %s, %s, %s.\0", dist1, dist2, dist3, dist4);
+[v _dist `uc ~T0 @X0 -> 40 `i a ]
+[; ;Funciones.c: 103: char dist[40];
+[; ;Funciones.c: 104: sprintf(dist,"%s, %s, %s, %s.\n\r\0", dist1, dist2, dist3, dist4);
 "104
-[e ( _sprintf (1 , , , , (. , &U _dist :s 14C -> _dist1 `*Cuc -> _dist2 `*Cuc -> _dist3 `*Cuc -> _dist4 `*Cuc ]
+[e ( _sprintf (1 , , , , (. , &U _dist :s 13C -> _dist1 `*Cuc -> _dist2 `*Cuc -> _dist3 `*Cuc -> _dist4 `*Cuc ]
 [; ;Funciones.c: 105: UART_Write_Text(dist);
 "105
 [e ( _UART_Write_Text (1 &U _dist ]
@@ -1912,7 +1787,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 156 ]
 }
 [p f _sprintf 8651776 ]
-[a 13C 68 105 115 116 97 110 99 105 97 115 58 0 ]
 [a 2C 79 85 84 0 0 ]
 [a 5C 79 85 84 0 0 ]
 [a 8C 79 85 84 0 0 ]
@@ -1921,8 +1795,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 4C 78 79 80 69 0 0 ]
 [a 7C 78 79 80 69 0 0 ]
 [a 10C 78 79 80 69 0 0 ]
-[a 14C 37 115 44 32 37 115 44 32 37 115 44 32 37 115 46 0 0 ]
 [a 3C 37 117 32 32 32 0 0 ]
 [a 6C 37 117 32 32 32 0 0 ]
 [a 9C 37 117 32 32 32 0 0 ]
 [a 12C 37 117 32 32 32 0 0 ]
+[a 13C 37 115 44 32 37 115 44 32 37 115 44 32 37 115 46 10 13 0 0 ]

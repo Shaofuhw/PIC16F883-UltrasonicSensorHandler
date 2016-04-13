@@ -82,18 +82,8 @@ E_RW_PIN 10
 [v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
 "143
 [v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
-"33 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
-[v _lcd_init lcd_init `(uc  1 e 1 0 ]
-"79
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-"91
-[v _lcd_on lcd_on `(v  1 e 1 0 ]
-"149
-[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
-"160
+"160 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
 [v _lcd_send lcd_send `(v  1 e 1 0 ]
-"178
-[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
 "49 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _main main `(v  1 e 1 0 ]
 "71
@@ -274,31 +264,15 @@ E_RW_PIN 10
 {
 [v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 wreg ]
 "103
-[v PrintDistancias@dist dist `[35]uc  1 a 35 37 ]
+[v PrintDistancias@dist dist `[40]uc  1 a 40 37 ]
 "88
 [v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 wreg ]
 [v PrintDistancias@dist2 dist2 `*.4uc  1 p 1 29 ]
 [v PrintDistancias@dist3 dist3 `*.4uc  1 p 1 30 ]
 [v PrintDistancias@dist4 dist4 `*.4uc  1 p 1 31 ]
-"91
-[v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 72 ]
+"104
+[v PrintDistancias@dist1 dist1 `*.4uc  1 a 1 77 ]
 "107
-} 0
-"178 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
-[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
-{
-[v lcd_puts@string string `*.26DCCuc  1 p 2 7 ]
-"182
-} 0
-"149
-[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
-{
-[v lcd_goto@col col `uc  1 a 1 wreg ]
-[v lcd_goto@col col `uc  1 a 1 wreg ]
-[v lcd_goto@row row `uc  1 p 1 7 ]
-"152
-[v lcd_goto@col col `uc  1 a 1 9 ]
-"158
 } 0
 "50 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Uart.c
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
@@ -325,74 +299,7 @@ E_RW_PIN 10
 {
 "28
 } 0
-"91 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
-[v _lcd_on lcd_on `(v  1 e 1 0 ]
-{
-"96
-} 0
-"33
-[v _lcd_init lcd_init `(uc  1 e 1 0 ]
-{
-[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
-[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
-[v lcd_init@cols cols `uc  1 p 1 7 ]
-[v lcd_init@rows rows `uc  1 p 1 8 ]
-"36
-[v lcd_init@iodata iodata `*.1v  1 a 1 12 ]
-"77
-} 0
-"48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
-[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
-{
-[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
-"50
-[v lcd_ioinit@i i `uc  1 a 1 2 ]
-"48
-[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
-"84
-} 0
-"79 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-{
-"83
-} 0
-"160
-[v _lcd_send lcd_send `(v  1 e 1 0 ]
-{
-[v lcd_send@data data `uc  1 a 1 wreg ]
-[v lcd_send@data data `uc  1 a 1 wreg ]
-[v lcd_send@rs rs `uc  1 p 1 4 ]
-"163
-[v lcd_send@data data `uc  1 a 1 6 ]
-"176
-} 0
-"143 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
-[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
-{
-"155
-} 0
-"129
-[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
-{
-[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
-"132
-[v lcd_iowrite4@i i `uc  1 a 1 3 ]
-"129
-[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
-"134
-[v lcd_iowrite4@data data `uc  1 a 1 2 ]
-"141
-} 0
-"86
-[v _lcd_ioset lcd_ioset `(v  1 e 1 0 ]
-{
-[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
-[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
-[v lcd_ioset@out out `uc  1 p 1 4 ]
-[v lcd_ioset@pin pin `E42  1 a 1 5 ]
-"127
-} 0
-"61 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"61
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
 {
 "64

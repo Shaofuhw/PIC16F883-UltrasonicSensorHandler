@@ -1,5 +1,5 @@
 #include "Funciones.h"
-#include "LCD.h"
+//#include "LCD.h"
 #include "Uart.h"
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
@@ -22,9 +22,9 @@ void Inicializaciones(){
     IOCB = 0b11110000;                  //Puerto B 0-3 provocan interrupción con cambio
     GIE = 1;                                    //Bit Interrupción Global
     
-    lcd_init(0, 16, 2);                     //Inicializa el LCD
+    /*lcd_init(0, 16, 2);                     //Inicializa el LCD
     lcd_clear();                            //Lo limpia
-    lcd_on();                               //Lo enciende
+    lcd_on();                               //Lo enciende*/
 }
 
 //Activa el trigger y lo apaga tras un retardo
@@ -87,7 +87,7 @@ void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
 
 void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
 {
-    //Print al LCD
+   /* //Print al LCD
     lcd_goto(0, 0);                      
     lcd_puts("Distancias:");
     lcd_goto(12,0);
@@ -97,11 +97,11 @@ void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
     lcd_goto(6,1);
     lcd_puts(dist3);
     lcd_goto(12,1);
-    lcd_puts(dist4);
+    lcd_puts(dist4);  */
     
     //Print puerto serie
-    char dist[35];
-    sprintf(dist,"%s, %s, %s, %s.\0", dist1, dist2, dist3, dist4);
+    char dist[40];
+    sprintf(dist,"%s, %s, %s, %s.\n\r\0", dist1, dist2, dist3, dist4);
     UART_Write_Text(dist);
     __delay_ms(50);
 }

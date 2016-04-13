@@ -1482,82 +1482,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 8: void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
 [; ;Funciones.h: 9: void PrintDistancias(char [],char [],char [],char []);
 [; ;Funciones.h: 10: void ResetEcho();
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 69: enum enLcdCommands {
-[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
-[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
-[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
-[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
-[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
-[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
-[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
-[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
-[; ;LCD.h: 78: };
-[; ;LCD.h: 83: enum enLCDCursorModes {
-[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
-[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
-[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
-[; ;LCD.h: 87: };
-[; ;LCD.h: 92: enum enLCDControlPins {
-[; ;LCD.h: 93: E_D0_PIN = 0,
-[; ;LCD.h: 94: E_D1_PIN,
-[; ;LCD.h: 95: E_D2_PIN,
-[; ;LCD.h: 96: E_D3_PIN,
-[; ;LCD.h: 97: E_D4_PIN,
-[; ;LCD.h: 98: E_D5_PIN,
-[; ;LCD.h: 99: E_D6_PIN,
-[; ;LCD.h: 100: E_D7_PIN,
-[; ;LCD.h: 101: E_EN_PIN,
-[; ;LCD.h: 102: E_RS_PIN,
-[; ;LCD.h: 103: E_RW_PIN,
-[; ;LCD.h: 104: };
-[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
-[; ;LCD.h: 135: void lcd_clear();
-[; ;LCD.h: 143: void lcd_home();
-[; ;LCD.h: 153: void lcd_on();
-[; ;LCD.h: 161: void lcd_off();
-[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
-[; ;LCD.h: 184: void lcd_cursor_left();
-[; ;LCD.h: 191: void lcd_cursor_right();
-[; ;LCD.h: 199: void lcd_scroll_left();
-[; ;LCD.h: 207: void lcd_scroll_right();
-[; ;LCD.h: 214: void lcd_autoscroll_on();
-[; ;LCD.h: 222: void lcd_autoscroll_off();
-[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
-[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
-[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
-[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
-[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
 [; ;Uart.h: 5: char UART_Init(const long int);
 [; ;Uart.h: 6: char UART_TX_Empty();
 [; ;Uart.h: 7: char UART_Data_Ready();
@@ -1698,9 +1622,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 [e :UE 136 ]
 }
-[v F1753 `(v ~T0 @X0 1 tf ]
+[v F1664 `(v ~T0 @X0 1 tf ]
 "71
-[v _echo `IF1753 ~T0 @X0 1 e ]
+[v _echo `IF1664 ~T0 @X0 1 e ]
 "72
 {
 [; ;main.c: 71: void interrupt echo()

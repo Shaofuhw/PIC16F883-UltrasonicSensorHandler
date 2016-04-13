@@ -7,7 +7,7 @@
 
 #include <xc.h>
 #include "Funciones.h"
-#include "LCD.h"
+//#include "LCD.h"
 #include "Uart.h"
 
 #define _XTAL_FREQ 8000000
