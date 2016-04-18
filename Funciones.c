@@ -1,6 +1,6 @@
 #include "Funciones.h"
 //#include "LCD.h"
-#include "Uart.h"
+//#include "Uart.h"
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
 void Inicializaciones(){
@@ -19,12 +19,8 @@ void Inicializaciones(){
     
     //Configuración de las interrupciones
     INTCON = 0b00001000;            //Interrupciones por cambio de estado puerto B
-    IOCB = 0b11110000;                  //Puerto B 0-3 provocan interrupción con cambio
+    IOCB = 0b11110000;                  //Puerto B 7-4 provocan interrupción con cambio
     GIE = 1;                                    //Bit Interrupción Global
-    
-    /*lcd_init(0, 16, 2);                     //Inicializa el LCD
-    lcd_clear();                            //Lo limpia
-    lcd_on();                               //Lo enciende*/
 }
 
 //Activa el trigger y lo apaga tras un retardo
@@ -58,8 +54,7 @@ void Trigger(){
     __delay_ms(50);
 }
 
-void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
-        unsigned int t3, char** distancia1, char** distancia2, char** distancia3, char** distancia4){
+void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
     
     unsigned int d0,d1,d2,d3;
     
@@ -68,42 +63,19 @@ void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
     d2 = ( t2 ) / 58;
     d3 = ( t3 ) / 58;
     
-    if(d0 == 0){ sprintf(*distancia1,"NOPE\0"); }             
-    else if(d0 > 400){ sprintf(*distancia1,"OUT\0"); }
-    else { sprintf(*distancia1,"%u   \0", d0); }                     
+    //Se calculan las distancias, y se colocan en bytes
+    //Como la distancia tiene un valor mayor de 256, son necesarios 2 Bytes.
+    //Por lo tanto, se utilizan bytes a pares para almacenar cada distancia.
+    //En el primer byte se almacena el byte más significativo, y en el segundo el menos significativo
     
-    if(d1 == 0){ sprintf(*distancia2,"NOPE\0"); }
-    else if(d1 > 400){ sprintf(*distancia2,"OUT\0"); }
-    else{ sprintf(*distancia2,"%u   \0", d1); }
-    
-    if(d2 == 0){ sprintf(*distancia3,"NOPE\0"); }
-    else if(d2 > 400){ sprintf(*distancia3,"OUT\0"); }
-    else{ sprintf(*distancia3,"%u   \0", d2); }
-    
-    if(d3 == 0){ sprintf(*distancia4,"NOPE\0"); }
-    else if(d3 > 400){ sprintf(*distancia4,"OUT\0"); }
-    else{ sprintf(*distancia4,"%u   \0", d3); }
-}
-
-void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
-{
-   /* //Print al LCD
-    lcd_goto(0, 0);                      
-    lcd_puts("Distancias:");
-    lcd_goto(12,0);
-    lcd_puts(dist1);
-    lcd_goto(0,1);
-    lcd_puts(dist2);
-    lcd_goto(6,1);
-    lcd_puts(dist3);
-    lcd_goto(12,1);
-    lcd_puts(dist4);  */
-    
-    //Print puerto serie
-    char dist[40];
-    sprintf(dist,"%s, %s, %s, %s.\n\r\0", dist1, dist2, dist3, dist4);
-    UART_Write_Text(dist);
-    __delay_ms(50);
+    distancias[0] = (d0 >> 8) & 0xFF;
+    distancias[1] = d0 & 0xFF;
+    distancias[2] = (d1 >> 8) & 0xFF;
+    distancias[3] = d1 & 0xFF;
+    distancias[4] = (d2 >> 8) & 0xFF;
+    distancias[5] = d2 & 0xFF;
+    distancias[6] = (d3 >> 8) & 0xFF;
+    distancias[7] = d3 & 0xFF;
 }
 
 void ResetEcho()
@@ -112,4 +84,71 @@ void ResetEcho()
     __delay_ms(5);
     PORTB = 0b00000000;
     __delay_ms(5);
+}
+
+void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
+           RBIE = 0;                           //Desactiva el bit de interrupcion puerto B
+        /* Cuando detecta la subida de alguno de los pulsos, pone su respectiva señal de "On" a 1, de esta forma,
+         cuando dicha señal baja, se puede identificar cúal ha sido, y evitar posibles problemas de lectura.
+         Como el trigger se manda a la vez para todos los ultrasonidos, no se sabe cuándo va a volver cada respectivo echo
+         por lo que se hace de esta forma para que con un sólo timer, se puedan contar todas las distancias.
+         No funcionaría en el caso de que varios ECHO volviesen justo en el  mismo instante, ya que sólo detectaría  uno*/
+        if ( (RB4 == 1) && (*rbon == 0) )
+        {
+            TMR1 = 0;
+            *rbon = 4;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB4 == 0) && (*rbon == 4) )
+        {
+            *t4 = TMR1;
+            *rbon = 0;
+            TMR1ON = 0;
+        }
+        
+        else if ( (RB5 == 1) && (*rbon == 0) )
+        {
+            TMR1 = 0;
+            *rbon = 5;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB5 == 0) && (*rbon == 5) )
+        {
+            *t5 = TMR1;
+            *rbon = 0;
+            TMR1ON = 0;
+        }
+   
+        else if ( (RB6 == 1) && (*rbon == 0) )
+        {
+            TMR1 = 0;
+            *rbon = 6;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB6 == 0) && (*rbon == 6) )
+        {
+            *t6 = TMR1;
+            *rbon = 0;
+            TMR1ON = 0;
+        }
+        
+        else if ( (RB7 == 1) && (*rbon == 0) )
+        {
+            TMR1 = 0;
+            *rbon = 7;
+            TMR1ON = 1;
+        }
+        
+        else if( (RB7 == 0) && (*rbon == 7) )
+        {
+            *t7 = TMR1;
+            *rbon = 0;
+            TMR1ON = 0;
+        }
+        
+        RBIF = 0;                           //Limpia la bandera
+        RBIE = 1;                           //Vuelve a activar la interrupcion
 }

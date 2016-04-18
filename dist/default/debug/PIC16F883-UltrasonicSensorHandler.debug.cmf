@@ -11,7 +11,11 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+$C:\Users\Fu\AppData\Local\Temp\s3is.obj
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 11 11 2 2
+config CONFIG 0 2007 2007 2 2
+$dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 cinit CODE 0 13 13 9 2
 text1 CODE 0 10C 10C 61 2
 text2 CODE 0 1F1 1F1 1B 2
@@ -26,10 +30,6 @@ cstackBANK0 BANK0 1 20 20 1B 1
 intentry CODE 0 4 4 D 2
 bssBANK0 BANK0 1 3B 3B 10 1
 clrtext CODE 0 226 226 8 2
-$C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-reset_vec CODE 0 0 0 2 2
-end_init CODE 0 11 11 2 2
-config CONFIG 0 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -72,17 +72,17 @@ STRING 22E-FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-13 cinit CODE >431:C:\Users\Fu\AppData\Local\Temp\s5p4.
-13 cinit CODE >434:C:\Users\Fu\AppData\Local\Temp\s5p4.
-13 cinit CODE >475:C:\Users\Fu\AppData\Local\Temp\s5p4.
-14 cinit CODE >476:C:\Users\Fu\AppData\Local\Temp\s5p4.
-15 cinit CODE >477:C:\Users\Fu\AppData\Local\Temp\s5p4.
-16 cinit CODE >478:C:\Users\Fu\AppData\Local\Temp\s5p4.
-17 cinit CODE >479:C:\Users\Fu\AppData\Local\Temp\s5p4.
-19 cinit CODE >485:C:\Users\Fu\AppData\Local\Temp\s5p4.
-19 cinit CODE >487:C:\Users\Fu\AppData\Local\Temp\s5p4.
-1A cinit CODE >488:C:\Users\Fu\AppData\Local\Temp\s5p4.
+$dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+13 cinit CODE >431:C:\Users\Fu\AppData\Local\Temp\s3is.
+13 cinit CODE >434:C:\Users\Fu\AppData\Local\Temp\s3is.
+13 cinit CODE >475:C:\Users\Fu\AppData\Local\Temp\s3is.
+14 cinit CODE >476:C:\Users\Fu\AppData\Local\Temp\s3is.
+15 cinit CODE >477:C:\Users\Fu\AppData\Local\Temp\s3is.
+16 cinit CODE >478:C:\Users\Fu\AppData\Local\Temp\s3is.
+17 cinit CODE >479:C:\Users\Fu\AppData\Local\Temp\s3is.
+19 cinit CODE >485:C:\Users\Fu\AppData\Local\Temp\s3is.
+19 cinit CODE >487:C:\Users\Fu\AppData\Local\Temp\s3is.
+1A cinit CODE >488:C:\Users\Fu\AppData\Local\Temp\s3is.
 4 intentry CODE >60:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 9A text7 CODE >89:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 9B text7 CODE >90:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
@@ -192,16 +192,16 @@ FE text7 CODE >147:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandle
 1B1 maintext CODE >53:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 1CA maintext CODE >54:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 1CD maintext CODE >44:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-226 clrtext CODE >462:C:\Users\Fu\AppData\Local\Temp\s5p4.
-226 clrtext CODE >463:C:\Users\Fu\AppData\Local\Temp\s5p4.
-227 clrtext CODE >464:C:\Users\Fu\AppData\Local\Temp\s5p4.
-227 clrtext CODE >465:C:\Users\Fu\AppData\Local\Temp\s5p4.
-228 clrtext CODE >466:C:\Users\Fu\AppData\Local\Temp\s5p4.
-229 clrtext CODE >467:C:\Users\Fu\AppData\Local\Temp\s5p4.
-22A clrtext CODE >468:C:\Users\Fu\AppData\Local\Temp\s5p4.
-22B clrtext CODE >469:C:\Users\Fu\AppData\Local\Temp\s5p4.
-22C clrtext CODE >470:C:\Users\Fu\AppData\Local\Temp\s5p4.
-22D clrtext CODE >471:C:\Users\Fu\AppData\Local\Temp\s5p4.
+226 clrtext CODE >462:C:\Users\Fu\AppData\Local\Temp\s3is.
+226 clrtext CODE >463:C:\Users\Fu\AppData\Local\Temp\s3is.
+227 clrtext CODE >464:C:\Users\Fu\AppData\Local\Temp\s3is.
+227 clrtext CODE >465:C:\Users\Fu\AppData\Local\Temp\s3is.
+228 clrtext CODE >466:C:\Users\Fu\AppData\Local\Temp\s3is.
+229 clrtext CODE >467:C:\Users\Fu\AppData\Local\Temp\s3is.
+22A clrtext CODE >468:C:\Users\Fu\AppData\Local\Temp\s3is.
+22B clrtext CODE >469:C:\Users\Fu\AppData\Local\Temp\s3is.
+22C clrtext CODE >470:C:\Users\Fu\AppData\Local\Temp\s3is.
+22D clrtext CODE >471:C:\Users\Fu\AppData\Local\Temp\s3is.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -214,90 +214,90 @@ FE text7 CODE >147:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandle
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___latbits 1 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___latbits 1 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hspace_0 2009 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_t4 42 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_t5 44 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_t6 46 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_t7 48 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ltemp0 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ltemp1 82 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ltemp2 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ltemp3 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__CFG_MCLRE$ON 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_t4 42 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_t5 44 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_t6 46 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_t7 48 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ltemp0 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ltemp1 82 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ltemp2 86 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ltemp3 80 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hstrings 0 0 ABS 0 strings -
-_IOCB 96 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RBIE 5B 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RBIF 58 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_TMR1 E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-_main 356 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_rbon 4A 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-btemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ltemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-ttemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__size_of_main 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__size_of___lwdiv 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_IOCB 96 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RBIE 5B 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RBIF 58 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_TMR1 E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s3is.obj
+_main 356 0 CODE 0 maintext dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_rbon 4A 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+btemp 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ltemp 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s3is.obj
+ttemp 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__size_of_main 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hpowerup 0 0 CODE 0 powerup -
-ttemp0 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ttemp1 81 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ttemp2 84 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ttemp3 87 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-ttemp4 7F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_Trigger 2DA 0 CODE 0 text1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-wtemp0 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp1 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp2 82 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp3 84 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp4 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp5 88 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-wtemp6 7F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ttemp1 81 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ttemp2 84 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ttemp3 87 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+ttemp4 7F 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__end_of_Trigger 2DA 0 CODE 0 text1 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s3is.obj
+wtemp0 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp1 80 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp2 82 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp3 84 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp4 86 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp5 88 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+wtemp6 7F 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hfunctab 0 0 CODE 0 functab -
-__end_of_CalcularDistancia 134 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_CalcularDistancia 134 0 CODE 0 text4 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hclrtext 0 0 ABS 0 clrtext -
-_ANSELH 189 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_ANSELH 189 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of___lwdiv 356 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_INTCON B 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___lwdiv@quotient 25 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-IntPortb@rbon 73 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-start_initialization 26 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_OSCCON 8F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_CalcularDistancia 38 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-clear_ram0 44C 0 CODE 0 clrtext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_TMR1ON 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_Inicializaciones 418 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s5p4.obj
+__end_of___lwdiv 356 0 CODE 0 text5 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_INTCON B 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+___lwdiv@quotient 25 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+IntPortb@rbon 73 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+start_initialization 26 0 CODE 0 cinit dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_OSCCON 8F 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_CalcularDistancia 38 0 CODE 0 text4 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+clear_ram0 44C 0 CODE 0 clrtext dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_TMR1ON 80 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_Inicializaciones 418 0 CODE 0 text3 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s3is.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 BANK3 1 bank3 -
 __Hcinit 38 0 CODE 0 cinit -
-CalcularDistancia@d0 32 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@d1 34 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@d2 36 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@d3 38 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@t0 28 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@t1 2A 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@t2 2C 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-CalcularDistancia@t3 2E 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+CalcularDistancia@d0 32 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@d1 34 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@d2 36 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@d3 38 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@t0 28 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@t1 2A 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@t2 2C 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+CalcularDistancia@t3 2E 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
-___lwdiv@counter 27 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___lwdiv@counter 27 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 0 config -
@@ -326,99 +326,99 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_Trigger 218 0 CODE 0 text1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_GIE 5F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB0 30 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB1 31 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB2 32 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB3 33 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB4 34 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB5 35 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB6 36 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_RB7 37 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_Trigger 218 0 CODE 0 text1 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_GIE 5F 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB0 30 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB1 31 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB2 32 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB3 33 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB4 34 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB5 35 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB6 36 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_RB7 37 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __S0 2009 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-saved_w 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_Interrupcion 39C 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+saved_w 7E 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_Interrupcion 39C 0 CODE 0 text6 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_BOREN$ON 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lintentry 8 0 CODE 0 intentry -
-__end_of_Inicializaciones 44C 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-__size_of_IntPortb 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_Inicializaciones 44C 0 CODE 0 text3 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s3is.obj
+__size_of_IntPortb 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-__size_of_Inicializaciones 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__size_of_Interrupcion 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___lwdiv 2DA 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__pmaintext 356 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__size_of_Inicializaciones 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__size_of_Interrupcion 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+___lwdiv 2DA 0 CODE 0 text5 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__pmaintext 356 0 CODE 0 maintext dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
-__CFG_CP$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_IESO$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___lwdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_Interrupcion 3E2 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s5p4.obj
-_distancias 3B 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_IntPortb 134 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_IESO$ON 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+___lwdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__end_of_Interrupcion 3E2 0 CODE 0 text6 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s3is.obj
+stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s3is.obj
+_distancias 3B 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_IntPortb 134 0 CODE 0 text7 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__end_of_ResetEcho 418 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_ResetEcho 418 0 CODE 0 text2 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 22 0 CODE 0 end_init -
-__size_of_ResetEcho 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__size_of_ResetEcho 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-CalcularDistancia@distancias 30 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_IntPortb 218 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-end_of_initialization 32 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+CalcularDistancia@distancias 30 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__end_of_IntPortb 218 0 CODE 0 text7 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+end_of_initialization 32 0 CODE 0 cinit dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hintentry 22 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
-___lwdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-IntPortb@t4 75 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-IntPortb@t5 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-IntPortb@t6 71 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-IntPortb@t7 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-?___lwdiv 20 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___lwdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+IntPortb@t4 75 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+IntPortb@t5 70 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+IntPortb@t6 71 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+IntPortb@t7 72 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+?___lwdiv 20 0 BANK0 1 cstackBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-_ResetEcho 3E2 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext1 218 0 CODE 0 text1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext2 3E2 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext3 418 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext4 38 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext5 2DA 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext6 39C 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext7 134 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_ResetEcho 3E2 0 CODE 0 text2 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext1 218 0 CODE 0 text1 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext2 3E2 0 CODE 0 text2 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext3 418 0 CODE 0 text3 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext4 38 0 CODE 0 text4 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext5 2DA 0 CODE 0 text5 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext6 39C 0 CODE 0 text6 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__ptext7 134 0 CODE 0 text7 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of__initialization 32 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of__initialization 32 0 CODE 0 cinit dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Lfunctab 0 0 CODE 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hend_init 26 0 CODE 0 end_init -
-__end_of_main 39C 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_PORTB 6 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_T1CON 10 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_TRISB 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_main 39C 0 CODE 0 maintext dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_PORTB 6 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_T1CON 10 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+_TRISB 86 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-interrupt_function 8 0 CODE 0 intentry dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__size_of_CalcularDistancia 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__size_of_Trigger 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__pintentry 8 0 CODE 0 intentry dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__initialization 26 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__pbssBANK0 3B 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+interrupt_function 8 0 CODE 0 intentry dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__size_of_CalcularDistancia 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__size_of_Trigger 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__pintentry 8 0 CODE 0 intentry dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__initialization 26 0 CODE 0 cinit dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__pbssBANK0 3B 0 BANK0 1 bssBANK0 dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.

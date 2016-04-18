@@ -1,30 +1,48 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3392 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _BRGH `Vb ~T0 @X0 0 e@1218 ]
-"2430
-[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
-"3782
-[v _SYNC `Vb ~T0 @X0 0 e@1220 ]
-"3746
-[v _SPEN `Vb ~T0 @X0 0 e@199 ]
-"3886
-[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
-"3884
-[v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
-"3904
-[v _TX9 `Vb ~T0 @X0 0 e@1222 ]
-"3486
-[v _CREN `Vb ~T0 @X0 0 e@196 ]
-"3910
-[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
-"3890
-[v _TRMT `Vb ~T0 @X0 0 e@1217 ]
-"3712
-[v _RCIF `Vb ~T0 @X0 0 e@101 ]
-"1033
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"1027
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"1661 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
+"1362
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"221
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"3201
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"557
+[v _TMR1 `Vus ~T0 @X0 0 e@14 ]
+"575
+[v _T1CON `Vuc ~T0 @X0 0 e@16 ]
+"369
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"2207
+[v _IOCB `Vuc ~T0 @X0 0 e@150 ]
+"3526
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"3664
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
+[v F1554 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
+[v __delay `JF1554 ~T0 @X0 0 e ]
+[p i __delay ]
+"3666 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"3668
+[v _RB2 `Vb ~T0 @X0 0 e@50 ]
+"3670
+[v _RB3 `Vb ~T0 @X0 0 e@51 ]
+"3680
+[v _RBIE `Vb ~T0 @X0 0 e@91 ]
+"3672
+[v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"3824
+[v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
+"3674
+[v _RB5 `Vb ~T0 @X0 0 e@53 ]
+"3676
+[v _RB6 `Vb ~T0 @X0 0 e@54 ]
+"3678
+[v _RB7 `Vb ~T0 @X0 0 e@55 ]
+"3682
+[v _RBIF `Vb ~T0 @X0 0 e@88 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1444,205 +1462,386 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;Uart.h: 5: char UART_Init(const long int);
-[; ;Uart.h: 6: char UART_TX_Empty();
-[; ;Uart.h: 7: char UART_Data_Ready();
-[; ;Uart.h: 8: char UART_Read();
-[; ;Uart.h: 9: void UART_Write(char );
-[; ;Uart.h: 10: void UART_Write_Text(char *);
-"3 Uart.c
-[v _UART_Init `(uc ~T0 @X0 1 ef1`Cl ]
-"4
+[; ;Funciones.h: 5: void Inicializaciones(void);
+[; ;Funciones.h: 6: void Trigger(void);
+[; ;Funciones.h: 7: void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+[; ;Funciones.h: 8: void ResetEcho();
+[; ;Funciones.h: 9: void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
+"6 Funciones.c
+[v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
-[; ;Uart.c: 3: char UART_Init(const long int baudrate)
-[; ;Uart.c: 4: {
-[e :U _UART_Init ]
-"3
-[v _baudrate `Cl ~T0 @X0 1 r1 ]
-"4
+[; ;Funciones.c: 6: void Inicializaciones(){
+[e :U _Inicializaciones ]
 [f ]
-"5
-[v _x `ui ~T0 @X0 1 a ]
-[; ;Uart.c: 5: unsigned int x;
-[; ;Uart.c: 6: x = (8000000 - baudrate*64)/(baudrate*64);
-"6
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
-[; ;Uart.c: 7: if(x>255)
+[; ;Funciones.c: 7: OSCCON = 0b01110101;
 "7
-[e $ ! > _x -> -> 255 `i `ui 136  ]
-[; ;Uart.c: 8: {
-"8
-{
-[; ;Uart.c: 9: x = (8000000 - baudrate*16)/(baudrate*16);
-"9
-[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
-[; ;Uart.c: 10: BRGH = 1;
+[e = _OSCCON -> -> 117 `i `uc ]
+[; ;Funciones.c: 10: TRISB = 0b11110000;
 "10
-[e = _BRGH -> -> 1 `i `b ]
+[e = _TRISB -> -> 240 `i `uc ]
+[; ;Funciones.c: 11: PORTB = 0b00000000;
 "11
-}
-[e :U 136 ]
-[; ;Uart.c: 11: }
-[; ;Uart.c: 12: if(x<256)
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 12: ANSELH = 0b00000000;
 "12
-[e $ ! < _x -> -> 256 `i `ui 137  ]
-[; ;Uart.c: 13: {
-"13
-{
-[; ;Uart.c: 14: BRGH = 0;
-"14
-[e = _BRGH -> -> 0 `i `b ]
-[; ;Uart.c: 15: SPBRG = x;
-"15
-[e = _SPBRG -> _x `uc ]
-[; ;Uart.c: 16: SYNC = 0;
-"16
-[e = _SYNC -> -> 0 `i `b ]
-[; ;Uart.c: 17: SPEN = 1;
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;Funciones.c: 17: TMR1 = 0;
 "17
-[e = _SPEN -> -> 1 `i `b ]
-[; ;Uart.c: 18: TRISC7 = 1;
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 18: T1CON = 0b00010000;
 "18
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;Uart.c: 19: TRISC6 = 0;
-"19
-[e = _TRISC6 -> -> 0 `i `b ]
-[; ;Uart.c: 20: TX9 = 0;
-"20
-[e = _TX9 -> -> 0 `i `b ]
-[; ;Uart.c: 21: CREN = 1;
+[e = _T1CON -> -> 16 `i `uc ]
+[; ;Funciones.c: 21: INTCON = 0b00001000;
 "21
-[e = _CREN -> -> 1 `i `b ]
-[; ;Uart.c: 22: TXEN = 1;
+[e = _INTCON -> -> 8 `i `uc ]
+[; ;Funciones.c: 22: IOCB = 0b11110000;
 "22
-[e = _TXEN -> -> 1 `i `b ]
-[; ;Uart.c: 23: return 1;
+[e = _IOCB -> -> 240 `i `uc ]
+[; ;Funciones.c: 23: GIE = 1;
 "23
-[e ) -> -> 1 `i `uc ]
-[e $UE 135  ]
+[e = _GIE -> -> 1 `i `b ]
+[; ;Funciones.c: 24: }
 "24
-}
-[e :U 137 ]
-[; ;Uart.c: 24: }
-[; ;Uart.c: 25: return 0;
-"25
-[e ) -> -> 0 `i `uc ]
-[e $UE 135  ]
-[; ;Uart.c: 26: }
-"26
 [e :UE 135 ]
 }
-"28
-[v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
-"29
+"27
+[v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;Uart.c: 28: char UART_TX_Empty()
-[; ;Uart.c: 29: {
-[e :U _UART_TX_Empty ]
+[; ;Funciones.c: 27: void Trigger(){
+[e :U _Trigger ]
 [f ]
-[; ;Uart.c: 30: return TRMT;
+[; ;Funciones.c: 28: TRISB = 0b00010000;
+"28
+[e = _TRISB -> -> 16 `i `uc ]
+[; ;Funciones.c: 29: RB0 = 1;
+"29
+[e = _RB0 -> -> 1 `i `b ]
+[; ;Funciones.c: 30: _delay((unsigned long)((10)*(8000000/4000000.0)));
 "30
-[e ) -> -> _TRMT `i `uc ]
-[e $UE 138  ]
-[; ;Uart.c: 31: }
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 31: RB0 = 0;
 "31
+[e = _RB0 -> -> 0 `i `b ]
+[; ;Funciones.c: 33: _delay((unsigned long)((50)*(8000000/4000.0)));
+"33
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 35: TRISB = 0b00100000;
+"35
+[e = _TRISB -> -> 32 `i `uc ]
+[; ;Funciones.c: 36: RB1 = 1;
+"36
+[e = _RB1 -> -> 1 `i `b ]
+[; ;Funciones.c: 37: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"37
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 38: RB1 = 0;
+"38
+[e = _RB1 -> -> 0 `i `b ]
+[; ;Funciones.c: 40: _delay((unsigned long)((50)*(8000000/4000.0)));
+"40
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 42: TRISB = 0b01000000;
+"42
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;Funciones.c: 43: RB2 = 1;
+"43
+[e = _RB2 -> -> 1 `i `b ]
+[; ;Funciones.c: 44: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"44
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 45: RB2 = 0;
+"45
+[e = _RB2 -> -> 0 `i `b ]
+[; ;Funciones.c: 47: _delay((unsigned long)((50)*(8000000/4000.0)));
+"47
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 49: TRISB = 0b10000000;
+"49
+[e = _TRISB -> -> 128 `i `uc ]
+[; ;Funciones.c: 50: RB3 = 1;
+"50
+[e = _RB3 -> -> 1 `i `b ]
+[; ;Funciones.c: 51: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"51
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 52: RB3= 0;
+"52
+[e = _RB3 -> -> 0 `i `b ]
+[; ;Funciones.c: 54: _delay((unsigned long)((50)*(8000000/4000.0)));
+"54
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 55: }
+"55
+[e :UE 136 ]
+}
+"57
+[v _CalcularDistancia `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`*uc ]
+{
+[; ;Funciones.c: 57: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
+[e :U _CalcularDistancia ]
+[v _t0 `ui ~T0 @X0 1 r1 ]
+[v _t1 `ui ~T0 @X0 1 r2 ]
+[v _t2 `ui ~T0 @X0 1 r3 ]
+[v _t3 `ui ~T0 @X0 1 r4 ]
+[v _distancias `*uc ~T0 @X0 1 r5 ]
+[f ]
+"59
+[v _d0 `ui ~T0 @X0 1 a ]
+[v _d1 `ui ~T0 @X0 1 a ]
+[v _d2 `ui ~T0 @X0 1 a ]
+[v _d3 `ui ~T0 @X0 1 a ]
+[; ;Funciones.c: 59: unsigned int d0,d1,d2,d3;
+[; ;Funciones.c: 61: d0 = ( t0 ) / 58;
+"61
+[e = _d0 / _t0 -> -> 58 `i `ui ]
+[; ;Funciones.c: 62: d1 = ( t1 ) / 58;
+"62
+[e = _d1 / _t1 -> -> 58 `i `ui ]
+[; ;Funciones.c: 63: d2 = ( t2 ) / 58;
+"63
+[e = _d2 / _t2 -> -> 58 `i `ui ]
+[; ;Funciones.c: 64: d3 = ( t3 ) / 58;
+"64
+[e = _d3 / _t3 -> -> 58 `i `ui ]
+[; ;Funciones.c: 71: distancias[0] = (d0 >> 8) & 0xFF;
+"71
+[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> _d0 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 72: distancias[1] = d0 & 0xFF;
+"72
+[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & _d0 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 73: distancias[2] = (d1 >> 8) & 0xFF;
+"73
+[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> _d1 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 74: distancias[3] = d1 & 0xFF;
+"74
+[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & _d1 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 75: distancias[4] = (d2 >> 8) & 0xFF;
+"75
+[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> _d2 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 76: distancias[5] = d2 & 0xFF;
+"76
+[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & _d2 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 77: distancias[6] = (d3 >> 8) & 0xFF;
+"77
+[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> _d3 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 78: distancias[7] = d3 & 0xFF;
+"78
+[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & _d3 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 79: }
+"79
+[e :UE 137 ]
+}
+"81
+[v _ResetEcho `(v ~T0 @X0 1 ef ]
+"82
+{
+[; ;Funciones.c: 81: void ResetEcho()
+[; ;Funciones.c: 82: {
+[e :U _ResetEcho ]
+[f ]
+[; ;Funciones.c: 83: TRISB = 0b00000000;
+"83
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Funciones.c: 84: _delay((unsigned long)((5)*(8000000/4000.0)));
+"84
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 85: PORTB = 0b00000000;
+"85
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 86: _delay((unsigned long)((5)*(8000000/4000.0)));
+"86
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 87: }
+"87
 [e :UE 138 ]
 }
-"33
-[v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"34
+"89
+[v _IntPortb `(v ~T0 @X0 1 ef5`*ui`*ui`*ui`*ui`*uc ]
 {
-[; ;Uart.c: 33: char UART_Data_Ready()
-[; ;Uart.c: 34: {
-[e :U _UART_Data_Ready ]
+[; ;Funciones.c: 89: void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
+[e :U _IntPortb ]
+[v _t4 `*ui ~T0 @X0 1 r1 ]
+[v _t5 `*ui ~T0 @X0 1 r2 ]
+[v _t6 `*ui ~T0 @X0 1 r3 ]
+[v _t7 `*ui ~T0 @X0 1 r4 ]
+[v _rbon `*uc ~T0 @X0 1 r5 ]
 [f ]
-[; ;Uart.c: 35: return RCIF;
-"35
-[e ) -> -> _RCIF `i `uc ]
-[e $UE 139  ]
-[; ;Uart.c: 36: }
-"36
-[e :UE 139 ]
+[; ;Funciones.c: 90: RBIE = 0;
+"90
+[e = _RBIE -> -> 0 `i `b ]
+[; ;Funciones.c: 96: if ( (RB4 == 1) && (*rbon == 0) )
+"96
+[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 140  ]
+[; ;Funciones.c: 97: {
+"97
+{
+[; ;Funciones.c: 98: TMR1 = 0;
+"98
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 99: *rbon = 4;
+"99
+[e = *U _rbon -> -> 4 `i `uc ]
+[; ;Funciones.c: 100: TMR1ON = 1;
+"100
+[e = _TMR1ON -> -> 1 `i `b ]
+"101
 }
-"37
-[v _UART_Read `(uc ~T0 @X0 1 ef ]
-"38
-{
-[; ;Uart.c: 37: char UART_Read()
-[; ;Uart.c: 38: {
-[e :U _UART_Read ]
-[f ]
-[; ;Uart.c: 40: while(!RCIF);
-"40
+[; ;Funciones.c: 101: }
 [e $U 141  ]
+"103
+[e :U 140 ]
+[; ;Funciones.c: 103: else if( (RB4 == 0) && (*rbon == 4) )
+[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 142  ]
+[; ;Funciones.c: 104: {
+"104
+{
+[; ;Funciones.c: 105: *t4 = TMR1;
+"105
+[e = *U _t4 -> _TMR1 `ui ]
+[; ;Funciones.c: 106: *rbon = 0;
+"106
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 107: TMR1ON = 0;
+"107
+[e = _TMR1ON -> -> 0 `i `b ]
+"108
+}
+[; ;Funciones.c: 108: }
+[e $U 143  ]
+"110
 [e :U 142 ]
-[e :U 141 ]
-[e $ ! _RCIF 142  ]
-[e :U 143 ]
-[; ;Uart.c: 41: return RCREG;
-"41
-[e ) _RCREG ]
-[e $UE 140  ]
-[; ;Uart.c: 42: }
-"42
-[e :UE 140 ]
-}
-"44
-[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
-"45
+[; ;Funciones.c: 110: else if ( (RB5 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 144  ]
+[; ;Funciones.c: 111: {
+"111
 {
-[; ;Uart.c: 44: void UART_Write(char data)
-[; ;Uart.c: 45: {
-[e :U _UART_Write ]
-"44
-[v _data `uc ~T0 @X0 1 r1 ]
-"45
-[f ]
-[; ;Uart.c: 46: while(!TRMT);
-"46
+[; ;Funciones.c: 112: TMR1 = 0;
+"112
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 113: *rbon = 5;
+"113
+[e = *U _rbon -> -> 5 `i `uc ]
+[; ;Funciones.c: 114: TMR1ON = 1;
+"114
+[e = _TMR1ON -> -> 1 `i `b ]
+"115
+}
+[; ;Funciones.c: 115: }
 [e $U 145  ]
+"117
+[e :U 144 ]
+[; ;Funciones.c: 117: else if( (RB5 == 0) && (*rbon == 5) )
+[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 146  ]
+[; ;Funciones.c: 118: {
+"118
+{
+[; ;Funciones.c: 119: *t5 = TMR1;
+"119
+[e = *U _t5 -> _TMR1 `ui ]
+[; ;Funciones.c: 120: *rbon = 0;
+"120
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 121: TMR1ON = 0;
+"121
+[e = _TMR1ON -> -> 0 `i `b ]
+"122
+}
+[; ;Funciones.c: 122: }
+[e $U 147  ]
+"124
 [e :U 146 ]
-[e :U 145 ]
-[e $ ! _TRMT 146  ]
-[e :U 147 ]
-[; ;Uart.c: 47: TXREG = data;
-"47
-[e = _TXREG _data ]
-[; ;Uart.c: 48: }
-"48
-[e :UE 144 ]
+[; ;Funciones.c: 124: else if ( (RB6 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 148  ]
+[; ;Funciones.c: 125: {
+"125
+{
+[; ;Funciones.c: 126: TMR1 = 0;
+"126
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 127: *rbon = 6;
+"127
+[e = *U _rbon -> -> 6 `i `uc ]
+[; ;Funciones.c: 128: TMR1ON = 1;
+"128
+[e = _TMR1ON -> -> 1 `i `b ]
+"129
 }
-"50
-[v _UART_Write_Text `(v ~T0 @X0 1 ef1`*uc ]
-"51
+[; ;Funciones.c: 129: }
+[e $U 149  ]
+"131
+[e :U 148 ]
+[; ;Funciones.c: 131: else if( (RB6 == 0) && (*rbon == 6) )
+[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 150  ]
+[; ;Funciones.c: 132: {
+"132
 {
-[; ;Uart.c: 50: void UART_Write_Text(char *text)
-[; ;Uart.c: 51: {
-[e :U _UART_Write_Text ]
-"50
-[v _text `*uc ~T0 @X0 1 r1 ]
-"51
-[f ]
-"52
-[v _i `i ~T0 @X0 1 a ]
-[; ;Uart.c: 52: int i;
-[; ;Uart.c: 53: for(i=0;text[i]!='\0';i++)
-"53
-{
-[e = _i -> 0 `i ]
-[e $U 152  ]
-"54
-[e :U 149 ]
-[; ;Uart.c: 54: UART_Write(text[i]);
-[e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
-"53
-[e ++ _i -> 1 `i ]
-[e :U 152 ]
-[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 149  ]
+[; ;Funciones.c: 133: *t6 = TMR1;
+"133
+[e = *U _t6 -> _TMR1 `ui ]
+[; ;Funciones.c: 134: *rbon = 0;
+"134
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 135: TMR1ON = 0;
+"135
+[e = _TMR1ON -> -> 0 `i `b ]
+"136
+}
+[; ;Funciones.c: 136: }
+[e $U 151  ]
+"138
 [e :U 150 ]
-"54
+[; ;Funciones.c: 138: else if ( (RB7 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 152  ]
+[; ;Funciones.c: 139: {
+"139
+{
+[; ;Funciones.c: 140: TMR1 = 0;
+"140
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 141: *rbon = 7;
+"141
+[e = *U _rbon -> -> 7 `i `uc ]
+[; ;Funciones.c: 142: TMR1ON = 1;
+"142
+[e = _TMR1ON -> -> 1 `i `b ]
+"143
 }
-[; ;Uart.c: 55: }
-"55
-[e :UE 148 ]
+[; ;Funciones.c: 143: }
+[e $U 153  ]
+"145
+[e :U 152 ]
+[; ;Funciones.c: 145: else if( (RB7 == 0) && (*rbon == 7) )
+[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 154  ]
+[; ;Funciones.c: 146: {
+"146
+{
+[; ;Funciones.c: 147: *t7 = TMR1;
+"147
+[e = *U _t7 -> _TMR1 `ui ]
+[; ;Funciones.c: 148: *rbon = 0;
+"148
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 149: TMR1ON = 0;
+"149
+[e = _TMR1ON -> -> 0 `i `b ]
+"150
+}
+[e :U 154 ]
+"152
+[e :U 153 ]
+[e :U 151 ]
+[e :U 149 ]
+[e :U 147 ]
+[e :U 145 ]
+[e :U 143 ]
+[e :U 141 ]
+[; ;Funciones.c: 150: }
+[; ;Funciones.c: 152: RBIF = 0;
+[e = _RBIF -> -> 0 `i `b ]
+[; ;Funciones.c: 153: RBIE = 1;
+"153
+[e = _RBIE -> -> 1 `i `b ]
+[; ;Funciones.c: 154: }
+"154
+[e :UE 139 ]
 }

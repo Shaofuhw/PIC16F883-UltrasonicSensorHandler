@@ -29,10 +29,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
 "3670
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"10 Uart.h
-[v _UART_Write_Text `(v ~T0 @X0 0 ef1`*uc ]
+"3680
+[v _RBIE `Vb ~T0 @X0 0 e@91 ]
+"3672
+[v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"3824
+[v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
+"3674
+[v _RB5 `Vb ~T0 @X0 0 e@53 ]
+"3676
+[v _RB6 `Vb ~T0 @X0 0 e@54 ]
+"3678
+[v _RB7 `Vb ~T0 @X0 0 e@55 ]
+"3682
+[v _RBIF `Vb ~T0 @X0 0 e@88 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1452,47 +1462,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;Funciones.h: 6: void Inicializaciones(void);
-[; ;Funciones.h: 7: void Trigger(void);
-[; ;Funciones.h: 8: void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
-[; ;Funciones.h: 9: void PrintDistancias(char [],char [],char [],char []);
-[; ;Funciones.h: 10: void ResetEcho();
-[; ;Uart.h: 5: char UART_Init(const long int);
-[; ;Uart.h: 6: char UART_TX_Empty();
-[; ;Uart.h: 7: char UART_Data_Ready();
-[; ;Uart.h: 8: char UART_Read();
-[; ;Uart.h: 9: void UART_Write(char );
-[; ;Uart.h: 10: void UART_Write_Text(char *);
+[; ;Funciones.h: 5: void Inicializaciones(void);
+[; ;Funciones.h: 6: void Trigger(void);
+[; ;Funciones.h: 7: void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+[; ;Funciones.h: 8: void ResetEcho();
+[; ;Funciones.h: 9: void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
 "6 Funciones.c
 [v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
@@ -1526,277 +1500,348 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 23: GIE = 1;
 "23
 [e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 28: }
-"28
-[e :UE 136 ]
+[; ;Funciones.c: 24: }
+"24
+[e :UE 135 ]
 }
-"31
+"27
 [v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 31: void Trigger(){
+[; ;Funciones.c: 27: void Trigger(){
 [e :U _Trigger ]
 [f ]
-[; ;Funciones.c: 32: TRISB = 0b00010000;
-"32
+[; ;Funciones.c: 28: TRISB = 0b00010000;
+"28
 [e = _TRISB -> -> 16 `i `uc ]
-[; ;Funciones.c: 33: RB0 = 1;
-"33
+[; ;Funciones.c: 29: RB0 = 1;
+"29
 [e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 34: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"34
+[; ;Funciones.c: 30: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"30
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 35: RB0 = 0;
-"35
+[; ;Funciones.c: 31: RB0 = 0;
+"31
 [e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 37: _delay((unsigned long)((50)*(8000000/4000.0)));
-"37
+[; ;Funciones.c: 33: _delay((unsigned long)((50)*(8000000/4000.0)));
+"33
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 39: TRISB = 0b00100000;
-"39
+[; ;Funciones.c: 35: TRISB = 0b00100000;
+"35
 [e = _TRISB -> -> 32 `i `uc ]
-[; ;Funciones.c: 40: RB1 = 1;
-"40
+[; ;Funciones.c: 36: RB1 = 1;
+"36
 [e = _RB1 -> -> 1 `i `b ]
-[; ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"41
+[; ;Funciones.c: 37: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"37
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 42: RB1 = 0;
-"42
+[; ;Funciones.c: 38: RB1 = 0;
+"38
 [e = _RB1 -> -> 0 `i `b ]
-[; ;Funciones.c: 44: _delay((unsigned long)((50)*(8000000/4000.0)));
-"44
+[; ;Funciones.c: 40: _delay((unsigned long)((50)*(8000000/4000.0)));
+"40
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 46: TRISB = 0b01000000;
-"46
+[; ;Funciones.c: 42: TRISB = 0b01000000;
+"42
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;Funciones.c: 47: RB2 = 1;
-"47
+[; ;Funciones.c: 43: RB2 = 1;
+"43
 [e = _RB2 -> -> 1 `i `b ]
-[; ;Funciones.c: 48: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"48
+[; ;Funciones.c: 44: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"44
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 49: RB2 = 0;
-"49
+[; ;Funciones.c: 45: RB2 = 0;
+"45
 [e = _RB2 -> -> 0 `i `b ]
-[; ;Funciones.c: 51: _delay((unsigned long)((50)*(8000000/4000.0)));
-"51
+[; ;Funciones.c: 47: _delay((unsigned long)((50)*(8000000/4000.0)));
+"47
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 53: TRISB = 0b10000000;
-"53
+[; ;Funciones.c: 49: TRISB = 0b10000000;
+"49
 [e = _TRISB -> -> 128 `i `uc ]
-[; ;Funciones.c: 54: RB3 = 1;
-"54
+[; ;Funciones.c: 50: RB3 = 1;
+"50
 [e = _RB3 -> -> 1 `i `b ]
-[; ;Funciones.c: 55: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"55
+[; ;Funciones.c: 51: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"51
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 56: RB3= 0;
-"56
+[; ;Funciones.c: 52: RB3= 0;
+"52
 [e = _RB3 -> -> 0 `i `b ]
-[; ;Funciones.c: 58: _delay((unsigned long)((50)*(8000000/4000.0)));
-"58
+[; ;Funciones.c: 54: _delay((unsigned long)((50)*(8000000/4000.0)));
+"54
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 59: }
-"59
-[e :UE 137 ]
+[; ;Funciones.c: 55: }
+"55
+[e :UE 136 ]
 }
-"61
-[v _CalcularDistancia `(v ~T0 @X0 1 ef8`ui`ui`ui`ui`**uc`**uc`**uc`**uc ]
-"62
+"57
+[v _CalcularDistancia `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`*uc ]
 {
-[; ;Funciones.c: 61: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2,
-[; ;Funciones.c: 62: unsigned int t3, char** distancia1, char** distancia2, char** distancia3, char** distancia4){
+[; ;Funciones.c: 57: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
 [e :U _CalcularDistancia ]
-"61
 [v _t0 `ui ~T0 @X0 1 r1 ]
 [v _t1 `ui ~T0 @X0 1 r2 ]
 [v _t2 `ui ~T0 @X0 1 r3 ]
-"62
 [v _t3 `ui ~T0 @X0 1 r4 ]
-[v _distancia1 `**uc ~T0 @X0 1 r5 ]
-[v _distancia2 `**uc ~T0 @X0 1 r6 ]
-[v _distancia3 `**uc ~T0 @X0 1 r7 ]
-[v _distancia4 `**uc ~T0 @X0 1 r8 ]
+[v _distancias `*uc ~T0 @X0 1 r5 ]
 [f ]
-"64
+"59
 [v _d0 `ui ~T0 @X0 1 a ]
 [v _d1 `ui ~T0 @X0 1 a ]
 [v _d2 `ui ~T0 @X0 1 a ]
 [v _d3 `ui ~T0 @X0 1 a ]
-[; ;Funciones.c: 64: unsigned int d0,d1,d2,d3;
-[; ;Funciones.c: 66: d0 = ( t0 ) / 58;
-"66
+[; ;Funciones.c: 59: unsigned int d0,d1,d2,d3;
+[; ;Funciones.c: 61: d0 = ( t0 ) / 58;
+"61
 [e = _d0 / _t0 -> -> 58 `i `ui ]
-[; ;Funciones.c: 67: d1 = ( t1 ) / 58;
-"67
+[; ;Funciones.c: 62: d1 = ( t1 ) / 58;
+"62
 [e = _d1 / _t1 -> -> 58 `i `ui ]
-[; ;Funciones.c: 68: d2 = ( t2 ) / 58;
-"68
+[; ;Funciones.c: 63: d2 = ( t2 ) / 58;
+"63
 [e = _d2 / _t2 -> -> 58 `i `ui ]
-[; ;Funciones.c: 69: d3 = ( t3 ) / 58;
-"69
+[; ;Funciones.c: 64: d3 = ( t3 ) / 58;
+"64
 [e = _d3 / _t3 -> -> 58 `i `ui ]
-[; ;Funciones.c: 71: if(d0 == 0){ sprintf(*distancia1,"NOPE\0"); }
+[; ;Funciones.c: 71: distancias[0] = (d0 >> 8) & 0xFF;
 "71
-[e $ ! == _d0 -> -> 0 `i `ui 139  ]
-{
-[e ( _sprintf (1 , *U _distancia1 :s 1C ]
-}
-[e $U 140  ]
+[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> _d0 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 72: distancias[1] = d0 & 0xFF;
 "72
-[e :U 139 ]
-[; ;Funciones.c: 72: else if(d0 > 400){ sprintf(*distancia1,"OUT\0"); }
-[e $ ! > _d0 -> -> 400 `i `ui 141  ]
-{
-[e ( _sprintf (1 , *U _distancia1 :s 2C ]
-}
-[e $U 142  ]
+[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & _d0 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 73: distancias[2] = (d1 >> 8) & 0xFF;
 "73
-[e :U 141 ]
-[; ;Funciones.c: 73: else { sprintf(*distancia1,"%u   \0", d0); }
-{
-[e ( _sprintf (1 , (. , *U _distancia1 :s 3C _d0 ]
-}
-[e :U 142 ]
-[e :U 140 ]
-[; ;Funciones.c: 75: if(d1 == 0){ sprintf(*distancia2,"NOPE\0"); }
+[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> _d1 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 74: distancias[3] = d1 & 0xFF;
+"74
+[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & _d1 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 75: distancias[4] = (d2 >> 8) & 0xFF;
 "75
-[e $ ! == _d1 -> -> 0 `i `ui 143  ]
-{
-[e ( _sprintf (1 , *U _distancia2 :s 4C ]
-}
-[e $U 144  ]
+[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> _d2 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 76: distancias[5] = d2 & 0xFF;
 "76
-[e :U 143 ]
-[; ;Funciones.c: 76: else if(d1 > 400){ sprintf(*distancia2,"OUT\0"); }
-[e $ ! > _d1 -> -> 400 `i `ui 145  ]
-{
-[e ( _sprintf (1 , *U _distancia2 :s 5C ]
-}
-[e $U 146  ]
+[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & _d2 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 77: distancias[6] = (d3 >> 8) & 0xFF;
 "77
-[e :U 145 ]
-[; ;Funciones.c: 77: else{ sprintf(*distancia2,"%u   \0", d1); }
-{
-[e ( _sprintf (1 , (. , *U _distancia2 :s 6C _d1 ]
-}
-[e :U 146 ]
-[e :U 144 ]
-[; ;Funciones.c: 79: if(d2 == 0){ sprintf(*distancia3,"NOPE\0"); }
+[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> _d3 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 78: distancias[7] = d3 & 0xFF;
+"78
+[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & _d3 -> -> 255 `i `ui `uc ]
+[; ;Funciones.c: 79: }
 "79
-[e $ ! == _d2 -> -> 0 `i `ui 147  ]
-{
-[e ( _sprintf (1 , *U _distancia3 :s 7C ]
+[e :UE 137 ]
 }
-[e $U 148  ]
-"80
-[e :U 147 ]
-[; ;Funciones.c: 80: else if(d2 > 400){ sprintf(*distancia3,"OUT\0"); }
-[e $ ! > _d2 -> -> 400 `i `ui 149  ]
-{
-[e ( _sprintf (1 , *U _distancia3 :s 8C ]
-}
-[e $U 150  ]
 "81
-[e :U 149 ]
-[; ;Funciones.c: 81: else{ sprintf(*distancia3,"%u   \0", d2); }
-{
-[e ( _sprintf (1 , (. , *U _distancia3 :s 9C _d2 ]
-}
-[e :U 150 ]
-[e :U 148 ]
-[; ;Funciones.c: 83: if(d3 == 0){ sprintf(*distancia4,"NOPE\0"); }
-"83
-[e $ ! == _d3 -> -> 0 `i `ui 151  ]
-{
-[e ( _sprintf (1 , *U _distancia4 :s 10C ]
-}
-[e $U 152  ]
-"84
-[e :U 151 ]
-[; ;Funciones.c: 84: else if(d3 > 400){ sprintf(*distancia4,"OUT\0"); }
-[e $ ! > _d3 -> -> 400 `i `ui 153  ]
-{
-[e ( _sprintf (1 , *U _distancia4 :s 11C ]
-}
-[e $U 154  ]
-"85
-[e :U 153 ]
-[; ;Funciones.c: 85: else{ sprintf(*distancia4,"%u   \0", d3); }
-{
-[e ( _sprintf (1 , (. , *U _distancia4 :s 12C _d3 ]
-}
-[e :U 154 ]
-[e :U 152 ]
-[; ;Funciones.c: 86: }
-"86
-[e :UE 138 ]
-}
-"88
-[v _PrintDistancias `(v ~T0 @X0 1 ef4`*uc`*uc`*uc`*uc ]
-"89
-{
-[; ;Funciones.c: 88: void PrintDistancias(char dist1[], char dist2[], char dist3[], char dist4[])
-[; ;Funciones.c: 89: {
-[e :U _PrintDistancias ]
-"88
-[v _dist1 `*uc ~T0 @X0 1 r1 ]
-[v _dist2 `*uc ~T0 @X0 1 r2 ]
-[v _dist3 `*uc ~T0 @X0 1 r3 ]
-[v _dist4 `*uc ~T0 @X0 1 r4 ]
-"89
-[f ]
-"103
-[v _dist `uc ~T0 @X0 -> 40 `i a ]
-[; ;Funciones.c: 103: char dist[40];
-[; ;Funciones.c: 104: sprintf(dist,"%s, %s, %s, %s.\n\r\0", dist1, dist2, dist3, dist4);
-"104
-[e ( _sprintf (1 , , , , (. , &U _dist :s 13C -> _dist1 `*Cuc -> _dist2 `*Cuc -> _dist3 `*Cuc -> _dist4 `*Cuc ]
-[; ;Funciones.c: 105: UART_Write_Text(dist);
-"105
-[e ( _UART_Write_Text (1 &U _dist ]
-[; ;Funciones.c: 106: _delay((unsigned long)((50)*(8000000/4000.0)));
-"106
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 107: }
-"107
-[e :UE 155 ]
-}
-"109
 [v _ResetEcho `(v ~T0 @X0 1 ef ]
-"110
+"82
 {
-[; ;Funciones.c: 109: void ResetEcho()
-[; ;Funciones.c: 110: {
+[; ;Funciones.c: 81: void ResetEcho()
+[; ;Funciones.c: 82: {
 [e :U _ResetEcho ]
 [f ]
-[; ;Funciones.c: 111: TRISB = 0b00000000;
-"111
+[; ;Funciones.c: 83: TRISB = 0b00000000;
+"83
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;Funciones.c: 112: _delay((unsigned long)((5)*(8000000/4000.0)));
-"112
+[; ;Funciones.c: 84: _delay((unsigned long)((5)*(8000000/4000.0)));
+"84
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 113: PORTB = 0b00000000;
-"113
+[; ;Funciones.c: 85: PORTB = 0b00000000;
+"85
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 114: _delay((unsigned long)((5)*(8000000/4000.0)));
-"114
+[; ;Funciones.c: 86: _delay((unsigned long)((5)*(8000000/4000.0)));
+"86
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 115: }
-"115
-[e :UE 156 ]
+[; ;Funciones.c: 87: }
+"87
+[e :UE 138 ]
 }
-[p f _sprintf 8651776 ]
-[a 2C 79 85 84 0 0 ]
-[a 5C 79 85 84 0 0 ]
-[a 8C 79 85 84 0 0 ]
-[a 11C 79 85 84 0 0 ]
-[a 1C 78 79 80 69 0 0 ]
-[a 4C 78 79 80 69 0 0 ]
-[a 7C 78 79 80 69 0 0 ]
-[a 10C 78 79 80 69 0 0 ]
-[a 3C 37 117 32 32 32 0 0 ]
-[a 6C 37 117 32 32 32 0 0 ]
-[a 9C 37 117 32 32 32 0 0 ]
-[a 12C 37 117 32 32 32 0 0 ]
-[a 13C 37 115 44 32 37 115 44 32 37 115 44 32 37 115 46 10 13 0 0 ]
+"89
+[v _IntPortb `(v ~T0 @X0 1 ef5`*ui`*ui`*ui`*ui`*uc ]
+{
+[; ;Funciones.c: 89: void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
+[e :U _IntPortb ]
+[v _t4 `*ui ~T0 @X0 1 r1 ]
+[v _t5 `*ui ~T0 @X0 1 r2 ]
+[v _t6 `*ui ~T0 @X0 1 r3 ]
+[v _t7 `*ui ~T0 @X0 1 r4 ]
+[v _rbon `*uc ~T0 @X0 1 r5 ]
+[f ]
+[; ;Funciones.c: 90: RBIE = 0;
+"90
+[e = _RBIE -> -> 0 `i `b ]
+[; ;Funciones.c: 96: if ( (RB4 == 1) && (*rbon == 0) )
+"96
+[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 140  ]
+[; ;Funciones.c: 97: {
+"97
+{
+[; ;Funciones.c: 98: TMR1 = 0;
+"98
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 99: *rbon = 4;
+"99
+[e = *U _rbon -> -> 4 `i `uc ]
+[; ;Funciones.c: 100: TMR1ON = 1;
+"100
+[e = _TMR1ON -> -> 1 `i `b ]
+"101
+}
+[; ;Funciones.c: 101: }
+[e $U 141  ]
+"103
+[e :U 140 ]
+[; ;Funciones.c: 103: else if( (RB4 == 0) && (*rbon == 4) )
+[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 142  ]
+[; ;Funciones.c: 104: {
+"104
+{
+[; ;Funciones.c: 105: *t4 = TMR1;
+"105
+[e = *U _t4 -> _TMR1 `ui ]
+[; ;Funciones.c: 106: *rbon = 0;
+"106
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 107: TMR1ON = 0;
+"107
+[e = _TMR1ON -> -> 0 `i `b ]
+"108
+}
+[; ;Funciones.c: 108: }
+[e $U 143  ]
+"110
+[e :U 142 ]
+[; ;Funciones.c: 110: else if ( (RB5 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 144  ]
+[; ;Funciones.c: 111: {
+"111
+{
+[; ;Funciones.c: 112: TMR1 = 0;
+"112
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 113: *rbon = 5;
+"113
+[e = *U _rbon -> -> 5 `i `uc ]
+[; ;Funciones.c: 114: TMR1ON = 1;
+"114
+[e = _TMR1ON -> -> 1 `i `b ]
+"115
+}
+[; ;Funciones.c: 115: }
+[e $U 145  ]
+"117
+[e :U 144 ]
+[; ;Funciones.c: 117: else if( (RB5 == 0) && (*rbon == 5) )
+[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 146  ]
+[; ;Funciones.c: 118: {
+"118
+{
+[; ;Funciones.c: 119: *t5 = TMR1;
+"119
+[e = *U _t5 -> _TMR1 `ui ]
+[; ;Funciones.c: 120: *rbon = 0;
+"120
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 121: TMR1ON = 0;
+"121
+[e = _TMR1ON -> -> 0 `i `b ]
+"122
+}
+[; ;Funciones.c: 122: }
+[e $U 147  ]
+"124
+[e :U 146 ]
+[; ;Funciones.c: 124: else if ( (RB6 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 148  ]
+[; ;Funciones.c: 125: {
+"125
+{
+[; ;Funciones.c: 126: TMR1 = 0;
+"126
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 127: *rbon = 6;
+"127
+[e = *U _rbon -> -> 6 `i `uc ]
+[; ;Funciones.c: 128: TMR1ON = 1;
+"128
+[e = _TMR1ON -> -> 1 `i `b ]
+"129
+}
+[; ;Funciones.c: 129: }
+[e $U 149  ]
+"131
+[e :U 148 ]
+[; ;Funciones.c: 131: else if( (RB6 == 0) && (*rbon == 6) )
+[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 150  ]
+[; ;Funciones.c: 132: {
+"132
+{
+[; ;Funciones.c: 133: *t6 = TMR1;
+"133
+[e = *U _t6 -> _TMR1 `ui ]
+[; ;Funciones.c: 134: *rbon = 0;
+"134
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 135: TMR1ON = 0;
+"135
+[e = _TMR1ON -> -> 0 `i `b ]
+"136
+}
+[; ;Funciones.c: 136: }
+[e $U 151  ]
+"138
+[e :U 150 ]
+[; ;Funciones.c: 138: else if ( (RB7 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 152  ]
+[; ;Funciones.c: 139: {
+"139
+{
+[; ;Funciones.c: 140: TMR1 = 0;
+"140
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 141: *rbon = 7;
+"141
+[e = *U _rbon -> -> 7 `i `uc ]
+[; ;Funciones.c: 142: TMR1ON = 1;
+"142
+[e = _TMR1ON -> -> 1 `i `b ]
+"143
+}
+[; ;Funciones.c: 143: }
+[e $U 153  ]
+"145
+[e :U 152 ]
+[; ;Funciones.c: 145: else if( (RB7 == 0) && (*rbon == 7) )
+[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 154  ]
+[; ;Funciones.c: 146: {
+"146
+{
+[; ;Funciones.c: 147: *t7 = TMR1;
+"147
+[e = *U _t7 -> _TMR1 `ui ]
+[; ;Funciones.c: 148: *rbon = 0;
+"148
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 149: TMR1ON = 0;
+"149
+[e = _TMR1ON -> -> 0 `i `b ]
+"150
+}
+[e :U 154 ]
+"152
+[e :U 153 ]
+[e :U 151 ]
+[e :U 149 ]
+[e :U 147 ]
+[e :U 145 ]
+[e :U 143 ]
+[e :U 141 ]
+[; ;Funciones.c: 150: }
+[; ;Funciones.c: 152: RBIF = 0;
+[e = _RBIF -> -> 0 `i `b ]
+[; ;Funciones.c: 153: RBIE = 1;
+"153
+[e = _RBIE -> -> 1 `i `b ]
+[; ;Funciones.c: 154: }
+"154
+[e :UE 139 ]
+}

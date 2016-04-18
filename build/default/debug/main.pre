@@ -1,5 +1,5 @@
 
-# 1 "Uart.c"
+# 1 "main.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -1991,65 +1991,61 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 5 "Uart.h"
-char UART_Init(const long int);
-char UART_TX_Empty();
-char UART_Data_Ready();
-char UART_Read();
-void UART_Write(char );
-void UART_Write_Text(char *);
+# 5 "Funciones.h"
+void Inicializaciones(void);
+void Trigger(void);
+void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+void ResetEcho();
+void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
 
-# 3 "Uart.c"
-char UART_Init(const long int baudrate)
-{
-unsigned int x;
-x = (8000000 - baudrate*64)/(baudrate*64);
-if(x>255)
-{
-x = (8000000 - baudrate*16)/(baudrate*16);
-BRGH = 1;
-}
-if(x<256)
-{
-BRGH = 0;
-SPBRG = x;
-SYNC = 0;
-SPEN = 1;
-TRISC7 = 1;
-TRISC6 = 0;
-TX9 = 0;
-CREN = 1;
-TXEN = 1;
-return 1;
-}
-return 0;
-}
 
-char UART_TX_Empty()
-{
-return TRMT;
-}
+# 14 "main.c"
+#pragma config FOSC = INTRC_CLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = ON
+#pragma config IESO = ON
+#pragma config FCMEN = ON
+#pragma config LVP = OFF
 
-char UART_Data_Ready()
-{
-return RCIF;
-}
-char UART_Read()
+
+#pragma config BOR4V = BOR21V
+#pragma config WRT = OFF
+
+
+
+unsigned int t4 = 0;
+unsigned int t5 = 0;
+unsigned int t6 = 0;
+unsigned int t7 = 0;
+char rbon = 0;
+
+char distancias[7] = {0};
+
+
+void main(void) {
+
+Inicializaciones();
+
+while(1)
 {
 
-while(!RCIF);
-return RCREG;
+# 52
+Trigger();
+CalcularDistancia(t4, t5, t6, t7, distancias);
+ResetEcho();
+}
+return;
 }
 
-void UART_Write(char data)
-{
-while(!TRMT);
-TXREG = data;
-}
 
-void UART_Write_Text(char *text)
+void interrupt Interrupcion()
 {
-int i;
-for(i=0;text[i]!='\0';i++)
-UART_Write(text[i]);
+if(RBIF == 1)
+{
+IntPortb(&t4, &t5, &t6, &t7, &rbon);
+}
 }

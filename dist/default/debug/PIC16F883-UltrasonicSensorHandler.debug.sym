@@ -210,8 +210,8 @@ config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 7D COMMON 70 1
 cstackBANK0 20 4A BANK0 20 1
 %locals
-dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-C:\Users\Fu\AppData\Local\Temp\s5p4.
+dist/default/debug\PIC16F883-UltrasonicSensorHandler.debug.obj
+C:\Users\Fu\AppData\Local\Temp\s3is.
 431 13 0 CODE 0
 434 13 0 CODE 0
 475 13 0 CODE 0

@@ -1,5 +1,5 @@
 
-# 1 "LCD.c"
+# 1 "Funciones.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -1991,354 +1991,151 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
-typedef signed char int8_t;
+# 5 "Funciones.h"
+void Inicializaciones(void);
+void Trigger(void);
+void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+void ResetEcho();
+void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
 
-# 20
-typedef signed int int16_t;
+# 6 "Funciones.c"
+void Inicializaciones(){
+OSCCON = 0b01110101;
 
-# 28
-typedef signed short long int int24_t;
 
-# 36
-typedef signed long int int32_t;
+TRISB = 0b11110000;
+PORTB = 0b00000000;
+ANSELH = 0b00000000;
 
-# 43
-typedef unsigned char uint8_t;
+# 17
+TMR1 = 0;
+T1CON = 0b00010000;
 
-# 49
-typedef unsigned int uint16_t;
 
-# 56
-typedef unsigned short long int uint24_t;
+INTCON = 0b00001000;
+IOCB = 0b11110000;
+GIE = 1;
+}
 
-# 63
-typedef unsigned long int uint32_t;
+
+void Trigger(){
+TRISB = 0b00010000;
+RB0 = 1;
+_delay((unsigned long)((10)*(8000000/4000000.0)));
+RB0 = 0;
+
+_delay((unsigned long)((50)*(8000000/4000.0)));
+
+TRISB = 0b00100000;
+RB1 = 1;
+_delay((unsigned long)((10)*(8000000/4000000.0)));
+RB1 = 0;
+
+_delay((unsigned long)((50)*(8000000/4000.0)));
+
+TRISB = 0b01000000;
+RB2 = 1;
+_delay((unsigned long)((10)*(8000000/4000000.0)));
+RB2 = 0;
+
+_delay((unsigned long)((50)*(8000000/4000.0)));
+
+TRISB = 0b10000000;
+RB3 = 1;
+_delay((unsigned long)((10)*(8000000/4000000.0)));
+RB3= 0;
+
+_delay((unsigned long)((50)*(8000000/4000.0)));
+}
+
+void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
+
+unsigned int d0,d1,d2,d3;
+
+d0 = ( t0 ) / 58;
+d1 = ( t1 ) / 58;
+d2 = ( t2 ) / 58;
+d3 = ( t3 ) / 58;
 
 # 71
-typedef signed char int_least8_t;
+distancias[0] = (d0 >> 8) & 0xFF;
+distancias[1] = d0 & 0xFF;
+distancias[2] = (d1 >> 8) & 0xFF;
+distancias[3] = d1 & 0xFF;
+distancias[4] = (d2 >> 8) & 0xFF;
+distancias[5] = d2 & 0xFF;
+distancias[6] = (d3 >> 8) & 0xFF;
+distancias[7] = d3 & 0xFF;
+}
 
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 69 "LCD.h"
-enum enLcdCommands {
-E_CLEAR_DISPLAY = 0x01,
-E_RETURN_HOME = 0x02,
-E_ENTRY_MODE_SET = 0x04,
-E_DISPLAY_ON_OFF_CTRL = 0x08,
-E_CURSOR_DISPLAY_SHIFT = 0x10,
-E_FUNCTION_SET = 0x20,
-E_SET_CGRAM_ADDR = 0x40,
-E_SET_DDRAM_ADDR = 0x80,
-};
-
-# 83
-enum enLCDCursorModes {
-E_LCD_CURSOR_OFF = 0x00,
-E_LCD_CURSOR_ON = 0x02,
-E_LCD_CURSOR_ON_BLINK = 0x03,
-};
-
-# 92
-enum enLCDControlPins {
-E_D0_PIN = 0,
-E_D1_PIN,
-E_D2_PIN,
-E_D3_PIN,
-E_D4_PIN,
-E_D5_PIN,
-E_D6_PIN,
-E_D7_PIN,
-E_EN_PIN,
-E_RS_PIN,
-E_RW_PIN,
-};
-
-# 127
-uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
-
-# 135
-void lcd_clear();
-
-# 143
-void lcd_home();
-
-# 153
-void lcd_on();
-
-# 161
-void lcd_off();
-
-# 177
-void lcd_cursor(enum enLCDCursorModes emode);
-
-# 184
-void lcd_cursor_left();
-
-# 191
-void lcd_cursor_right();
-
-# 199
-void lcd_scroll_left();
-
-# 207
-void lcd_scroll_right();
-
-# 214
-void lcd_autoscroll_on();
-
-# 222
-void lcd_autoscroll_off();
-
-# 234
-void lcd_goto(uint8_t col, uint8_t row);
-
-# 250
-void lcd_send(uint8_t data, uint8_t rs);
-
-# 275
-void lcd_puts(const uint8_t * string);
-
-# 291
-void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
-
-# 313
-uint8_t lcd_ioinit(void * iodata);
-
-# 326
-void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-
-# 343
-void lcd_iowrite4(uint8_t data);
-
-# 356
-void lcd_iowrite8(uint8_t data);
-
-# 26 "LCD.c"
-const uint8_t rowaddr[4] = {0x00, 0x40, 0x14, 0x54};
-uint8_t lcdrows = 2;
-uint8_t lcdcolumns = 16;
-
-uint8_t dispctrl = 0x00;
-uint8_t iomode = 0;
-
-uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows)
+void ResetEcho()
 {
-
-iomode = lcd_ioinit(iodata);
-lcdrows = rows;
-lcdcolumns = cols;
-
-
-_delay((unsigned long)((100)*(8000000/4000.0)));
-
-
-if (iomode == 4) {
-
-
-lcd_iowrite4(0x03);
+TRISB = 0b00000000;
 _delay((unsigned long)((5)*(8000000/4000.0)));
-lcd_iowrite4(0x03);
-_delay((unsigned long)((120)*(8000000/4000000.0)));
-lcd_iowrite4(0x03);
-_delay((unsigned long)((120)*(8000000/4000000.0)));
-lcd_iowrite4(0x02);
-_delay((unsigned long)((120)*(8000000/4000000.0)));
-lcd_send( E_FUNCTION_SET | 0 | (1<<3) | (1<<2), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-} else if (iomode == 8) {
-
-lcd_send( E_FUNCTION_SET, 0 );
+PORTB = 0b00000000;
 _delay((unsigned long)((5)*(8000000/4000.0)));
-lcd_send( E_FUNCTION_SET, 0 );
-_delay((unsigned long)((120)*(8000000/4000000.0)));
-lcd_send( E_FUNCTION_SET, 0 );
-_delay((unsigned long)((120)*(8000000/4000000.0)));
-lcd_send( E_FUNCTION_SET | (1<<4) | (1<<3) | (1<<2), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
-lcd_send( E_DISPLAY_ON_OFF_CTRL | 0, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-lcd_send( E_CLEAR_DISPLAY, 0 );
-_delay((unsigned long)((2)*(8000000/4000.0)));
-lcd_send( E_ENTRY_MODE_SET | 0 | (1<<1), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
+RBIE = 0;
 
-return 1;
-}
-
-void lcd_clear()
+# 96
+if ( (RB4 == 1) && (*rbon == 0) )
 {
-lcd_send( E_CLEAR_DISPLAY, 0 );
-_delay((unsigned long)((2)*(8000000/4000.0)));
+TMR1 = 0;
+*rbon = 4;
+TMR1ON = 1;
 }
 
-void lcd_home()
+else if( (RB4 == 0) && (*rbon == 4) )
 {
-lcd_send( E_RETURN_HOME, 0 );
-_delay((unsigned long)((2)*(8000000/4000.0)));
+*t4 = TMR1;
+*rbon = 0;
+TMR1ON = 0;
 }
 
-void lcd_on()
+else if ( (RB5 == 1) && (*rbon == 0) )
 {
-dispctrl |= (1<<2);
-lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+TMR1 = 0;
+*rbon = 5;
+TMR1ON = 1;
 }
 
-void lcd_off()
+else if( (RB5 == 0) && (*rbon == 5) )
 {
-dispctrl &= ~(1<<2);
-lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+*t5 = TMR1;
+*rbon = 0;
+TMR1ON = 0;
 }
 
-void lcd_cursor(enum enLCDCursorModes mode)
+else if ( (RB6 == 1) && (*rbon == 0) )
 {
-dispctrl &= 0xFC;
-dispctrl |= mode;
-lcd_send( E_DISPLAY_ON_OFF_CTRL | dispctrl, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+TMR1 = 0;
+*rbon = 6;
+TMR1ON = 1;
 }
 
-void lcd_cursor_left()
+else if( (RB6 == 0) && (*rbon == 6) )
 {
-lcd_send( E_CURSOR_DISPLAY_SHIFT | 0 | 0, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+*t6 = TMR1;
+*rbon = 0;
+TMR1ON = 0;
 }
 
-void lcd_cursor_right()
+else if ( (RB7 == 1) && (*rbon == 0) )
 {
-lcd_send( E_CURSOR_DISPLAY_SHIFT | 0 | (1<<2), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+TMR1 = 0;
+*rbon = 7;
+TMR1ON = 1;
 }
 
-void lcd_scroll_left()
+else if( (RB7 == 0) && (*rbon == 7) )
 {
-lcd_send( E_CURSOR_DISPLAY_SHIFT | (1<<3) | 0, 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
+*t7 = TMR1;
+*rbon = 0;
+TMR1ON = 0;
 }
 
-void lcd_scroll_right()
-{
-lcd_send( E_CURSOR_DISPLAY_SHIFT | (1<<3) | (1<<2), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-}
-
-void lcd_autoscroll_on()
-{
-lcd_send( E_ENTRY_MODE_SET | (1<<0) | (1<<1), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-}
-
-void lcd_autoscroll_off()
-{
-lcd_send( E_ENTRY_MODE_SET | 0 | (1<<1), 0 );
-_delay((unsigned long)((50)*(8000000/4000000.0)));
-}
-
-void lcd_goto(uint8_t col, uint8_t row)
-{
-
-if (row >= lcdrows)
-row = lcdrows - 1;
-if (col >= lcdcolumns)
-col = lcdcolumns - 1;
-
-lcd_send( E_SET_DDRAM_ADDR | (col + rowaddr[ row ]), 0 );
-}
-
-void lcd_send(uint8_t data, uint8_t rs)
-{
-
-if (rs)
-lcd_ioset(E_RS_PIN,1);
-else
-lcd_ioset(E_RS_PIN,0);
-
-lcd_ioset(E_RW_PIN,0);
-
-if (iomode == 4) {
-lcd_iowrite4(data >> 4);
-lcd_iowrite4(data);
-} else {
-lcd_iowrite8(data);
-}
-}
-
-void lcd_puts(const char * string)
-{
-while (*string != '\0')
-lcd_send( *string++, 1 );
-}
-
-void lcd_create_char(uint8_t charnum, const uint8_t * chardata)
-{
-uint8_t i;
-charnum &= 0x07;
-lcd_send( E_SET_CGRAM_ADDR | (charnum << 3), 0 );
-for (i = 0; i < 8; i++)
-lcd_send( chardata[i], 1 );
+RBIF = 0;
+RBIE = 1;
 }

@@ -1991,86 +1991,15 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 6 "Funciones.h"
+# 5 "Funciones.h"
 void Inicializaciones(void);
 void Trigger(void);
-void CalcularDistancia(unsigned int,unsigned int,unsigned int,unsigned int, char**, char**, char**, char**);
-void PrintDistancias(char [],char [],char [],char []);
+void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
 void ResetEcho();
-
-# 5 "Uart.h"
-char UART_Init(const long int);
-char UART_TX_Empty();
-char UART_Data_Ready();
-char UART_Read();
-void UART_Write(char );
-void UART_Write_Text(char *);
+void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
 
 
-# 16 "main.c"
+# 14 "main.c"
 #pragma config FOSC = INTRC_CLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2092,101 +2021,31 @@ unsigned int t4 = 0;
 unsigned int t5 = 0;
 unsigned int t6 = 0;
 unsigned int t7 = 0;
-int rbon = 0;
+char rbon = 0;
 
-char dist1[8];
-char* distancia1 = dist1;
-char dist2[8];
-char* distancia2 = dist2;
-char dist3[8];
-char* distancia3 = dist3;
-char dist4[8];
-char* distancia4 = dist4;
+char distancias[7] = {0};
 
 
 void main(void) {
 
 Inicializaciones();
-UART_Init(9600);
 
 while(1)
 {
 
-# 62
+# 52
 Trigger();
-CalcularDistancia(t4, t5, t6, t7, &distancia1, &distancia2, &distancia3, &distancia4);
-PrintDistancias(dist1, dist2, dist3, dist4);
+CalcularDistancia(t4, t5, t6, t7, distancias);
 ResetEcho();
 }
 return;
 }
 
 
-void interrupt echo()
+void interrupt Interrupcion()
 {
 if(RBIF == 1)
 {
-RBIE = 0;
-
-# 81
-if ( (RB4 == 1) && (rbon == 0) )
-{
-TMR1 = 0;
-rbon = 4;
-TMR1ON = 1;
+IntPortb(&t4, &t5, &t6, &t7, &rbon);
 }
-
-else if( (RB4 == 0) && (rbon == 4) )
-{
-t4 = TMR1;
-rbon = 0;
-TMR1ON = 0;
-}
-
-else if ( (RB5 == 1) && (rbon == 0) )
-{
-TMR1 = 0;
-rbon = 5;
-TMR1ON = 1;
-}
-
-else if( (RB5 == 0) && (rbon == 5) )
-{
-t5 = TMR1;
-rbon = 0;
-TMR1ON = 0;
-}
-
-else if ( (RB6 == 1) && (rbon == 0) )
-{
-TMR1 = 0;
-rbon = 6;
-TMR1ON = 1;
-}
-
-else if( (RB6 == 0) && (rbon == 6) )
-{
-t6 = TMR1;
-rbon = 0;
-TMR1ON = 0;
-}
-
-else if ( (RB7 == 1) && (rbon == 0) )
-{
-TMR1 = 0;
-rbon = 7;
-TMR1ON = 1;
-}
-
-else if( (RB7 == 0) && (rbon == 7) )
-{
-t7 = TMR1;
-rbon = 0;
-TMR1ON = 0;
-}
-
-RBIF = 0;
-RBIE = 1;
-}
-
 }
