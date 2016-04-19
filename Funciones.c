@@ -1,5 +1,5 @@
 #include "Funciones.h"
-#include "LCD.h"
+//#include "LCD.h"
 #include <stdio.h>
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
@@ -22,9 +22,9 @@ void Inicializaciones(){
     IOCB = 0b11110000;                  //Puerto B 7-4 provocan interrupción con cambio
     GIE = 1;                                    //Bit Interrupción Global
     
-    lcd_init(0, 16, 2);                     //Inicializa el LCD
+    /*lcd_init(0, 16, 2);                     //Inicializa el LCD
     lcd_clear();                            //Lo limpia
-    lcd_on();
+    lcd_on();*/
 }
 
 //Activa el trigger y lo apaga tras un retardo
@@ -99,7 +99,7 @@ void MediaMedidas( int *t){
     t[5] = t[5] / num;
 }
 
-void PrintDistancias( int* t4,  int* t5,  int* t6,  int* t7)
+/*void PrintDistancias( int* t4,  int* t5,  int* t6,  int* t7)
 {
     //Print al LCD
     char dist1[10];
@@ -122,7 +122,7 @@ void PrintDistancias( int* t4,  int* t5,  int* t6,  int* t7)
     lcd_puts(dist3);
     lcd_goto(12,1);
     lcd_puts(dist4);  
-}
+}*/
 
 void ShiftArrays( int* t4,  int* t5,  int* t6,  int* t7)
 {

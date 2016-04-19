@@ -15,10 +15,6 @@
       <itemPath>Funciones.c</itemPath>
       <itemPath>Funciones.h</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>LCD-PIC16.c</itemPath>
-      <itemPath>LCD-PIC16.h</itemPath>
-      <itemPath>LCD.c</itemPath>
-      <itemPath>LCD.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -1999,7 +1999,6 @@ void ResetEcho();
 void IntPortb( int*, int*, int*, int*, char*);
 void ShiftArrays( int*, int*, int*, int*);
 void MediaMedidas( int*);
-void PrintDistancias( int*, int* , int* , int* );
 
 
 # 14 "main.c"
@@ -2036,7 +2035,7 @@ while(1)
 # 52
 Trigger();
 CalcularDistancia(t4, t5, t6, t7, distancias);
-PrintDistancias(t4, t5, t6, t7);
+
 ShiftArrays(t4, t5, t6, t7);
 ResetEcho();
 }

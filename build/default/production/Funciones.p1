@@ -17,13 +17,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "3526
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"127 LCD.h
-[v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
-"135
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
-"153
-[v _lcd_on `(v ~T0 @X0 0 ef ]
-"3664 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
+"3664
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [v F1554 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
@@ -37,12 +31,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
 "11 Funciones.h
 [v _MediaMedidas `(v ~T0 @X0 0 ef1`*i ]
-"194 C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"234 LCD.h
-[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
-"275
-[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "3680 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _RBIE `Vb ~T0 @X0 0 e@91 ]
 "3672
@@ -1483,83 +1471,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
 [; ;Funciones.h: 11: void MediaMedidas( int*);
-[; ;Funciones.h: 12: void PrintDistancias( int*, int* , int* , int* );
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 69: enum enLcdCommands {
-[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
-[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
-[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
-[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
-[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
-[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
-[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
-[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
-[; ;LCD.h: 78: };
-[; ;LCD.h: 83: enum enLCDCursorModes {
-[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
-[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
-[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
-[; ;LCD.h: 87: };
-[; ;LCD.h: 92: enum enLCDControlPins {
-[; ;LCD.h: 93: E_D0_PIN = 0,
-[; ;LCD.h: 94: E_D1_PIN,
-[; ;LCD.h: 95: E_D2_PIN,
-[; ;LCD.h: 96: E_D3_PIN,
-[; ;LCD.h: 97: E_D4_PIN,
-[; ;LCD.h: 98: E_D5_PIN,
-[; ;LCD.h: 99: E_D6_PIN,
-[; ;LCD.h: 100: E_D7_PIN,
-[; ;LCD.h: 101: E_EN_PIN,
-[; ;LCD.h: 102: E_RS_PIN,
-[; ;LCD.h: 103: E_RW_PIN,
-[; ;LCD.h: 104: };
-[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
-[; ;LCD.h: 135: void lcd_clear();
-[; ;LCD.h: 143: void lcd_home();
-[; ;LCD.h: 153: void lcd_on();
-[; ;LCD.h: 161: void lcd_off();
-[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
-[; ;LCD.h: 184: void lcd_cursor_left();
-[; ;LCD.h: 191: void lcd_cursor_right();
-[; ;LCD.h: 199: void lcd_scroll_left();
-[; ;LCD.h: 207: void lcd_scroll_right();
-[; ;LCD.h: 214: void lcd_autoscroll_on();
-[; ;LCD.h: 222: void lcd_autoscroll_off();
-[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
-[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
-[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
-[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
-[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
-[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
-[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
-[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -1623,15 +1534,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 23: GIE = 1;
 "23
 [e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 25: lcd_init(0, 16, 2);
-"25
-[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
-[; ;Funciones.c: 26: lcd_clear();
-"26
-[e ( _lcd_clear ..  ]
-[; ;Funciones.c: 27: lcd_on();
-"27
-[e ( _lcd_on ..  ]
 [; ;Funciones.c: 28: }
 "28
 [e :UE 136 ]
@@ -1828,78 +1730,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "100
 [e :UE 139 ]
 }
-"102
-[v _PrintDistancias `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
-"103
-{
-[; ;Funciones.c: 102: void PrintDistancias( int* t4, int* t5, int* t6, int* t7)
-[; ;Funciones.c: 103: {
-[e :U _PrintDistancias ]
-"102
-[v _t4 `*i ~T0 @X0 1 r1 ]
-[v _t5 `*i ~T0 @X0 1 r2 ]
-[v _t6 `*i ~T0 @X0 1 r3 ]
-[v _t7 `*i ~T0 @X0 1 r4 ]
-"103
-[f ]
-"105
-[v _dist1 `uc ~T0 @X0 -> 10 `i a ]
-"106
-[v _dist2 `uc ~T0 @X0 -> 10 `i a ]
-"107
-[v _dist3 `uc ~T0 @X0 -> 10 `i a ]
-"108
-[v _dist4 `uc ~T0 @X0 -> 10 `i a ]
-[; ;Funciones.c: 105: char dist1[10];
-[; ;Funciones.c: 106: char dist2[10];
-[; ;Funciones.c: 107: char dist3[10];
-[; ;Funciones.c: 108: char dist4[10];
-[; ;Funciones.c: 110: sprintf(dist1, "%u   \0", t4[5]);
-"110
-[e ( _sprintf (1 , (. , &U _dist1 :s 1C *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x ]
-[; ;Funciones.c: 111: sprintf(dist2, "%u   \0", t5[5]);
-"111
-[e ( _sprintf (1 , (. , &U _dist2 :s 2C *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x ]
-[; ;Funciones.c: 112: sprintf(dist3, "%u   \0", t6[5]);
-"112
-[e ( _sprintf (1 , (. , &U _dist3 :s 3C *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x ]
-[; ;Funciones.c: 113: sprintf(dist4, "%u   \0", t7[5]);
-"113
-[e ( _sprintf (1 , (. , &U _dist4 :s 4C *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x ]
-[; ;Funciones.c: 115: lcd_goto(0, 0);
-"115
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 116: lcd_puts("Distancias:");
-"116
-[e ( _lcd_puts (1 :s 5C ]
-[; ;Funciones.c: 117: lcd_goto(12,0);
-"117
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
-[; ;Funciones.c: 118: lcd_puts(dist1);
-"118
-[e ( _lcd_puts (1 -> &U _dist1 `*Cuc ]
-[; ;Funciones.c: 119: lcd_goto(0,1);
-"119
-[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 120: lcd_puts(dist2);
-"120
-[e ( _lcd_puts (1 -> &U _dist2 `*Cuc ]
-[; ;Funciones.c: 121: lcd_goto(6,1);
-"121
-[e ( _lcd_goto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 122: lcd_puts(dist3);
-"122
-[e ( _lcd_puts (1 -> &U _dist3 `*Cuc ]
-[; ;Funciones.c: 123: lcd_goto(12,1);
-"123
-[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
-[; ;Funciones.c: 124: lcd_puts(dist4);
-"124
-[e ( _lcd_puts (1 -> &U _dist4 `*Cuc ]
-[; ;Funciones.c: 125: }
-"125
-[e :UE 145 ]
-}
 "127
 [v _ShiftArrays `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
 "128
@@ -1919,9 +1749,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 4 `i 147  ]
-[e $U 148  ]
-[e :U 147 ]
+[e $ < -> _i `i -> 4 `i 146  ]
+[e $U 147  ]
+[e :U 146 ]
 {
 [; ;Funciones.c: 130: t4[i+1] = t4[i];
 "130
@@ -1939,14 +1769,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "129
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 147  ]
-[e :U 148 ]
+[e $ < -> _i `i -> 4 `i 146  ]
+[e :U 147 ]
 "134
 }
 [; ;Funciones.c: 134: }
 [; ;Funciones.c: 135: }
 "135
-[e :UE 146 ]
+[e :UE 145 ]
 }
 "137
 [v _ResetEcho `(v ~T0 @X0 1 ef ]
@@ -1970,7 +1800,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 [; ;Funciones.c: 143: }
 "143
-[e :UE 150 ]
+[e :UE 149 ]
 }
 "145
 [v _IntPortb `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*uc ]
@@ -1988,7 +1818,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RBIE -> -> 0 `i `b ]
 [; ;Funciones.c: 152: if ( (RB4 == 1) && (*rbon == 0) )
 "152
-[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 152  ]
+[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 151  ]
 [; ;Funciones.c: 153: {
 "153
 {
@@ -2004,11 +1834,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "157
 }
 [; ;Funciones.c: 157: }
-[e $U 153  ]
+[e $U 152  ]
 "159
-[e :U 152 ]
+[e :U 151 ]
 [; ;Funciones.c: 159: else if( (RB4 == 0) && (*rbon == 4) )
-[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 154  ]
+[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 153  ]
 [; ;Funciones.c: 160: {
 "160
 {
@@ -2024,11 +1854,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "164
 }
 [; ;Funciones.c: 164: }
-[e $U 155  ]
+[e $U 154  ]
 "166
-[e :U 154 ]
+[e :U 153 ]
 [; ;Funciones.c: 166: else if ( (RB5 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 156  ]
+[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 155  ]
 [; ;Funciones.c: 167: {
 "167
 {
@@ -2044,11 +1874,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "171
 }
 [; ;Funciones.c: 171: }
-[e $U 157  ]
+[e $U 156  ]
 "173
-[e :U 156 ]
+[e :U 155 ]
 [; ;Funciones.c: 173: else if( (RB5 == 0) && (*rbon == 5) )
-[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 158  ]
+[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 157  ]
 [; ;Funciones.c: 174: {
 "174
 {
@@ -2064,11 +1894,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "178
 }
 [; ;Funciones.c: 178: }
-[e $U 159  ]
+[e $U 158  ]
 "180
-[e :U 158 ]
+[e :U 157 ]
 [; ;Funciones.c: 180: else if ( (RB6 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 160  ]
+[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 159  ]
 [; ;Funciones.c: 181: {
 "181
 {
@@ -2084,11 +1914,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "185
 }
 [; ;Funciones.c: 185: }
-[e $U 161  ]
+[e $U 160  ]
 "187
-[e :U 160 ]
+[e :U 159 ]
 [; ;Funciones.c: 187: else if( (RB6 == 0) && (*rbon == 6) )
-[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 162  ]
+[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 161  ]
 [; ;Funciones.c: 188: {
 "188
 {
@@ -2104,11 +1934,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "192
 }
 [; ;Funciones.c: 192: }
-[e $U 163  ]
+[e $U 162  ]
 "194
-[e :U 162 ]
+[e :U 161 ]
 [; ;Funciones.c: 194: else if ( (RB7 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 164  ]
+[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 163  ]
 [; ;Funciones.c: 195: {
 "195
 {
@@ -2124,11 +1954,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "199
 }
 [; ;Funciones.c: 199: }
-[e $U 165  ]
+[e $U 164  ]
 "201
-[e :U 164 ]
+[e :U 163 ]
 [; ;Funciones.c: 201: else if( (RB7 == 0) && (*rbon == 7) )
-[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 166  ]
+[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 165  ]
 [; ;Funciones.c: 202: {
 "202
 {
@@ -2143,15 +1973,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR1ON -> -> 0 `i `b ]
 "206
 }
-[e :U 166 ]
-"208
 [e :U 165 ]
-[e :U 163 ]
-[e :U 161 ]
-[e :U 159 ]
-[e :U 157 ]
-[e :U 155 ]
-[e :U 153 ]
+"208
+[e :U 164 ]
+[e :U 162 ]
+[e :U 160 ]
+[e :U 158 ]
+[e :U 156 ]
+[e :U 154 ]
+[e :U 152 ]
 [; ;Funciones.c: 206: }
 [; ;Funciones.c: 208: RBIF = 0;
 [e = _RBIF -> -> 0 `i `b ]
@@ -2160,11 +1990,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _RBIE -> -> 1 `i `b ]
 [; ;Funciones.c: 210: }
 "210
-[e :UE 151 ]
+[e :UE 150 ]
 }
-[p f _sprintf 8389632 ]
-[a 5C 68 105 115 116 97 110 99 105 97 115 58 0 ]
-[a 1C 37 117 32 32 32 0 0 ]
-[a 2C 37 117 32 32 32 0 0 ]
-[a 3C 37 117 32 32 32 0 0 ]
-[a 4C 37 117 32 32 32 0 0 ]

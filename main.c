@@ -51,7 +51,7 @@ void main(void) {
         Se descartan medidas que son muy diferentes a las anteriores, y se realiza la media*/
         Trigger();
         CalcularDistancia(t4, t5, t6, t7, distancias);
-        PrintDistancias(t4, t5, t6, t7);
+        //PrintDistancias(t4, t5, t6, t7);
         ShiftArrays(t4, t5, t6, t7);
         ResetEcho();                      //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
     }

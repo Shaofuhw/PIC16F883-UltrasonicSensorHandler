@@ -6,8 +6,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Trigger `(v ~T0 @X0 0 ef ]
 "7
 [v _CalcularDistancia `(v ~T0 @X0 0 ef5`*i`*i`*i`*i`*uc ]
-"12
-[v _PrintDistancias `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
 "10
 [v _ShiftArrays `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
 "8
@@ -1442,7 +1440,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
 [; ;Funciones.h: 11: void MediaMedidas( int*);
-[; ;Funciones.h: 12: void PrintDistancias( int*, int* , int* , int* );
 "14 main.c
 [p x FOSC=INTRC_CLKOUT ]
 "15
@@ -1513,9 +1510,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 53: CalcularDistancia(t4, t5, t6, t7, distancias);
 "53
 [e ( _CalcularDistancia (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _distancias ]
-[; ;main.c: 54: PrintDistancias(t4, t5, t6, t7);
-"54
-[e ( _PrintDistancias (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
 [; ;main.c: 55: ShiftArrays(t4, t5, t6, t7);
 "55
 [e ( _ShiftArrays (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
@@ -1536,9 +1530,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "59
 [e :UE 135 ]
 }
-[v F1596 `(v ~T0 @X0 1 tf ]
+[v F1591 `(v ~T0 @X0 1 tf ]
 "62
-[v _Interrupcion `IF1596 ~T0 @X0 1 e ]
+[v _Interrupcion `IF1591 ~T0 @X0 1 e ]
 "63
 {
 [; ;main.c: 62: void interrupt Interrupcion()
