@@ -1,6 +1,6 @@
 #include "Funciones.h"
-//#include "LCD.h"
-//#include "Uart.h"
+#include "LCD.h"
+#include <stdio.h>
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
 void Inicializaciones(){
@@ -21,6 +21,10 @@ void Inicializaciones(){
     INTCON = 0b00001000;            //Interrupciones por cambio de estado puerto B
     IOCB = 0b11110000;                  //Puerto B 7-4 provocan interrupción con cambio
     GIE = 1;                                    //Bit Interrupción Global
+    
+    lcd_init(0, 16, 2);                     //Inicializa el LCD
+    lcd_clear();                            //Lo limpia
+    lcd_on();
 }
 
 //Activa el trigger y lo apaga tras un retardo
@@ -54,28 +58,80 @@ void Trigger(){
     __delay_ms(50);
 }
 
-void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
+void CalcularDistancia( int *t4,  int *t5,  int *t6,  int *t7, char *distancias){    
+   //Se divide entre 58 para calcular la distancia en centímetros
+    t4[0] = ( t4[0] ) / 58;                                          
+    t5[0] = ( t5[0] ) / 58;
+    t6[0] = ( t6[0] ) / 58;
+    t7[0] = ( t7[0] ) / 58;
     
-    unsigned int d0,d1,d2,d3;
+    MediaMedidas(t4);
+    MediaMedidas(t5);
+    MediaMedidas(t6);
+    MediaMedidas(t7);
     
-    d0 = ( t0 ) / 58;                                          //Se divide entre 58 para calcular la distancia en centímetros
-    d1 = ( t1 ) / 58;
-    d2 = ( t2 ) / 58;
-    d3 = ( t3 ) / 58;
+    /*Se preparan los datos para ser enviados por I2C.
+     Como el protocolo solo permite enviar Bytes, y las distancias están almacenadas en variables
+     de 16 bits, se dividen en dos bytes, los 8 bits mas significativos están en el primer byte, y los 8
+     menos signifitcativos en el siguiente*/
     
-    //Se calculan las distancias, y se colocan en bytes
-    //Como la distancia tiene un valor mayor de 256, son necesarios 2 Bytes.
-    //Por lo tanto, se utilizan bytes a pares para almacenar cada distancia.
-    //En el primer byte se almacena el byte más significativo, y en el segundo el menos significativo
+    distancias[0] = (t4[5] >> 8) & 0xFF;
+    distancias[1] = t4[5] & 0xFF;
+    distancias[2] = (t5[5] >> 8) & 0xFF;
+    distancias[3] = t5[5] & 0xFF;
+    distancias[4] = (t6[5] >> 8) & 0xFF;
+    distancias[5] = t6[5] & 0xFF;
+    distancias[6] = (t7[5] >> 8) & 0xFF;
+    distancias[7] = t7[5] & 0xFF;
+}
+
+void MediaMedidas( int *t){
+    char num = 0;
     
-    distancias[0] = (d0 >> 8) & 0xFF;
-    distancias[1] = d0 & 0xFF;
-    distancias[2] = (d1 >> 8) & 0xFF;
-    distancias[3] = d1 & 0xFF;
-    distancias[4] = (d2 >> 8) & 0xFF;
-    distancias[5] = d2 & 0xFF;
-    distancias[6] = (d3 >> 8) & 0xFF;
-    distancias[7] = d3 & 0xFF;
+    for(char i = 0; i<5; i++){
+        if( (t[i]>400) || (t[i]<0) ){
+            t[i] = 0;
+        } else{
+            t[5] += t[i];
+            num += 1;
+        }
+    }
+    t[5] = t[5] / num;
+}
+
+void PrintDistancias( int* t4,  int* t5,  int* t6,  int* t7)
+{
+    //Print al LCD
+    char dist1[10];
+    char dist2[10];
+    char dist3[10];
+    char dist4[10];
+    
+    sprintf(dist1, "%u   \0", t4[5]);
+    sprintf(dist2, "%u   \0", t5[5]);
+    sprintf(dist3, "%u   \0", t6[5]);
+    sprintf(dist4, "%u   \0", t7[5]);
+    
+    lcd_goto(0, 0);                      
+    lcd_puts("Distancias:");
+    lcd_goto(12,0);
+    lcd_puts(dist1);
+    lcd_goto(0,1);
+    lcd_puts(dist2);
+    lcd_goto(6,1);
+    lcd_puts(dist3);
+    lcd_goto(12,1);
+    lcd_puts(dist4);  
+}
+
+void ShiftArrays( int* t4,  int* t5,  int* t6,  int* t7)
+{
+    for(char i = 0; i < 4; i++){
+        t4[i+1] = t4[i];
+        t5[i+1] = t5[i];
+        t6[i+1] = t6[i];
+        t7[i+1] = t7[i];        
+    }
 }
 
 void ResetEcho()
@@ -86,7 +142,7 @@ void ResetEcho()
     __delay_ms(5);
 }
 
-void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
+void IntPortb( int* t4,  int* t5,  int* t6,  int* t7, char* rbon){
            RBIE = 0;                           //Desactiva el bit de interrupcion puerto B
         /* Cuando detecta la subida de alguno de los pulsos, pone su respectiva señal de "On" a 1, de esta forma,
          cuando dicha señal baja, se puede identificar cúal ha sido, y evitar posibles problemas de lectura.
@@ -102,7 +158,7 @@ void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int
         
         else if( (RB4 == 0) && (*rbon == 4) )
         {
-            *t4 = TMR1;
+            t4[0] = TMR1;
             *rbon = 0;
             TMR1ON = 0;
         }
@@ -116,7 +172,7 @@ void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int
         
         else if( (RB5 == 0) && (*rbon == 5) )
         {
-            *t5 = TMR1;
+            t5[0] = TMR1;
             *rbon = 0;
             TMR1ON = 0;
         }
@@ -130,7 +186,7 @@ void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int
         
         else if( (RB6 == 0) && (*rbon == 6) )
         {
-            *t6 = TMR1;
+            t6[0] = TMR1;
             *rbon = 0;
             TMR1ON = 0;
         }
@@ -144,7 +200,7 @@ void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int
         
         else if( (RB7 == 0) && (*rbon == 7) )
         {
-            *t7 = TMR1;
+            t7[0] = TMR1;
             *rbon = 0;
             TMR1ON = 0;
         }
@@ -152,3 +208,4 @@ void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int
         RBIF = 0;                           //Limpia la bandera
         RBIE = 1;                           //Vuelve a activar la interrupcion
 }
+

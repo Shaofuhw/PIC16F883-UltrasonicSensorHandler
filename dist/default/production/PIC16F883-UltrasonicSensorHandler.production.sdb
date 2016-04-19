@@ -3,31 +3,108 @@
 [d edition pro ]
 [d chip 16F883 ]
 [d frameptr 6 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+"76 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
+[e E42 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"55 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[e E1586 enLcdCommands `uc
+E_CLEAR_DISPLAY 1
+E_RETURN_HOME 2
+E_ENTRY_MODE_SET 4
+E_DISPLAY_ON_OFF_CTRL 8
+E_CURSOR_DISPLAY_SHIFT 16
+E_FUNCTION_SET 32
+E_SET_CGRAM_ADDR 64
+E_SET_DDRAM_ADDR 128
+]
+"106
+[e E1595 enLCDCursorModes `uc
+E_LCD_CURSOR_OFF 0
+E_LCD_CURSOR_ON 2
+E_LCD_CURSOR_ON_BLINK 3
+]
+"164
+[e E1599 enLCDControlPins `uc
+E_D0_PIN 0
+E_D1_PIN 1
+E_D2_PIN 2
+E_D3_PIN 3
+E_D4_PIN 4
+E_D5_PIN 5
+E_D6_PIN 6
+E_D7_PIN 7
+E_EN_PIN 8
+E_RS_PIN 9
+E_RW_PIN 10
+]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\pic\eeprom.c
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\pic\eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
 "6 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
-"27
+"31
 [v _Trigger Trigger `(v  1 e 1 0 ]
-"57
+"61
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
-"81
+"88
+[v _MediaMedidas MediaMedidas `(v  1 e 1 0 ]
+"102
+[v _PrintDistancias PrintDistancias `(v  1 e 1 0 ]
+"127
+[v _ShiftArrays ShiftArrays `(v  1 e 1 0 ]
+"137
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
-"89
+"145
 [v _IntPortb IntPortb `(v  1 e 1 0 ]
-"40 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+"48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
+[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
+"86
+[v _lcd_ioset lcd_ioset `(v  1 e 1 0 ]
+"129
+[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
+"143
+[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
+"33 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+"79
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"91
+[v _lcd_on lcd_on `(v  1 e 1 0 ]
+"149
+[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
+"160
+[v _lcd_send lcd_send `(v  1 e 1 0 ]
+"178
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+"37 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _main main `(v  1 e 1 0 ]
-"60
+"62
 [v _Interrupcion Interrupcion `II(v  1 e 1 0 ]
-"221 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"221 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "369
 [v _INTCON INTCON `VEuc  1 e 1 @11 ]
@@ -65,57 +142,136 @@
 [v _RBIE RBIE `VEb  1 e 0 @91 ]
 "3682
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
+"3684
+[v _RC0 RC0 `VEb  1 e 0 @56 ]
+"3686
+[v _RC1 RC1 `VEb  1 e 0 @57 ]
+"3688
+[v _RC2 RC2 `VEb  1 e 0 @58 ]
+"3690
+[v _RC3 RC3 `VEb  1 e 0 @59 ]
+"3692
+[v _RC4 RC4 `VEb  1 e 0 @60 ]
+"3694
+[v _RC5 RC5 `VEb  1 e 0 @61 ]
 "3824
 [v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"3872
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1080 ]
+"3874
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1081 ]
+"3876
+[v _TRISC2 TRISC2 `VEb  1 e 0 @1082 ]
+"3878
+[v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
+"3880
+[v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
+"3882
+[v _TRISC5 TRISC5 `VEb  1 e 0 @1085 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\doprnt.c
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
+"26 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[v _rowaddr rowaddr `DCC[4]uc  1 e 4 0 ]
+"27
+[v _lcdrows lcdrows `uc  1 e 1 0 ]
+"28
+[v _lcdcolumns lcdcolumns `uc  1 e 1 0 ]
+"30
+[v _dispctrl dispctrl `uc  1 e 1 0 ]
+"31
+[v _iomode iomode `uc  1 e 1 0 ]
 "31 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-[v _t4 t4 `ui  1 e 2 0 ]
+[v _t4 t4 `[6]i  1 e 12 0 ]
+[v _t5 t5 `[6]i  1 e 12 0 ]
+[v _t6 t6 `[6]i  1 e 12 0 ]
+[v _t7 t7 `[6]i  1 e 12 0 ]
 "32
-[v _t5 t5 `ui  1 e 2 0 ]
-"33
-[v _t6 t6 `ui  1 e 2 0 ]
-"34
-[v _t7 t7 `ui  1 e 2 0 ]
-"35
 [v _rbon rbon `uc  1 e 1 0 ]
+"34
+[v _distancias distancias `[8]uc  1 e 8 0 ]
 "37
-[v _distancias distancias `[7]uc  1 e 7 0 ]
-"40
 [v _main main `(v  1 e 1 0 ]
 {
-"57
+"59
 } 0
-"27 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"31 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Trigger Trigger `(v  1 e 1 0 ]
 {
-"55
+"59
 } 0
-"81
+"127
+[v _ShiftArrays ShiftArrays `(v  1 e 1 0 ]
+{
+[v ShiftArrays@t4 t4 `*.4i  1 a 1 wreg ]
+"129
+[v ShiftArrays@i i `uc  1 a 1 10 ]
+"127
+[v ShiftArrays@t4 t4 `*.4i  1 a 1 wreg ]
+[v ShiftArrays@t5 t5 `*.4i  1 p 1 0 ]
+[v ShiftArrays@t6 t6 `*.4i  1 p 1 1 ]
+[v ShiftArrays@t7 t7 `*.4i  1 p 1 2 ]
+"129
+[v ShiftArrays@t4 t4 `*.4i  1 a 1 9 ]
+"135
+} 0
+"137
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
 {
-"87
+"143
 } 0
+"102
+[v _PrintDistancias PrintDistancias `(v  1 e 1 0 ]
+{
+[v PrintDistancias@t4 t4 `*.4i  1 a 1 wreg ]
+"108
+[v PrintDistancias@dist4 dist4 `[10]uc  1 a 10 61 ]
+"107
+[v PrintDistancias@dist3 dist3 `[10]uc  1 a 10 51 ]
+"106
+[v PrintDistancias@dist2 dist2 `[10]uc  1 a 10 41 ]
+"105
+[v PrintDistancias@dist1 dist1 `[10]uc  1 a 10 31 ]
+"102
+[v PrintDistancias@t4 t4 `*.4i  1 a 1 wreg ]
+[v PrintDistancias@t5 t5 `*.4i  1 p 1 27 ]
+[v PrintDistancias@t6 t6 `*.4i  1 p 1 28 ]
+[v PrintDistancias@t7 t7 `*.4i  1 p 1 29 ]
+"110
+[v PrintDistancias@t4 t4 `*.4i  1 a 1 71 ]
+"125
+} 0
+"492 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"528
+[v sprintf@val val `ui  1 a 2 22 ]
+"499
+[v sprintf@c c `c  1 a 1 26 ]
+"506
+[v sprintf@prec prec `c  1 a 1 24 ]
+"494
+[v sprintf@ap ap `[1]*.4v  1 a 1 21 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 20 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCCuc  1 p 1 14 ]
+"533
+[v sprintf@sp sp `*.4uc  1 a 1 25 ]
+"1541
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
 "6
-[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
-{
-"24
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"26
 } 0
-"57
-[v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
-{
-"59
-[v CalcularDistancia@d3 d3 `ui  1 a 2 24 ]
-[v CalcularDistancia@d2 d2 `ui  1 a 2 22 ]
-[v CalcularDistancia@d1 d1 `ui  1 a 2 20 ]
-[v CalcularDistancia@d0 d0 `ui  1 a 2 18 ]
-"57
-[v CalcularDistancia@t0 t0 `ui  1 p 2 8 ]
-[v CalcularDistancia@t1 t1 `ui  1 p 2 10 ]
-[v CalcularDistancia@t2 t2 `ui  1 p 2 12 ]
-[v CalcularDistancia@t3 t3 `ui  1 p 2 14 ]
-[v CalcularDistancia@distancias distancias `*.4uc  1 p 1 16 ]
-"79
-} 0
-"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
@@ -127,20 +283,147 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "31
 } 0
-"60 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+"178 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+{
+[v lcd_puts@string string `*.26DCCuc  1 p 2 9 ]
+"182
+} 0
+"149
+[v _lcd_goto lcd_goto `(v  1 e 1 0 ]
+{
+[v lcd_goto@col col `uc  1 a 1 wreg ]
+[v lcd_goto@col col `uc  1 a 1 wreg ]
+[v lcd_goto@row row `uc  1 p 1 9 ]
+"152
+[v lcd_goto@col col `uc  1 a 1 11 ]
+"158
+} 0
+"6 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+[v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
+{
+"28
+} 0
+"91 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[v _lcd_on lcd_on `(v  1 e 1 0 ]
+{
+"96
+} 0
+"33
+[v _lcd_init lcd_init `(uc  1 e 1 0 ]
+{
+[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
+[v lcd_init@iodata iodata `*.1v  1 a 1 wreg ]
+[v lcd_init@cols cols `uc  1 p 1 9 ]
+[v lcd_init@rows rows `uc  1 p 1 10 ]
+"36
+[v lcd_init@iodata iodata `*.1v  1 a 1 14 ]
+"77
+} 0
+"48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
+[v _lcd_ioinit lcd_ioinit `(uc  1 e 1 0 ]
+{
+[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
+"50
+[v lcd_ioinit@i i `uc  1 a 1 4 ]
+"48
+[v lcd_ioinit@iodata iodata `*.1v  1 a 1 wreg ]
+"84
+} 0
+"79 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD.c
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"83
+} 0
+"160
+[v _lcd_send lcd_send `(v  1 e 1 0 ]
+{
+[v lcd_send@data data `uc  1 a 1 wreg ]
+[v lcd_send@data data `uc  1 a 1 wreg ]
+[v lcd_send@rs rs `uc  1 p 1 6 ]
+"163
+[v lcd_send@data data `uc  1 a 1 8 ]
+"176
+} 0
+"143 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\LCD-PIC16.c
+[v _lcd_iowrite8 lcd_iowrite8 `(v  1 e 1 0 ]
+{
+"155
+} 0
+"129
+[v _lcd_iowrite4 lcd_iowrite4 `(v  1 e 1 0 ]
+{
+[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
+"132
+[v lcd_iowrite4@i i `uc  1 a 1 5 ]
+"129
+[v lcd_iowrite4@data data `uc  1 a 1 wreg ]
+"134
+[v lcd_iowrite4@data data `uc  1 a 1 4 ]
+"141
+} 0
+"86
+[v _lcd_ioset lcd_ioset `(v  1 e 1 0 ]
+{
+[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
+[v lcd_ioset@pin pin `E42  1 a 1 wreg ]
+[v lcd_ioset@out out `uc  1 p 1 0 ]
+[v lcd_ioset@pin pin `E42  1 a 1 1 ]
+"127
+} 0
+"61 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+[v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
+{
+[v CalcularDistancia@t4 t4 `*.4i  1 a 1 wreg ]
+[v CalcularDistancia@t4 t4 `*.4i  1 a 1 wreg ]
+[v CalcularDistancia@t5 t5 `*.4i  1 p 1 16 ]
+[v CalcularDistancia@t6 t6 `*.4i  1 p 1 17 ]
+[v CalcularDistancia@t7 t7 `*.4i  1 p 1 18 ]
+[v CalcularDistancia@distancias distancias `*.4uc  1 p 1 19 ]
+"63
+[v CalcularDistancia@t4 t4 `*.4i  1 a 1 23 ]
+"86
+} 0
+"88
+[v _MediaMedidas MediaMedidas `(v  1 e 1 0 ]
+{
+[v MediaMedidas@t t `*.4i  1 a 1 wreg ]
+"91
+[v MediaMedidas@i i `uc  1 a 1 14 ]
+"89
+[v MediaMedidas@num num `uc  1 a 1 13 ]
+"88
+[v MediaMedidas@t t `*.4i  1 a 1 wreg ]
+[v MediaMedidas@t t `*.4i  1 a 1 15 ]
+"100
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
+} 0
+"62 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _Interrupcion Interrupcion `II(v  1 e 1 0 ]
 {
-"66
+"68
 } 0
-"89 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"145 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _IntPortb IntPortb `(v  1 e 1 0 ]
 {
-[v IntPortb@t4 t4 `*.4ui  1 a 1 wreg ]
-[v IntPortb@t4 t4 `*.4ui  1 a 1 wreg ]
-[v IntPortb@t5 t5 `*.4ui  1 p 1 0 ]
-[v IntPortb@t6 t6 `*.4ui  1 p 1 1 ]
-[v IntPortb@t7 t7 `*.4ui  1 p 1 2 ]
+[v IntPortb@t4 t4 `*.4i  1 a 1 wreg ]
+[v IntPortb@t4 t4 `*.4i  1 a 1 wreg ]
+[v IntPortb@t5 t5 `*.4i  1 p 1 0 ]
+[v IntPortb@t6 t6 `*.4i  1 p 1 1 ]
+[v IntPortb@t7 t7 `*.4i  1 p 1 2 ]
 [v IntPortb@rbon rbon `*.4uc  1 p 1 3 ]
-[v IntPortb@t4 t4 `*.4ui  1 a 1 5 ]
-"154
+[v IntPortb@t4 t4 `*.4i  1 a 1 5 ]
+"210
 } 0

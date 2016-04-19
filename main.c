@@ -27,14 +27,11 @@
 #pragma config WRT = OFF                // Flash Program Memory Self Write Enable bits (Write protection off)
 
 //Variables Globales
-
-unsigned int t4 = 0;
-unsigned int t5 = 0;
-unsigned int t6 = 0;
-unsigned int t7 = 0;
+//Del 0 al 4 se guardan las 5 últimas medidas, en 5 se guarda la media de las cuatro anteriores.
+int t4[6], t5[6], t6[6], t7[6] = {0};
 char rbon = 0;
 
-char distancias[7] = {0};
+char distancias[8] = {0};
 
 //Programa
 void main(void) {
@@ -49,8 +46,13 @@ void main(void) {
          la longitud máxima del pulso es de cerca de 38ms para cuando no detecta ningún obstáculo.
          Después de cada lectura, se calcula el valor de dicho pulso, y una vez se han leído los 4 sensores, se sacan por el LCD
          */
+        /*Se utiliza un array para cada sensor, de esta manera se guardan los ultimos valores de cada uno, y se hace un filtro
+        para evitar errores en la medida de los posible.
+        Se descartan medidas que son muy diferentes a las anteriores, y se realiza la media*/
         Trigger();
         CalcularDistancia(t4, t5, t6, t7, distancias);
+        PrintDistancias(t4, t5, t6, t7);
+        ShiftArrays(t4, t5, t6, t7);
         ResetEcho();                      //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
     }
     return;
@@ -61,6 +63,6 @@ void interrupt Interrupcion()
 {
     if(RBIF == 1)                           //Comprobar flag del puerto B
     {
-        IntPortb(&t4, &t5, &t6, &t7, &rbon);
+        IntPortb(t4, t5, t6, t7, &rbon);
     }
 }

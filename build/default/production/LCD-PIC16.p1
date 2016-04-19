@@ -1,22 +1,118 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"5 Funciones.h
-[v _Inicializaciones `(v ~T0 @X0 0 ef ]
-"6
-[v _Trigger `(v ~T0 @X0 0 ef ]
-"7
-[v _CalcularDistancia `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`*uc ]
-"8
-[v _ResetEcho `(v ~T0 @X0 0 ef ]
-"3682 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
-[v _RBIF `Vb ~T0 @X0 0 e@88 ]
-"9 Funciones.h
-[v _IntPortb `(v ~T0 @X0 0 ef5`*ui`*ui`*ui`*ui`*uc ]
+"3882 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"3880
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"3872
+[v _TRISC0 `Vb ~T0 @X0 0 e@1080 ]
+"3874
+[v _TRISC1 `Vb ~T0 @X0 0 e@1081 ]
+"3876
+[v _TRISC2 `Vb ~T0 @X0 0 e@1082 ]
+"3878
+[v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
+"76 LCD-PIC16.c
+[c E42 0 1 2 3 4 5 6 7 8 9 10 .. ]
+[n E42 enLCDControlPins E_D0_PIN E_D1_PIN E_D2_PIN E_D3_PIN E_D4_PIN E_D5_PIN E_D6_PIN E_D7_PIN E_EN_PIN E_RS_PIN E_RW_PIN  ]
+"326 LCD.h
+[v _lcd_ioset `(v ~T0 @X0 0 ef2`E42`uc ]
+"3684 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
+[v _RC0 `Vb ~T0 @X0 0 e@56 ]
+"3686
+[v _RC1 `Vb ~T0 @X0 0 e@57 ]
+"3688
+[v _RC2 `Vb ~T0 @X0 0 e@58 ]
+"3690
+[v _RC3 `Vb ~T0 @X0 0 e@59 ]
+"3692
+[v _RC4 `Vb ~T0 @X0 0 e@60 ]
+"3694
+[v _RC5 `Vb ~T0 @X0 0 e@61 ]
+[v F1643 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
+[v __delay `JF1643 ~T0 @X0 0 e ]
+[p i __delay ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;LCD.h: 69: enum enLcdCommands {
+[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
+[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
+[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
+[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
+[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
+[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
+[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
+[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
+[; ;LCD.h: 78: };
+[; ;LCD.h: 83: enum enLCDCursorModes {
+[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
+[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
+[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
+[; ;LCD.h: 87: };
+[; ;LCD.h: 92: enum enLCDControlPins {
+[; ;LCD.h: 93: E_D0_PIN = 0,
+[; ;LCD.h: 94: E_D1_PIN,
+[; ;LCD.h: 95: E_D2_PIN,
+[; ;LCD.h: 96: E_D3_PIN,
+[; ;LCD.h: 97: E_D4_PIN,
+[; ;LCD.h: 98: E_D5_PIN,
+[; ;LCD.h: 99: E_D6_PIN,
+[; ;LCD.h: 100: E_D7_PIN,
+[; ;LCD.h: 101: E_EN_PIN,
+[; ;LCD.h: 102: E_RS_PIN,
+[; ;LCD.h: 103: E_RW_PIN,
+[; ;LCD.h: 104: };
+[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
+[; ;LCD.h: 135: void lcd_clear();
+[; ;LCD.h: 143: void lcd_home();
+[; ;LCD.h: 153: void lcd_on();
+[; ;LCD.h: 161: void lcd_off();
+[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
+[; ;LCD.h: 184: void lcd_cursor_left();
+[; ;LCD.h: 191: void lcd_cursor_right();
+[; ;LCD.h: 199: void lcd_scroll_left();
+[; ;LCD.h: 207: void lcd_scroll_right();
+[; ;LCD.h: 214: void lcd_autoscroll_on();
+[; ;LCD.h: 222: void lcd_autoscroll_off();
+[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
+[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
+[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
+[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
+[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
+[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
+[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f883.h: 49: extern volatile unsigned char INDF @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [; ;pic16f883.h: 51: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f883.h: 55: extern volatile unsigned char TMR0 @ 0x001;
@@ -1431,134 +1527,214 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
-[; ;Funciones.h: 5: void Inicializaciones(void);
-[; ;Funciones.h: 6: void Trigger(void);
-[; ;Funciones.h: 7: void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
-[; ;Funciones.h: 8: void ResetEcho();
-[; ;Funciones.h: 9: void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
-"14 main.c
-[p x FOSC=INTRC_CLKOUT ]
-"15
-[p x WDTE=OFF ]
-"16
-[p x PWRTE=OFF ]
-"17
-[p x MCLRE=ON ]
-"18
-[p x CP=OFF ]
-"19
-[p x CPD=OFF ]
-"20
-[p x BOREN=ON ]
-"21
-[p x IESO=ON ]
-"22
-[p x FCMEN=ON ]
-"23
-[p x LVP=OFF ]
-"26
-[p x BOR4V=BOR21V ]
-"27
-[p x WRT=OFF ]
-"31
-[v _t4 `ui ~T0 @X0 1 e ]
-[i _t4
--> -> 0 `i `ui
-]
-[; ;main.c: 31: unsigned int t4 = 0;
-"32
-[v _t5 `ui ~T0 @X0 1 e ]
-[i _t5
--> -> 0 `i `ui
-]
-[; ;main.c: 32: unsigned int t5 = 0;
-"33
-[v _t6 `ui ~T0 @X0 1 e ]
-[i _t6
--> -> 0 `i `ui
-]
-[; ;main.c: 33: unsigned int t6 = 0;
-"34
-[v _t7 `ui ~T0 @X0 1 e ]
-[i _t7
--> -> 0 `i `ui
-]
-[; ;main.c: 34: unsigned int t7 = 0;
-"35
-[v _rbon `uc ~T0 @X0 1 e ]
-[i _rbon
--> -> 0 `i `uc
-]
-[; ;main.c: 35: char rbon = 0;
-"37
-[v _distancias `uc ~T0 @X0 -> 7 `i e ]
-[i _distancias
-:U ..
--> -> 0 `i `uc
-..
-]
-[; ;main.c: 37: char distancias[7] = {0};
-"40
-[v _main `(v ~T0 @X0 1 ef ]
+"48 LCD-PIC16.c
+[v _lcd_ioinit `(uc ~T0 @X0 1 ef1`*v ]
+"49
 {
-[; ;main.c: 40: void main(void) {
-[e :U _main ]
+[; ;LCD-PIC16.c: 48: uint8_t lcd_ioinit(void * iodata)
+[; ;LCD-PIC16.c: 49: {
+[e :U _lcd_ioinit ]
+"48
+[v _iodata `*v ~T0 @X0 1 r1 ]
+"49
 [f ]
-[; ;main.c: 42: Inicializaciones();
-"42
-[e ( _Inicializaciones ..  ]
-[; ;main.c: 44: while(1)
-"44
-[e :U 137 ]
-[; ;main.c: 45: {
-"45
-{
-[; ;main.c: 52: Trigger();
-"52
-[e ( _Trigger ..  ]
-[; ;main.c: 53: CalcularDistancia(t4, t5, t6, t7, distancias);
+"50
+[v _i `uc ~T0 @X0 1 a ]
+[; ;LCD-PIC16.c: 50: uint8_t i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;LCD-PIC16.c: 53: TRISC5 = 0;
 "53
-[e ( _CalcularDistancia (4 , , , , _t4 _t5 _t6 _t7 &U _distancias ]
-[; ;main.c: 54: ResetEcho();
+[e = _TRISC5 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 54: TRISC4 = 0;
 "54
-[e ( _ResetEcho ..  ]
-"55
-}
-[e :U 136 ]
-"44
+[e = _TRISC4 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 60: TRISC0 = 0;
+"60
+[e = _TRISC0 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 61: TRISC1 = 0;
+"61
+[e = _TRISC1 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 62: TRISC2 = 0;
+"62
+[e = _TRISC2 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 63: TRISC3 = 0;
+"63
+[e = _TRISC3 -> -> 0 `i `b ]
+[; ;LCD-PIC16.c: 75: for (i = 0; i < 11; i++)
+"75
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 11 `i 136  ]
 [e $U 137  ]
-[e :U 138 ]
-[; ;main.c: 55: }
-[; ;main.c: 56: return;
-"56
+"76
+[e :U 136 ]
+[; ;LCD-PIC16.c: 76: lcd_ioset(i, 0);
+[e ( _lcd_ioset (2 , -> _i `E42 -> -> 0 `i `uc ]
+"75
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 11 `i 136  ]
+[e :U 137 ]
+"76
+}
+[; ;LCD-PIC16.c: 80: return 4;
+"80
+[e ) -> -> 4 `i `uc ]
 [e $UE 135  ]
-[; ;main.c: 57: }
-"57
+[; ;LCD-PIC16.c: 84: }
+"84
 [e :UE 135 ]
 }
-[v F1584 `(v ~T0 @X0 1 tf ]
-"60
-[v _Interrupcion `IF1584 ~T0 @X0 1 e ]
-"61
+"86
+[v _lcd_ioset `(v ~T0 @X0 1 ef2`E42`uc ]
+"87
 {
-[; ;main.c: 60: void interrupt Interrupcion()
-[; ;main.c: 61: {
-[e :U _Interrupcion ]
+[; ;LCD-PIC16.c: 86: void lcd_ioset(enum enLCDControlPins pin, uint8_t out)
+[; ;LCD-PIC16.c: 87: {
+[e :U _lcd_ioset ]
+"86
+[v _pin `E42 ~T0 @X0 1 r1 ]
+[v _out `uc ~T0 @X0 1 r2 ]
+"87
 [f ]
-[; ;main.c: 62: if(RBIF == 1)
-"62
-[e $ ! == -> _RBIF `i -> 1 `i 140  ]
-[; ;main.c: 63: {
-"63
+[; ;LCD-PIC16.c: 88: switch (pin) {
+"88
+[e $U 141  ]
 {
-[; ;main.c: 64: IntPortb(&t4, &t5, &t6, &t7, &rbon);
-"64
-[e ( _IntPortb (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _rbon ]
-"65
+[; ;LCD-PIC16.c: 103: case E_D4_PIN:
+"103
+[e :U 142 ]
+[; ;LCD-PIC16.c: 104: RC0 = out;
+"104
+[e = _RC0 -> _out `b ]
+[; ;LCD-PIC16.c: 105: break;
+"105
+[e $U 140  ]
+[; ;LCD-PIC16.c: 106: case E_D5_PIN:
+"106
+[e :U 143 ]
+[; ;LCD-PIC16.c: 107: RC1 = out;
+"107
+[e = _RC1 -> _out `b ]
+[; ;LCD-PIC16.c: 108: break;
+"108
+[e $U 140  ]
+[; ;LCD-PIC16.c: 109: case E_D6_PIN:
+"109
+[e :U 144 ]
+[; ;LCD-PIC16.c: 110: RC2 = out;
+"110
+[e = _RC2 -> _out `b ]
+[; ;LCD-PIC16.c: 111: break;
+"111
+[e $U 140  ]
+[; ;LCD-PIC16.c: 112: case E_D7_PIN:
+"112
+[e :U 145 ]
+[; ;LCD-PIC16.c: 113: RC3 = out;
+"113
+[e = _RC3 -> _out `b ]
+[; ;LCD-PIC16.c: 114: break;
+"114
+[e $U 140  ]
+[; ;LCD-PIC16.c: 115: case E_RS_PIN:
+"115
+[e :U 146 ]
+[; ;LCD-PIC16.c: 116: RC4 = out;
+"116
+[e = _RC4 -> _out `b ]
+[; ;LCD-PIC16.c: 117: break;
+"117
+[e $U 140  ]
+[; ;LCD-PIC16.c: 118: case E_EN_PIN:
+"118
+[e :U 147 ]
+[; ;LCD-PIC16.c: 119: RC5 = out;
+"119
+[e = _RC5 -> _out `b ]
+[; ;LCD-PIC16.c: 120: break;
+"120
+[e $U 140  ]
+[; ;LCD-PIC16.c: 121: case E_RW_PIN:
+"121
+[e :U 148 ]
+[; ;LCD-PIC16.c: 125: break;
+"125
+[e $U 140  ]
+"126
 }
+[; ;LCD-PIC16.c: 126: }
+[e $U 140  ]
+"88
+[e :U 141 ]
+[e [\ _pin , $ . `E42 4 142
+ , $ . `E42 5 143
+ , $ . `E42 6 144
+ , $ . `E42 7 145
+ , $ . `E42 9 146
+ , $ . `E42 8 147
+ , $ . `E42 10 148
+ 140 ]
+"126
 [e :U 140 ]
-[; ;main.c: 65: }
-[; ;main.c: 66: }
-"66
+[; ;LCD-PIC16.c: 127: }
+"127
 [e :UE 139 ]
+}
+"129
+[v _lcd_iowrite4 `(v ~T0 @X0 1 ef1`uc ]
+"130
+{
+[; ;LCD-PIC16.c: 129: void lcd_iowrite4(uint8_t data)
+[; ;LCD-PIC16.c: 130: {
+[e :U _lcd_iowrite4 ]
+"129
+[v _data `uc ~T0 @X0 1 r1 ]
+"130
+[f ]
+"132
+[v _i `uc ~T0 @X0 1 a ]
+[; ;LCD-PIC16.c: 132: uint8_t i;
+[; ;LCD-PIC16.c: 134: for (i = 4; i < 8; i++)
+"134
+{
+[e = _i -> -> 4 `i `uc ]
+[e $ < -> _i `i -> 8 `i 150  ]
+[e $U 151  ]
+"135
+[e :U 150 ]
+[; ;LCD-PIC16.c: 135: lcd_ioset(i, (data & (1 << i - 4)) ? 1 : 0);
+[e ( _lcd_ioset (2 , -> _i `E42 -> ? != & -> _data `i << -> 1 `i - -> _i `i -> 4 `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+"134
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 150  ]
+[e :U 151 ]
+"135
+}
+[; ;LCD-PIC16.c: 137: lcd_ioset(E_EN_PIN,1);
+"137
+[e ( _lcd_ioset (2 , . `E42 8 -> -> 1 `i `uc ]
+[; ;LCD-PIC16.c: 138: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"138
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;LCD-PIC16.c: 139: lcd_ioset(E_EN_PIN,0);
+"139
+[e ( _lcd_ioset (2 , . `E42 8 -> -> 0 `i `uc ]
+[; ;LCD-PIC16.c: 141: }
+"141
+[e :UE 149 ]
+}
+"143
+[v _lcd_iowrite8 `(v ~T0 @X0 1 ef1`uc ]
+"144
+{
+[; ;LCD-PIC16.c: 143: void lcd_iowrite8(uint8_t data)
+[; ;LCD-PIC16.c: 144: {
+[e :U _lcd_iowrite8 ]
+"143
+[v _data `uc ~T0 @X0 1 r1 ]
+"144
+[f ]
+[; ;LCD-PIC16.c: 155: }
+"155
+[e :UE 153 ]
 }

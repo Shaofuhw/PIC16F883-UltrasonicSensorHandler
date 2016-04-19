@@ -1,17 +1,201 @@
 
-# 1 "main.c"
+# 1 "LCD-PIC16.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 69 "LCD.h"
+enum enLcdCommands {
+E_CLEAR_DISPLAY = 0x01,
+E_RETURN_HOME = 0x02,
+E_ENTRY_MODE_SET = 0x04,
+E_DISPLAY_ON_OFF_CTRL = 0x08,
+E_CURSOR_DISPLAY_SHIFT = 0x10,
+E_FUNCTION_SET = 0x20,
+E_SET_CGRAM_ADDR = 0x40,
+E_SET_DDRAM_ADDR = 0x80,
+};
+
+# 83
+enum enLCDCursorModes {
+E_LCD_CURSOR_OFF = 0x00,
+E_LCD_CURSOR_ON = 0x02,
+E_LCD_CURSOR_ON_BLINK = 0x03,
+};
+
+# 92
+enum enLCDControlPins {
+E_D0_PIN = 0,
+E_D1_PIN,
+E_D2_PIN,
+E_D3_PIN,
+E_D4_PIN,
+E_D5_PIN,
+E_D6_PIN,
+E_D7_PIN,
+E_EN_PIN,
+E_RS_PIN,
+E_RW_PIN,
+};
+
+# 127
+uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
+
+# 135
+void lcd_clear();
+
+# 143
+void lcd_home();
+
+# 153
+void lcd_on();
+
+# 161
+void lcd_off();
+
+# 177
+void lcd_cursor(enum enLCDCursorModes emode);
+
+# 184
+void lcd_cursor_left();
+
+# 191
+void lcd_cursor_right();
+
+# 199
+void lcd_scroll_left();
+
+# 207
+void lcd_scroll_right();
+
+# 214
+void lcd_autoscroll_on();
+
+# 222
+void lcd_autoscroll_off();
+
+# 234
+void lcd_goto(uint8_t col, uint8_t row);
+
+# 250
+void lcd_send(uint8_t data, uint8_t rs);
+
+# 275
+void lcd_puts(const uint8_t * string);
+
+# 291
+void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
+
+# 313
+uint8_t lcd_ioinit(void * iodata);
+
+# 326
+void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+
+# 343
+void lcd_iowrite4(uint8_t data);
+
+# 356
+void lcd_iowrite8(uint8_t data);
+
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1968,21 +2152,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h"
+# 151 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1991,61 +2175,78 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 5 "Funciones.h"
-void Inicializaciones(void);
-void Trigger(void);
-void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
-void ResetEcho();
-void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
-
-
-# 14 "main.c"
-#pragma config FOSC = INTRC_CLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = ON
-#pragma config IESO = ON
-#pragma config FCMEN = ON
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR21V
-#pragma config WRT = OFF
-
-
-
-unsigned int t4 = 0;
-unsigned int t5 = 0;
-unsigned int t6 = 0;
-unsigned int t7 = 0;
-char rbon = 0;
-
-char distancias[7] = {0};
-
-
-void main(void) {
-
-Inicializaciones();
-
-while(1)
+# 48 "LCD-PIC16.c"
+uint8_t lcd_ioinit(void * iodata)
 {
+uint8_t i = 0;
 
-# 52
-Trigger();
-CalcularDistancia(t4, t5, t6, t7, distancias);
-ResetEcho();
-}
-return;
+
+TRISC5 = 0;
+TRISC4 = 0;
+
+# 60
+TRISC0 = 0;
+TRISC1 = 0;
+TRISC2 = 0;
+TRISC3 = 0;
+
+# 75
+for (i = 0; i < 11; i++)
+lcd_ioset(i, 0);
+
+
+
+return 4;
+
+# 84
 }
 
+void lcd_ioset(enum enLCDControlPins pin, uint8_t out)
+{
+switch (pin) {
 
-void interrupt Interrupcion()
-{
-if(RBIF == 1)
-{
-IntPortb(&t4, &t5, &t6, &t7, &rbon);
+# 103
+case E_D4_PIN:
+RC0 = out;
+break;
+case E_D5_PIN:
+RC1 = out;
+break;
+case E_D6_PIN:
+RC2 = out;
+break;
+case E_D7_PIN:
+RC3 = out;
+break;
+case E_RS_PIN:
+RC4 = out;
+break;
+case E_EN_PIN:
+RC5 = out;
+break;
+case E_RW_PIN:
+
+# 125
+break;
 }
+}
+
+void lcd_iowrite4(uint8_t data)
+{
+
+uint8_t i;
+
+for (i = 4; i < 8; i++)
+lcd_ioset(i, (data & (1 << i - 4)) ? 1 : 0);
+
+lcd_ioset(E_EN_PIN,1);
+_delay((unsigned long)((10)*(8000000/4000000.0)));
+lcd_ioset(E_EN_PIN,0);
+
+}
+
+void lcd_iowrite8(uint8_t data)
+{
+
+# 155
 }

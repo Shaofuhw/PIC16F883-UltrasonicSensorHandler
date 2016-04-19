@@ -1,17 +1,17 @@
 
 # 1 "main.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1968,21 +1968,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 77
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h"
+# 151 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1994,9 +1994,12 @@ extern __bit __timeout;
 # 5 "Funciones.h"
 void Inicializaciones(void);
 void Trigger(void);
-void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+void CalcularDistancia( int*, int*, int*, int*, char*);
 void ResetEcho();
-void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
+void IntPortb( int*, int*, int*, int*, char*);
+void ShiftArrays( int*, int*, int*, int*);
+void MediaMedidas( int*);
+void PrintDistancias( int*, int* , int* , int* );
 
 
 # 14 "main.c"
@@ -2017,13 +2020,10 @@ void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*)
 
 
 
-unsigned int t4 = 0;
-unsigned int t5 = 0;
-unsigned int t6 = 0;
-unsigned int t7 = 0;
+int t4[6], t5[6], t6[6], t7[6] = {0};
 char rbon = 0;
 
-char distancias[7] = {0};
+char distancias[8] = {0};
 
 
 void main(void) {
@@ -2036,6 +2036,8 @@ while(1)
 # 52
 Trigger();
 CalcularDistancia(t4, t5, t6, t7, distancias);
+PrintDistancias(t4, t5, t6, t7);
+ShiftArrays(t4, t5, t6, t7);
 ResetEcho();
 }
 return;
@@ -2046,6 +2048,6 @@ void interrupt Interrupcion()
 {
 if(RBIF == 1)
 {
-IntPortb(&t4, &t5, &t6, &t7, &rbon);
+IntPortb(t4, t5, t6, t7, &rbon);
 }
 }

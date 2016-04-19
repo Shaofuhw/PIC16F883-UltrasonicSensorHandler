@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1661 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"1661 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
 "1362
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
@@ -17,19 +17,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOCB `Vuc ~T0 @X0 0 e@150 ]
 "3526
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"3664
+"127 LCD.h
+[v _lcd_init `(uc ~T0 @X0 0 ef3`*v`uc`uc ]
+"135
+[v _lcd_clear `(v ~T0 @X0 0 ef ]
+"153
+[v _lcd_on `(v ~T0 @X0 0 ef ]
+"3664 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [v F1554 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic.h
+"152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
 [v __delay `JF1554 ~T0 @X0 0 e ]
 [p i __delay ]
-"3666 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"3666 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 "3668
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
 "3670
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
-"3680
+"11 Funciones.h
+[v _MediaMedidas `(v ~T0 @X0 0 ef1`*i ]
+"194 C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"234 LCD.h
+[v _lcd_goto `(v ~T0 @X0 0 ef2`uc`uc ]
+"275
+[v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+"3680 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _RBIE `Vb ~T0 @X0 0 e@91 ]
 "3672
 [v _RB4 `Vb ~T0 @X0 0 e@52 ]
@@ -47,7 +61,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f883.h: 49: extern volatile unsigned char INDF @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f883.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [; ;pic16f883.h: 51: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f883.h: 55: extern volatile unsigned char TMR0 @ 0x001;
@@ -1464,9 +1478,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 188: extern __bit __timeout;
 [; ;Funciones.h: 5: void Inicializaciones(void);
 [; ;Funciones.h: 6: void Trigger(void);
-[; ;Funciones.h: 7: void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+[; ;Funciones.h: 7: void CalcularDistancia( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 8: void ResetEcho();
-[; ;Funciones.h: 9: void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
+[; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
+[; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
+[; ;Funciones.h: 11: void MediaMedidas( int*);
+[; ;Funciones.h: 12: void PrintDistancias( int*, int* , int* , int* );
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;LCD.h: 69: enum enLcdCommands {
+[; ;LCD.h: 70: E_CLEAR_DISPLAY = 0x01,
+[; ;LCD.h: 71: E_RETURN_HOME = 0x02,
+[; ;LCD.h: 72: E_ENTRY_MODE_SET = 0x04,
+[; ;LCD.h: 73: E_DISPLAY_ON_OFF_CTRL = 0x08,
+[; ;LCD.h: 74: E_CURSOR_DISPLAY_SHIFT = 0x10,
+[; ;LCD.h: 75: E_FUNCTION_SET = 0x20,
+[; ;LCD.h: 76: E_SET_CGRAM_ADDR = 0x40,
+[; ;LCD.h: 77: E_SET_DDRAM_ADDR = 0x80,
+[; ;LCD.h: 78: };
+[; ;LCD.h: 83: enum enLCDCursorModes {
+[; ;LCD.h: 84: E_LCD_CURSOR_OFF = 0x00,
+[; ;LCD.h: 85: E_LCD_CURSOR_ON = 0x02,
+[; ;LCD.h: 86: E_LCD_CURSOR_ON_BLINK = 0x03,
+[; ;LCD.h: 87: };
+[; ;LCD.h: 92: enum enLCDControlPins {
+[; ;LCD.h: 93: E_D0_PIN = 0,
+[; ;LCD.h: 94: E_D1_PIN,
+[; ;LCD.h: 95: E_D2_PIN,
+[; ;LCD.h: 96: E_D3_PIN,
+[; ;LCD.h: 97: E_D4_PIN,
+[; ;LCD.h: 98: E_D5_PIN,
+[; ;LCD.h: 99: E_D6_PIN,
+[; ;LCD.h: 100: E_D7_PIN,
+[; ;LCD.h: 101: E_EN_PIN,
+[; ;LCD.h: 102: E_RS_PIN,
+[; ;LCD.h: 103: E_RW_PIN,
+[; ;LCD.h: 104: };
+[; ;LCD.h: 127: uint8_t lcd_init(void * iodata, uint8_t cols, uint8_t rows);
+[; ;LCD.h: 135: void lcd_clear();
+[; ;LCD.h: 143: void lcd_home();
+[; ;LCD.h: 153: void lcd_on();
+[; ;LCD.h: 161: void lcd_off();
+[; ;LCD.h: 177: void lcd_cursor(enum enLCDCursorModes emode);
+[; ;LCD.h: 184: void lcd_cursor_left();
+[; ;LCD.h: 191: void lcd_cursor_right();
+[; ;LCD.h: 199: void lcd_scroll_left();
+[; ;LCD.h: 207: void lcd_scroll_right();
+[; ;LCD.h: 214: void lcd_autoscroll_on();
+[; ;LCD.h: 222: void lcd_autoscroll_off();
+[; ;LCD.h: 234: void lcd_goto(uint8_t col, uint8_t row);
+[; ;LCD.h: 250: void lcd_send(uint8_t data, uint8_t rs);
+[; ;LCD.h: 275: void lcd_puts(const uint8_t * string);
+[; ;LCD.h: 291: void lcd_create_char(uint8_t charnum, const uint8_t * chardata);
+[; ;LCD.h: 313: uint8_t lcd_ioinit(void * iodata);
+[; ;LCD.h: 326: void lcd_ioset(enum enLCDControlPins pin, uint8_t level);
+[; ;LCD.h: 343: void lcd_iowrite4(uint8_t data);
+[; ;LCD.h: 356: void lcd_iowrite8(uint8_t data);
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 "6 Funciones.c
 [v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
@@ -1500,348 +1623,548 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.c: 23: GIE = 1;
 "23
 [e = _GIE -> -> 1 `i `b ]
-[; ;Funciones.c: 24: }
-"24
-[e :UE 135 ]
-}
+[; ;Funciones.c: 25: lcd_init(0, 16, 2);
+"25
+[e ( _lcd_init (3 , , -> -> 0 `i `*v -> -> 16 `i `uc -> -> 2 `i `uc ]
+[; ;Funciones.c: 26: lcd_clear();
+"26
+[e ( _lcd_clear ..  ]
+[; ;Funciones.c: 27: lcd_on();
 "27
-[v _Trigger `(v ~T0 @X0 1 ef ]
-{
-[; ;Funciones.c: 27: void Trigger(){
-[e :U _Trigger ]
-[f ]
-[; ;Funciones.c: 28: TRISB = 0b00010000;
+[e ( _lcd_on ..  ]
+[; ;Funciones.c: 28: }
 "28
-[e = _TRISB -> -> 16 `i `uc ]
-[; ;Funciones.c: 29: RB0 = 1;
-"29
-[e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 30: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"30
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 31: RB0 = 0;
-"31
-[e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 33: _delay((unsigned long)((50)*(8000000/4000.0)));
-"33
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 35: TRISB = 0b00100000;
-"35
-[e = _TRISB -> -> 32 `i `uc ]
-[; ;Funciones.c: 36: RB1 = 1;
-"36
-[e = _RB1 -> -> 1 `i `b ]
-[; ;Funciones.c: 37: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"37
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 38: RB1 = 0;
-"38
-[e = _RB1 -> -> 0 `i `b ]
-[; ;Funciones.c: 40: _delay((unsigned long)((50)*(8000000/4000.0)));
-"40
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 42: TRISB = 0b01000000;
-"42
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;Funciones.c: 43: RB2 = 1;
-"43
-[e = _RB2 -> -> 1 `i `b ]
-[; ;Funciones.c: 44: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"44
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 45: RB2 = 0;
-"45
-[e = _RB2 -> -> 0 `i `b ]
-[; ;Funciones.c: 47: _delay((unsigned long)((50)*(8000000/4000.0)));
-"47
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 49: TRISB = 0b10000000;
-"49
-[e = _TRISB -> -> 128 `i `uc ]
-[; ;Funciones.c: 50: RB3 = 1;
-"50
-[e = _RB3 -> -> 1 `i `b ]
-[; ;Funciones.c: 51: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"51
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 52: RB3= 0;
-"52
-[e = _RB3 -> -> 0 `i `b ]
-[; ;Funciones.c: 54: _delay((unsigned long)((50)*(8000000/4000.0)));
-"54
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 55: }
-"55
 [e :UE 136 ]
 }
-"57
-[v _CalcularDistancia `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`*uc ]
+"31
+[v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 57: void CalcularDistancia(unsigned int t0, unsigned int t1, unsigned int t2, unsigned int t3, char *distancias){
-[e :U _CalcularDistancia ]
-[v _t0 `ui ~T0 @X0 1 r1 ]
-[v _t1 `ui ~T0 @X0 1 r2 ]
-[v _t2 `ui ~T0 @X0 1 r3 ]
-[v _t3 `ui ~T0 @X0 1 r4 ]
-[v _distancias `*uc ~T0 @X0 1 r5 ]
+[; ;Funciones.c: 31: void Trigger(){
+[e :U _Trigger ]
 [f ]
+[; ;Funciones.c: 32: TRISB = 0b00010000;
+"32
+[e = _TRISB -> -> 16 `i `uc ]
+[; ;Funciones.c: 33: RB0 = 1;
+"33
+[e = _RB0 -> -> 1 `i `b ]
+[; ;Funciones.c: 34: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"34
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 35: RB0 = 0;
+"35
+[e = _RB0 -> -> 0 `i `b ]
+[; ;Funciones.c: 37: _delay((unsigned long)((50)*(8000000/4000.0)));
+"37
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 39: TRISB = 0b00100000;
+"39
+[e = _TRISB -> -> 32 `i `uc ]
+[; ;Funciones.c: 40: RB1 = 1;
+"40
+[e = _RB1 -> -> 1 `i `b ]
+[; ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"41
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 42: RB1 = 0;
+"42
+[e = _RB1 -> -> 0 `i `b ]
+[; ;Funciones.c: 44: _delay((unsigned long)((50)*(8000000/4000.0)));
+"44
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 46: TRISB = 0b01000000;
+"46
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;Funciones.c: 47: RB2 = 1;
+"47
+[e = _RB2 -> -> 1 `i `b ]
+[; ;Funciones.c: 48: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"48
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 49: RB2 = 0;
+"49
+[e = _RB2 -> -> 0 `i `b ]
+[; ;Funciones.c: 51: _delay((unsigned long)((50)*(8000000/4000.0)));
+"51
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 53: TRISB = 0b10000000;
+"53
+[e = _TRISB -> -> 128 `i `uc ]
+[; ;Funciones.c: 54: RB3 = 1;
+"54
+[e = _RB3 -> -> 1 `i `b ]
+[; ;Funciones.c: 55: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"55
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 56: RB3= 0;
+"56
+[e = _RB3 -> -> 0 `i `b ]
+[; ;Funciones.c: 58: _delay((unsigned long)((50)*(8000000/4000.0)));
+"58
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 59: }
 "59
-[v _d0 `ui ~T0 @X0 1 a ]
-[v _d1 `ui ~T0 @X0 1 a ]
-[v _d2 `ui ~T0 @X0 1 a ]
-[v _d3 `ui ~T0 @X0 1 a ]
-[; ;Funciones.c: 59: unsigned int d0,d1,d2,d3;
-[; ;Funciones.c: 61: d0 = ( t0 ) / 58;
-"61
-[e = _d0 / _t0 -> -> 58 `i `ui ]
-[; ;Funciones.c: 62: d1 = ( t1 ) / 58;
-"62
-[e = _d1 / _t1 -> -> 58 `i `ui ]
-[; ;Funciones.c: 63: d2 = ( t2 ) / 58;
-"63
-[e = _d2 / _t2 -> -> 58 `i `ui ]
-[; ;Funciones.c: 64: d3 = ( t3 ) / 58;
-"64
-[e = _d3 / _t3 -> -> 58 `i `ui ]
-[; ;Funciones.c: 71: distancias[0] = (d0 >> 8) & 0xFF;
-"71
-[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> _d0 -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 72: distancias[1] = d0 & 0xFF;
-"72
-[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & _d0 -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 73: distancias[2] = (d1 >> 8) & 0xFF;
-"73
-[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> _d1 -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 74: distancias[3] = d1 & 0xFF;
-"74
-[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & _d1 -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 75: distancias[4] = (d2 >> 8) & 0xFF;
-"75
-[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> _d2 -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 76: distancias[5] = d2 & 0xFF;
-"76
-[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & _d2 -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 77: distancias[6] = (d3 >> 8) & 0xFF;
-"77
-[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> _d3 -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 78: distancias[7] = d3 & 0xFF;
-"78
-[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & _d3 -> -> 255 `i `ui `uc ]
-[; ;Funciones.c: 79: }
-"79
 [e :UE 137 ]
 }
-"81
-[v _ResetEcho `(v ~T0 @X0 1 ef ]
-"82
+"61
+[v _CalcularDistancia `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*uc ]
 {
-[; ;Funciones.c: 81: void ResetEcho()
-[; ;Funciones.c: 82: {
-[e :U _ResetEcho ]
+[; ;Funciones.c: 61: void CalcularDistancia( int *t4, int *t5, int *t6, int *t7, char *distancias){
+[e :U _CalcularDistancia ]
+[v _t4 `*i ~T0 @X0 1 r1 ]
+[v _t5 `*i ~T0 @X0 1 r2 ]
+[v _t6 `*i ~T0 @X0 1 r3 ]
+[v _t7 `*i ~T0 @X0 1 r4 ]
+[v _distancias `*uc ~T0 @X0 1 r5 ]
 [f ]
-[; ;Funciones.c: 83: TRISB = 0b00000000;
+[; ;Funciones.c: 63: t4[0] = ( t4[0] ) / 58;
+"63
+[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x / *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> 58 `i ]
+[; ;Funciones.c: 64: t5[0] = ( t5[0] ) / 58;
+"64
+[e = *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x / *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x -> 58 `i ]
+[; ;Funciones.c: 65: t6[0] = ( t6[0] ) / 58;
+"65
+[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x / *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> 58 `i ]
+[; ;Funciones.c: 66: t7[0] = ( t7[0] ) / 58;
+"66
+[e = *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x / *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x -> 58 `i ]
+[; ;Funciones.c: 68: MediaMedidas(t4);
+"68
+[e ( _MediaMedidas (1 _t4 ]
+[; ;Funciones.c: 69: MediaMedidas(t5);
+"69
+[e ( _MediaMedidas (1 _t5 ]
+[; ;Funciones.c: 70: MediaMedidas(t6);
+"70
+[e ( _MediaMedidas (1 _t6 ]
+[; ;Funciones.c: 71: MediaMedidas(t7);
+"71
+[e ( _MediaMedidas (1 _t7 ]
+[; ;Funciones.c: 78: distancias[0] = (t4[5] >> 8) & 0xFF;
+"78
+[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 79: distancias[1] = t4[5] & 0xFF;
+"79
+[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 80: distancias[2] = (t5[5] >> 8) & 0xFF;
+"80
+[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 81: distancias[3] = t5[5] & 0xFF;
+"81
+[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 82: distancias[4] = (t6[5] >> 8) & 0xFF;
+"82
+[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 83: distancias[5] = t6[5] & 0xFF;
 "83
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;Funciones.c: 84: _delay((unsigned long)((5)*(8000000/4000.0)));
+[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 84: distancias[6] = (t7[5] >> 8) & 0xFF;
 "84
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 85: PORTB = 0b00000000;
+[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 85: distancias[7] = t7[5] & 0xFF;
 "85
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 86: _delay((unsigned long)((5)*(8000000/4000.0)));
+[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 86: }
 "86
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 87: }
-"87
 [e :UE 138 ]
 }
-"89
-[v _IntPortb `(v ~T0 @X0 1 ef5`*ui`*ui`*ui`*ui`*uc ]
+"88
+[v _MediaMedidas `(v ~T0 @X0 1 ef1`*i ]
 {
-[; ;Funciones.c: 89: void IntPortb(unsigned int* t4, unsigned int* t5, unsigned int* t6, unsigned int* t7, char* rbon){
-[e :U _IntPortb ]
-[v _t4 `*ui ~T0 @X0 1 r1 ]
-[v _t5 `*ui ~T0 @X0 1 r2 ]
-[v _t6 `*ui ~T0 @X0 1 r3 ]
-[v _t7 `*ui ~T0 @X0 1 r4 ]
-[v _rbon `*uc ~T0 @X0 1 r5 ]
+[; ;Funciones.c: 88: void MediaMedidas( int *t){
+[e :U _MediaMedidas ]
+[v _t `*i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Funciones.c: 90: RBIE = 0;
-"90
-[e = _RBIE -> -> 0 `i `b ]
-[; ;Funciones.c: 96: if ( (RB4 == 1) && (*rbon == 0) )
-"96
-[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 140  ]
-[; ;Funciones.c: 97: {
-"97
+"89
+[v _num `uc ~T0 @X0 1 a ]
+[; ;Funciones.c: 89: char num = 0;
+[e = _num -> -> 0 `i `uc ]
+[; ;Funciones.c: 91: for(char i = 0; i<5; i++){
+"91
 {
-[; ;Funciones.c: 98: TMR1 = 0;
-"98
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 99: *rbon = 4;
-"99
-[e = *U _rbon -> -> 4 `i `uc ]
-[; ;Funciones.c: 100: TMR1ON = 1;
-"100
-[e = _TMR1ON -> -> 1 `i `b ]
-"101
-}
-[; ;Funciones.c: 101: }
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 140  ]
 [e $U 141  ]
-"103
 [e :U 140 ]
-[; ;Funciones.c: 103: else if( (RB4 == 0) && (*rbon == 4) )
-[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 142  ]
-[; ;Funciones.c: 104: {
-"104
 {
-[; ;Funciones.c: 105: *t4 = TMR1;
-"105
-[e = *U _t4 -> _TMR1 `ui ]
-[; ;Funciones.c: 106: *rbon = 0;
-"106
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 107: TMR1ON = 0;
-"107
-[e = _TMR1ON -> -> 0 `i `b ]
-"108
-}
-[; ;Funciones.c: 108: }
-[e $U 143  ]
-"110
-[e :U 142 ]
-[; ;Funciones.c: 110: else if ( (RB5 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 144  ]
-[; ;Funciones.c: 111: {
-"111
+[; ;Funciones.c: 92: if( (t[i]>400) || (t[i]<0) ){
+"92
+[e $ ! || > *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 400 `i < *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 0 `i 143  ]
 {
-[; ;Funciones.c: 112: TMR1 = 0;
-"112
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 113: *rbon = 5;
-"113
-[e = *U _rbon -> -> 5 `i `uc ]
-[; ;Funciones.c: 114: TMR1ON = 1;
-"114
-[e = _TMR1ON -> -> 1 `i `b ]
-"115
+[; ;Funciones.c: 93: t[i] = 0;
+"93
+[e = *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 0 `i ]
+"94
 }
-[; ;Funciones.c: 115: }
-[e $U 145  ]
-"117
-[e :U 144 ]
-[; ;Funciones.c: 117: else if( (RB5 == 0) && (*rbon == 5) )
-[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 146  ]
-[; ;Funciones.c: 118: {
-"118
-{
-[; ;Funciones.c: 119: *t5 = TMR1;
-"119
-[e = *U _t5 -> _TMR1 `ui ]
-[; ;Funciones.c: 120: *rbon = 0;
-"120
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 121: TMR1ON = 0;
-"121
-[e = _TMR1ON -> -> 0 `i `b ]
-"122
-}
-[; ;Funciones.c: 122: }
-[e $U 147  ]
-"124
-[e :U 146 ]
-[; ;Funciones.c: 124: else if ( (RB6 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 148  ]
-[; ;Funciones.c: 125: {
-"125
-{
-[; ;Funciones.c: 126: TMR1 = 0;
-"126
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 127: *rbon = 6;
-"127
-[e = *U _rbon -> -> 6 `i `uc ]
-[; ;Funciones.c: 128: TMR1ON = 1;
-"128
-[e = _TMR1ON -> -> 1 `i `b ]
-"129
-}
-[; ;Funciones.c: 129: }
-[e $U 149  ]
-"131
-[e :U 148 ]
-[; ;Funciones.c: 131: else if( (RB6 == 0) && (*rbon == 6) )
-[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 150  ]
-[; ;Funciones.c: 132: {
-"132
-{
-[; ;Funciones.c: 133: *t6 = TMR1;
-"133
-[e = *U _t6 -> _TMR1 `ui ]
-[; ;Funciones.c: 134: *rbon = 0;
-"134
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 135: TMR1ON = 0;
-"135
-[e = _TMR1ON -> -> 0 `i `b ]
-"136
-}
-[; ;Funciones.c: 136: }
-[e $U 151  ]
-"138
-[e :U 150 ]
-[; ;Funciones.c: 138: else if ( (RB7 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 152  ]
-[; ;Funciones.c: 139: {
-"139
-{
-[; ;Funciones.c: 140: TMR1 = 0;
-"140
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 141: *rbon = 7;
-"141
-[e = *U _rbon -> -> 7 `i `uc ]
-[; ;Funciones.c: 142: TMR1ON = 1;
-"142
-[e = _TMR1ON -> -> 1 `i `b ]
-"143
-}
-[; ;Funciones.c: 143: }
-[e $U 153  ]
-"145
-[e :U 152 ]
-[; ;Funciones.c: 145: else if( (RB7 == 0) && (*rbon == 7) )
-[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 154  ]
-[; ;Funciones.c: 146: {
-"146
-{
-[; ;Funciones.c: 147: *t7 = TMR1;
-"147
-[e = *U _t7 -> _TMR1 `ui ]
-[; ;Funciones.c: 148: *rbon = 0;
-"148
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 149: TMR1ON = 0;
-"149
-[e = _TMR1ON -> -> 0 `i `b ]
-"150
-}
-[e :U 154 ]
-"152
-[e :U 153 ]
-[e :U 151 ]
-[e :U 149 ]
-[e :U 147 ]
-[e :U 145 ]
+[; ;Funciones.c: 94: } else{
+[e $U 144  ]
 [e :U 143 ]
+{
+[; ;Funciones.c: 95: t[5] += t[i];
+"95
+[e =+ *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x *U + _t * -> _i `ux -> -> # *U _t `ui `ux ]
+[; ;Funciones.c: 96: num += 1;
+"96
+[e =+ _num -> -> 1 `i `uc ]
+"97
+}
+[e :U 144 ]
+"98
+}
+"91
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 140  ]
 [e :U 141 ]
-[; ;Funciones.c: 150: }
-[; ;Funciones.c: 152: RBIF = 0;
-[e = _RBIF -> -> 0 `i `b ]
-[; ;Funciones.c: 153: RBIE = 1;
-"153
-[e = _RBIE -> -> 1 `i `b ]
-[; ;Funciones.c: 154: }
-"154
+"98
+}
+[; ;Funciones.c: 97: }
+[; ;Funciones.c: 98: }
+[; ;Funciones.c: 99: t[5] = t[5] / num;
+"99
+[e = *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x / *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x -> _num `i ]
+[; ;Funciones.c: 100: }
+"100
 [e :UE 139 ]
 }
+"102
+[v _PrintDistancias `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
+"103
+{
+[; ;Funciones.c: 102: void PrintDistancias( int* t4, int* t5, int* t6, int* t7)
+[; ;Funciones.c: 103: {
+[e :U _PrintDistancias ]
+"102
+[v _t4 `*i ~T0 @X0 1 r1 ]
+[v _t5 `*i ~T0 @X0 1 r2 ]
+[v _t6 `*i ~T0 @X0 1 r3 ]
+[v _t7 `*i ~T0 @X0 1 r4 ]
+"103
+[f ]
+"105
+[v _dist1 `uc ~T0 @X0 -> 10 `i a ]
+"106
+[v _dist2 `uc ~T0 @X0 -> 10 `i a ]
+"107
+[v _dist3 `uc ~T0 @X0 -> 10 `i a ]
+"108
+[v _dist4 `uc ~T0 @X0 -> 10 `i a ]
+[; ;Funciones.c: 105: char dist1[10];
+[; ;Funciones.c: 106: char dist2[10];
+[; ;Funciones.c: 107: char dist3[10];
+[; ;Funciones.c: 108: char dist4[10];
+[; ;Funciones.c: 110: sprintf(dist1, "%u   \0", t4[5]);
+"110
+[e ( _sprintf (1 , (. , &U _dist1 :s 1C *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x ]
+[; ;Funciones.c: 111: sprintf(dist2, "%u   \0", t5[5]);
+"111
+[e ( _sprintf (1 , (. , &U _dist2 :s 2C *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x ]
+[; ;Funciones.c: 112: sprintf(dist3, "%u   \0", t6[5]);
+"112
+[e ( _sprintf (1 , (. , &U _dist3 :s 3C *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x ]
+[; ;Funciones.c: 113: sprintf(dist4, "%u   \0", t7[5]);
+"113
+[e ( _sprintf (1 , (. , &U _dist4 :s 4C *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x ]
+[; ;Funciones.c: 115: lcd_goto(0, 0);
+"115
+[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;Funciones.c: 116: lcd_puts("Distancias:");
+"116
+[e ( _lcd_puts (1 :s 5C ]
+[; ;Funciones.c: 117: lcd_goto(12,0);
+"117
+[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 0 `i `uc ]
+[; ;Funciones.c: 118: lcd_puts(dist1);
+"118
+[e ( _lcd_puts (1 -> &U _dist1 `*Cuc ]
+[; ;Funciones.c: 119: lcd_goto(0,1);
+"119
+[e ( _lcd_goto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 120: lcd_puts(dist2);
+"120
+[e ( _lcd_puts (1 -> &U _dist2 `*Cuc ]
+[; ;Funciones.c: 121: lcd_goto(6,1);
+"121
+[e ( _lcd_goto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 122: lcd_puts(dist3);
+"122
+[e ( _lcd_puts (1 -> &U _dist3 `*Cuc ]
+[; ;Funciones.c: 123: lcd_goto(12,1);
+"123
+[e ( _lcd_goto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;Funciones.c: 124: lcd_puts(dist4);
+"124
+[e ( _lcd_puts (1 -> &U _dist4 `*Cuc ]
+[; ;Funciones.c: 125: }
+"125
+[e :UE 145 ]
+}
+"127
+[v _ShiftArrays `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
+"128
+{
+[; ;Funciones.c: 127: void ShiftArrays( int* t4, int* t5, int* t6, int* t7)
+[; ;Funciones.c: 128: {
+[e :U _ShiftArrays ]
+"127
+[v _t4 `*i ~T0 @X0 1 r1 ]
+[v _t5 `*i ~T0 @X0 1 r2 ]
+[v _t6 `*i ~T0 @X0 1 r3 ]
+[v _t7 `*i ~T0 @X0 1 r4 ]
+"128
+[f ]
+[; ;Funciones.c: 129: for(char i = 0; i < 4; i++){
+"129
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 4 `i 147  ]
+[e $U 148  ]
+[e :U 147 ]
+{
+[; ;Funciones.c: 130: t4[i+1] = t4[i];
+"130
+[e = *U + _t4 * -> + -> _i `i -> 1 `i `x -> -> # *U _t4 `i `x *U + _t4 * -> _i `ux -> -> # *U _t4 `ui `ux ]
+[; ;Funciones.c: 131: t5[i+1] = t5[i];
+"131
+[e = *U + _t5 * -> + -> _i `i -> 1 `i `x -> -> # *U _t5 `i `x *U + _t5 * -> _i `ux -> -> # *U _t5 `ui `ux ]
+[; ;Funciones.c: 132: t6[i+1] = t6[i];
+"132
+[e = *U + _t6 * -> + -> _i `i -> 1 `i `x -> -> # *U _t6 `i `x *U + _t6 * -> _i `ux -> -> # *U _t6 `ui `ux ]
+[; ;Funciones.c: 133: t7[i+1] = t7[i];
+"133
+[e = *U + _t7 * -> + -> _i `i -> 1 `i `x -> -> # *U _t7 `i `x *U + _t7 * -> _i `ux -> -> # *U _t7 `ui `ux ]
+"134
+}
+"129
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 4 `i 147  ]
+[e :U 148 ]
+"134
+}
+[; ;Funciones.c: 134: }
+[; ;Funciones.c: 135: }
+"135
+[e :UE 146 ]
+}
+"137
+[v _ResetEcho `(v ~T0 @X0 1 ef ]
+"138
+{
+[; ;Funciones.c: 137: void ResetEcho()
+[; ;Funciones.c: 138: {
+[e :U _ResetEcho ]
+[f ]
+[; ;Funciones.c: 139: TRISB = 0b00000000;
+"139
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Funciones.c: 140: _delay((unsigned long)((5)*(8000000/4000.0)));
+"140
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 141: PORTB = 0b00000000;
+"141
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 142: _delay((unsigned long)((5)*(8000000/4000.0)));
+"142
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 143: }
+"143
+[e :UE 150 ]
+}
+"145
+[v _IntPortb `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*uc ]
+{
+[; ;Funciones.c: 145: void IntPortb( int* t4, int* t5, int* t6, int* t7, char* rbon){
+[e :U _IntPortb ]
+[v _t4 `*i ~T0 @X0 1 r1 ]
+[v _t5 `*i ~T0 @X0 1 r2 ]
+[v _t6 `*i ~T0 @X0 1 r3 ]
+[v _t7 `*i ~T0 @X0 1 r4 ]
+[v _rbon `*uc ~T0 @X0 1 r5 ]
+[f ]
+[; ;Funciones.c: 146: RBIE = 0;
+"146
+[e = _RBIE -> -> 0 `i `b ]
+[; ;Funciones.c: 152: if ( (RB4 == 1) && (*rbon == 0) )
+"152
+[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 152  ]
+[; ;Funciones.c: 153: {
+"153
+{
+[; ;Funciones.c: 154: TMR1 = 0;
+"154
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 155: *rbon = 4;
+"155
+[e = *U _rbon -> -> 4 `i `uc ]
+[; ;Funciones.c: 156: TMR1ON = 1;
+"156
+[e = _TMR1ON -> -> 1 `i `b ]
+"157
+}
+[; ;Funciones.c: 157: }
+[e $U 153  ]
+"159
+[e :U 152 ]
+[; ;Funciones.c: 159: else if( (RB4 == 0) && (*rbon == 4) )
+[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 154  ]
+[; ;Funciones.c: 160: {
+"160
+{
+[; ;Funciones.c: 161: t4[0] = TMR1;
+"161
+[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 162: *rbon = 0;
+"162
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 163: TMR1ON = 0;
+"163
+[e = _TMR1ON -> -> 0 `i `b ]
+"164
+}
+[; ;Funciones.c: 164: }
+[e $U 155  ]
+"166
+[e :U 154 ]
+[; ;Funciones.c: 166: else if ( (RB5 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 156  ]
+[; ;Funciones.c: 167: {
+"167
+{
+[; ;Funciones.c: 168: TMR1 = 0;
+"168
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 169: *rbon = 5;
+"169
+[e = *U _rbon -> -> 5 `i `uc ]
+[; ;Funciones.c: 170: TMR1ON = 1;
+"170
+[e = _TMR1ON -> -> 1 `i `b ]
+"171
+}
+[; ;Funciones.c: 171: }
+[e $U 157  ]
+"173
+[e :U 156 ]
+[; ;Funciones.c: 173: else if( (RB5 == 0) && (*rbon == 5) )
+[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 158  ]
+[; ;Funciones.c: 174: {
+"174
+{
+[; ;Funciones.c: 175: t5[0] = TMR1;
+"175
+[e = *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 176: *rbon = 0;
+"176
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 177: TMR1ON = 0;
+"177
+[e = _TMR1ON -> -> 0 `i `b ]
+"178
+}
+[; ;Funciones.c: 178: }
+[e $U 159  ]
+"180
+[e :U 158 ]
+[; ;Funciones.c: 180: else if ( (RB6 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 160  ]
+[; ;Funciones.c: 181: {
+"181
+{
+[; ;Funciones.c: 182: TMR1 = 0;
+"182
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 183: *rbon = 6;
+"183
+[e = *U _rbon -> -> 6 `i `uc ]
+[; ;Funciones.c: 184: TMR1ON = 1;
+"184
+[e = _TMR1ON -> -> 1 `i `b ]
+"185
+}
+[; ;Funciones.c: 185: }
+[e $U 161  ]
+"187
+[e :U 160 ]
+[; ;Funciones.c: 187: else if( (RB6 == 0) && (*rbon == 6) )
+[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 162  ]
+[; ;Funciones.c: 188: {
+"188
+{
+[; ;Funciones.c: 189: t6[0] = TMR1;
+"189
+[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 190: *rbon = 0;
+"190
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 191: TMR1ON = 0;
+"191
+[e = _TMR1ON -> -> 0 `i `b ]
+"192
+}
+[; ;Funciones.c: 192: }
+[e $U 163  ]
+"194
+[e :U 162 ]
+[; ;Funciones.c: 194: else if ( (RB7 == 1) && (*rbon == 0) )
+[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 164  ]
+[; ;Funciones.c: 195: {
+"195
+{
+[; ;Funciones.c: 196: TMR1 = 0;
+"196
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 197: *rbon = 7;
+"197
+[e = *U _rbon -> -> 7 `i `uc ]
+[; ;Funciones.c: 198: TMR1ON = 1;
+"198
+[e = _TMR1ON -> -> 1 `i `b ]
+"199
+}
+[; ;Funciones.c: 199: }
+[e $U 165  ]
+"201
+[e :U 164 ]
+[; ;Funciones.c: 201: else if( (RB7 == 0) && (*rbon == 7) )
+[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 166  ]
+[; ;Funciones.c: 202: {
+"202
+{
+[; ;Funciones.c: 203: t7[0] = TMR1;
+"203
+[e = *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 204: *rbon = 0;
+"204
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 205: TMR1ON = 0;
+"205
+[e = _TMR1ON -> -> 0 `i `b ]
+"206
+}
+[e :U 166 ]
+"208
+[e :U 165 ]
+[e :U 163 ]
+[e :U 161 ]
+[e :U 159 ]
+[e :U 157 ]
+[e :U 155 ]
+[e :U 153 ]
+[; ;Funciones.c: 206: }
+[; ;Funciones.c: 208: RBIF = 0;
+[e = _RBIF -> -> 0 `i `b ]
+[; ;Funciones.c: 209: RBIE = 1;
+"209
+[e = _RBIE -> -> 1 `i `b ]
+[; ;Funciones.c: 210: }
+"210
+[e :UE 151 ]
+}
+[p f _sprintf 8389632 ]
+[a 5C 68 105 115 116 97 110 99 105 97 115 58 0 ]
+[a 1C 37 117 32 32 32 0 0 ]
+[a 2C 37 117 32 32 32 0 0 ]
+[a 3C 37 117 32 32 32 0 0 ]
+[a 4C 37 117 32 32 32 0 0 ]

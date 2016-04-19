@@ -4,6 +4,9 @@
 
 void Inicializaciones(void);
 void Trigger(void);
-void CalcularDistancia(unsigned int, unsigned int, unsigned int, unsigned int, char*);
+void CalcularDistancia( int*,  int*,  int*,  int*, char*);
 void ResetEcho();
-void IntPortb(unsigned int*, unsigned int*, unsigned int*, unsigned int*, char*);
+void IntPortb( int*,  int*,  int*,  int*, char*);
+void ShiftArrays( int*,  int*,  int*,  int*);
+void MediaMedidas( int*);
+void PrintDistancias( int*,  int* ,  int* ,  int* );
