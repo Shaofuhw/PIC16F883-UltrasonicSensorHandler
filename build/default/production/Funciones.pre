@@ -1999,6 +1999,8 @@ void ResetEcho();
 void IntPortb( int*, int*, int*, int*, char*);
 void ShiftArrays( int*, int*, int*, int*);
 void MediaMedidas( int*);
+void I2C_Slave_Init(short);
+void IntI2C(char*);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\__size_t.h"
 typedef unsigned size_t;
@@ -2079,9 +2081,8 @@ T1CON = 0b00010000;
 
 INTCON = 0b00001000;
 IOCB = 0b11110000;
-GIE = 1;
 
-# 28
+# 27
 }
 
 
@@ -2127,7 +2128,7 @@ MediaMedidas(t5);
 MediaMedidas(t6);
 MediaMedidas(t7);
 
-# 78
+# 77
 distancias[0] = (t4[5] >> 8) & 0xFF;
 distancias[1] = t4[5] & 0xFF;
 distancias[2] = (t5[5] >> 8) & 0xFF;
@@ -2152,7 +2153,7 @@ num += 1;
 t[5] = t[5] / num;
 }
 
-# 127
+# 126
 void ShiftArrays( int* t4, int* t5, int* t6, int* t7)
 {
 for(char i = 0; i < 4; i++){
@@ -2171,10 +2172,24 @@ PORTB = 0b00000000;
 _delay((unsigned long)((5)*(8000000/4000.0)));
 }
 
+void I2C_Slave_Init(short address) {
+SSPSTAT = 0x80;
+SSPADD = address;
+SSPCON = 0x36;
+SSPCON2 = 0x01;
+TRISC3 = 1;
+TRISC4 = 1;
+GIE = 1;
+PEIE = 1;
+SSPIF = 0;
+SSPIE = 1;
+}
+
+
 void IntPortb( int* t4, int* t5, int* t6, int* t7, char* rbon){
 RBIE = 0;
 
-# 152
+# 165
 if ( (RB4 == 1) && (*rbon == 0) )
 {
 TMR1 = 0;
@@ -2233,5 +2248,33 @@ TMR1ON = 0;
 
 RBIF = 0;
 RBIE = 1;
+}
+
+void IntI2C(char *distancias) {
+short z = 0;
+char i = 0;
+SSPCONbits.CKP = 0;
+
+
+if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {
+z = SSPBUF;
+SSPCONbits.SSPOV = 0;
+SSPCONbits.WCOL = 0;
+SSPCONbits.CKP = 1;
+}
+
+# 240
+if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
+z = SSPBUF;
+BF = 0;
+SSPBUF = distancias[i];
+i += 1;
+if( i == 7 ){
+i = 0;
+}
+SSPCONbits.CKP = 1;
+while (SSPSTATbits.BF);
+}
+SSPIF = 0;
 }
 

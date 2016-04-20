@@ -1999,6 +1999,8 @@ void ResetEcho();
 void IntPortb( int*, int*, int*, int*, char*);
 void ShiftArrays( int*, int*, int*, int*);
 void MediaMedidas( int*);
+void I2C_Slave_Init(short);
+void IntI2C(char*);
 
 
 # 14 "main.c"
@@ -2029,10 +2031,12 @@ void main(void) {
 
 Inicializaciones();
 
+I2C_Slave_Init(0x30);
+
 while(1)
 {
 
-# 52
+# 54
 Trigger();
 CalcularDistancia(t4, t5, t6, t7, distancias);
 
@@ -2048,5 +2052,10 @@ void interrupt Interrupcion()
 if(RBIF == 1)
 {
 IntPortb(t4, t5, t6, t7, &rbon);
+}
+
+# 73
+else if(SSPIF == 1){
+IntI2C(distancias);
 }
 }

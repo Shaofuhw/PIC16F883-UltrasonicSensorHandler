@@ -37,7 +37,9 @@ char distancias[8] = {0};
 void main(void) {
 
     Inicializaciones();                     //Se configuran y inicializan los puertos, timer, interrupciones y LCD
-
+    /*La velocidad de la transmisión depende de la dirección asiganada*/
+    I2C_Slave_Init(0x30);
+    
     while(1)
     {
         /*Es necesario que las lecturas de los sensores sean de manera secuencial, ya que si no puede haber
@@ -64,5 +66,11 @@ void interrupt Interrupcion()
     if(RBIF == 1)                           //Comprobar flag del puerto B
     {
         IntPortb(t4, t5, t6, t7, &rbon);
+    }
+    /*Este PIC es un esclavo en al comunicación I2C.
+     Cuando la controladora de vuelo solicite un dato nuevo, le enviará a través del I2C los datos requeridos
+     que en este caso son los 8 bytes de distancia, en los que cada dos, son la distancia de cada sensor*/
+    else if(SSPIF == 1){
+        IntI2C(distancias);
     }
 }

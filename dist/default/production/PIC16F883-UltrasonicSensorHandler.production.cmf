@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Fu\AppData\Local\Temp\s734.obj
+$C:\Users\Fu\AppData\Local\Temp\s77g.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 11 11 2 2
 config CONFIG 0 2007 2007 2 2
@@ -19,20 +19,22 @@ $dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 cinit CODE 0 13 13 F 2
 text1 CODE 0 266 266 61 2
 text2 CODE 0 182 182 72 2
-text3 CODE 0 377 377 1B 2
-text4 CODE 0 392 392 1A 2
-text5 CODE 0 22 22 E0 2
-text6 CODE 0 102 102 80 2
-text7 CODE 0 2C7 2C7 5B 2
-text8 CODE 0 354 354 23 2
-text9 CODE 0 1F4 1F4 72 2
-maintext CODE 0 322 322 32 2
+text3 CODE 0 3E5 3E5 1B 2
+text4 CODE 0 400 400 19 2
+text5 CODE 0 3C8 3C8 1D 2
+text6 CODE 0 22 22 E0 2
+text7 CODE 0 102 102 80 2
+text8 CODE 0 2C7 2C7 5B 2
+text9 CODE 0 39E 39E 2A 2
+text10 CODE 0 1F4 1F4 72 2
+text11 CODE 0 322 322 41 2
+maintext CODE 0 363 363 3B 2
 cstackCOMMON COMMON 1 70 70 E 1
 cstackBANK0 BANK0 1 51 51 1C 1
 intentry CODE 0 4 4 D 2
 bssBANK0 BANK0 1 20 20 31 1
 bssBANK1 BANK1 1 A0 A0 8 1
-clrtext CODE 0 3AC 3AC 8 2
+clrtext CODE 0 419 419 8 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -46,22 +48,22 @@ BANK0 6D-6F 1
 BANK1 A8-EF 1
 BANK2 120-16F 1
 CONST 2-3 2
-CONST 3B4-FFF 2
+CONST 421-FFF 2
 ENTRY 2-3 2
-ENTRY 3B4-FFF 2
+ENTRY 421-FFF 2
 IDLOC 2000-2003 2
 STACK 120-16F 1
 CODE 2-3 2
-CODE 3B4-FFF 2
+CODE 421-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
 SFR3 180-1EF 1
 EEDATA 2100-21FF 2
 STRCODE 2-3 2
-STRCODE 3B4-FFF 2
+STRCODE 421-FFF 2
 STRING 2-3 2
-STRING 3B4-FFF 2
+STRING 421-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -76,171 +78,207 @@ STRING 3B4-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-13 cinit CODE >434:C:\Users\Fu\AppData\Local\Temp\s734.
-13 cinit CODE >437:C:\Users\Fu\AppData\Local\Temp\s734.
-13 cinit CODE >481:C:\Users\Fu\AppData\Local\Temp\s734.
-14 cinit CODE >482:C:\Users\Fu\AppData\Local\Temp\s734.
-15 cinit CODE >483:C:\Users\Fu\AppData\Local\Temp\s734.
-16 cinit CODE >484:C:\Users\Fu\AppData\Local\Temp\s734.
-17 cinit CODE >485:C:\Users\Fu\AppData\Local\Temp\s734.
-1A cinit CODE >488:C:\Users\Fu\AppData\Local\Temp\s734.
-1B cinit CODE >489:C:\Users\Fu\AppData\Local\Temp\s734.
-1C cinit CODE >490:C:\Users\Fu\AppData\Local\Temp\s734.
-1D cinit CODE >491:C:\Users\Fu\AppData\Local\Temp\s734.
-1F cinit CODE >497:C:\Users\Fu\AppData\Local\Temp\s734.
-1F cinit CODE >499:C:\Users\Fu\AppData\Local\Temp\s734.
-20 cinit CODE >500:C:\Users\Fu\AppData\Local\Temp\s734.
-4 intentry CODE >62:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-1F4 text9 CODE >145:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1F5 text9 CODE >146:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1F6 text9 CODE >152:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-200 text9 CODE >154:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-202 text9 CODE >155:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-204 text9 CODE >159:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-20D text9 CODE >161:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-20F text9 CODE >166:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-217 text9 CODE >168:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-219 text9 CODE >169:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-21B text9 CODE >173:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-224 text9 CODE >175:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-226 text9 CODE >180:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-22E text9 CODE >182:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-230 text9 CODE >183:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-232 text9 CODE >187:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-23B text9 CODE >189:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-23D text9 CODE >194:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-245 text9 CODE >196:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-247 text9 CODE >197:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-24D text9 CODE >198:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-24E text9 CODE >199:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-24F text9 CODE >201:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-258 text9 CODE >203:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-25F text9 CODE >204:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-262 text9 CODE >205:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-263 text9 CODE >208:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-264 text9 CODE >209:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-265 text9 CODE >210:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-354 text8 CODE >62:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-354 text8 CODE >64:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-356 text8 CODE >66:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-36A text8 CODE >68:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-2C7 text7 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2C7 text7 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2CA text7 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2CC text7 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2D1 text7 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2D3 text7 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2D5 text7 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2DA text7 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2DE text7 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2E0 text7 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2E4 text7 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2E6 text7 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2E8 text7 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2EF text7 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2F3 text7 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2F4 text7 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-2FB text7 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-303 text7 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-309 text7 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-30A text7 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-311 text7 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-315 text7 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-318 text7 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-31D text7 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-102 text6 CODE >88:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-105 text6 CODE >89:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-106 text6 CODE >91:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-10B text6 CODE >92:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-130 text6 CODE >93:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-13D text6 CODE >94:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-13E text6 CODE >95:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-158 text6 CODE >96:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-15C text6 CODE >91:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-164 text6 CODE >99:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-181 text6 CODE >100:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-22 text5 CODE >61:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-25 text5 CODE >63:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3E text5 CODE >64:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-56 text5 CODE >65:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-6E text5 CODE >66:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-86 text5 CODE >68:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-8A text5 CODE >69:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-90 text5 CODE >70:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-96 text5 CODE >71:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-9C text5 CODE >78:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-AD text5 CODE >79:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-B6 text5 CODE >80:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-C5 text5 CODE >81:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-CF text5 CODE >82:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-DE text5 CODE >83:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-E8 text5 CODE >84:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-F7 text5 CODE >85:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-101 text5 CODE >86:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-392 text4 CODE >6:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-392 text4 CODE >7:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-396 text4 CODE >10:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-398 text4 CODE >11:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-39B text4 CODE >12:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-39E text4 CODE >17:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3A2 text4 CODE >18:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3A4 text4 CODE >21:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3A6 text4 CODE >22:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3AA text4 CODE >23:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-3AB text4 CODE >28:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-377 text3 CODE >137:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-377 text3 CODE >139:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-37A text3 CODE >140:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-385 text3 CODE >141:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-388 text3 CODE >142:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-391 text3 CODE >143:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-182 text2 CODE >127:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-185 text2 CODE >129:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-18A text2 CODE >130:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1A4 text2 CODE >131:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1BD text2 CODE >132:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1D6 text2 CODE >133:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-1EF text2 CODE >129:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+13 cinit CODE >462:C:\Users\Fu\AppData\Local\Temp\s77g.
+13 cinit CODE >465:C:\Users\Fu\AppData\Local\Temp\s77g.
+13 cinit CODE >509:C:\Users\Fu\AppData\Local\Temp\s77g.
+14 cinit CODE >510:C:\Users\Fu\AppData\Local\Temp\s77g.
+15 cinit CODE >511:C:\Users\Fu\AppData\Local\Temp\s77g.
+16 cinit CODE >512:C:\Users\Fu\AppData\Local\Temp\s77g.
+17 cinit CODE >513:C:\Users\Fu\AppData\Local\Temp\s77g.
+1A cinit CODE >516:C:\Users\Fu\AppData\Local\Temp\s77g.
+1B cinit CODE >517:C:\Users\Fu\AppData\Local\Temp\s77g.
+1C cinit CODE >518:C:\Users\Fu\AppData\Local\Temp\s77g.
+1D cinit CODE >519:C:\Users\Fu\AppData\Local\Temp\s77g.
+1F cinit CODE >525:C:\Users\Fu\AppData\Local\Temp\s77g.
+1F cinit CODE >527:C:\Users\Fu\AppData\Local\Temp\s77g.
+20 cinit CODE >528:C:\Users\Fu\AppData\Local\Temp\s77g.
+4 intentry CODE >64:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+322 text11 CODE >225:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+323 text11 CODE >226:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+325 text11 CODE >227:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+326 text11 CODE >228:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+329 text11 CODE >231:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+32D text11 CODE >232:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+334 text11 CODE >233:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+335 text11 CODE >234:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+336 text11 CODE >235:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+337 text11 CODE >240:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+33C text11 CODE >241:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+345 text11 CODE >242:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+348 text11 CODE >243:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+352 text11 CODE >244:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+356 text11 CODE >245:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+359 text11 CODE >246:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+35A text11 CODE >248:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+35B text11 CODE >249:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+35F text11 CODE >250:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+35F text11 CODE >251:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+362 text11 CODE >252:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1F4 text10 CODE >158:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1F5 text10 CODE >159:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1F6 text10 CODE >165:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+200 text10 CODE >167:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+202 text10 CODE >168:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+204 text10 CODE >172:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+20D text10 CODE >174:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+20F text10 CODE >179:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+217 text10 CODE >181:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+219 text10 CODE >182:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+21B text10 CODE >186:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+224 text10 CODE >188:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+226 text10 CODE >193:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+22E text10 CODE >195:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+230 text10 CODE >196:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+232 text10 CODE >200:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+23B text10 CODE >202:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+23D text10 CODE >207:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+245 text10 CODE >209:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+247 text10 CODE >210:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+24D text10 CODE >211:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+24E text10 CODE >212:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+24F text10 CODE >214:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+258 text10 CODE >216:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+25F text10 CODE >217:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+262 text10 CODE >218:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+263 text10 CODE >221:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+264 text10 CODE >222:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+265 text10 CODE >223:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+39E text9 CODE >64:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+39E text9 CODE >66:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+3A0 text9 CODE >68:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+3B4 text9 CODE >69:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+3B5 text9 CODE >73:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+3B7 text9 CODE >74:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+3BB text9 CODE >76:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+2C7 text8 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2C7 text8 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2CA text8 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2CC text8 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2D1 text8 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2D3 text8 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2D5 text8 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2DA text8 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2DE text8 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2E0 text8 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2E4 text8 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2E6 text8 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2E8 text8 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2EF text8 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2F3 text8 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2F4 text8 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+2FB text8 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+303 text8 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+309 text8 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+30A text8 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+311 text8 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+315 text8 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+318 text8 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+31D text8 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+102 text7 CODE >87:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+105 text7 CODE >88:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+106 text7 CODE >90:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+10B text7 CODE >91:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+130 text7 CODE >92:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+13D text7 CODE >93:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+13E text7 CODE >94:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+158 text7 CODE >95:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+15C text7 CODE >90:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+164 text7 CODE >98:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+181 text7 CODE >99:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+22 text6 CODE >60:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+25 text6 CODE >62:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E text6 CODE >63:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+56 text6 CODE >64:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+6E text6 CODE >65:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+86 text6 CODE >67:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+8A text6 CODE >68:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+90 text6 CODE >69:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+96 text6 CODE >70:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+9C text6 CODE >77:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+AD text6 CODE >78:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+B6 text6 CODE >79:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+C5 text6 CODE >80:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+CF text6 CODE >81:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+DE text6 CODE >82:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+E8 text6 CODE >83:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+F7 text6 CODE >84:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+101 text6 CODE >85:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3C8 text5 CODE >144:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3C8 text5 CODE >145:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3CC text5 CODE >146:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3D2 text5 CODE >147:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3D6 text5 CODE >148:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3DA text5 CODE >149:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3DB text5 CODE >150:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3DC text5 CODE >151:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3DD text5 CODE >152:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3DE text5 CODE >153:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E1 text5 CODE >154:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E4 text5 CODE >155:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+400 text4 CODE >6:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+400 text4 CODE >7:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+404 text4 CODE >10:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+406 text4 CODE >11:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+409 text4 CODE >12:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+40C text4 CODE >17:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+410 text4 CODE >18:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+412 text4 CODE >21:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+414 text4 CODE >22:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+418 text4 CODE >27:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E5 text3 CODE >136:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E5 text3 CODE >138:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3E8 text3 CODE >139:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3F3 text3 CODE >140:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3F6 text3 CODE >141:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+3FF text3 CODE >142:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+182 text2 CODE >126:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+185 text2 CODE >128:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+18A text2 CODE >129:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1A4 text2 CODE >130:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1BD text2 CODE >131:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1D6 text2 CODE >132:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+1EF text2 CODE >128:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+266 text1 CODE >30:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 266 text1 CODE >31:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-266 text1 CODE >32:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-26A text1 CODE >33:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-26D text1 CODE >34:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-272 text1 CODE >35:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-275 text1 CODE >37:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-27E text1 CODE >39:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-282 text1 CODE >40:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-285 text1 CODE >41:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-28A text1 CODE >42:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-28D text1 CODE >44:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-296 text1 CODE >46:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-29A text1 CODE >47:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-29D text1 CODE >48:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2A2 text1 CODE >49:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2A5 text1 CODE >51:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2AE text1 CODE >53:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2B2 text1 CODE >54:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2B5 text1 CODE >55:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2BA text1 CODE >56:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2BD text1 CODE >58:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-2C6 text1 CODE >59:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
-322 maintext CODE >37:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-322 maintext CODE >39:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-325 maintext CODE >41:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-325 maintext CODE >52:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-328 maintext CODE >53:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-33E maintext CODE >55:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-350 maintext CODE >56:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-353 maintext CODE >41:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
-3AC clrtext CODE >468:C:\Users\Fu\AppData\Local\Temp\s734.
-3AC clrtext CODE >469:C:\Users\Fu\AppData\Local\Temp\s734.
-3AD clrtext CODE >470:C:\Users\Fu\AppData\Local\Temp\s734.
-3AD clrtext CODE >471:C:\Users\Fu\AppData\Local\Temp\s734.
-3AE clrtext CODE >472:C:\Users\Fu\AppData\Local\Temp\s734.
-3AF clrtext CODE >473:C:\Users\Fu\AppData\Local\Temp\s734.
-3B0 clrtext CODE >474:C:\Users\Fu\AppData\Local\Temp\s734.
-3B1 clrtext CODE >475:C:\Users\Fu\AppData\Local\Temp\s734.
-3B2 clrtext CODE >476:C:\Users\Fu\AppData\Local\Temp\s734.
-3B3 clrtext CODE >477:C:\Users\Fu\AppData\Local\Temp\s734.
+26A text1 CODE >32:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+26D text1 CODE >33:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+272 text1 CODE >34:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+275 text1 CODE >36:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+27E text1 CODE >38:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+282 text1 CODE >39:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+285 text1 CODE >40:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+28A text1 CODE >41:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+28D text1 CODE >43:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+296 text1 CODE >45:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+29A text1 CODE >46:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+29D text1 CODE >47:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2A2 text1 CODE >48:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2A5 text1 CODE >50:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2AE text1 CODE >52:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2B2 text1 CODE >53:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2B5 text1 CODE >54:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2BA text1 CODE >55:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2BD text1 CODE >57:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+2C6 text1 CODE >58:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+363 maintext CODE >37:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+363 maintext CODE >39:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+366 maintext CODE >41:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+36F maintext CODE >43:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+36F maintext CODE >54:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+372 maintext CODE >55:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+388 maintext CODE >57:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+39A maintext CODE >58:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+39D maintext CODE >43:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+419 clrtext CODE >496:C:\Users\Fu\AppData\Local\Temp\s77g.
+419 clrtext CODE >497:C:\Users\Fu\AppData\Local\Temp\s77g.
+41A clrtext CODE >498:C:\Users\Fu\AppData\Local\Temp\s77g.
+41A clrtext CODE >499:C:\Users\Fu\AppData\Local\Temp\s77g.
+41B clrtext CODE >500:C:\Users\Fu\AppData\Local\Temp\s77g.
+41C clrtext CODE >501:C:\Users\Fu\AppData\Local\Temp\s77g.
+41D clrtext CODE >502:C:\Users\Fu\AppData\Local\Temp\s77g.
+41E clrtext CODE >503:C:\Users\Fu\AppData\Local\Temp\s77g.
+41F clrtext CODE >504:C:\Users\Fu\AppData\Local\Temp\s77g.
+420 clrtext CODE >505:C:\Users\Fu\AppData\Local\Temp\s77g.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -255,12 +293,16 @@ F7 text5 CODE >85:C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ___awdiv@counter 56 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+IntI2C@i 75 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+IntI2C@z 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hspace_0 2009 0 ABS 0 - -
 __Hspace_1 A8 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
+__end_of_IntI2C 6C6 0 CODE 0 text11 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_BF 4A0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _t4 20 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _t5 2C 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _t6 38 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
@@ -271,15 +313,16 @@ ltemp2 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.pr
 ltemp3 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_PEIE 5E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _RBIE 5B 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _RBIF 58 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _TMR1 E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s734.obj
-_main 644 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s77g.obj
+_main 6C6 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _rbon 50 0 BANK0 1 bssBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s734.obj
+start 22 0 CODE 0 init C:\Users\Fu\AppData\Local\Temp\s77g.obj
 ttemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
@@ -291,12 +334,12 @@ ttemp2 84 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.pr
 ttemp3 87 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __end_of_Trigger 58E 0 CODE 0 text1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s734.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Fu\AppData\Local\Temp\s77g.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
@@ -305,30 +348,40 @@ wtemp4 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.pr
 wtemp5 88 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 wtemp6 7F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hfunctab 0 0 CODE 0 functab -
-__end_of_CalcularDistancia 204 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_CalcularDistancia 204 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ___awdiv@sign 57 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 MediaMedidas@num 5E 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _ANSELH 189 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_MediaMedidas 204 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_MediaMedidas 204 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ___awdiv@dividend 53 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPCONbits 14 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __end_of_ShiftArrays 3E8 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 51 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of___awdiv 644 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of___awdiv 644 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _INTCON B 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_FOSC$INTRC_CLKOUT 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_IntI2C 644 0 CODE 0 text11 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_I2C_Slave_Init 790 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 IntPortb@rbon 73 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __size_of_MediaMedidas 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 start_initialization 26 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _OSCCON 8F 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_CalcularDistancia 44 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_MediaMedidas 304 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-clear_ram0 758 0 CODE 0 clrtext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_CalcularDistancia 44 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_MediaMedidas 304 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+clear_ram0 832 0 CODE 0 clrtext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __pcstackBANK0 51 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPADD 93 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPBUF 13 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPCON 14 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _TMR1ON 80 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_Inicializaciones 724 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s734.obj
+_TRISC3 43B 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_TRISC4 43C 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_Inicializaciones 800 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__size_of_IntI2C 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Fu\AppData\Local\Temp\s77g.obj
+IntI2C@distancias 74 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -338,6 +391,7 @@ CalcularDistancia@t4 68 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-
 CalcularDistancia@t5 61 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 CalcularDistancia@t6 62 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 CalcularDistancia@t7 63 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_I2C_Slave_Init 7CA 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
@@ -386,45 +440,48 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR21V 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 saved_w 7E 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_Interrupcion 6A8 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_Interrupcion 73C 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ShiftArrays@t4 5A 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ShiftArrays@t5 51 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ShiftArrays@t6 52 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 ShiftArrays@t7 53 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-__end_of_Inicializaciones 758 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s734.obj
+__end_of_Inicializaciones 832 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Fu\AppData\Local\Temp\s77g.obj
 __size_of_IntPortb 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __size_of_Inicializaciones 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext10 3E8 0 CODE 0 text10 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext11 644 0 CODE 0 text11 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __size_of_Interrupcion 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-___awdiv 58E 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__pmaintext 644 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+___awdiv 58E 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__pmaintext 6C6 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+I2C_Slave_Init@address 51 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_Interrupcion 6EE 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s734.obj
-stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s734.obj
+__end_of_Interrupcion 790 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+stackhi 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s77g.obj
+stacklo 0 0 ABS 0 - C:\Users\Fu\AppData\Local\Temp\s77g.obj
 _distancias A0 0 BANK1 1 bssBANK1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-_IntPortb 3E8 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_IntPortb 3E8 0 CODE 0 text10 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__end_of_ResetEcho 724 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_ResetEcho 800 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 22 0 CODE 0 end_init -
 __size_of_ResetEcho 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 CalcularDistancia@distancias 64 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__end_of_IntPortb 4CC 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_IntPortb 4CC 0 CODE 0 text10 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 end_of_initialization 3E 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hintentry 22 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
@@ -437,16 +494,16 @@ IntPortb@t7 72 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-Ultraso
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
-_ResetEcho 6EE 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_ResetEcho 7CA 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __ptext1 4CC 0 CODE 0 text1 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __ptext2 304 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext3 6EE 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext4 724 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext5 44 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext6 204 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext7 58E 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext8 6A8 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
-__ptext9 3E8 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext3 7CA 0 CODE 0 text3 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext4 800 0 CODE 0 text4 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext5 790 0 CODE 0 text5 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext6 44 0 CODE 0 text6 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext7 204 0 CODE 0 text7 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext8 58E 0 CODE 0 text8 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__ptext9 73C 0 CODE 0 text9 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 _ShiftArrays 304 0 CODE 0 text2 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
@@ -454,13 +511,18 @@ __Lreset_vec 0 0 CODE 0 reset_vec -
 MediaMedidas@i 5F 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 MediaMedidas@t 60 0 BANK0 1 cstackBANK0 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __end_of__initialization 3E 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__size_of_I2C_Slave_Init 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Lfunctab 0 0 CODE 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPCON2 91 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPSTAT 94 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hend_init 26 0 CODE 0 end_init -
-__end_of_main 6A8 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+__end_of_main 73C 0 CODE 0 maintext dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _PORTB 6 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _T1CON 10 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPIE 463 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPIF 63 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 _TRISB 86 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
@@ -468,6 +530,7 @@ interrupt_function 8 0 CODE 0 intentry dist/default/production\PIC16F883-Ultraso
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __size_of_CalcularDistancia 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __size_of_Trigger 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
+_SSPSTATbits 94 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __initialization 26 0 CODE 0 cinit dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
@@ -500,7 +563,7 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\PIC16F883-UltrasonicSensorHand
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cstackCOMMON 1 70 70 E 1
-intentry 0 4 8 3B0 2
+intentry 0 4 8 41D 2
 reset_vec 0 0 0 2 2
 bssBANK0 1 20 20 4D 1
 bssBANK1 1 A0 A0 8 1

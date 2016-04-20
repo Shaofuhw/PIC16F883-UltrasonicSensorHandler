@@ -2,6 +2,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "5 Funciones.h
 [v _Inicializaciones `(v ~T0 @X0 0 ef ]
+"12
+[v _I2C_Slave_Init `(v ~T0 @X0 0 ef1`s ]
 "6
 [v _Trigger `(v ~T0 @X0 0 ef ]
 "7
@@ -14,6 +16,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "9 Funciones.h
 [v _IntPortb `(v ~T0 @X0 0 ef5`*i`*i`*i`*i`*uc ]
+"3758 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"13 Funciones.h
+[v _IntI2C `(v ~T0 @X0 0 ef1`*uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1440,6 +1446,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
 [; ;Funciones.h: 11: void MediaMedidas( int*);
+[; ;Funciones.h: 12: void I2C_Slave_Init(short);
+[; ;Funciones.h: 13: void IntI2C(char*);
 "14 main.c
 [p x FOSC=INTRC_CLKOUT ]
 "15
@@ -1498,61 +1506,77 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 39: Inicializaciones();
 "39
 [e ( _Inicializaciones ..  ]
-[; ;main.c: 41: while(1)
+[; ;main.c: 41: I2C_Slave_Init(0x30);
 "41
+[e ( _I2C_Slave_Init (1 -> -> 48 `i `s ]
+[; ;main.c: 43: while(1)
+"43
 [e :U 137 ]
-[; ;main.c: 42: {
-"42
+[; ;main.c: 44: {
+"44
 {
-[; ;main.c: 52: Trigger();
-"52
+[; ;main.c: 54: Trigger();
+"54
 [e ( _Trigger ..  ]
-[; ;main.c: 53: CalcularDistancia(t4, t5, t6, t7, distancias);
-"53
-[e ( _CalcularDistancia (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _distancias ]
-[; ;main.c: 55: ShiftArrays(t4, t5, t6, t7);
+[; ;main.c: 55: CalcularDistancia(t4, t5, t6, t7, distancias);
 "55
-[e ( _ShiftArrays (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
-[; ;main.c: 56: ResetEcho();
-"56
-[e ( _ResetEcho ..  ]
+[e ( _CalcularDistancia (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _distancias ]
+[; ;main.c: 57: ShiftArrays(t4, t5, t6, t7);
 "57
+[e ( _ShiftArrays (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
+[; ;main.c: 58: ResetEcho();
+"58
+[e ( _ResetEcho ..  ]
+"59
 }
 [e :U 136 ]
-"41
+"43
 [e $U 137  ]
 [e :U 138 ]
-[; ;main.c: 57: }
-[; ;main.c: 58: return;
-"58
-[e $UE 135  ]
 [; ;main.c: 59: }
-"59
+[; ;main.c: 60: return;
+"60
+[e $UE 135  ]
+[; ;main.c: 61: }
+"61
 [e :UE 135 ]
 }
-[v F1591 `(v ~T0 @X0 1 tf ]
-"62
-[v _Interrupcion `IF1591 ~T0 @X0 1 e ]
-"63
-{
-[; ;main.c: 62: void interrupt Interrupcion()
-[; ;main.c: 63: {
-[e :U _Interrupcion ]
-[f ]
-[; ;main.c: 64: if(RBIF == 1)
+[v F1595 `(v ~T0 @X0 1 tf ]
 "64
-[e $ ! == -> _RBIF `i -> 1 `i 140  ]
-[; ;main.c: 65: {
+[v _Interrupcion `IF1595 ~T0 @X0 1 e ]
 "65
 {
-[; ;main.c: 66: IntPortb(t4, t5, t6, t7, &rbon);
+[; ;main.c: 64: void interrupt Interrupcion()
+[; ;main.c: 65: {
+[e :U _Interrupcion ]
+[f ]
+[; ;main.c: 66: if(RBIF == 1)
 "66
-[e ( _IntPortb (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _rbon ]
+[e $ ! == -> _RBIF `i -> 1 `i 140  ]
+[; ;main.c: 67: {
 "67
-}
-[e :U 140 ]
-[; ;main.c: 67: }
-[; ;main.c: 68: }
+{
+[; ;main.c: 68: IntPortb(t4, t5, t6, t7, &rbon);
 "68
+[e ( _IntPortb (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _rbon ]
+"69
+}
+[; ;main.c: 69: }
+[e $U 141  ]
+"73
+[e :U 140 ]
+[; ;main.c: 73: else if(SSPIF == 1){
+[e $ ! == -> _SSPIF `i -> 1 `i 142  ]
+{
+[; ;main.c: 74: IntI2C(distancias);
+"74
+[e ( _IntI2C (1 &U _distancias ]
+"75
+}
+[e :U 142 ]
+"76
+[e :U 141 ]
+[; ;main.c: 75: }
+[; ;main.c: 76: }
 [e :UE 139 ]
 }
