@@ -50,6 +50,6 @@ void UART_Write(char data)
 void UART_Write_Text(char *text)
 {
   int i;
-  for(i=0;text[i]!='\0';i++)
+  for(i=0;i<8;i++)
 	  UART_Write(text[i]);
 }

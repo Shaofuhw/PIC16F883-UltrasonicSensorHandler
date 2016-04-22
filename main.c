@@ -7,6 +7,7 @@
 
 #include <xc.h>
 #include "Funciones.h"
+#include "Uart.h"
 
 #define _XTAL_FREQ 8000000
 
@@ -38,7 +39,7 @@ void main(void) {
 
     Inicializaciones();                     //Se configuran y inicializan los puertos, timer, interrupciones y LCD
     /*La velocidad de la transmisión depende de la dirección asiganada*/
-    I2C_Slave_Init(0x30);
+    UART_Init(9600);
     
     while(1)
     {
@@ -56,6 +57,7 @@ void main(void) {
         //PrintDistancias(t4, t5, t6, t7);
         ShiftArrays(t4, t5, t6, t7);
         ResetEcho();                      //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
+        UART_Write_Text(distancias);
     }
     return;
 }
@@ -66,11 +68,5 @@ void interrupt Interrupcion()
     if(RBIF == 1)                           //Comprobar flag del puerto B
     {
         IntPortb(t4, t5, t6, t7, &rbon);
-    }
-    /*Este PIC es un esclavo en al comunicación I2C.
-     Cuando la controladora de vuelo solicite un dato nuevo, le enviará a través del I2C los datos requeridos
-     que en este caso son los 8 bytes de distancia, en los que cada dos, son la distancia de cada sensor*/
-    else if(SSPIF == 1){
-        IntI2C(distancias);
     }
 }

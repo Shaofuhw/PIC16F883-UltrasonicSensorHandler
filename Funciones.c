@@ -1,6 +1,7 @@
 #include "Funciones.h"
 //#include "LCD.h"
 #include <stdio.h>
+#include "Uart.h"
 
 //Se inician todos los registros necesarios para configurar el puerto B, las interrupciones, y el timer1
 void Inicializaciones(){
@@ -141,20 +142,6 @@ void ResetEcho()
     __delay_ms(5);
 }
 
-void I2C_Slave_Init(short address) {
-    SSPSTAT = 0x80;
-    SSPADD = address;
-    SSPCON = 0x36;
-    SSPCON2 = 0x01;
-    TRISC3 = 1; //Setting as input as given in datasheet
-    TRISC4 = 1; //Setting as input as given in datasheet
-    GIE = 1;
-    PEIE = 1;
-    SSPIF = 0;
-    SSPIE = 1;
-}
-
-
 void IntPortb( int* t4,  int* t5,  int* t6,  int* t7, char* rbon){
            RBIE = 0;                           //Desactiva el bit de interrupcion puerto B
         /* Cuando detecta la subida de alguno de los pulsos, pone su respectiva señal de "On" a 1, de esta forma,
@@ -220,34 +207,5 @@ void IntPortb( int* t4,  int* t5,  int* t6,  int* t7, char* rbon){
         
         RBIF = 0;                           //Limpia la bandera
         RBIE = 1;                           //Vuelve a activar la interrupcion
-}
-
-void IntI2C(char *distancias) {
-    short z = 0;
-    char i = 0;
-    SSPCONbits.CKP = 0;
-    
-    //Ha ocurrido un overflow o una colisión de datos. Se limpia el buffer, y se borran las banderas
-    if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)) {                  
-        z = SSPBUF; // Read the previous value to clear the buffer
-        SSPCONbits.SSPOV = 0; // Clear the overflow flag
-        SSPCONbits.WCOL = 0; // Clear the collision bit
-        SSPCONbits.CKP = 1;
-    }
-    /*Ha llegado una solicitud de envío de datos. Se pone el dato en el buffer y se inicia la comunicación
-     Se requiere que se transmitan los 8 bytes, por lo que el maestro deberá solicitar datos en la misma dirección
-     8 veces seguidas. Cada vez que se solicite un dato, le enviará el siguiente*/
-    if (!SSPSTATbits.D_nA && SSPSTATbits.R_nW) {
-        z = SSPBUF;
-        BF = 0;
-        SSPBUF = distancias[i];
-        i += 1;
-        if( i == 7 ){
-            i = 0;
-        }
-        SSPCONbits.CKP = 1;
-        while (SSPSTATbits.BF);
-    }
-    SSPIF = 0;
 }
 
