@@ -15,29 +15,29 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"7 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"8 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
-"31
+"33
 [v _Trigger Trigger `(v  1 e 1 0 ]
-"61
+"67
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
-"88
+"94
 [v _MediaMedidas MediaMedidas `(v  1 e 1 0 ]
-"127
+"133
 [v _ShiftArrays ShiftArrays `(v  1 e 1 0 ]
-"137
+"142
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
-"145
+"149
 [v _IntPortb IntPortb `(v  1 e 1 0 ]
-"38 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+"41 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _main main `(v  1 e 1 0 ]
-"66
+"69
 [v _Interrupcion Interrupcion `II(v  1 e 1 0 ]
 "3 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Uart.c
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
-"44
+"43
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
-"50
+"48
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 "221 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -49,8 +49,6 @@
 [v _T1CON T1CON `VEuc  1 e 1 @16 ]
 "1027
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
-"1033
-[v _RCREG RCREG `VEuc  1 e 1 @26 ]
 "1362
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1661
@@ -85,14 +83,20 @@
 [v _RBIE RBIE `VEb  1 e 0 @91 ]
 "3682
 [v _RBIF RBIF `VEb  1 e 0 @88 ]
-"3712
-[v _RCIF RCIF `VEb  1 e 0 @101 ]
 "3746
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
 "3782
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
 "3824
 [v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"3864
+[v _TRISB4 TRISB4 `VEb  1 e 0 @1076 ]
+"3866
+[v _TRISB5 TRISB5 `VEb  1 e 0 @1077 ]
+"3868
+[v _TRISB6 TRISB6 `VEb  1 e 0 @1078 ]
+"3870
+[v _TRISB7 TRISB7 `VEb  1 e 0 @1079 ]
 "3884
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
 "3886
@@ -103,39 +107,39 @@
 [v _TX9 TX9 `VEb  1 e 0 @1222 ]
 "3910
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
-"32 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+"34 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _t4 t4 `[6]i  1 e 12 0 ]
 [v _t5 t5 `[6]i  1 e 12 0 ]
 [v _t6 t6 `[6]i  1 e 12 0 ]
 [v _t7 t7 `[6]i  1 e 12 0 ]
-"33
-[v _rbon rbon `uc  1 e 1 0 ]
 "35
-[v _distancias distancias `[8]uc  1 e 8 0 ]
-"38
+[v _rbon rbon `uc  1 e 1 0 ]
+"37
+[v _distancias distancias `[20]uc  1 e 20 0 ]
+"41
 [v _main main `(v  1 e 1 0 ]
 {
-"63
+"65
 } 0
-"50 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Uart.c
+"48 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Uart.c
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 {
 [v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
-"52
-[v UART_Write_Text@i i `i  1 a 2 3 ]
 "50
+[v UART_Write_Text@i i `i  1 a 2 2 ]
+"48
 [v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
+"51
+[v UART_Write_Text@text text `*.4uc  1 a 1 4 ]
 "53
-[v UART_Write_Text@text text `*.4uc  1 a 1 2 ]
-"55
 } 0
-"44
+"43
 [v _UART_Write UART_Write `(v  1 e 1 0 ]
 {
 [v UART_Write@data data `uc  1 a 1 wreg ]
 [v UART_Write@data data `uc  1 a 1 wreg ]
 [v UART_Write@data data `uc  1 a 1 0 ]
-"48
+"46
 } 0
 "3
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
@@ -144,7 +148,7 @@
 [v UART_Init@x x `ui  1 a 2 31 ]
 "3
 [v UART_Init@baudrate baudrate `DCCl  1 p 4 15 ]
-"26
+"24
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
@@ -159,37 +163,38 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "42
 } 0
-"31 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"33 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _Trigger Trigger `(v  1 e 1 0 ]
 {
-"59
+"65
 } 0
-"127
+"133
 [v _ShiftArrays ShiftArrays `(v  1 e 1 0 ]
 {
 [v ShiftArrays@t4 t4 `*.4i  1 a 1 wreg ]
-"129
+"134
 [v ShiftArrays@i i `uc  1 a 1 10 ]
-"127
+"133
 [v ShiftArrays@t4 t4 `*.4i  1 a 1 wreg ]
 [v ShiftArrays@t5 t5 `*.4i  1 p 1 0 ]
 [v ShiftArrays@t6 t6 `*.4i  1 p 1 1 ]
 [v ShiftArrays@t7 t7 `*.4i  1 p 1 2 ]
-"129
 [v ShiftArrays@t4 t4 `*.4i  1 a 1 9 ]
-"135
+"140
 } 0
-"137
+"142
 [v _ResetEcho ResetEcho `(v  1 e 1 0 ]
 {
-"143
+[v ResetEcho@rbon rbon `*.1uc  1 a 1 wreg ]
+[v ResetEcho@rbon rbon `*.1uc  1 a 1 wreg ]
+"147
 } 0
-"7
+"8
 [v _Inicializaciones Inicializaciones `(v  1 e 1 0 ]
 {
-"28
+"29
 } 0
-"61
+"67
 [v _CalcularDistancia CalcularDistancia `(v  1 e 1 0 ]
 {
 [v CalcularDistancia@t4 t4 `*.4i  1 a 1 wreg ]
@@ -198,22 +203,22 @@
 [v CalcularDistancia@t6 t6 `*.4i  1 p 1 17 ]
 [v CalcularDistancia@t7 t7 `*.4i  1 p 1 18 ]
 [v CalcularDistancia@distancias distancias `*.4uc  1 p 1 19 ]
-"63
+"69
 [v CalcularDistancia@t4 t4 `*.4i  1 a 1 23 ]
-"86
+"92
 } 0
-"88
+"94
 [v _MediaMedidas MediaMedidas `(v  1 e 1 0 ]
 {
 [v MediaMedidas@t t `*.4i  1 a 1 wreg ]
-"91
+"97
 [v MediaMedidas@i i `uc  1 a 1 14 ]
-"89
+"95
 [v MediaMedidas@num num `uc  1 a 1 13 ]
-"88
+"94
 [v MediaMedidas@t t `*.4i  1 a 1 wreg ]
 [v MediaMedidas@t t `*.4i  1 a 1 15 ]
-"100
+"106
 } 0
 "6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -228,12 +233,12 @@
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "42
 } 0
-"66 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
+"69 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\main.c
 [v _Interrupcion Interrupcion `II(v  1 e 1 0 ]
 {
-"72
+"74
 } 0
-"145 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
+"149 C:\Users\Fu\Documents\GitHub\PIC16F883-UltrasonicSensorHandler\Funciones.c
 [v _IntPortb IntPortb `(v  1 e 1 0 ]
 {
 [v IntPortb@t4 t4 `*.4i  1 a 1 wreg ]
@@ -243,5 +248,5 @@
 [v IntPortb@t7 t7 `*.4i  1 p 1 2 ]
 [v IntPortb@rbon rbon `*.4uc  1 p 1 3 ]
 [v IntPortb@t4 t4 `*.4i  1 a 1 5 ]
-"210
+"199
 } 0

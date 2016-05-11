@@ -1995,21 +1995,84 @@ extern __bit __timeout;
 void Inicializaciones(void);
 void Trigger(void);
 void CalcularDistancia( int*, int*, int*, int*, char*);
-void ResetEcho();
+void ResetEcho(char*);
 void IntPortb( int*, int*, int*, int*, char*);
 void ShiftArrays( int*, int*, int*, int*);
 void MediaMedidas( int*);
 
 # 5 "Uart.h"
 char UART_Init(const long int);
-char UART_TX_Empty();
-char UART_Data_Ready();
-char UART_Read();
+
+
+
 void UART_Write(char );
 void UART_Write_Text(char *);
 
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\__size_t.h"
+typedef unsigned size_t;
 
-# 15 "main.c"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\errno.h"
+extern int errno;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+
+# 17 "main.c"
 #pragma config FOSC = INTRC_CLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2030,7 +2093,8 @@ void UART_Write_Text(char *);
 int t4[6], t5[6], t6[6], t7[6] = {0};
 char rbon = 0;
 
-char distancias[8] = {0};
+char distancias[20] = {0};
+
 
 
 void main(void) {
@@ -2039,24 +2103,23 @@ Inicializaciones();
 
 UART_Init(9600);
 
-while(1)
-{
+while (1) {
 
-# 55
+# 57
 Trigger();
+ResetEcho(&rbon);
 CalcularDistancia(t4, t5, t6, t7, distancias);
 
 ShiftArrays(t4, t5, t6, t7);
-ResetEcho();
 UART_Write_Text(distancias);
 }
 return;
 }
 
 
-void interrupt Interrupcion()
-{
-if(RBIF == 1)
+
+void interrupt Interrupcion() {
+if (RBIF == 1)
 {
 IntPortb(t4, t5, t6, t7, &rbon);
 }

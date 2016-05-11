@@ -6,12 +6,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _UART_Init `(uc ~T0 @X0 0 ef1`Cl ]
 "6 Funciones.h
 [v _Trigger `(v ~T0 @X0 0 ef ]
+"8
+[v _ResetEcho `(v ~T0 @X0 0 ef1`*uc ]
 "7
 [v _CalcularDistancia `(v ~T0 @X0 0 ef5`*i`*i`*i`*i`*uc ]
 "10
 [v _ShiftArrays `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
-"8
-[v _ResetEcho `(v ~T0 @X0 0 ef ]
 "10 Uart.h
 [v _UART_Write_Text `(v ~T0 @X0 0 ef1`*uc ]
 "3682 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
@@ -1440,41 +1440,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 5: void Inicializaciones(void);
 [; ;Funciones.h: 6: void Trigger(void);
 [; ;Funciones.h: 7: void CalcularDistancia( int*, int*, int*, int*, char*);
-[; ;Funciones.h: 8: void ResetEcho();
+[; ;Funciones.h: 8: void ResetEcho(char*);
 [; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
 [; ;Funciones.h: 11: void MediaMedidas( int*);
 [; ;Uart.h: 5: char UART_Init(const long int);
-[; ;Uart.h: 6: char UART_TX_Empty();
-[; ;Uart.h: 7: char UART_Data_Ready();
-[; ;Uart.h: 8: char UART_Read();
 [; ;Uart.h: 9: void UART_Write(char );
 [; ;Uart.h: 10: void UART_Write_Text(char *);
-"15 main.c
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+"17 main.c
 [p x FOSC=INTRC_CLKOUT ]
-"16
-[p x WDTE=OFF ]
-"17
-[p x PWRTE=OFF ]
 "18
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "19
-[p x CP=OFF ]
+[p x PWRTE=OFF ]
 "20
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "21
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "22
-[p x IESO=ON ]
+[p x CPD=OFF ]
 "23
-[p x FCMEN=ON ]
+[p x BOREN=ON ]
 "24
+[p x IESO=ON ]
+"25
+[p x FCMEN=ON ]
+"26
 [p x LVP=OFF ]
-"27
+"29
 [p x BOR4V=BOR21V ]
-"28
+"30
 [p x WRT=OFF ]
-"32
+"34
 [v _t4 `i ~T0 @X0 -> 6 `i e ]
 [v _t5 `i ~T0 @X0 -> 6 `i e ]
 [v _t6 `i ~T0 @X0 -> 6 `i e ]
@@ -1484,91 +1511,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ..
 ]
-[; ;main.c: 32: int t4[6], t5[6], t6[6], t7[6] = {0};
-"33
+[; ;main.c: 34: int t4[6], t5[6], t6[6], t7[6] = {0};
+"35
 [v _rbon `uc ~T0 @X0 1 e ]
 [i _rbon
 -> -> 0 `i `uc
 ]
-[; ;main.c: 33: char rbon = 0;
-"35
-[v _distancias `uc ~T0 @X0 -> 8 `i e ]
+[; ;main.c: 35: char rbon = 0;
+"37
+[v _distancias `uc ~T0 @X0 -> 20 `i e ]
 [i _distancias
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 35: char distancias[8] = {0};
-"38
+[; ;main.c: 37: char distancias[20] = {0};
+"41
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 38: void main(void) {
+[; ;main.c: 41: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 40: Inicializaciones();
-"40
+[; ;main.c: 43: Inicializaciones();
+"43
 [e ( _Inicializaciones ..  ]
-[; ;main.c: 42: UART_Init(9600);
-"42
-[e ( _UART_Init (1 -> -> 9600 `i `l ]
-[; ;main.c: 44: while(1)
-"44
-[e :U 137 ]
-[; ;main.c: 45: {
+[; ;main.c: 45: UART_Init(9600);
 "45
-{
-[; ;main.c: 55: Trigger();
-"55
-[e ( _Trigger ..  ]
-[; ;main.c: 56: CalcularDistancia(t4, t5, t6, t7, distancias);
-"56
-[e ( _CalcularDistancia (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _distancias ]
-[; ;main.c: 58: ShiftArrays(t4, t5, t6, t7);
-"58
-[e ( _ShiftArrays (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
-[; ;main.c: 59: ResetEcho();
-"59
-[e ( _ResetEcho ..  ]
-[; ;main.c: 60: UART_Write_Text(distancias);
-"60
-[e ( _UART_Write_Text (1 &U _distancias ]
-"61
-}
-[e :U 136 ]
-"44
-[e $U 137  ]
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;main.c: 47: while (1) {
+"47
 [e :U 138 ]
-[; ;main.c: 61: }
-[; ;main.c: 62: return;
-"62
-[e $UE 135  ]
-[; ;main.c: 63: }
-"63
-[e :UE 135 ]
-}
-[v F1600 `(v ~T0 @X0 1 tf ]
-"66
-[v _Interrupcion `IF1600 ~T0 @X0 1 e ]
-"67
 {
-[; ;main.c: 66: void interrupt Interrupcion()
-[; ;main.c: 67: {
+[; ;main.c: 57: Trigger();
+"57
+[e ( _Trigger ..  ]
+[; ;main.c: 58: ResetEcho(&rbon);
+"58
+[e ( _ResetEcho (1 &U _rbon ]
+[; ;main.c: 59: CalcularDistancia(t4, t5, t6, t7, distancias);
+"59
+[e ( _CalcularDistancia (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _distancias ]
+[; ;main.c: 61: ShiftArrays(t4, t5, t6, t7);
+"61
+[e ( _ShiftArrays (4 , , , &U _t4 &U _t5 &U _t6 &U _t7 ]
+[; ;main.c: 62: UART_Write_Text(distancias);
+"62
+[e ( _UART_Write_Text (1 &U _distancias ]
+"63
+}
+[e :U 137 ]
+"47
+[e $U 138  ]
+[e :U 139 ]
+[; ;main.c: 63: }
+[; ;main.c: 64: return;
+"64
+[e $UE 136  ]
+[; ;main.c: 65: }
+"65
+[e :UE 136 ]
+}
+[v F1660 `(v ~T0 @X0 1 tf ]
+"69
+[v _Interrupcion `IF1660 ~T0 @X0 1 e ]
+{
+[; ;main.c: 69: void interrupt Interrupcion() {
 [e :U _Interrupcion ]
 [f ]
-[; ;main.c: 68: if(RBIF == 1)
-"68
-[e $ ! == -> _RBIF `i -> 1 `i 140  ]
-[; ;main.c: 69: {
-"69
-{
-[; ;main.c: 70: IntPortb(t4, t5, t6, t7, &rbon);
+[; ;main.c: 70: if (RBIF == 1)
 "70
-[e ( _IntPortb (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _rbon ]
+[e $ ! == -> _RBIF `i -> 1 `i 141  ]
+[; ;main.c: 71: {
 "71
-}
-[e :U 140 ]
-[; ;main.c: 71: }
-[; ;main.c: 72: }
+{
+[; ;main.c: 72: IntPortb(t4, t5, t6, t7, &rbon);
 "72
-[e :UE 139 ]
+[e ( _IntPortb (4 , , , , &U _t4 &U _t5 &U _t6 &U _t7 &U _rbon ]
+"73
+}
+[e :U 141 ]
+[; ;main.c: 73: }
+[; ;main.c: 74: }
+"74
+[e :UE 140 ]
 }

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.37\dat\en_msgs.txt -cs \
   -h+dist/default/production\PIC16F883-UltrasonicSensorHandler.production.sym \
   --cmf=dist/default/production\PIC16F883-UltrasonicSensorHandler.production.cmf \
-  -z -Q16F883 -oC:\Users\Fu\AppData\Local\Temp\s4sg.2 \
+  -z -Q16F883 -oC:\Users\Fu\AppData\Local\Temp\s32s.2 \
   -Mdist/default/production/PIC16F883-UltrasonicSensorHandler.production.map \
   -E1 -ver=XC8 -ASTACK=0120h-016fh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\Fu\AppData\Local\Temp\s4sg.obj \
+  -DENTRY=2 -k C:\Users\Fu\AppData\Local\Temp\s32s.obj \
   dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj 
 
 Object code version is 3.11
@@ -28,31 +28,31 @@ Machine type is 16F883
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Fu\AppData\Local\Temp\s4sg.obj
+C:\Users\Fu\AppData\Local\Temp\s32s.obj
                 end_init                             11       11        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\PIC16F883-UltrasonicSensorHandler.production.obj
                 cinit                                13       13        F        8       0
                 intentry                              4        4        D        8       0
-                text13                              370      370       72        8       0
-                text12                              506      506       23        8       0
-                text11                              443      443       5B        8       0
-                text10                              27E      27E       80        8       0
+                text13                              1EF      1EF       A3        8       0
+                text12                              515      515       23        8       0
+                text11                              476      476       5B        8       0
+                text10                              321      321       80        8       0
                 text9                               10F      10F       E0        8       0
-                text8                               544      544       19        8       0
-                text7                               529      529       1B        8       0
-                text6                               2FE      2FE       72        8       0
-                text5                               3E2      3E2       61        8       0
-                text4                               1EF      1EF       8F        8       0
+                text8                               559      559       18        8       0
+                text7                               571      571       10        8       0
+                text6                               3A1      3A1       72        8       0
+                text5                               413      413       63        8       0
+                text4                               292      292       8F        8       0
                 text3                                22       22       ED        8       0
-                text2                               55D      55D        C        8       0
-                text1                               4E1      4E1       25        8       0
-                maintext                            49E      49E       43        8       0
+                text2                               581      581        C        8       0
+                text1                               538      538       21        8       0
+                maintext                            4D1      4D1       44        8       0
                 cstackBANK0                          45       45       25       20       1
                 cstackCOMMON                         70       70        E       70       1
-                clrtext                             569      569        8        8       0
-                bssBANK1                             A0       A0       14       A0       1
+                clrtext                             58D      58D        8        8       0
+                bssBANK1                             A0       A0       20       A0       1
                 bssBANK0                             20       20       25       20       1
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -63,21 +63,21 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cinit                                13       13        F         0
                 intentry                              4        4        D         0
                 reset_vec                             0        0        2         0
-                text13                              370      370       72         0
-                text12                              506      506       23         0
-                text11                              443      443       5B         0
-                text10                              27E      27E       80         0
+                text13                              1EF      1EF       A3         0
+                text12                              515      515       23         0
+                text11                              476      476       5B         0
+                text10                              321      321       80         0
                 text9                               10F      10F       E0         0
-                text8                               544      544       19         0
-                text7                               529      529       1B         0
-                text6                               2FE      2FE       72         0
-                text5                               3E2      3E2       61         0
-                text4                               1EF      1EF       8F         0
+                text8                               559      559       18         0
+                text7                               571      571       10         0
+                text6                               3A1      3A1       72         0
+                text5                               413      413       63         0
+                text4                               292      292       8F         0
                 text3                                22       22       ED         0
-                text2                               55D      55D        C         0
-                text1                               4E1      4E1       25         0
-                maintext                            49E      49E       43         0
-                clrtext                             569      569        8         0
+                text2                               581      581        C         0
+                text1                               538      538       21         0
+                maintext                            4D1      4D1       44         0
+                clrtext                             58D      58D        8         0
 
         CLASS   STRCODE        
 
@@ -95,7 +95,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 bssBANK0                             20       20       25         1
 
         CLASS   BANK1          
-                bssBANK1                             A0       A0       14         1
+                bssBANK1                             A0       A0       20         1
 
         CLASS   BANK2          
 
@@ -126,10 +126,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  00056D  000571         8       0  CODE        2
+                intentry                       000004  000591  000595         8       0  CODE        2
                 bssBANK0                       000020  00004A  00006A        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
-                bssBANK1                       0000A0  000014  0000B4        A0       1  BANK1       1
+                bssBANK1                       0000A0  000020  0000C0        A0       1  BANK1       1
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
@@ -137,18 +137,18 @@ UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
         BANK0            006A-006F              6           1
-        BANK1            00B4-00EF             3C           1
+        BANK1            00C0-00EF             30           1
         BANK2            0120-016F             50           1
         CODE             0002-0003              2           2
-                         0571-0FFF            28F
+                         0595-0FFF            26B
         CONST            0002-0003              2           2
-                         0571-0FFF            100
+                         0595-0FFF            100
         EEDATA           2100-21FF            100           2
         ENTRY            0002-0003              2           2
-                         0571-0FFF            100
+                         0595-0FFF            100
         IDLOC            2000-2003              4           2
         RAM              006A-006F              6           1
-                         00B4-00EF             3C
+                         00C0-00EF             30
                          0120-016F             50
         SFR0             0000-001F             20           1
         SFR1             0080-009F             20           1
@@ -156,9 +156,9 @@ UNUSED ADDRESS RANGES
         SFR3             0180-01EF             70           1
         STACK            0120-016F             50           1
         STRCODE          0002-0003              2           2
-                         0571-0FFF            A8F
+                         0595-0FFF            A6B
         STRING           0002-0003              2           2
-                         0571-0FFF            100
+                         0595-0FFF            100
 
                                   Symbol Table
 
@@ -177,6 +177,7 @@ IntPortb@t7                  cstackCOMMON 0072
 MediaMedidas@i               cstackBANK0  0053
 MediaMedidas@num             cstackBANK0  0052
 MediaMedidas@t               cstackBANK0  0054
+ResetEcho@rbon               cstackBANK0  0046
 ShiftArrays@i                cstackBANK0  004F
 ShiftArrays@t4               cstackBANK0  004E
 ShiftArrays@t5               cstackBANK0  0045
@@ -185,18 +186,18 @@ ShiftArrays@t7               cstackBANK0  0047
 UART_Init@baudrate           cstackBANK0  0054
 UART_Init@x                  cstackBANK0  0064
 UART_Write@data              cstackBANK0  0045
-UART_Write_Text@i            cstackBANK0  0048
-UART_Write_Text@text         cstackBANK0  0047
+UART_Write_Text@i            cstackBANK0  0047
+UART_Write_Text@text         cstackBANK0  0049
 _ANSELH                      (abs)        0189
 _BRGH                        (abs)        04C2
 _CREN                        (abs)        00C4
 _CalcularDistancia           text9        010F
 _INTCON                      (abs)        000B
 _IOCB                        (abs)        0096
-_Inicializaciones            text8        0544
-_IntPortb                    text13       0370
-_Interrupcion                text12       0506
-_MediaMedidas                text10       027E
+_Inicializaciones            text8        0559
+_IntPortb                    text13       01EF
+_Interrupcion                text12       0515
+_MediaMedidas                text10       0321
 _OSCCON                      (abs)        008F
 _PORTB                       (abs)        0006
 _RB0                         (abs)        0030
@@ -209,27 +210,29 @@ _RB6                         (abs)        0036
 _RB7                         (abs)        0037
 _RBIE                        (abs)        005B
 _RBIF                        (abs)        0058
-_RCIF                        (abs)        0065
-_RCREG                       (abs)        001A
-_ResetEcho                   text7        0529
+_ResetEcho                   text7        0571
 _SPBRG                       (abs)        0099
 _SPEN                        (abs)        00C7
 _SYNC                        (abs)        04C4
-_ShiftArrays                 text6        02FE
+_ShiftArrays                 text6        03A1
 _T1CON                       (abs)        0010
 _TMR1                        (abs)        000E
 _TMR1ON                      (abs)        0080
 _TRISB                       (abs)        0086
+_TRISB4                      (abs)        0434
+_TRISB5                      (abs)        0435
+_TRISB6                      (abs)        0436
+_TRISB7                      (abs)        0437
 _TRISC6                      (abs)        043E
 _TRISC7                      (abs)        043F
 _TRMT                        (abs)        04C1
 _TX9                         (abs)        04C6
 _TXEN                        (abs)        04C5
 _TXREG                       (abs)        0019
-_Trigger                     text5        03E2
+_Trigger                     text5        0413
 _UART_Init                   text3        0022
-_UART_Write                  text2        055D
-_UART_Write_Text             text1        04E1
+_UART_Write                  text2        0581
+_UART_Write_Text             text1        0538
 __CFG_BOR4V$BOR21V           (abs)        0000
 __CFG_BOREN$ON               (abs)        0000
 __CFG_CP$OFF                 (abs)        0000
@@ -271,7 +274,7 @@ __Hsfr1                      sfr1         0000
 __Hsfr2                      sfr2         0000
 __Hsfr3                      sfr3         0000
 __Hspace_0                   (abs)        2009
-__Hspace_1                   (abs)        00B4
+__Hspace_1                   (abs)        00C0
 __Hspace_2                   (abs)        0000
 __Hspace_3                   (abs)        0000
 __Hstack                     stack        0000
@@ -313,16 +316,16 @@ __Lstack                     stack        0000
 __Lstrings                   strings      0000
 __Ltext                      text         0000
 __S0                         (abs)        2009
-__S1                         (abs)        00B4
+__S1                         (abs)        00C0
 __S2                         (abs)        0000
 __S3                         (abs)        0000
-___aldiv                     text4        01EF
+___aldiv                     text4        0292
 ___aldiv@counter             cstackBANK0  004E
 ___aldiv@dividend            cstackBANK0  0049
 ___aldiv@divisor             cstackBANK0  0045
 ___aldiv@quotient            cstackBANK0  0050
 ___aldiv@sign                cstackBANK0  004F
-___awdiv                     text11       0443
+___awdiv                     text11       0476
 ___awdiv@counter             cstackBANK0  004A
 ___awdiv@dividend            cstackBANK0  0047
 ___awdiv@divisor             cstackBANK0  0045
@@ -332,39 +335,39 @@ ___int_sp                    stack        0000
 ___latbits                   (abs)        0001
 ___sp                        stack        0000
 __end_of_CalcularDistancia   text9        01EF
-__end_of_Inicializaciones    text8        055D
-__end_of_IntPortb            text13       03E2
-__end_of_Interrupcion        text12       0529
-__end_of_MediaMedidas        text10       02FE
-__end_of_ResetEcho           text7        0544
-__end_of_ShiftArrays         text6        0370
-__end_of_Trigger             text5        0443
+__end_of_Inicializaciones    text8        0571
+__end_of_IntPortb            text13       0292
+__end_of_Interrupcion        text12       0538
+__end_of_MediaMedidas        text10       03A1
+__end_of_ResetEcho           text7        0581
+__end_of_ShiftArrays         text6        0413
+__end_of_Trigger             text5        0476
 __end_of_UART_Init           text3        010F
-__end_of_UART_Write          text2        0569
-__end_of_UART_Write_Text     text1        0506
-__end_of___aldiv             text4        027E
-__end_of___awdiv             text11       049E
+__end_of_UART_Write          text2        058D
+__end_of_UART_Write_Text     text1        0559
+__end_of___aldiv             text4        0321
+__end_of___awdiv             text11       04D1
 __end_of__initialization     cinit        001F
-__end_of_main                maintext     04E1
+__end_of_main                maintext     0515
 __initialization             cinit        0013
 __pbssBANK0                  bssBANK0     0020
 __pbssBANK1                  bssBANK1     00A0
 __pcstackBANK0               cstackBANK0  0045
 __pcstackCOMMON              cstackCOMMON 0070
 __pintentry                  intentry     0004
-__pmaintext                  maintext     049E
-__ptext1                     text1        04E1
-__ptext10                    text10       027E
-__ptext11                    text11       0443
-__ptext12                    text12       0506
-__ptext13                    text13       0370
-__ptext2                     text2        055D
+__pmaintext                  maintext     04D1
+__ptext1                     text1        0538
+__ptext10                    text10       0321
+__ptext11                    text11       0476
+__ptext12                    text12       0515
+__ptext13                    text13       01EF
+__ptext2                     text2        0581
 __ptext3                     text3        0022
-__ptext4                     text4        01EF
-__ptext5                     text5        03E2
-__ptext6                     text6        02FE
-__ptext7                     text7        0529
-__ptext8                     text8        0544
+__ptext4                     text4        0292
+__ptext5                     text5        0413
+__ptext6                     text6        03A1
+__ptext7                     text7        0571
+__ptext8                     text8        0559
 __ptext9                     text9        010F
 __size_of_CalcularDistancia  (abs)        0000
 __size_of_Inicializaciones   (abs)        0000
@@ -380,15 +383,15 @@ __size_of_UART_Write_Text    (abs)        0000
 __size_of___aldiv            (abs)        0000
 __size_of___awdiv            (abs)        0000
 __size_of_main               (abs)        0000
-_distancias                  bssBANK1     00AC
-_main                        maintext     049E
+_distancias                  bssBANK1     00A0
+_main                        maintext     04D1
 _rbon                        bssBANK0     0044
 _t4                          bssBANK0     0020
 _t5                          bssBANK0     002C
 _t6                          bssBANK0     0038
-_t7                          bssBANK1     00A0
+_t7                          bssBANK1     00B4
 btemp                        (abs)        007E
-clear_ram0                   clrtext      0569
+clear_ram0                   clrtext      058D
 end_of_initialization        cinit        001F
 interrupt_function           intentry     0004
 intlevel0                    functab      0000
@@ -428,7 +431,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 38 in file "main.c"
+		line 41 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -463,18 +466,18 @@ Total ram usage:        4 bytes
 
  *************** function _UART_Write_Text *****************
  Defined at:
-		line 50 in file "Uart.c"
+		line 48 in file "Uart.c"
  Parameters:    Size  Location     Type
   text            1    wreg     PTR unsigned char 
-		 -> distancias(8), 
+		 -> distancias(20), 
  Auto vars:     Size  Location     Type
-  text            1    2[BANK0 ] PTR unsigned char 
-		 -> distancias(8), 
-  i               2    3[BANK0 ] int 
+  text            1    4[BANK0 ] PTR unsigned char 
+		 -> distancias(20), 
+  i               2    2[BANK0 ] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -496,7 +499,7 @@ Total ram usage:        4 bytes
 
  *************** function _UART_Write *****************
  Defined at:
-		line 44 in file "Uart.c"
+		line 43 in file "Uart.c"
  Parameters:    Size  Location     Type
   data            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -589,7 +592,7 @@ Total ram usage:       15 bytes
 
  *************** function _Trigger *****************
  Defined at:
-		line 31 in file "Funciones.c"
+		line 33 in file "Funciones.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -619,7 +622,7 @@ Total ram usage:        2 bytes
 
  *************** function _ShiftArrays *****************
  Defined at:
-		line 127 in file "Funciones.c"
+		line 133 in file "Funciones.c"
  Parameters:    Size  Location     Type
   t4              1    wreg     PTR int 
 		 -> t4(12), 
@@ -658,11 +661,13 @@ Total ram usage:       11 bytes
 
  *************** function _ResetEcho *****************
  Defined at:
-		line 137 in file "Funciones.c"
+		line 142 in file "Funciones.c"
  Parameters:    Size  Location     Type
-		None
+  rbon            1    wreg     PTR unsigned char 
+		 -> rbon(1), NULL(0), 
  Auto vars:     Size  Location     Type
-		None
+  rbon            1    1[BANK0 ] PTR unsigned char 
+		 -> rbon(1), NULL(0), 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -673,8 +678,8 @@ Total ram usage:       11 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       2       0       0
+      Locals:         0       1       0       0
+      Temps:          0       1       0       0
       Totals:         0       2       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
@@ -688,7 +693,7 @@ Total ram usage:        2 bytes
 
  *************** function _Inicializaciones *****************
  Defined at:
-		line 7 in file "Funciones.c"
+		line 8 in file "Funciones.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -718,7 +723,7 @@ Total ram usage:        0 bytes
 
  *************** function _CalcularDistancia *****************
  Defined at:
-		line 61 in file "Funciones.c"
+		line 67 in file "Funciones.c"
  Parameters:    Size  Location     Type
   t4              1    wreg     PTR int 
 		 -> t4(12), 
@@ -729,7 +734,7 @@ Total ram usage:        0 bytes
   t7              1   18[BANK0 ] PTR int 
 		 -> t7(12), 
   distancias      1   19[BANK0 ] PTR unsigned char 
-		 -> distancias(8), 
+		 -> distancias(20), 
  Auto vars:     Size  Location     Type
   t4              1   23[BANK0 ] PTR int 
 		 -> t4(12), 
@@ -759,7 +764,7 @@ Total ram usage:        8 bytes
 
  *************** function _MediaMedidas *****************
  Defined at:
-		line 88 in file "Funciones.c"
+		line 94 in file "Funciones.c"
  Parameters:    Size  Location     Type
   t               1    wreg     PTR int 
 		 -> t7(12), t6(12), t5(12), t4(12), 
@@ -827,7 +832,7 @@ Total ram usage:        9 bytes
 
  *************** function _Interrupcion *****************
  Defined at:
-		line 66 in file "main.c"
+		line 69 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -857,7 +862,7 @@ Total ram usage:        8 bytes
 
  *************** function _IntPortb *****************
  Defined at:
-		line 145 in file "Funciones.c"
+		line 149 in file "Funciones.c"
  Parameters:    Size  Location     Type
   t4              1    wreg     PTR int 
 		 -> t4(12), 
@@ -899,25 +904,25 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-		___awdiv       		CODE           	0443	0000	92
+		___awdiv       		CODE           	0476	0000	92
 
 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c estimated size: 92
 
 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\aldiv.c
-		___aldiv       		CODE           	01EF	0000	144
+		___aldiv       		CODE           	0292	0000	144
 
 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\aldiv.c estimated size: 144
 
 Funciones.c
-		_MediaMedidas  		CODE           	027E	0000	129
-		_Inicializaciones		CODE           	0544	0000	26
+		_MediaMedidas  		CODE           	0321	0000	129
+		_Inicializaciones		CODE           	0559	0000	25
 		_CalcularDistancia		CODE           	010F	0000	225
-		_IntPortb      		CODE           	0370	0000	115
-		_ShiftArrays   		CODE           	02FE	0000	115
-		_ResetEcho     		CODE           	0529	0000	28
-		_Trigger       		CODE           	03E2	0000	98
+		_IntPortb      		CODE           	01EF	0000	164
+		_ShiftArrays   		CODE           	03A1	0000	115
+		_ResetEcho     		CODE           	0571	0000	17
+		_Trigger       		CODE           	0413	0000	100
 
-Funciones.c estimated size: 736
+Funciones.c estimated size: 775
 
 shared
 		__initialization		CODE           	0013	0000	13
@@ -926,14 +931,14 @@ shared estimated size: 13
 
 Uart.c
 		_UART_Init     		CODE           	0022	0000	238
-		_UART_Write_Text		CODE           	04E1	0000	38
-		_UART_Write    		CODE           	055D	0000	13
+		_UART_Write_Text		CODE           	0538	0000	34
+		_UART_Write    		CODE           	0581	0000	13
 
-Uart.c estimated size: 289
+Uart.c estimated size: 285
 
 main.c
-		_Interrupcion  		CODE           	0506	0000	36
-		_main          		CODE           	049E	0000	68
+		_Interrupcion  		CODE           	0515	0000	36
+		_main          		CODE           	04D1	0000	69
 
-main.c estimated size: 104
+main.c estimated size: 105
 

@@ -1995,10 +1995,18 @@ extern __bit __timeout;
 void Inicializaciones(void);
 void Trigger(void);
 void CalcularDistancia( int*, int*, int*, int*, char*);
-void ResetEcho();
+void ResetEcho(char*);
 void IntPortb( int*, int*, int*, int*, char*);
 void ShiftArrays( int*, int*, int*, int*);
 void MediaMedidas( int*);
+
+# 5 "Uart.h"
+char UART_Init(const long int);
+
+
+
+void UART_Write(char );
+void UART_Write_Text(char *);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\__size_t.h"
 typedef unsigned size_t;
@@ -2063,24 +2071,16 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 5 "Uart.h"
-char UART_Init(const long int);
-char UART_TX_Empty();
-char UART_Data_Ready();
-char UART_Read();
-void UART_Write(char );
-void UART_Write_Text(char *);
-
-# 7 "Funciones.c"
-void Inicializaciones(){
+# 8 "Funciones.c"
+void Inicializaciones() {
 OSCCON = 0b01110101;
 
 
-TRISB = 0b11110000;
+TRISB = 0b00000000;
 PORTB = 0b00000000;
 ANSELH = 0b00000000;
 
-# 18
+# 19
 TMR1 = 0;
 T1CON = 0b00010000;
 
@@ -2088,11 +2088,14 @@ T1CON = 0b00010000;
 INTCON = 0b00001000;
 IOCB = 0b11110000;
 
-# 28
+# 29
 }
 
 
-void Trigger(){
+
+void Trigger() {
+RBIE = 1;
+
 TRISB = 0b00010000;
 RB0 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
@@ -2117,24 +2120,26 @@ _delay((unsigned long)((50)*(8000000/4000.0)));
 TRISB = 0b10000000;
 RB3 = 1;
 _delay((unsigned long)((10)*(8000000/4000000.0)));
-RB3= 0;
+RB3 = 0;
 
 _delay((unsigned long)((50)*(8000000/4000.0)));
+
+RBIE = 0;
 }
 
-void CalcularDistancia( int *t4, int *t5, int *t6, int *t7, char *distancias){
+void CalcularDistancia(int *t4, int *t5, int *t6, int *t7, char *distancias) {
 
-t4[0] = ( t4[0] ) / 58;
-t5[0] = ( t5[0] ) / 58;
-t6[0] = ( t6[0] ) / 58;
-t7[0] = ( t7[0] ) / 58;
+t4[0] = (t4[0]) / 58;
+t5[0] = (t5[0]) / 58;
+t6[0] = (t6[0]) / 58;
+t7[0] = (t7[0]) / 58;
 
 MediaMedidas(t4);
 MediaMedidas(t5);
 MediaMedidas(t6);
 MediaMedidas(t7);
 
-# 78
+# 84
 distancias[0] = (t4[5] >> 8) & 0xFF;
 distancias[1] = t4[5] & 0xFF;
 distancias[2] = (t5[5] >> 8) & 0xFF;
@@ -2145,13 +2150,13 @@ distancias[6] = (t7[5] >> 8) & 0xFF;
 distancias[7] = t7[5] & 0xFF;
 }
 
-void MediaMedidas( int *t){
+void MediaMedidas(int *t) {
 char num = 0;
 
-for(char i = 0; i<5; i++){
-if( (t[i]>400) || (t[i]<0) ){
+for (char i = 0; i < 5; i++) {
+if ((t[i] > 400) || (t[i] < 0)) {
 t[i] = 0;
-} else{
+} else {
 t[5] += t[i];
 num += 1;
 }
@@ -2159,80 +2164,63 @@ num += 1;
 t[5] = t[5] / num;
 }
 
-# 127
-void ShiftArrays( int* t4, int* t5, int* t6, int* t7)
-{
-for(char i = 0; i < 4; i++){
-t4[i+1] = t4[i];
-t5[i+1] = t5[i];
-t6[i+1] = t6[i];
-t7[i+1] = t7[i];
+# 133
+void ShiftArrays(int* t4, int* t5, int* t6, int* t7) {
+for (char i = 0; i < 4; i++) {
+t4[i + 1] = t4[i];
+t5[i + 1] = t5[i];
+t6[i + 1] = t6[i];
+t7[i + 1] = t7[i];
 }
 }
 
-void ResetEcho()
-{
+void ResetEcho(char* rbon) {
+rbon = 0;
 TRISB = 0b00000000;
-_delay((unsigned long)((5)*(8000000/4000.0)));
+_delay((unsigned long)((5)*(8000000/4000000.0)));
 PORTB = 0b00000000;
-_delay((unsigned long)((5)*(8000000/4000.0)));
 }
 
-void IntPortb( int* t4, int* t5, int* t6, int* t7, char* rbon){
+void IntPortb(int* t4, int* t5, int* t6, int* t7, char* rbon) {
 RBIE = 0;
 
-# 152
-if ( (RB4 == 1) && (*rbon == 0) )
-{
+# 156
+if ((RB4 == 1) && (*rbon == 0) && (TRISB4 == 1)) {
 TMR1 = 0;
 *rbon = 4;
 TMR1ON = 1;
 }
-
-else if( (RB4 == 0) && (*rbon == 4) )
-{
+else if ((RB4 == 0) && (*rbon == 4) && (TRISB4 == 1)) {
 t4[0] = TMR1;
 *rbon = 0;
 TMR1ON = 0;
 }
-
-else if ( (RB5 == 1) && (*rbon == 0) )
-{
+else if ((RB5 == 1) && (*rbon == 0) && (TRISB5 == 1)) {
 TMR1 = 0;
 *rbon = 5;
 TMR1ON = 1;
 }
-
-else if( (RB5 == 0) && (*rbon == 5) )
-{
+else if ((RB5 == 0) && (*rbon == 5) && (TRISB5 == 1)) {
 t5[0] = TMR1;
 *rbon = 0;
 TMR1ON = 0;
 }
-
-else if ( (RB6 == 1) && (*rbon == 0) )
-{
+else if ((RB6 == 1) && (*rbon == 0) && (TRISB6 == 1)) {
 TMR1 = 0;
 *rbon = 6;
 TMR1ON = 1;
 }
-
-else if( (RB6 == 0) && (*rbon == 6) )
-{
+else if ((RB6 == 0) && (*rbon == 6) && (TRISB6 == 1)) {
 t6[0] = TMR1;
 *rbon = 0;
 TMR1ON = 0;
 }
-
-else if ( (RB7 == 1) && (*rbon == 0) )
-{
+else if ((RB7 == 1) && (*rbon == 0) && (TRISB7 == 1)) {
 TMR1 = 0;
 *rbon = 7;
 TMR1ON = 1;
 }
-
-else if( (RB7 == 0) && (*rbon == 7) )
-{
+else if ((RB7 == 0) && (*rbon == 7) && (TRISB7 == 1)) {
 t7[0] = TMR1;
 *rbon = 0;
 TMR1ON = 0;

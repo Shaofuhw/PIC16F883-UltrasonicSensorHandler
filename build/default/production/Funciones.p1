@@ -15,6 +15,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
 "2207
 [v _IOCB `Vuc ~T0 @X0 0 e@150 ]
+"3680
+[v _RBIE `Vb ~T0 @X0 0 e@91 ]
 "3664
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [v F1554 `(v ~T0 @X0 1 tf1`ul ]
@@ -29,18 +31,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
 "11 Funciones.h
 [v _MediaMedidas `(v ~T0 @X0 0 ef1`*i ]
-"3680 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
-[v _RBIE `Vb ~T0 @X0 0 e@91 ]
-"3672
+"3672 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f883.h
 [v _RB4 `Vb ~T0 @X0 0 e@52 ]
+"3864
+[v _TRISB4 `Vb ~T0 @X0 0 e@1076 ]
 "3824
 [v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
 "3674
 [v _RB5 `Vb ~T0 @X0 0 e@53 ]
+"3866
+[v _TRISB5 `Vb ~T0 @X0 0 e@1077 ]
 "3676
 [v _RB6 `Vb ~T0 @X0 0 e@54 ]
+"3868
+[v _TRISB6 `Vb ~T0 @X0 0 e@1078 ]
 "3678
 [v _RB7 `Vb ~T0 @X0 0 e@55 ]
+"3870
+[v _TRISB7 `Vb ~T0 @X0 0 e@1079 ]
 "3682
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -1465,10 +1473,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Funciones.h: 5: void Inicializaciones(void);
 [; ;Funciones.h: 6: void Trigger(void);
 [; ;Funciones.h: 7: void CalcularDistancia( int*, int*, int*, int*, char*);
-[; ;Funciones.h: 8: void ResetEcho();
+[; ;Funciones.h: 8: void ResetEcho(char*);
 [; ;Funciones.h: 9: void IntPortb( int*, int*, int*, int*, char*);
 [; ;Funciones.h: 10: void ShiftArrays( int*, int*, int*, int*);
 [; ;Funciones.h: 11: void MediaMedidas( int*);
+[; ;Uart.h: 5: char UART_Init(const long int);
+[; ;Uart.h: 9: void UART_Write(char );
+[; ;Uart.h: 10: void UART_Write_Text(char *);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -1499,120 +1510,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;Uart.h: 5: char UART_Init(const long int);
-[; ;Uart.h: 6: char UART_TX_Empty();
-[; ;Uart.h: 7: char UART_Data_Ready();
-[; ;Uart.h: 8: char UART_Read();
-[; ;Uart.h: 9: void UART_Write(char );
-[; ;Uart.h: 10: void UART_Write_Text(char *);
-"7 Funciones.c
+"8 Funciones.c
 [v _Inicializaciones `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 7: void Inicializaciones(){
+[; ;Funciones.c: 8: void Inicializaciones() {
 [e :U _Inicializaciones ]
 [f ]
-[; ;Funciones.c: 8: OSCCON = 0b01110101;
-"8
+[; ;Funciones.c: 9: OSCCON = 0b01110101;
+"9
 [e = _OSCCON -> -> 117 `i `uc ]
-[; ;Funciones.c: 11: TRISB = 0b11110000;
-"11
-[e = _TRISB -> -> 240 `i `uc ]
-[; ;Funciones.c: 12: PORTB = 0b00000000;
+[; ;Funciones.c: 12: TRISB = 0b00000000;
 "12
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 13: ANSELH = 0b00000000;
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Funciones.c: 13: PORTB = 0b00000000;
 "13
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 14: ANSELH = 0b00000000;
+"14
 [e = _ANSELH -> -> 0 `i `uc ]
-[; ;Funciones.c: 18: TMR1 = 0;
-"18
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 19: T1CON = 0b00010000;
+[; ;Funciones.c: 19: TMR1 = 0;
 "19
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 20: T1CON = 0b00010000;
+"20
 [e = _T1CON -> -> 16 `i `uc ]
-[; ;Funciones.c: 22: INTCON = 0b00001000;
-"22
-[e = _INTCON -> -> 8 `i `uc ]
-[; ;Funciones.c: 23: IOCB = 0b11110000;
+[; ;Funciones.c: 23: INTCON = 0b00001000;
 "23
+[e = _INTCON -> -> 8 `i `uc ]
+[; ;Funciones.c: 24: IOCB = 0b11110000;
+"24
 [e = _IOCB -> -> 240 `i `uc ]
-[; ;Funciones.c: 28: }
-"28
+[; ;Funciones.c: 29: }
+"29
 [e :UE 136 ]
 }
-"31
+"33
 [v _Trigger `(v ~T0 @X0 1 ef ]
 {
-[; ;Funciones.c: 31: void Trigger(){
+[; ;Funciones.c: 33: void Trigger() {
 [e :U _Trigger ]
 [f ]
-[; ;Funciones.c: 32: TRISB = 0b00010000;
-"32
-[e = _TRISB -> -> 16 `i `uc ]
-[; ;Funciones.c: 33: RB0 = 1;
-"33
-[e = _RB0 -> -> 1 `i `b ]
-[; ;Funciones.c: 34: _delay((unsigned long)((10)*(8000000/4000000.0)));
+[; ;Funciones.c: 34: RBIE = 1;
 "34
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 35: RB0 = 0;
-"35
-[e = _RB0 -> -> 0 `i `b ]
-[; ;Funciones.c: 37: _delay((unsigned long)((50)*(8000000/4000.0)));
+[e = _RBIE -> -> 1 `i `b ]
+[; ;Funciones.c: 36: TRISB = 0b00010000;
+"36
+[e = _TRISB -> -> 16 `i `uc ]
+[; ;Funciones.c: 37: RB0 = 1;
 "37
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 39: TRISB = 0b00100000;
+[e = _RB0 -> -> 1 `i `b ]
+[; ;Funciones.c: 38: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"38
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 39: RB0 = 0;
 "39
-[e = _TRISB -> -> 32 `i `uc ]
-[; ;Funciones.c: 40: RB1 = 1;
-"40
-[e = _RB1 -> -> 1 `i `b ]
-[; ;Funciones.c: 41: _delay((unsigned long)((10)*(8000000/4000000.0)));
+[e = _RB0 -> -> 0 `i `b ]
+[; ;Funciones.c: 41: _delay((unsigned long)((50)*(8000000/4000.0)));
 "41
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 42: RB1 = 0;
-"42
-[e = _RB1 -> -> 0 `i `b ]
-[; ;Funciones.c: 44: _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 43: TRISB = 0b00100000;
+"43
+[e = _TRISB -> -> 32 `i `uc ]
+[; ;Funciones.c: 44: RB1 = 1;
 "44
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 46: TRISB = 0b01000000;
+[e = _RB1 -> -> 1 `i `b ]
+[; ;Funciones.c: 45: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"45
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 46: RB1 = 0;
 "46
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;Funciones.c: 47: RB2 = 1;
-"47
-[e = _RB2 -> -> 1 `i `b ]
-[; ;Funciones.c: 48: _delay((unsigned long)((10)*(8000000/4000000.0)));
+[e = _RB1 -> -> 0 `i `b ]
+[; ;Funciones.c: 48: _delay((unsigned long)((50)*(8000000/4000.0)));
 "48
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 49: RB2 = 0;
-"49
-[e = _RB2 -> -> 0 `i `b ]
-[; ;Funciones.c: 51: _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 50: TRISB = 0b01000000;
+"50
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;Funciones.c: 51: RB2 = 1;
 "51
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 53: TRISB = 0b10000000;
-"53
-[e = _TRISB -> -> 128 `i `uc ]
-[; ;Funciones.c: 54: RB3 = 1;
-"54
-[e = _RB3 -> -> 1 `i `b ]
-[; ;Funciones.c: 55: _delay((unsigned long)((10)*(8000000/4000000.0)));
-"55
+[e = _RB2 -> -> 1 `i `b ]
+[; ;Funciones.c: 52: _delay((unsigned long)((10)*(8000000/4000000.0)));
+"52
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-[; ;Funciones.c: 56: RB3= 0;
-"56
-[e = _RB3 -> -> 0 `i `b ]
-[; ;Funciones.c: 58: _delay((unsigned long)((50)*(8000000/4000.0)));
-"58
+[; ;Funciones.c: 53: RB2 = 0;
+"53
+[e = _RB2 -> -> 0 `i `b ]
+[; ;Funciones.c: 55: _delay((unsigned long)((50)*(8000000/4000.0)));
+"55
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 59: }
+[; ;Funciones.c: 57: TRISB = 0b10000000;
+"57
+[e = _TRISB -> -> 128 `i `uc ]
+[; ;Funciones.c: 58: RB3 = 1;
+"58
+[e = _RB3 -> -> 1 `i `b ]
+[; ;Funciones.c: 59: _delay((unsigned long)((10)*(8000000/4000000.0)));
 "59
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 60: RB3 = 0;
+"60
+[e = _RB3 -> -> 0 `i `b ]
+[; ;Funciones.c: 62: _delay((unsigned long)((50)*(8000000/4000.0)));
+"62
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;Funciones.c: 64: RBIE = 0;
+"64
+[e = _RBIE -> -> 0 `i `b ]
+[; ;Funciones.c: 65: }
+"65
 [e :UE 137 ]
 }
-"61
+"67
 [v _CalcularDistancia `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*uc ]
 {
-[; ;Funciones.c: 61: void CalcularDistancia( int *t4, int *t5, int *t6, int *t7, char *distancias){
+[; ;Funciones.c: 67: void CalcularDistancia(int *t4, int *t5, int *t6, int *t7, char *distancias) {
 [e :U _CalcularDistancia ]
 [v _t4 `*i ~T0 @X0 1 r1 ]
 [v _t5 `*i ~T0 @X0 1 r2 ]
@@ -1620,71 +1631,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _t7 `*i ~T0 @X0 1 r4 ]
 [v _distancias `*uc ~T0 @X0 1 r5 ]
 [f ]
-[; ;Funciones.c: 63: t4[0] = ( t4[0] ) / 58;
-"63
-[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x / *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> 58 `i ]
-[; ;Funciones.c: 64: t5[0] = ( t5[0] ) / 58;
-"64
-[e = *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x / *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x -> 58 `i ]
-[; ;Funciones.c: 65: t6[0] = ( t6[0] ) / 58;
-"65
-[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x / *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> 58 `i ]
-[; ;Funciones.c: 66: t7[0] = ( t7[0] ) / 58;
-"66
-[e = *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x / *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x -> 58 `i ]
-[; ;Funciones.c: 68: MediaMedidas(t4);
-"68
-[e ( _MediaMedidas (1 _t4 ]
-[; ;Funciones.c: 69: MediaMedidas(t5);
+[; ;Funciones.c: 69: t4[0] = (t4[0]) / 58;
 "69
-[e ( _MediaMedidas (1 _t5 ]
-[; ;Funciones.c: 70: MediaMedidas(t6);
+[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x / *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> 58 `i ]
+[; ;Funciones.c: 70: t5[0] = (t5[0]) / 58;
 "70
-[e ( _MediaMedidas (1 _t6 ]
-[; ;Funciones.c: 71: MediaMedidas(t7);
+[e = *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x / *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x -> 58 `i ]
+[; ;Funciones.c: 71: t6[0] = (t6[0]) / 58;
 "71
+[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x / *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> 58 `i ]
+[; ;Funciones.c: 72: t7[0] = (t7[0]) / 58;
+"72
+[e = *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x / *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x -> 58 `i ]
+[; ;Funciones.c: 74: MediaMedidas(t4);
+"74
+[e ( _MediaMedidas (1 _t4 ]
+[; ;Funciones.c: 75: MediaMedidas(t5);
+"75
+[e ( _MediaMedidas (1 _t5 ]
+[; ;Funciones.c: 76: MediaMedidas(t6);
+"76
+[e ( _MediaMedidas (1 _t6 ]
+[; ;Funciones.c: 77: MediaMedidas(t7);
+"77
 [e ( _MediaMedidas (1 _t7 ]
-[; ;Funciones.c: 78: distancias[0] = (t4[5] >> 8) & 0xFF;
-"78
-[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 8 `i -> 255 `i `uc ]
-[; ;Funciones.c: 79: distancias[1] = t4[5] & 0xFF;
-"79
-[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 255 `i `uc ]
-[; ;Funciones.c: 80: distancias[2] = (t5[5] >> 8) & 0xFF;
-"80
-[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 8 `i -> 255 `i `uc ]
-[; ;Funciones.c: 81: distancias[3] = t5[5] & 0xFF;
-"81
-[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 255 `i `uc ]
-[; ;Funciones.c: 82: distancias[4] = (t6[5] >> 8) & 0xFF;
-"82
-[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 8 `i -> 255 `i `uc ]
-[; ;Funciones.c: 83: distancias[5] = t6[5] & 0xFF;
-"83
-[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 255 `i `uc ]
-[; ;Funciones.c: 84: distancias[6] = (t7[5] >> 8) & 0xFF;
+[; ;Funciones.c: 84: distancias[0] = (t4[5] >> 8) & 0xFF;
 "84
-[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 8 `i -> 255 `i `uc ]
-[; ;Funciones.c: 85: distancias[7] = t7[5] & 0xFF;
+[e = *U + _distancias * -> -> 0 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 85: distancias[1] = t4[5] & 0xFF;
 "85
-[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 255 `i `uc ]
-[; ;Funciones.c: 86: }
+[e = *U + _distancias * -> -> 1 `i `x -> -> # *U _distancias `i `x -> & *U + _t4 * -> -> 5 `i `x -> -> # *U _t4 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 86: distancias[2] = (t5[5] >> 8) & 0xFF;
 "86
+[e = *U + _distancias * -> -> 2 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 87: distancias[3] = t5[5] & 0xFF;
+"87
+[e = *U + _distancias * -> -> 3 `i `x -> -> # *U _distancias `i `x -> & *U + _t5 * -> -> 5 `i `x -> -> # *U _t5 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 88: distancias[4] = (t6[5] >> 8) & 0xFF;
+"88
+[e = *U + _distancias * -> -> 4 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 89: distancias[5] = t6[5] & 0xFF;
+"89
+[e = *U + _distancias * -> -> 5 `i `x -> -> # *U _distancias `i `x -> & *U + _t6 * -> -> 5 `i `x -> -> # *U _t6 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 90: distancias[6] = (t7[5] >> 8) & 0xFF;
+"90
+[e = *U + _distancias * -> -> 6 `i `x -> -> # *U _distancias `i `x -> & >> *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 8 `i -> 255 `i `uc ]
+[; ;Funciones.c: 91: distancias[7] = t7[5] & 0xFF;
+"91
+[e = *U + _distancias * -> -> 7 `i `x -> -> # *U _distancias `i `x -> & *U + _t7 * -> -> 5 `i `x -> -> # *U _t7 `i `x -> 255 `i `uc ]
+[; ;Funciones.c: 92: }
+"92
 [e :UE 138 ]
 }
-"88
+"94
 [v _MediaMedidas `(v ~T0 @X0 1 ef1`*i ]
 {
-[; ;Funciones.c: 88: void MediaMedidas( int *t){
+[; ;Funciones.c: 94: void MediaMedidas(int *t) {
 [e :U _MediaMedidas ]
 [v _t `*i ~T0 @X0 1 r1 ]
 [f ]
-"89
+"95
 [v _num `uc ~T0 @X0 1 a ]
-[; ;Funciones.c: 89: char num = 0;
+[; ;Funciones.c: 95: char num = 0;
 [e = _num -> -> 0 `i `uc ]
-[; ;Funciones.c: 91: for(char i = 0; i<5; i++){
-"91
+[; ;Funciones.c: 97: for (char i = 0; i < 5; i++) {
+"97
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -1692,61 +1703,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 141  ]
 [e :U 140 ]
 {
-[; ;Funciones.c: 92: if( (t[i]>400) || (t[i]<0) ){
-"92
+[; ;Funciones.c: 98: if ((t[i] > 400) || (t[i] < 0)) {
+"98
 [e $ ! || > *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 400 `i < *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 0 `i 143  ]
 {
-[; ;Funciones.c: 93: t[i] = 0;
-"93
+[; ;Funciones.c: 99: t[i] = 0;
+"99
 [e = *U + _t * -> _i `ux -> -> # *U _t `ui `ux -> 0 `i ]
-"94
+"100
 }
-[; ;Funciones.c: 94: } else{
+[; ;Funciones.c: 100: } else {
 [e $U 144  ]
 [e :U 143 ]
 {
-[; ;Funciones.c: 95: t[5] += t[i];
-"95
+[; ;Funciones.c: 101: t[5] += t[i];
+"101
 [e =+ *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x *U + _t * -> _i `ux -> -> # *U _t `ui `ux ]
-[; ;Funciones.c: 96: num += 1;
-"96
+[; ;Funciones.c: 102: num += 1;
+"102
 [e =+ _num -> -> 1 `i `uc ]
-"97
+"103
 }
 [e :U 144 ]
-"98
+"104
 }
-"91
+"97
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 5 `i 140  ]
 [e :U 141 ]
-"98
+"104
 }
-[; ;Funciones.c: 97: }
-[; ;Funciones.c: 98: }
-[; ;Funciones.c: 99: t[5] = t[5] / num;
-"99
+[; ;Funciones.c: 103: }
+[; ;Funciones.c: 104: }
+[; ;Funciones.c: 105: t[5] = t[5] / num;
+"105
 [e = *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x / *U + _t * -> -> 5 `i `x -> -> # *U _t `i `x -> _num `i ]
-[; ;Funciones.c: 100: }
-"100
+[; ;Funciones.c: 106: }
+"106
 [e :UE 139 ]
 }
-"127
+"133
 [v _ShiftArrays `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
-"128
 {
-[; ;Funciones.c: 127: void ShiftArrays( int* t4, int* t5, int* t6, int* t7)
-[; ;Funciones.c: 128: {
+[; ;Funciones.c: 133: void ShiftArrays(int* t4, int* t5, int* t6, int* t7) {
 [e :U _ShiftArrays ]
-"127
 [v _t4 `*i ~T0 @X0 1 r1 ]
 [v _t5 `*i ~T0 @X0 1 r2 ]
 [v _t6 `*i ~T0 @X0 1 r3 ]
 [v _t7 `*i ~T0 @X0 1 r4 ]
-"128
 [f ]
-[; ;Funciones.c: 129: for(char i = 0; i < 4; i++){
-"129
+[; ;Funciones.c: 134: for (char i = 0; i < 4; i++) {
+"134
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -1754,59 +1761,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 147  ]
 [e :U 146 ]
 {
-[; ;Funciones.c: 130: t4[i+1] = t4[i];
-"130
+[; ;Funciones.c: 135: t4[i + 1] = t4[i];
+"135
 [e = *U + _t4 * -> + -> _i `i -> 1 `i `x -> -> # *U _t4 `i `x *U + _t4 * -> _i `ux -> -> # *U _t4 `ui `ux ]
-[; ;Funciones.c: 131: t5[i+1] = t5[i];
-"131
+[; ;Funciones.c: 136: t5[i + 1] = t5[i];
+"136
 [e = *U + _t5 * -> + -> _i `i -> 1 `i `x -> -> # *U _t5 `i `x *U + _t5 * -> _i `ux -> -> # *U _t5 `ui `ux ]
-[; ;Funciones.c: 132: t6[i+1] = t6[i];
-"132
+[; ;Funciones.c: 137: t6[i + 1] = t6[i];
+"137
 [e = *U + _t6 * -> + -> _i `i -> 1 `i `x -> -> # *U _t6 `i `x *U + _t6 * -> _i `ux -> -> # *U _t6 `ui `ux ]
-[; ;Funciones.c: 133: t7[i+1] = t7[i];
-"133
+[; ;Funciones.c: 138: t7[i + 1] = t7[i];
+"138
 [e = *U + _t7 * -> + -> _i `i -> 1 `i `x -> -> # *U _t7 `i `x *U + _t7 * -> _i `ux -> -> # *U _t7 `ui `ux ]
-"134
+"139
 }
-"129
+"134
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 4 `i 146  ]
 [e :U 147 ]
-"134
+"139
 }
-[; ;Funciones.c: 134: }
-[; ;Funciones.c: 135: }
-"135
+[; ;Funciones.c: 139: }
+[; ;Funciones.c: 140: }
+"140
 [e :UE 145 ]
 }
-"137
-[v _ResetEcho `(v ~T0 @X0 1 ef ]
-"138
-{
-[; ;Funciones.c: 137: void ResetEcho()
-[; ;Funciones.c: 138: {
-[e :U _ResetEcho ]
-[f ]
-[; ;Funciones.c: 139: TRISB = 0b00000000;
-"139
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;Funciones.c: 140: _delay((unsigned long)((5)*(8000000/4000.0)));
-"140
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 141: PORTB = 0b00000000;
-"141
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;Funciones.c: 142: _delay((unsigned long)((5)*(8000000/4000.0)));
 "142
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;Funciones.c: 143: }
+[v _ResetEcho `(v ~T0 @X0 1 ef1`*uc ]
+{
+[; ;Funciones.c: 142: void ResetEcho(char* rbon) {
+[e :U _ResetEcho ]
+[v _rbon `*uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;Funciones.c: 143: rbon = 0;
 "143
+[e = _rbon -> -> 0 `i `*uc ]
+[; ;Funciones.c: 144: TRISB = 0b00000000;
+"144
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;Funciones.c: 145: _delay((unsigned long)((5)*(8000000/4000000.0)));
+"145
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;Funciones.c: 146: PORTB = 0b00000000;
+"146
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;Funciones.c: 147: }
+"147
 [e :UE 149 ]
 }
-"145
+"149
 [v _IntPortb `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*uc ]
 {
-[; ;Funciones.c: 145: void IntPortb( int* t4, int* t5, int* t6, int* t7, char* rbon){
+[; ;Funciones.c: 149: void IntPortb(int* t4, int* t5, int* t6, int* t7, char* rbon) {
 [e :U _IntPortb ]
 [v _t4 `*i ~T0 @X0 1 r1 ]
 [v _t5 `*i ~T0 @X0 1 r2 ]
@@ -1814,168 +1820,152 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _t7 `*i ~T0 @X0 1 r4 ]
 [v _rbon `*uc ~T0 @X0 1 r5 ]
 [f ]
-[; ;Funciones.c: 146: RBIE = 0;
-"146
+[; ;Funciones.c: 150: RBIE = 0;
+"150
 [e = _RBIE -> -> 0 `i `b ]
-[; ;Funciones.c: 152: if ( (RB4 == 1) && (*rbon == 0) )
-"152
-[e $ ! && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i 151  ]
-[; ;Funciones.c: 153: {
-"153
-{
-[; ;Funciones.c: 154: TMR1 = 0;
-"154
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 155: *rbon = 4;
-"155
-[e = *U _rbon -> -> 4 `i `uc ]
-[; ;Funciones.c: 156: TMR1ON = 1;
+[; ;Funciones.c: 156: if ((RB4 == 1) && (*rbon == 0) && (TRISB4 == 1)) {
 "156
-[e = _TMR1ON -> -> 1 `i `b ]
-"157
-}
-[; ;Funciones.c: 157: }
-[e $U 152  ]
-"159
-[e :U 151 ]
-[; ;Funciones.c: 159: else if( (RB4 == 0) && (*rbon == 4) )
-[e $ ! && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i 153  ]
-[; ;Funciones.c: 160: {
-"160
+[e $ ! && && == -> _RB4 `i -> 1 `i == -> *U _rbon `i -> 0 `i == -> _TRISB4 `i -> 1 `i 151  ]
 {
-[; ;Funciones.c: 161: t4[0] = TMR1;
-"161
-[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> _TMR1 `i ]
-[; ;Funciones.c: 162: *rbon = 0;
-"162
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 163: TMR1ON = 0;
-"163
-[e = _TMR1ON -> -> 0 `i `b ]
-"164
+[; ;Funciones.c: 157: TMR1 = 0;
+"157
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 158: *rbon = 4;
+"158
+[e = *U _rbon -> -> 4 `i `uc ]
+[; ;Funciones.c: 159: TMR1ON = 1;
+"159
+[e = _TMR1ON -> -> 1 `i `b ]
+"160
 }
-[; ;Funciones.c: 164: }
+[; ;Funciones.c: 160: }
+[e $U 152  ]
+"161
+[e :U 151 ]
+[; ;Funciones.c: 161: else if ((RB4 == 0) && (*rbon == 4) && (TRISB4 == 1)) {
+[e $ ! && && == -> _RB4 `i -> 0 `i == -> *U _rbon `i -> 4 `i == -> _TRISB4 `i -> 1 `i 153  ]
+{
+[; ;Funciones.c: 162: t4[0] = TMR1;
+"162
+[e = *U + _t4 * -> -> 0 `i `x -> -> # *U _t4 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 163: *rbon = 0;
+"163
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 164: TMR1ON = 0;
+"164
+[e = _TMR1ON -> -> 0 `i `b ]
+"165
+}
+[; ;Funciones.c: 165: }
 [e $U 154  ]
 "166
 [e :U 153 ]
-[; ;Funciones.c: 166: else if ( (RB5 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i 155  ]
-[; ;Funciones.c: 167: {
+[; ;Funciones.c: 166: else if ((RB5 == 1) && (*rbon == 0) && (TRISB5 == 1)) {
+[e $ ! && && == -> _RB5 `i -> 1 `i == -> *U _rbon `i -> 0 `i == -> _TRISB5 `i -> 1 `i 155  ]
+{
+[; ;Funciones.c: 167: TMR1 = 0;
 "167
-{
-[; ;Funciones.c: 168: TMR1 = 0;
+[e = _TMR1 -> -> 0 `i `us ]
+[; ;Funciones.c: 168: *rbon = 5;
 "168
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 169: *rbon = 5;
-"169
 [e = *U _rbon -> -> 5 `i `uc ]
-[; ;Funciones.c: 170: TMR1ON = 1;
+[; ;Funciones.c: 169: TMR1ON = 1;
+"169
+[e = _TMR1ON -> -> 1 `i `b ]
 "170
-[e = _TMR1ON -> -> 1 `i `b ]
-"171
 }
-[; ;Funciones.c: 171: }
+[; ;Funciones.c: 170: }
 [e $U 156  ]
-"173
+"171
 [e :U 155 ]
-[; ;Funciones.c: 173: else if( (RB5 == 0) && (*rbon == 5) )
-[e $ ! && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i 157  ]
-[; ;Funciones.c: 174: {
-"174
+[; ;Funciones.c: 171: else if ((RB5 == 0) && (*rbon == 5) && (TRISB5 == 1)) {
+[e $ ! && && == -> _RB5 `i -> 0 `i == -> *U _rbon `i -> 5 `i == -> _TRISB5 `i -> 1 `i 157  ]
 {
-[; ;Funciones.c: 175: t5[0] = TMR1;
-"175
+[; ;Funciones.c: 172: t5[0] = TMR1;
+"172
 [e = *U + _t5 * -> -> 0 `i `x -> -> # *U _t5 `i `x -> _TMR1 `i ]
-[; ;Funciones.c: 176: *rbon = 0;
-"176
+[; ;Funciones.c: 173: *rbon = 0;
+"173
 [e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 177: TMR1ON = 0;
-"177
+[; ;Funciones.c: 174: TMR1ON = 0;
+"174
 [e = _TMR1ON -> -> 0 `i `b ]
-"178
+"175
 }
-[; ;Funciones.c: 178: }
+[; ;Funciones.c: 175: }
 [e $U 158  ]
-"180
+"176
 [e :U 157 ]
-[; ;Funciones.c: 180: else if ( (RB6 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i 159  ]
-[; ;Funciones.c: 181: {
-"181
+[; ;Funciones.c: 176: else if ((RB6 == 1) && (*rbon == 0) && (TRISB6 == 1)) {
+[e $ ! && && == -> _RB6 `i -> 1 `i == -> *U _rbon `i -> 0 `i == -> _TRISB6 `i -> 1 `i 159  ]
 {
-[; ;Funciones.c: 182: TMR1 = 0;
-"182
+[; ;Funciones.c: 177: TMR1 = 0;
+"177
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 183: *rbon = 6;
-"183
+[; ;Funciones.c: 178: *rbon = 6;
+"178
 [e = *U _rbon -> -> 6 `i `uc ]
-[; ;Funciones.c: 184: TMR1ON = 1;
-"184
+[; ;Funciones.c: 179: TMR1ON = 1;
+"179
 [e = _TMR1ON -> -> 1 `i `b ]
+"180
+}
+[; ;Funciones.c: 180: }
+[e $U 160  ]
+"181
+[e :U 159 ]
+[; ;Funciones.c: 181: else if ((RB6 == 0) && (*rbon == 6) && (TRISB6 == 1)) {
+[e $ ! && && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i == -> _TRISB6 `i -> 1 `i 161  ]
+{
+[; ;Funciones.c: 182: t6[0] = TMR1;
+"182
+[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> _TMR1 `i ]
+[; ;Funciones.c: 183: *rbon = 0;
+"183
+[e = *U _rbon -> -> 0 `i `uc ]
+[; ;Funciones.c: 184: TMR1ON = 0;
+"184
+[e = _TMR1ON -> -> 0 `i `b ]
 "185
 }
 [; ;Funciones.c: 185: }
-[e $U 160  ]
-"187
-[e :U 159 ]
-[; ;Funciones.c: 187: else if( (RB6 == 0) && (*rbon == 6) )
-[e $ ! && == -> _RB6 `i -> 0 `i == -> *U _rbon `i -> 6 `i 161  ]
-[; ;Funciones.c: 188: {
-"188
-{
-[; ;Funciones.c: 189: t6[0] = TMR1;
-"189
-[e = *U + _t6 * -> -> 0 `i `x -> -> # *U _t6 `i `x -> _TMR1 `i ]
-[; ;Funciones.c: 190: *rbon = 0;
-"190
-[e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 191: TMR1ON = 0;
-"191
-[e = _TMR1ON -> -> 0 `i `b ]
-"192
-}
-[; ;Funciones.c: 192: }
 [e $U 162  ]
-"194
+"186
 [e :U 161 ]
-[; ;Funciones.c: 194: else if ( (RB7 == 1) && (*rbon == 0) )
-[e $ ! && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i 163  ]
-[; ;Funciones.c: 195: {
-"195
+[; ;Funciones.c: 186: else if ((RB7 == 1) && (*rbon == 0) && (TRISB7 == 1)) {
+[e $ ! && && == -> _RB7 `i -> 1 `i == -> *U _rbon `i -> 0 `i == -> _TRISB7 `i -> 1 `i 163  ]
 {
-[; ;Funciones.c: 196: TMR1 = 0;
-"196
+[; ;Funciones.c: 187: TMR1 = 0;
+"187
 [e = _TMR1 -> -> 0 `i `us ]
-[; ;Funciones.c: 197: *rbon = 7;
-"197
+[; ;Funciones.c: 188: *rbon = 7;
+"188
 [e = *U _rbon -> -> 7 `i `uc ]
-[; ;Funciones.c: 198: TMR1ON = 1;
-"198
+[; ;Funciones.c: 189: TMR1ON = 1;
+"189
 [e = _TMR1ON -> -> 1 `i `b ]
-"199
+"190
 }
-[; ;Funciones.c: 199: }
+[; ;Funciones.c: 190: }
 [e $U 164  ]
-"201
+"191
 [e :U 163 ]
-[; ;Funciones.c: 201: else if( (RB7 == 0) && (*rbon == 7) )
-[e $ ! && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i 165  ]
-[; ;Funciones.c: 202: {
-"202
+[; ;Funciones.c: 191: else if ((RB7 == 0) && (*rbon == 7) && (TRISB7 == 1)) {
+[e $ ! && && == -> _RB7 `i -> 0 `i == -> *U _rbon `i -> 7 `i == -> _TRISB7 `i -> 1 `i 165  ]
 {
-[; ;Funciones.c: 203: t7[0] = TMR1;
-"203
+[; ;Funciones.c: 192: t7[0] = TMR1;
+"192
 [e = *U + _t7 * -> -> 0 `i `x -> -> # *U _t7 `i `x -> _TMR1 `i ]
-[; ;Funciones.c: 204: *rbon = 0;
-"204
+[; ;Funciones.c: 193: *rbon = 0;
+"193
 [e = *U _rbon -> -> 0 `i `uc ]
-[; ;Funciones.c: 205: TMR1ON = 0;
-"205
+[; ;Funciones.c: 194: TMR1ON = 0;
+"194
 [e = _TMR1ON -> -> 0 `i `b ]
-"206
+"195
 }
 [e :U 165 ]
-"208
+"197
 [e :U 164 ]
 [e :U 162 ]
 [e :U 160 ]
@@ -1983,13 +1973,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 156 ]
 [e :U 154 ]
 [e :U 152 ]
-[; ;Funciones.c: 206: }
-[; ;Funciones.c: 208: RBIF = 0;
+[; ;Funciones.c: 195: }
+[; ;Funciones.c: 197: RBIF = 0;
 [e = _RBIF -> -> 0 `i `b ]
-[; ;Funciones.c: 209: RBIE = 1;
-"209
+[; ;Funciones.c: 198: RBIE = 1;
+"198
 [e = _RBIE -> -> 1 `i `b ]
-[; ;Funciones.c: 210: }
-"210
+[; ;Funciones.c: 199: }
+"199
 [e :UE 150 ]
 }

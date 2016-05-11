@@ -8,6 +8,8 @@
 #include <xc.h>
 #include "Funciones.h"
 #include "Uart.h"
+#include <stdio.h>
+
 
 #define _XTAL_FREQ 8000000
 
@@ -32,17 +34,17 @@
 int t4[6], t5[6], t6[6], t7[6] = {0};
 char rbon = 0;
 
-char distancias[8] = {0};
+char distancias[20] = {0};
 
 //Programa
+
 void main(void) {
 
-    Inicializaciones();                     //Se configuran y inicializan los puertos, timer, interrupciones y LCD
+    Inicializaciones(); //Se configuran y inicializan los puertos, timer, interrupciones y LCD
     /*La velocidad de la transmisión depende de la dirección asiganada*/
     UART_Init(9600);
-    
-    while(1)
-    {
+
+    while (1) {
         /*Es necesario que las lecturas de los sensores sean de manera secuencial, ya que si no puede haber
          errores debido a la solapación de las señales de ECHO.
          Los trigger se envian de manera secuencial, con un margen de 40ms entre cada pulso, ya que según el datasheet,
@@ -53,19 +55,19 @@ void main(void) {
         para evitar errores en la medida de los posible.
         Se descartan medidas que son muy diferentes a las anteriores, y se realiza la media*/
         Trigger();
+        ResetEcho(&rbon); //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
         CalcularDistancia(t4, t5, t6, t7, distancias);
         //PrintDistancias(t4, t5, t6, t7);
         ShiftArrays(t4, t5, t6, t7);
-        ResetEcho();                      //Se pone el pin de echo como salida, y se pone a 0, a veces se queda atascado
         UART_Write_Text(distancias);
     }
     return;
 }
 
 //Vector de Servicio de Interrupción
-void interrupt Interrupcion()
-{
-    if(RBIF == 1)                           //Comprobar flag del puerto B
+
+void interrupt Interrupcion() {
+    if (RBIF == 1) //Comprobar flag del puerto B
     {
         IntPortb(t4, t5, t6, t7, &rbon);
     }

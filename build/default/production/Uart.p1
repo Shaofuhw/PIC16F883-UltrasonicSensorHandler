@@ -19,10 +19,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXEN `Vb ~T0 @X0 0 e@1221 ]
 "3890
 [v _TRMT `Vb ~T0 @X0 0 e@1217 ]
-"3712
-[v _RCIF `Vb ~T0 @X0 0 e@101 ]
-"1033
-[v _RCREG `Vuc ~T0 @X0 0 e@26 ]
 "1027
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -1445,204 +1441,134 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
 [; ;Uart.h: 5: char UART_Init(const long int);
-[; ;Uart.h: 6: char UART_TX_Empty();
-[; ;Uart.h: 7: char UART_Data_Ready();
-[; ;Uart.h: 8: char UART_Read();
 [; ;Uart.h: 9: void UART_Write(char );
 [; ;Uart.h: 10: void UART_Write_Text(char *);
 "3 Uart.c
 [v _UART_Init `(uc ~T0 @X0 1 ef1`Cl ]
-"4
 {
-[; ;Uart.c: 3: char UART_Init(const long int baudrate)
-[; ;Uart.c: 4: {
+[; ;Uart.c: 3: char UART_Init(const long int baudrate) {
 [e :U _UART_Init ]
-"3
 [v _baudrate `Cl ~T0 @X0 1 r1 ]
-"4
 [f ]
 "5
 [v _x `ui ~T0 @X0 1 a ]
 [; ;Uart.c: 5: unsigned int x;
-[; ;Uart.c: 6: x = (8000000 - baudrate*64)/(baudrate*64);
+[; ;Uart.c: 6: x = (8000000 - baudrate * 64) / (baudrate * 64);
 "6
 [e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
-[; ;Uart.c: 7: if(x>255)
+[; ;Uart.c: 7: if (x > 255) {
 "7
 [e $ ! > _x -> -> 255 `i `ui 136  ]
-[; ;Uart.c: 8: {
-"8
 {
-[; ;Uart.c: 9: x = (8000000 - baudrate*16)/(baudrate*16);
-"9
+[; ;Uart.c: 8: x = (8000000 - baudrate * 16) / (baudrate * 16);
+"8
 [e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
-[; ;Uart.c: 10: BRGH = 1;
-"10
+[; ;Uart.c: 9: BRGH = 1;
+"9
 [e = _BRGH -> -> 1 `i `b ]
-"11
+"10
 }
 [e :U 136 ]
-[; ;Uart.c: 11: }
-[; ;Uart.c: 12: if(x<256)
-"12
+[; ;Uart.c: 10: }
+[; ;Uart.c: 11: if (x < 256) {
+"11
 [e $ ! < _x -> -> 256 `i `ui 137  ]
-[; ;Uart.c: 13: {
-"13
 {
-[; ;Uart.c: 14: BRGH = 0;
-"14
+[; ;Uart.c: 12: BRGH = 0;
+"12
 [e = _BRGH -> -> 0 `i `b ]
-[; ;Uart.c: 15: SPBRG = x;
-"15
+[; ;Uart.c: 13: SPBRG = x;
+"13
 [e = _SPBRG -> _x `uc ]
-[; ;Uart.c: 16: SYNC = 0;
-"16
+[; ;Uart.c: 14: SYNC = 0;
+"14
 [e = _SYNC -> -> 0 `i `b ]
-[; ;Uart.c: 17: SPEN = 1;
-"17
+[; ;Uart.c: 15: SPEN = 1;
+"15
 [e = _SPEN -> -> 1 `i `b ]
-[; ;Uart.c: 18: TRISC7 = 1;
-"18
+[; ;Uart.c: 16: TRISC7 = 1;
+"16
 [e = _TRISC7 -> -> 1 `i `b ]
-[; ;Uart.c: 19: TRISC6 = 0;
-"19
+[; ;Uart.c: 17: TRISC6 = 0;
+"17
 [e = _TRISC6 -> -> 0 `i `b ]
-[; ;Uart.c: 20: TX9 = 0;
-"20
+[; ;Uart.c: 18: TX9 = 0;
+"18
 [e = _TX9 -> -> 0 `i `b ]
-[; ;Uart.c: 21: CREN = 1;
-"21
+[; ;Uart.c: 19: CREN = 1;
+"19
 [e = _CREN -> -> 1 `i `b ]
-[; ;Uart.c: 22: TXEN = 1;
-"22
+[; ;Uart.c: 20: TXEN = 1;
+"20
 [e = _TXEN -> -> 1 `i `b ]
-[; ;Uart.c: 23: return 1;
-"23
+[; ;Uart.c: 21: return 1;
+"21
 [e ) -> -> 1 `i `uc ]
 [e $UE 135  ]
-"24
+"22
 }
 [e :U 137 ]
-[; ;Uart.c: 24: }
-[; ;Uart.c: 25: return 0;
-"25
+[; ;Uart.c: 22: }
+[; ;Uart.c: 23: return 0;
+"23
 [e ) -> -> 0 `i `uc ]
 [e $UE 135  ]
-[; ;Uart.c: 26: }
-"26
+[; ;Uart.c: 24: }
+"24
 [e :UE 135 ]
 }
-"28
-[v _UART_TX_Empty `(uc ~T0 @X0 1 ef ]
-"29
+"43
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;Uart.c: 28: char UART_TX_Empty()
-[; ;Uart.c: 29: {
-[e :U _UART_TX_Empty ]
+[; ;Uart.c: 43: void UART_Write(char data) {
+[e :U _UART_Write ]
+[v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;Uart.c: 30: return TRMT;
-"30
-[e ) -> -> _TRMT `i `uc ]
-[e $UE 138  ]
-[; ;Uart.c: 31: }
-"31
+[; ;Uart.c: 44: while (!TRMT);
+"44
+[e $U 139  ]
+[e :U 140 ]
+[e :U 139 ]
+[e $ ! _TRMT 140  ]
+[e :U 141 ]
+[; ;Uart.c: 45: TXREG = data;
+"45
+[e = _TXREG _data ]
+[; ;Uart.c: 46: }
+"46
 [e :UE 138 ]
 }
-"33
-[v _UART_Data_Ready `(uc ~T0 @X0 1 ef ]
-"34
-{
-[; ;Uart.c: 33: char UART_Data_Ready()
-[; ;Uart.c: 34: {
-[e :U _UART_Data_Ready ]
-[f ]
-[; ;Uart.c: 35: return RCIF;
-"35
-[e ) -> -> _RCIF `i `uc ]
-[e $UE 139  ]
-[; ;Uart.c: 36: }
-"36
-[e :UE 139 ]
-}
-"37
-[v _UART_Read `(uc ~T0 @X0 1 ef ]
-"38
-{
-[; ;Uart.c: 37: char UART_Read()
-[; ;Uart.c: 38: {
-[e :U _UART_Read ]
-[f ]
-[; ;Uart.c: 40: while(!RCIF);
-"40
-[e $U 141  ]
-[e :U 142 ]
-[e :U 141 ]
-[e $ ! _RCIF 142  ]
-[e :U 143 ]
-[; ;Uart.c: 41: return RCREG;
-"41
-[e ) _RCREG ]
-[e $UE 140  ]
-[; ;Uart.c: 42: }
-"42
-[e :UE 140 ]
-}
-"44
-[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
-"45
-{
-[; ;Uart.c: 44: void UART_Write(char data)
-[; ;Uart.c: 45: {
-[e :U _UART_Write ]
-"44
-[v _data `uc ~T0 @X0 1 r1 ]
-"45
-[f ]
-[; ;Uart.c: 46: while(!TRMT);
-"46
-[e $U 145  ]
-[e :U 146 ]
-[e :U 145 ]
-[e $ ! _TRMT 146  ]
-[e :U 147 ]
-[; ;Uart.c: 47: TXREG = data;
-"47
-[e = _TXREG _data ]
-[; ;Uart.c: 48: }
 "48
-[e :UE 144 ]
-}
-"50
 [v _UART_Write_Text `(v ~T0 @X0 1 ef1`*uc ]
-"51
+"49
 {
-[; ;Uart.c: 50: void UART_Write_Text(char *text)
-[; ;Uart.c: 51: {
+[; ;Uart.c: 48: void UART_Write_Text(char *text)
+[; ;Uart.c: 49: {
 [e :U _UART_Write_Text ]
-"50
+"48
 [v _text `*uc ~T0 @X0 1 r1 ]
-"51
+"49
 [f ]
-"52
+"50
 [v _i `i ~T0 @X0 1 a ]
-[; ;Uart.c: 52: int i;
-[; ;Uart.c: 53: for(i=0;i<8;i++)
-"53
+[; ;Uart.c: 50: int i;
+[; ;Uart.c: 51: for(i=0;text[i]!='\0';i++)
+"51
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 8 `i 149  ]
-[e $U 150  ]
-"54
-[e :U 149 ]
-[; ;Uart.c: 54: UART_Write(text[i]);
+[e $U 146  ]
+"52
+[e :U 143 ]
+[; ;Uart.c: 52: UART_Write(text[i]);
 [e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
-"53
+"51
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 8 `i 149  ]
-[e :U 150 ]
-"54
+[e :U 146 ]
+[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 143  ]
+[e :U 144 ]
+"52
 }
-[; ;Uart.c: 55: }
-"55
-[e :UE 148 ]
+[; ;Uart.c: 53: }
+"53
+[e :UE 142 ]
 }
