@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\PIC16F883-UltrasonicSensorHandler.production.hex">
+  <executable name="dist/default/production\PIC16F883-UltrasonicSensorHandler-master.production.hex">
     <memory name="program">
       <units>words</units>
       <length>4096</length>
-      <used>1425</used>
-      <free>2671</free>
+      <used>1682</used>
+      <free>2414</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>256</length>
-      <used>122</used>
-      <free>134</free>
+      <used>138</used>
+      <free>118</free>
     </memory>
   </executable>
 </project>

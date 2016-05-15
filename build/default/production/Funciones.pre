@@ -2088,7 +2088,8 @@ T1CON = 0b00010000;
 INTCON = 0b00001000;
 IOCB = 0b11110000;
 
-# 29
+# 30
+GIE = 1;
 }
 
 
@@ -2139,15 +2140,7 @@ MediaMedidas(t5);
 MediaMedidas(t6);
 MediaMedidas(t7);
 
-# 84
-distancias[0] = (t4[5] >> 8) & 0xFF;
-distancias[1] = t4[5] & 0xFF;
-distancias[2] = (t5[5] >> 8) & 0xFF;
-distancias[3] = t5[5] & 0xFF;
-distancias[4] = (t6[5] >> 8) & 0xFF;
-distancias[5] = t6[5] & 0xFF;
-distancias[6] = (t7[5] >> 8) & 0xFF;
-distancias[7] = t7[5] & 0xFF;
+sprintf(distancias,"%u,%u,%u,%u\n\0",t4[0],t5[0],t6[0],t7[0]);
 }
 
 void MediaMedidas(int *t) {
@@ -2164,7 +2157,7 @@ num += 1;
 t[5] = t[5] / num;
 }
 
-# 133
+# 123
 void ShiftArrays(int* t4, int* t5, int* t6, int* t7) {
 for (char i = 0; i < 4; i++) {
 t4[i + 1] = t4[i];
@@ -2184,7 +2177,7 @@ PORTB = 0b00000000;
 void IntPortb(int* t4, int* t5, int* t6, int* t7, char* rbon) {
 RBIE = 0;
 
-# 156
+# 146
 if ((RB4 == 1) && (*rbon == 0) && (TRISB4 == 1)) {
 TMR1 = 0;
 *rbon = 4;

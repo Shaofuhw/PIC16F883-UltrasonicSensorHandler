@@ -34,7 +34,7 @@
 int t4[6], t5[6], t6[6], t7[6] = {0};
 char rbon = 0;
 
-char distancias[20] = {0};
+char distancias[30] = {0};
 
 //Programa
 

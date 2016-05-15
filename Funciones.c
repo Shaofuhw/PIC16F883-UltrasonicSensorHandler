@@ -26,6 +26,8 @@ void Inicializaciones() {
     /*lcd_init(0, 16, 2);                     //Inicializa el LCD
     lcd_clear();                            //Lo limpia
     lcd_on();*/
+    
+    GIE = 1;
 }
 
 //Activa el trigger y lo apaga tras un retardo
@@ -76,19 +78,7 @@ void CalcularDistancia(int *t4, int *t5, int *t6, int *t7, char *distancias) {
     MediaMedidas(t6);
     MediaMedidas(t7);
 
-    /*Se preparan los datos para ser enviados por I2C.
-     Como el protocolo solo permite enviar Bytes, y las distancias están almacenadas en variables
-     de 16 bits, se dividen en dos bytes, los 8 bits mas significativos están en el primer byte, y los 8
-     menos signifitcativos en el siguiente*/
-
-    distancias[0] = (t4[5] >> 8) & 0xFF;
-    distancias[1] = t4[5] & 0xFF;
-    distancias[2] = (t5[5] >> 8) & 0xFF;
-    distancias[3] = t5[5] & 0xFF;
-    distancias[4] = (t6[5] >> 8) & 0xFF;
-    distancias[5] = t6[5] & 0xFF;
-    distancias[6] = (t7[5] >> 8) & 0xFF;
-    distancias[7] = t7[5] & 0xFF;
+    sprintf(distancias,"%u,%u,%u,%u\n\0",t4[0],t5[0],t6[0],t7[0]);
 }
 
 void MediaMedidas(int *t) {
