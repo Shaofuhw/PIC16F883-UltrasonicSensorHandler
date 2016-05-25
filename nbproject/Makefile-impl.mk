@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=PIC16F883-UltrasonicSensorHandler-master
+PROJECTNAME=PIC16F883-UltrasonicSensorHandler
 
 # Active Configuration
 DEFAULTCONF=default

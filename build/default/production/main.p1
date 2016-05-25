@@ -1519,13 +1519,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 35: char rbon = 0;
 "37
-[v _distancias `uc ~T0 @X0 -> 30 `i e ]
+[v _distancias `uc ~T0 @X0 -> 16 `i e ]
 [i _distancias
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 37: char distancias[30] = {0};
+[; ;main.c: 37: char distancias[16] = {0};
 "41
 [v _main `(v ~T0 @X0 1 ef ]
 {

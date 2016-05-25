@@ -10,8 +10,9 @@ void Inicializaciones() {
 
     //Puerto B
     TRISB = 0b00000000; //Puerto B. Pines del 0 al 3 OUT.
-    PORTB = 0b00000000; //Inicializar a 0
+    __delay_us(5);
     ANSELH = 0b00000000; //Establecer como puertos Digitales
+    PORTB = 0b00000000; //Inicializar a 0
 
     /*Timer 1 Como se requiere contar hasta tiempo de hasta aproximadamente 40ms se coge el timer de 16bits
      * que a una frecuencia de 8MHz, es capaz de contar 32.726ms.
@@ -26,16 +27,16 @@ void Inicializaciones() {
     /*lcd_init(0, 16, 2);                     //Inicializa el LCD
     lcd_clear();                            //Lo limpia
     lcd_on();*/
-    
-    GIE = 1;
 }
 
 //Activa el trigger y lo apaga tras un retardo
 
 void Trigger() {
+    GIE = 1;
     RBIE = 1;
 
     TRISB = 0b00010000;
+    __delay_us(10);
     RB0 = 1;
     __delay_us(10);
     RB0 = 0;
@@ -43,6 +44,7 @@ void Trigger() {
     __delay_ms(50);
 
     TRISB = 0b00100000;
+    __delay_us(10);
     RB1 = 1;
     __delay_us(10);
     RB1 = 0;
@@ -50,6 +52,7 @@ void Trigger() {
     __delay_ms(50);
 
     TRISB = 0b01000000;
+    __delay_us(10);
     RB2 = 1;
     __delay_us(10);
     RB2 = 0;
@@ -57,6 +60,7 @@ void Trigger() {
     __delay_ms(50);
 
     TRISB = 0b10000000;
+    __delay_us(10);
     RB3 = 1;
     __delay_us(10);
     RB3 = 0;
@@ -64,6 +68,7 @@ void Trigger() {
     __delay_ms(50);
 
     RBIE = 0;
+    GIE = 0;
 }
 
 void CalcularDistancia(int *t4, int *t5, int *t6, int *t7, char *distancias) {
@@ -78,21 +83,22 @@ void CalcularDistancia(int *t4, int *t5, int *t6, int *t7, char *distancias) {
     MediaMedidas(t6);
     MediaMedidas(t7);
 
-    sprintf(distancias,"%u,%u,%u,%u\n\0",t4[0],t5[0],t6[0],t7[0]);
+    sprintf(distancias, "%u,%u,%u,%u\n\0", t4[5], t5[5], t6[5], t7[5]);
 }
 
 void MediaMedidas(int *t) {
     char num = 0;
+    unsigned int sum = 0;
 
     for (char i = 0; i < 5; i++) {
         if ((t[i] > 400) || (t[i] < 0)) {
             t[i] = 0;
         } else {
-            t[5] += t[i];
+            sum += t[i];
             num += 1;
         }
     }
-    t[5] = t[5] / num;
+    t[5] = sum / num;
 }
 
 /*void PrintDistancias( int* t4,  int* t5,  int* t6,  int* t7)
@@ -132,8 +138,9 @@ void ShiftArrays(int* t4, int* t5, int* t6, int* t7) {
 void ResetEcho(char* rbon) {
     rbon = 0;
     TRISB = 0b00000000;
-    __delay_us(5);
+    __delay_us(10);
     PORTB = 0b00000000;
+    __delay_us(10);
 }
 
 void IntPortb(int* t4, int* t5, int* t6, int* t7, char* rbon) {
@@ -147,38 +154,31 @@ void IntPortb(int* t4, int* t5, int* t6, int* t7, char* rbon) {
         TMR1 = 0;
         *rbon = 4;
         TMR1ON = 1;
-    }
-    else if ((RB4 == 0) && (*rbon == 4) && (TRISB4 == 1)) {
+    } else if ((RB4 == 0) && (*rbon == 4) && (TRISB4 == 1)) {
         t4[0] = TMR1;
         *rbon = 0;
         TMR1ON = 0;
-    }
-    else if ((RB5 == 1) && (*rbon == 0) && (TRISB5 == 1)) {
+    } else if ((RB5 == 1) && (*rbon == 0) && (TRISB5 == 1)) {
         TMR1 = 0;
         *rbon = 5;
         TMR1ON = 1;
-    }
-    else if ((RB5 == 0) && (*rbon == 5) && (TRISB5 == 1)) {
+    } else if ((RB5 == 0) && (*rbon == 5) && (TRISB5 == 1)) {
         t5[0] = TMR1;
         *rbon = 0;
         TMR1ON = 0;
-    }
-    else if ((RB6 == 1) && (*rbon == 0) && (TRISB6 == 1)) {
+    } else if ((RB6 == 1) && (*rbon == 0) && (TRISB6 == 1)) {
         TMR1 = 0;
         *rbon = 6;
         TMR1ON = 1;
-    }
-    else if ((RB6 == 0) && (*rbon == 6) && (TRISB6 == 1)) {
+    } else if ((RB6 == 0) && (*rbon == 6) && (TRISB6 == 1)) {
         t6[0] = TMR1;
         *rbon = 0;
         TMR1ON = 0;
-    }
-    else if ((RB7 == 1) && (*rbon == 0) && (TRISB7 == 1)) {
+    } else if ((RB7 == 1) && (*rbon == 0) && (TRISB7 == 1)) {
         TMR1 = 0;
         *rbon = 7;
         TMR1ON = 1;
-    }
-    else if ((RB7 == 0) && (*rbon == 7) && (TRISB7 == 1)) {
+    } else if ((RB7 == 0) && (*rbon == 7) && (TRISB7 == 1)) {
         t7[0] = TMR1;
         *rbon = 0;
         TMR1ON = 0;

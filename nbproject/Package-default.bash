@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/PIC16F883-UltrasonicSensorHandler-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=PIC16F883-UltrasonicSensorHandler-master.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=pic16f883-ultrasonicsensorhandler-master/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/PIC16F883-UltrasonicSensorHandler.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=PIC16F883-UltrasonicSensorHandler.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=pic16f883-ultrasonicsensorhandler/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/pic16f883-ultrasonicsensorhandler-master/bin
+makeDirectory ${TMPDIR}/pic16f883-ultrasonicsensorhandler/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/pic16f883-ultrasonicsensorhandler-master.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/pic16f883-ultrasonicsensorhandler.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/pic16f883-ultrasonicsensorhandler-master.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/pic16f883-ultrasonicsensorhandler.tar *
 checkReturnCode
 
 # Cleanup
